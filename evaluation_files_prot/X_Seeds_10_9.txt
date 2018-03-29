@@ -1,10 +1,10 @@
-sialidase-1
-renin-1
-protein ergic-53-like
-vinculin
-arachidonate 15-lipoxygenase
-gatc-like protein
-arylsulfatase b
-zinc-alpha-2-glycoprotein
-myeloblastin
-sulfurtransferase tusa
+lamin-b2
+ermin
+oncomodulin
+protein dok-7
+protein pmba
+galectin-9
+seipin
+phosphomannomutase
+arabinose-proton symporter
+protein prune

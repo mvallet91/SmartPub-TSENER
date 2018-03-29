@@ -1,10 +1,26 @@
-shrna
-vinculin
-arf6
-sqstm1
-odyssey infrared
-btg
-h3k4me3 abcam
-bkf
-
-mylc
+wt
+enron
+tcdd
+drosophila s2
+cdcl2
+mehg
+sld
+phosphomannomutase
+cgl
+agpat2
+seipin
+fld1p
+cgl1
+wt
+enron
+tcdd
+drosophila s2
+cdcl2
+mehg
+sld
+phosphomannomutase
+cgl
+agpat2
+seipin
+fld1p
+cgl1

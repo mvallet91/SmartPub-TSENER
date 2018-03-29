@@ -1,10 +1,10 @@
-tropomodulin-1
-cornifin-b
-24-dehydrocholesterol reductase
-amino-acid acetyltransferase
-cyclin-l2
-neurocalcin-delta
-beta-defensin 9
-annexin a2
-protein tonb
-beta-defensin 43
+lamin-b2
+syntaxin-11
+kinocilin
+derives_from
+saitohin
+supervillin
+protein nrfd
+mycbp-associated protein
+protein phnp
+granzyme c

@@ -1,10 +1,10 @@
-epididymal-specific lipocalin-5
-mrna-capping enzyme
-pygopus 2
-protein wnt-3a
-apolipoprotein o-like
-claudin-10a
-protein tob2
-phosphatidylcholine-sterol acyltransferase
-protein trph
-alpha-actinin-4
+estrogen receptor
+semaphorin-3c
+mlta-interacting protein
+pcna-associated factor
+homoserine o-succinyltransferase
+nephrocystin-4
+protein tldd
+beta-crystallin b3
+protein casc5
+properdin

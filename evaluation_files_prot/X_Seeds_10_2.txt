@@ -1,10 +1,10 @@
-ephrin receptor
-glycophorin
-netrin-3
-calcipressin-1
-beta-defensin 129
-protein nedd1
-protein mcrc
-tissue alpha-l-fucosidase
-protein mis18-beta
-protein sfi1
+r-spondin-4
+mga-max complex
+teashirt 1
+fibrocystin
+snurportin-1
+myosin-vi
+protein red
+netrin-1
+arachidonate 15-lipoxygenase
+mucin-13

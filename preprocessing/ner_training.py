@@ -47,8 +47,9 @@ def create_austenprop(numberOfSeeds, name, numberOfIteration):
         serializeTo = ('serializeTo=' + cfg.ROOTPATH + '/crf_trained_files/' + name + '_text_iteration' + numberOfIteration + 
                         '_splitted' + str(numberOfSeeds) + '_' + str(iteration) + '.ser.gz')
         edited = re.sub(r'trainFile.*?txt', modifiedpath, text, flags=re.DOTALL)
-        edited = re.sub(r'#testFile.*?txt', modifiedpathtest, edited, flags=re.DOTALL)
+        edited = re.sub(r'testFile.*?txt', modifiedpathtest, edited, flags=re.DOTALL)
         edited = re.sub(r'serializeTo.*?gz', serializeTo, edited, flags=re.DOTALL)
+        print('Edited:')
         print(edited)
         text_file = open(cfg.ROOTPATH + '/prop_files/austen' + str(numberOfSeeds) + '_' + str(iteration) + '.prop', 'w')
         text_file.write(edited)

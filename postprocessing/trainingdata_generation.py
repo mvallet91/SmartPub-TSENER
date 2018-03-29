@@ -237,7 +237,7 @@ def generate_trainingTE(numberOfSeeds, name, numberOfIteration, iteration):
                 iteration) + '.txt')
 
     text = fileUnlabelled.read()
-    print(text)
+#     print(text)
     text = text.replace('\\', '')
     text = text.replace('/', '')
     text = text.replace('"', '')
@@ -253,7 +253,7 @@ def generate_trainingTE(numberOfSeeds, name, numberOfIteration, iteration):
     lines = (tokenize.sent_tokenize(text.strip()))
     labelledtext = list()
 
-    print(len(lines))
+#     print(len(lines))
 
     lines = list(set(lines))
     """
@@ -348,7 +348,7 @@ def generate_trainingTE(numberOfSeeds, name, numberOfIteration, iteration):
             else:
                 label = 'O'
             inputs.append([word, label])
-    print(inputs)
+#     print(inputs)
     sys.stdout.flush()
     with open(ROOTPATH + '/evaluation_files_prot/' + name + '_text_iteration' + numberOfIteration + str(
             numberOfSeeds) + '_' + str(iteration) + '.txt', 'w') as file1:
