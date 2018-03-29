@@ -1,0 +1,10 @@
+protein set
+phosphoenolpyruvate-protein phosphotransferase
+harmonin
+neurabin-2
+transketolase
+alpha-2-macroglobulin-p
+neurochondrin
+junction plakoglobin
+l-tartrate/succinate antiporter
+d-galactonate transporter

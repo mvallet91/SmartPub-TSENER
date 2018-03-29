@@ -1,0 +1,247 @@
+CD4 
+BMP 
+BMP4 
+BMP7 
+BMP2 
+BMP5 
+BMP6 
+smad9 
+furin 
+smad1 
+smad3 
+smad5 
+smad2 
+zyxin 
+axin-2 
+ephrin 
+emerin 
+sorcin 
+leptin 
+nestin 
+renin-1 
+lefty 1 
+renin-2 
+pendrin 
+insulin 
+humanin 
+mucin-2 
+gastrin 
+lamin-B2 
+crumbs 1 
+myogenin 
+cadherin 
+myocilin 
+calmegin 
+battenin 
+villin-1 
+cyclin-H 
+tenascin 
+vimentin 
+catalase 
+filensin 
+TGF-beta 
+glucagon 
+calnexin 
+loricrin 
+phakinin 
+ubiquitin 
+rhodopsin 
+calbindin 
+filaggrin 
+cofilin-1 
+prolactin 
+pygopus 1 
+myoglobin 
+myosin-VI 
+myosin-Va 
+cyclin-A2 
+pygopus 2 
+recoverin 
+caspase-3 
+S-arrestin 
+galectin-3 
+involucrin 
+calmodulin 
+TGF-beta 1 
+annexin A4 
+P-selectin 
+annexin A2 
+smoothened 
+matrilysin 
+annexin A1 
+tyrosinase 
+annexin A7 
+podoplanin 
+cadherin-3 
+caveolin-1 
+huntingtin 
+E-selectin 
+L-selectin 
+kit ligand 
+neprilysin 
+matrilin-4 
+TGF-beta 2 
+exportin-1 
+calretinin 
+annexin A5 
+rhombotin-2 
+myc protein 
+cathepsin D 
+prothrombin 
+aquaporin-5 
+annexin A11 
+syntaxin-18 
+aquaporin-1 
+calpastatin 
+aquaporin-3 
+aquaporin-2 
+cytohesin-1 
+cathepsin B 
+glucokinase 
+fibronectin 
+osteopontin 
+otopetrin-3 
+GTPase NRas 
+mucolipin-1 
+lactadherin 
+myosin-VIIa 
+macrosialin 
+plasminogen 
+smad protein 
+hexokinase-2 
+dystroglycan 
+neurotrophin 
+protein DJ-1 
+protein fosB 
+kallikrein-6 
+janus kinase 
+hexokinase-3 
+neurogenin-2 
+calreticulin 
+TRK receptor 
+somatostatin 
+HSPB protein 
+cytochrome b 
+lysozyme C-2 
+protein HIRA 
+somatotropin 
+protein recA 
+presenilin-1 
+kallikrein-5 
+lymphotactin 
+peripherin-2 
+presenilin-2 
+hexokinase-1 
+eomesodermin 
+nodal protein 
+collagenase 3 
+interleukin-8 
+protein ajuba 
+animal opsins 
+synaptophysin 
+histone H2A.x 
+tissue factor 
+transthyretin 
+semaphorin-3A 
+protein Wnt-4 
+antigen KI-67 
+c-myc protein 
+protein NDRG1 
+interleukin-1 
+serum albumin 
+complement C5 
+interleukin-6 
+stromelysin-1 
+prolactin-3D1 
+catenin beta-1 
+interleukin-10 
+neurotrophin-3 
+calcipressin-1 
+protein Wnt-9a 
+protein Wnt-7b 
+noggin protein 
+protein Wnt-3a 
+protein Wnt-7a 
+protein Wnt-11 
+protein Wnt-9b 
+interleukin-22 
+protein lin-37 
+interferon beta 
+cholecystokinin 
+selenoprotein W 
+ephrin receptor 
+achaete-scute 1 
+integrin beta-3 
+synaptotagmin-1 
+integrin beta-1 
+synaptotagmin-4 
+leptin receptor 
+serotransferrin 
+protein quaking 
+integrin beta-4 
+protein S100-A6 
+guanylate kinase 
+interferon gamma 
+apolipoprotein E 
+protocadherin-21 
+insulin receptor 
+beta-secretase 1 
+integrin alpha-V 
+Crk-like protein 
+protein S100-A10 
+integrin alpha-6 
+protein timeless 
+alpha-fetoprotein 
+brachyury protein 
+parvalbumin alpha 
+metallothionein-4 
+estrogen receptor 
+metallothionein-2 
+androgen receptor 
+caspase-3 complex 
+metallothionein-1 
+sperm protamine-P1 
+apolipoprotein A-I 
+carboxypeptidase Z 
+C-reactive protein 
+parathyroid hormone 
+apolipoprotein A-II 
+apolipoprotein A-IV 
+epithelial cadherin 
+deoxyribonuclease-1 
+red-sensitive opsin 
+alpha-2-antiplasmin 
+junction plakoglobin 
+blue-sensitive opsin 
+acetylcholinesterase 
+apolipoprotein B-100 
+proto-oncogene C-crk 
+CDC45-related protein 
+green-sensitive opsin 
+neuromedin-K receptor 
+glia-activating factor 
+uracil-DNA glycosylase 
+anti-Muellerian hormone 
+tripeptidyl-peptidase 1 
+argininosuccinate lyase 
+G1/S-specific cyclin-D1 
+ribonuclease pancreatic 
+lactoylglutathione lyase 
+agouti-signaling protein 
+glutathione S-transferase 
+matrix metalloproteinase-9 
+choline O-acetyltransferase 
+protein disulfide-isomerase 
+peptide-N-asparagine amidase 
+maleylacetoacetate isomerase 
+DNA nucleotidylexotransferase 
+24-dehydrocholesterol reductase 
+leucine-rich alpha-2-glycoprotein 
+retinoblastoma-associated protein 
+methylenetetrahydrofolate reductase 
+glucose-6-phosphate 1-dehydrogenase 
+myelin-oligodendrocyte glycoprotein 
+glyceraldehyde-3-phosphate dehydrogenase 
+galactose-1-phosphate uridylyltransferase 
+cytosolic endo-beta-N-acetylglucosaminidase 
+hypoxanthine-guanine phosphoribosyltransferase 

@@ -1,0 +1,4102 @@
+BMP
+CD4
+ADM
+C99
+C83
+C80
+sara
+BMP2
+BMP4
+BMP5
+BMP6
+BMP7
+CD19
+CD34
+ADM2
+BET1
+DET1
+DPH3
+ESF1
+IST1
+axin
+smad4
+BMP10
+BMP8A
+BMP8B
+smad1
+smad2
+smad3
+smad5
+smad6
+smad7
+smad9
+CD247
+ezrin
+furin
+agrin
+alsin
+BUD13
+dixin
+ermin
+espin
+lin-9
+pyrin
+menin
+NEDD8
+nurim
+pirin
+pinin
+renin
+SPARC
+eppin
+titin
+zyxin
+pilin
+cullin
+moesin
+merlin
+aladin
+afamin
+apelin
+axin-1
+axin-2
+seipin
+bystin
+girdin
+cirhin
+calmin
+coilin
+desmin
+emerin
+epigen
+limbin
+fascin
+grifin
+orexin
+kazrin
+klotho
+kaptin
+leptin
+afadin
+tesmin
+nibrin
+necdin
+norrin
+nestin
+ninein
+noelin
+opalin
+peflin
+elafin
+roquin
+reelin
+iporin
+sacsin
+sialin
+sorcin
+testin
+vitrin
+brorin
+ecotin
+copine
+ephrin
+serpin
+object
+protein
+chordin
+decorin
+lefty 1
+lefty 2
+opsin-4
+basigin
+mucin-1
+eotaxin
+radixin
+acrosin
+artemin
+asporin
+barttin
+calicin
+sororin
+claspin
+chymase
+cochlin
+cubilin
+Fox-1 C
+drebrin
+dendrin
+destrin
+elastin
+embigin
+adropin
+dematin
+laforin
+epsin-1
+epsin-2
+epsin-3
+erlin-1
+erlin-2
+separin
+seprase
+fukutin
+Fox-1 A
+galanin
+gastrin
+geminin
+vigilin
+hemogen
+humanin
+insulin
+kalirin
+layilin
+lengsin
+ligatin
+lin-7 A
+lin-7 B
+lin-7 C
+lipin-1
+lipin-2
+lipin-3
+lumican
+latexin
+midkine
+midasin
+mucin-2
+mucin-4
+mucin-6
+mucin-7
+nanos 1
+nanos 2
+nanos 3
+nicalin
+nebulin
+nexilin
+neugrin
+nostrin
+nephrin
+podocin
+mimecan
+opticin
+paladin
+papilin
+ProSAAS
+pro-MCH
+podocan
+securin
+raftlin
+goliath
+repetin
+rotatin
+renin-1
+renin-2
+atherin
+sharpin
+pendrin
+prestin
+stannin
+vinexin
+spastin
+spartin
+synemin
+tapasin
+carabin
+talin-1
+talin-2
+porimin
+capucin
+triadin
+tuberin
+usherin
+uricase
+vasorin
+vezatin
+whirlin
+enolase
+part_of
+organism
+TGF-beta
+cullin 1
+cadherin
+endoglin
+prominin
+gelsolin
+occludin
+ataxin-1
+jouberin
+akirin-1
+akirin-2
+amelotin
+caytaxin
+ataxin-2
+ataxin-3
+ataxin-7
+ataxin-8
+advillin
+beclin-1
+filensin
+phakinin
+biglycan
+peregrin
+calnexin
+caprin-1
+caprin-2
+caskin-1
+caskin-2
+catalase
+cyclin-C
+cyclin-H
+cyclin-I
+cyclin-J
+cyclin-K
+cyclin-O
+cyclin-Y
+borealin
+cerberus
+cingulin
+calmegin
+battenin
+colipase
+clarin-1
+clarin-2
+clarin-3
+centlein
+copine-1
+copine-2
+copine-3
+copine-4
+copine-5
+copine-6
+copine-7
+copine-8
+copine-9
+crumbs 1
+crumbs 2
+cornulin
+cullin-2
+cullin-3
+cullin-5
+cullin-7
+cullin-9
+cystin-1
+dapper 1
+dapper 2
+dapper 3
+derlin-1
+derlin-2
+derlin-3
+dymeclin
+EMILIN-1
+EMILIN-2
+EMILIN-3
+enamelin
+fetuin-B
+fidgetin
+formin-1
+formin-2
+fascin-2
+fascin-3
+glucagon
+glomulin
+vasculin
+gephyrin
+guanylin
+hepcidin
+hornerin
+ichthyin
+inversin
+kinectin
+latherin
+legumain
+lin-28 A
+lin-28 B
+lamin-B1
+lamin-B2
+loricrin
+leupaxin
+laeverin
+matrin-3
+meteorin
+midnolin
+muskelin
+malectin
+musculin
+mucin-12
+mucin-13
+mucin-15
+mucin-16
+mucin-17
+mucin-19
+mucin-20
+mucin-21
+mucin-3A
+mucin-5B
+myosin-1
+myosin-2
+myosin-3
+myosin-4
+myosin-6
+myosin-7
+myosin-8
+myosin-9
+myosin-X
+myocilin
+myogenin
+myotilin
+napsin-A
+neudesin
+neogenin
+neuritin
+netrin-1
+netrin-3
+netrin-4
+netrin-5
+obscurin
+noelin-2
+noelin-3
+otogelin
+otolin-1
+palladin
+pepsin A
+pejvakin
+pallidin
+protor-1
+protor-2
+testisin
+periaxin
+paxillin
+probasin
+resistin
+rhotekin
+sciellin
+secretin
+septin-1
+septin-2
+septin-4
+septin-5
+septin-6
+septin-7
+septin-8
+septin-9
+sortilin
+saitohin
+stathmin
+stonin-1
+stonin-2
+striatin
+stefin-1
+stefin-2
+stefin-3
+tafazzin
+tektin-1
+tektin-2
+tektin-3
+tektin-4
+tektin-5
+macoilin
+meckelin
+tenascin
+tensin-1
+tensin-3
+tensin-4
+hamartin
+translin
+tuftelin
+tryptase
+harmonin
+utrophin
+vinculin
+villin-1
+vimentin
+has_part
+CD3 delta
+CD3 gamma
+rhodopsin
+plexin-C1
+caspase-1
+caspase-2
+caspase-3
+caspase-4
+caspase-5
+caspase-6
+caspase-7
+caspase-8
+caspase-9
+ADAM DEC1
+ankyrin-1
+ankyrin-2
+ankyrin-3
+aprataxin
+attractin
+ataxin-10
+golgin-45
+calbindin
+caldesmon
+calumenin
+calpain-3
+calpain-5
+calpain-6
+calpain-7
+calpain-8
+calpain-9
+cyclin-A1
+cyclin-A2
+cyclin-G1
+cyclin-G2
+cyclin-I2
+cyclin-L1
+cyclin-L2
+cyclin-T1
+cyclin-T2
+nocturnin
+codanin-1
+centrin-1
+centrin-2
+centrin-3
+cofilin-1
+cofilin-2
+properdin
+anamorsin
+claudin-1
+claudin-2
+claudin-3
+claudin-4
+claudin-5
+claudin-6
+claudin-7
+claudin-8
+claudin-9
+clusterin
+centrobin
+coronin-6
+coronin-7
+rootletin
+cullin-4A
+cullin-4B
+cylicin-1
+cylicin-2
+dermcidin
+dermokine
+dynamin-1
+dynamin-2
+dynamin-3
+dysbindin
+dysferlin
+ephrin-A1
+ephrin-A2
+ephrin-A3
+ephrin-A4
+ephrin-A5
+ephrin-B1
+ephrin-B2
+ephrin-B3
+endomucin
+epiplakin
+epiphycan
+fibulin-1
+fibulin-2
+fibulin-5
+fibulin-7
+ficolin-1
+ficolin-2
+ficolin-3
+filaggrin
+filamin-A
+filamin-B
+filamin-C
+gigaxonin
+gliomedin
+gremlin-1
+gremlin-2
+delphilin
+granulins
+hemopexin
+isthmin-1
+isthmin-2
+insulin-1
+insulin-2
+anosmin-1
+keratocan
+kinocilin
+ladinin-1
+plastin-2
+ensconsin
+myoglobin
+midline-1
+midline-2
+makorin-1
+makorin-2
+makorin-3
+metaxin-1
+metaxin-2
+metaxin-3
+myosin-10
+myosin-11
+myosin-13
+myosin-14
+myosin-15
+myosin-7B
+myoneurin
+myosin-XV
+myosin-Ia
+myosin-Ib
+myosin-Ic
+myosin-Id
+myosin-Ie
+myosin-If
+myosin-Ig
+myosin-Ih
+myosin-Va
+myosin-Vb
+myosin-Vc
+myosin-VI
+myocardin
+myoferlin
+nucleolin
+nicastrin
+nebulette
+ephexin-1
+nicolin-1
+nidogen-1
+nidogen-2
+nischarin
+neurturin
+netrin-G1
+netrin-G2
+P protein
+membralin
+osteocrin
+otoferlin
+otoraplin
+ovostatin
+phosducin
+plectin-1
+perilipin
+plastin-1
+plastin-3
+plexin-A1
+plexin-A2
+plexin-A3
+plexin-A4
+plexin-B1
+plexin-B2
+plexin-B3
+plexin-D1
+periostin
+prolargin
+prolactin
+trypsin-1
+trypsin-3
+prostasin
+persephin
+securin-2
+securin-3
+pumilio 1
+pumilio 2
+pygopus 1
+pygopus 2
+recoverin
+raftlin-2
+relaxin-3
+retbindin
+adseverin
+septin-10
+septin-11
+septin-12
+septin-13
+septin-14
+serpin A9
+serpin B3
+serpin B4
+serpin B5
+serpin B6
+serpin B7
+serpin B8
+serpin B9
+serpin E3
+serpin H1
+serpin I2
+sestrin-1
+sestrin-2
+sestrin-3
+speriolin
+spatacsin
+maspardin
+spondin-1
+spondin-2
+serglycin
+sarcospan
+statherin
+syncollin
+symplekin
+syncoilin
+nesprin-1
+nesprin-2
+tescalcin
+promethin
+torsin-1A
+torsin-1B
+torsin-3A
+trehalase
+trophinin
+tsukushin
+ubiquitin
+urocortin
+wolframin
+flagellin
+P-protein
+T-protein
+ovalbumin
+Sus scrofa
+Bos taurus
+TGF-beta 1
+TGF-beta 2
+TGF-beta 3
+L-selectin
+endosialin
+E-selectin
+P-selectin
+cadherin-2
+cadherin-5
+frizzled-4
+frizzled-9
+prominin-1
+arginase-1
+neprilysin
+semaphorin
+syndecan-1
+syndecan-3
+caspase-10
+caveolin-1
+perforin-1
+granzyme K
+granzyme D
+granzyme G
+granzyme M
+granzyme E
+granzyme C
+granzyme H
+granzyme F
+granzyme B
+granzyme A
+adipogenin
+aftiphilin
+angiomotin
+angiogenin
+annexin A1
+annexin A2
+annexin A3
+annexin A4
+annexin A5
+annexin A6
+annexin A7
+annexin A8
+annexin A9
+arfaptin-1
+arfaptin-2
+arrestin-C
+atlastin-1
+atlastin-2
+atlastin-3
+atrophin-1
+azurocidin
+calretinin
+calmodulin
+calpain-10
+calpain-11
+calpain-12
+calpain-13
+calpain-14
+caspase-14
+caveolin-2
+caveolin-3
+cadherin-3
+cadherin-4
+cadherin-6
+cadherin-7
+cadherin-8
+cadherin-9
+claudin-10
+claudin-11
+claudin-12
+claudin-14
+claudin-15
+claudin-16
+claudin-17
+claudin-18
+claudin-19
+claudin-20
+claudin-22
+claudin-23
+cornifelin
+calponin-1
+calponin-2
+calponin-3
+coronin-1A
+coronin-1B
+coronin-1C
+coronin-2A
+coronin-2B
+exportin-2
+cystatin-C
+cystatin-S
+cystatin-D
+cystatin-M
+cystatin-F
+cystatin-8
+cystatin-9
+cystatin-A
+cystatin-B
+cystinosin
+cortexin-1
+cortexin-2
+cortexin-3
+cytoglobin
+cytospin-A
+claudin-13
+disabled 1
+disabled 2
+dystrophin
+pikachurin
+elastase-1
+envoplakin
+folliculin
+frizzled-1
+frizzled-2
+frizzled-3
+frizzled-5
+frizzled-6
+frizzled-7
+frizzled-8
+grancalcin
+granulysin
+glypican-1
+glypican-2
+glypican-3
+glypican-4
+glypican-5
+glypican-6
+hephaestin
+histone H4
+heparanase
+histatin-1
+histatin-3
+huntingtin
+hepcidin-2
+importin-4
+importin-5
+importin-7
+importin-8
+importin-9
+involucrin
+josephin-1
+josephin-2
+calsenilin
+kit ligand
+lebercilin
+galectin-1
+galectin-2
+galectin-3
+galectin-4
+galectin-7
+galectin-8
+galectin-9
+limkain-b1
+lysozyme C
+galectin-6
+matrilin-2
+matrilin-3
+matrilin-4
+promotilin
+matrilysin
+mesothelin
+myotrophin
+myosin-XVI
+myosin-XIX
+myosin-IXa
+myosin-IXb
+myomesin-1
+myomesin-2
+myomesin-3
+myozenin-1
+myozenin-2
+myozenin-3
+NAD kinase
+ninjurin-1
+ninjurin-2
+neuronatin
+nardilysin
+nyctalopin
+oculomedin
+teneurin-1
+teneurin-2
+teneurin-3
+teneurin-4
+optineurin
+otoancorin
+glycodelin
+paralemmin
+pannexin-1
+pannexin-2
+pannexin-3
+myomegalin
+podoplanin
+pescadillo
+profilin-1
+profilin-2
+profilin-3
+profilin-4
+gastricsin
+prohibitin
+pleckstrin
+nociceptin
+periplakin
+neurabin-1
+neurabin-2
+prominin-2
+peripherin
+protogenin
+peptide YY
+ankycorbin
+ribokinase
+regucalcin
+rhotekin-2
+S-arrestin
+suprabasin
+secernin-1
+secernin-2
+secernin-3
+syndecan-2
+syndecan-4
+syntenin-1
+syntenin-2
+serpin A11
+serpin A12
+serpin A13
+serpin B10
+serpin B11
+serpin B12
+serpin B13
+P3 protein
+kanadaptin
+sarcolipin
+smoothened
+smoothelin
+calpain-15
+sclerostin
+paraplegin
+spindlin-1
+spindlin-3
+spindlin-4
+testican-1
+testican-2
+testican-3
+cornifin-A
+cornifin-B
+stabilin-1
+stabilin-2
+stathmin-2
+stathmin-3
+stathmin-4
+striatin-3
+striatin-4
+syntaxin-2
+syntaxin-3
+syntaxin-4
+syntaxin-5
+syntaxin-6
+syntaxin-7
+syntaxin-8
+syntabulin
+synapsin-1
+synapsin-2
+synapsin-3
+spindlin-2
+transgelin
+telethonin
+tectonic-1
+tectonic-2
+tectonic-3
+collectrin
+tenascin-N
+tenascin-R
+tenascin-X
+tribbles 1
+tribbles 2
+tribbles 3
+trypsin-X3
+teashirt 1
+teashirt 2
+teashirt 3
+tyrosinase
+uromodulin
+exportin-1
+exportin-4
+exportin-5
+exportin-6
+exportin-7
+exportin-T
+zonadhesin
+antigen 43
+ferritin-1
+maltoporin
+DNA ligase
+porin ompL
+protease 7
+protease 3
+protease 2
+toxin relE
+agmatinase
+protease 4
+defensin-5
+propeptide
+lacks_part
+MCM complex
+follistatin
+myc protein
+CD3 epsilon
+erm protein
+glycophorin
+tetraspanin
+ICOS ligand
+frizzled-10
+cathepsin K
+fractalkine
+leukosialin
+macrosialin
+adipophilin
+adiponectin
+protein Ag2
+amphiphysin
+anoctamin-1
+anoctamin-2
+anoctamin-3
+anoctamin-4
+anoctamin-5
+anoctamin-6
+anoctamin-7
+anoctamin-8
+anoctamin-9
+annexin A10
+annexin A11
+annexin A13
+aquaporin-1
+aquaporin-2
+aquaporin-3
+aquaporin-4
+aquaporin-5
+aquaporin-6
+aquaporin-7
+aquaporin-8
+aquaporin-9
+biotinidase
+CAD protein
+calneuron-1
+calcyphosin
+calpastatin
+malcavernin
+CD9 antigen
+cadherin-10
+cadherin-11
+cadherin-12
+cadherin-13
+cadherin-15
+cadherin-16
+cadherin-17
+cadherin-18
+cadherin-19
+cadherin-20
+cadherin-22
+cadherin-23
+cadherin-24
+N-chimaerin
+tetranectin
+contactin-1
+contactin-2
+contactin-3
+contactin-4
+contactin-5
+contactin-6
+cortistatin
+complexin-1
+complexin-2
+complexin-3
+complexin-4
+beta-casein
+cystatin-SN
+cystatin-11
+cystatin-SA
+cathepsin B
+cathepsin D
+cathepsin E
+cathepsin F
+cathepsin G
+cathepsin H
+cathepsin O
+cathepsin S
+cathepsin W
+cathepsin Z
+cytohesin-1
+cytohesin-2
+cytohesin-3
+cytohesin-4
+claudin-10A
+cystatin-12
+cystatin-13
+cystatin-14
+cathepsin J
+cathepsin M
+cathepsin R
+protein G7c
+dachshund 1
+dachshund 2
+protein DEK
+protein Dos
+protein Dr1
+desmoplakin
+dystrotelin
+elastase-2A
+elastase-2B
+elastase-3A
+elastase-3B
+protein 4.1
+GTPase ERas
+exophilin-5
+exostosin-1
+exostosin-2
+prothrombin
+fibrillin-1
+fibrillin-2
+fibrillin-3
+protein FEV
+fibroleukin
+filaggrin-2
+flotillin-1
+flotillin-2
+SL cytokine
+fibronectin
+protein fto
+protein G6b
+glucokinase
+protein GR6
+G-substrate
+gasdermin-A
+gasdermin-B
+gasdermin-C
+protein C10
+histone H1x
+hemojuvelin
+histone H1t
+haptoglobin
+endoplasmin
+protein Red
+importin-11
+importin-13
+protein JTB
+beta-klotho
+kininogen-1
+GTPase KRas
+protein LBH
+lipocalin-1
+galectin-12
+galectin-9B
+galectin-9C
+protein LLP
+rhombotin-1
+rhombotin-2
+leiomodin-1
+leiomodin-2
+leiomodin-3
+protein max
+mucolipin-1
+mucolipin-2
+mucolipin-3
+lactadherin
+mitofusin-1
+mitofusin-2
+protein ENL
+mesogenin-1
+myosin IIIA
+myosin-IIIB
+myosin-VIIa
+myosin-VIIb
+myopalladin
+sialidase-1
+sialidase-2
+sialidase-3
+sialidase-4
+neurofascin
+neuroglobin
+neuroguidin
+nitrilase 1
+nitrilase 2
+protein NOV
+GTPase NRas
+neurogranin
+neurensin-1
+neurensin-2
+protein FAN
+neurotrimin
+protein NUT
+protein G7d
+otoconin-90
+oncomodulin
+otopetrin-1
+otopetrin-2
+otopetrin-3
+otospiralin
+ovostatin 1
+ovostatin 2
+palmdelphin
+beta-parvin
+pericentrin
+fibrocystin
+plasminogen
+plasmolipin
+protamine-2
+protamine-3
+peroxidasin
+protein RD3
+rhophilin-1
+rhophilin-2
+synembryn-A
+synembryn-B
+ropporin-1B
+RPE-spondin
+R-spondin-1
+R-spondin-2
+R-spondin-3
+R-spondin-4
+reticulon-1
+reticulon-2
+reticulon-3
+reticulon-4
+RuvB-like 1
+RuvB-like 2
+uteroglobin
+kallistatin
+neuroserpin
+protein SET
+synphilin-1
+syntaphilin
+SON protein
+spindlin-2A
+spindlin-2B
+osteopontin
+SCO-spondin
+stereocilin
+syntaxin-10
+syntaxin-11
+syntaxin-12
+syntaxin-16
+syntaxin-17
+syntaxin-18
+syntaxin-19
+syntaxin-1A
+syntaxin-1B
+supervillin
+protein TFG
+tankyrase-1
+tankyrase-2
+tenomodulin
+twinfilin-1
+twinfilin-2
+thioredoxin
+ubiquitin D
+ubiquilin-1
+ubiquilin-2
+ubiquilin-3
+ubiquilin-4
+urocortin-2
+urocortin-3
+uroplakin-2
+urotensin-2
+protein UXT
+vasohibin-1
+vasohibin-2
+vitronectin
+protein Wiz
+rabenosyn-5
+aquaporin Z
+protein bdm
+protein ddg
+protease do
+DNA primase
+protein gmr
+helicase IV
+protein hfq
+protein hnr
+protein icc
+protein kil
+protein mlc
+protein mrp
+peptidase B
+peptidase E
+peptidase T
+ATPase ravA
+protein rof
+protein rtn
+protein sbm
+protein smg
+protein smp
+protein sxy
+protein syd
+protein tas
+protein ves
+CCT protein
+nuclease S1
+PCNA complex
+Mus musculus
+Homo sapiens
+smad protein
+small GTPase
+CD44 antigen
+CD48 antigen
+CD70 antigen
+CD83 antigen
+CD97 antigen
+CD99 antigen
+E/P-selectin
+CD86 antigen
+butyrophilin
+neuropilin-1
+sialoadhesin
+lymphotactin
+FADD protein
+NFAT protein
+ski oncogene
+HSPH protein
+HSPA protein
+eomesodermin
+protein AATF
+beta-adducin
+protein ADMP
+ameloblastin
+protein AMBP
+protein AMN1
+anoctamin-10
+aquaporin-10
+aquaporin-11
+amphiregulin
+protein ARV1
+angiogenin-2
+angiogenin-3
+aquaporin-12
+protein BANP
+protein BAT4
+protein BAT5
+protein BEAN
+bestrophin-1
+bestrophin-2
+bestrophin-3
+bestrophin-4
+protein BEX1
+protein BEX2
+protein BEX4
+protein BEX5
+protein BTG1
+protein BTG2
+protein BTG3
+protein BTG4
+protein BEX6
+calreticulin
+protein CARP
+cerebellin-1
+cerebellin-2
+cerebellin-3
+cerebellin-4
+CD63 antigen
+CD81 antigen
+CD82 antigen
+parafibromin
+protein CDV3
+protein CLN8
+collectin-10
+collectin-11
+collectin-12
+kappa-casein
+cathepsin L1
+cathepsin L2
+protein CutA
+calmodulin-4
+dystroglycan
+protein DEPP
+protein DPCD
+desmoglein-1
+desmoglein-2
+desmoglein-3
+desmoglein-4
+protein SGT1
+protein ECT2
+endothelin-1
+endothelin-2
+endothelin-3
+protein EMSY
+beta-enolase
+protein LAP2
+protein EURL
+gastrotropin
+fibromodulin
+protein fosB
+protein FRG1
+protein FRG2
+neuromodulin
+protein GAPT
+somatotropin
+gastrokine-1
+gastrokine-2
+glycogenin-1
+glycogenin-2
+gasdermin-A1
+gasdermin-A2
+gasdermin-A3
+gasdermin-C2
+gasdermin-C3
+gasdermin-C4
+histone H1.0
+histone H1oo
+histone H3.3
+protein HIRA
+histone H1.1
+histone H1.5
+histone H1.2
+histone H1.3
+histone H1.4
+hexokinase-1
+hexokinase-2
+hexokinase-3
+hemicentin-1
+heparanase-2
+protein HSN2
+intelectin-2
+protein IWS1
+kallikrein-1
+kallikrein-2
+kallikrein-4
+kallikrein-5
+kallikrein-6
+kallikrein-7
+kallikrein-8
+kallikrein-9
+protein KRI1
+kynureninase
+protein LCHN
+lipocalin-15
+prelamin-A/C
+protein LTV1
+protein LZIC
+protein fucU
+lysozyme C-1
+lysozyme C-2
+protein MAL2
+protein Mdm4
+protein AF1q
+protein AF-9
+melanophilin
+multimerin-1
+multimerin-2
+protein MON2
+cytochrome b
+myotubularin
+neurobeachin
+protein NBR2
+neurogenin-1
+neurogenin-2
+neurogenin-3
+protein BEX3
+protein NKG7
+neuroligin-1
+neuroligin-2
+neuroligin-3
+neuromedin-B
+neuromedin-S
+neuromedin-U
+protein NPAT
+nephronectin
+neuroplastin
+neuropilin-2
+protein numb
+osteomodulin
+protein OS-9
+oncostatin-M
+ovochymase-1
+ovochymase-2
+paralemmin-2
+pappalysin-1
+pappalysin-2
+protein DJ-1
+alpha-parvin
+gamma-parvin
+protein RRP5
+prohibitin-2
+polycystin-1
+polycystin-2
+pleckstrin-2
+periphilin-1
+peripherin-2
+neurotrypsin
+polyserase-2
+myeloblastin
+presenilin-1
+presenilin-2
+parathymosin
+pleiotrophin
+paralemmin-3
+protein QIL1
+protein RCC2
+protein RER1
+protein RFT1
+roundabout 1
+roundabout 2
+roundabout 3
+roundabout 4
+protein XRP2
+rabphilin-3A
+secretagogin
+protein LAP4
+protein SDA1
+protein SFI1
+protein SHQ1
+mitoferrin-2
+mitoferrin-1
+protein SMG5
+protein SMG7
+snurportin-1
+protein SOLO
+protein SPT2
+sarcalumenin
+protein SSXT
+somatostatin
+protein SSX1
+protein SSX2
+protein SSX3
+protein SSX4
+protein SSX5
+protein SSX6
+protein SSX7
+protein SSX8
+protein SSX9
+synaptopodin
+synaptoporin
+protein SYS1
+tachykinin-3
+tachykinin-4
+transgelin-2
+transgelin-3
+trichohyalin
+protein TET1
+protein TET2
+protein TET3
+protein TNG2
+protein Tob1
+protein Tob2
+beta-taxilin
+ubinuclein-1
+ubinuclein-2
+uroplakin-1a
+uroplakin-1b
+uroplakin-3A
+uroplakin-3B
+protein URG4
+urotensin-2B
+VIP peptides
+protein wibg
+protein WWC1
+protein WWC2
+protein WWC3
+peroxidase N
+TRK receptor
+neurotrophin
+protein aaeX
+protein abrB
+protein aegA
+protein aidB
+allantoinase
+protein ampE
+protein ampG
+ribulokinase
+protein araJ
+protein aroM
+protein asmA
+protein bolA
+protein cbrA
+protein ccdA
+protein crcA
+protein crcB
+protein csiD
+protein cyaY
+protein cysZ
+protein damX
+protein dcrB
+protein dedA
+protein dsrB
+protein elaA
+protein elaB
+protein fdhD
+protein fdhE
+protein fdrA
+protein fecR
+protein fimF
+protein fimG
+protein fimH
+protein fixA
+protein fixB
+protein fixC
+flavodoxin-1
+flavodoxin-2
+protein fliZ
+protein flxA
+protein gltF
+protein gnsA
+protein gnsB
+protein gntX
+protein grpE
+protein hdeB
+protein hdeD
+protein hemY
+protein hflC
+protein hflK
+protein hipA
+protein hokA
+protein hokC
+protein hypA
+protein inaA
+protein iscX
+fructokinase
+protein malY
+protein maoC
+protein mazG
+protein mcrC
+protein mgrB
+protein mioC
+protein mpaA
+protein mraZ
+protein mtfA
+protein nagD
+protein napD
+protein nrdI
+protein nrfC
+protein nrfD
+protein phnA
+protein phnB
+protein phnH
+protein phnI
+protein phnJ
+protein phnP
+protein phoH
+protein pioO
+protein pmbA
+protein psiE
+CTP synthase
+protein qmcA
+protein racC
+protein rarD
+protein rcsF
+protein rdoA
+protein recA
+protein recT
+protein rhsA
+protein rhsB
+protein rhsC
+protein rhsD
+protein rtcB
+protein rutD
+protein sanA
+protein sbmA
+protein seqA
+protein sgcE
+protein smtA
+protein sprT
+protein ssnA
+protein sufA
+protein sufI
+protein tdcF
+protein thiJ
+protein thiS
+protein tldD
+protein tolA
+protein tolB
+protein tolQ
+protein tolR
+protein tonB
+protein traC
+protein traD
+protein traI
+protein traM
+protein traQ
+protein traS
+protein traV
+protein traX
+protein trpH
+protein tsgA
+protein tusB
+protein tusC
+protein umuC
+protein umuD
+protein ushA
+protein viaA
+protein visC
+protein wzxE
+HSPB protein
+HSPC protein
+cytochrome c
+janus kinase
+derives_from
+Gallus gallus
+c-myc protein
+lefty protein
+nodal protein
+CD160 antigen
+interleukin-1
+CD166 antigen
+animal opsins
+encephalopsin
+latrophilin-1
+latrophilin-2
+latrophilin-3
+CD109 antigen
+CD177 antigen
+CD180 antigen
+CD209 antigen
+CD226 antigen
+CD302 antigen
+CD320 antigen
+interleukin-7
+alpha-taxilin
+interleukin-2
+interleukin-3
+interleukin-4
+interleukin-5
+interleukin-6
+interleukin-8
+interleukin-9
+CD276 antigen
+glycophorin-A
+glycophorin-B
+glycophorin-C
+integrin beta
+tissue factor
+semaphorin-4D
+semaphorin-7A
+ataxin-1-like
+chondrocalcin
+alpha-adducin
+gamma-adducin
+serum albumin
+protein AMAC1
+aquaporin-12A
+aquaporin-12B
+protein ARMET
+astrotactin-1
+astrotactin-2
+protein ATAD4
+protein PTHB1
+protein BUD31
+complement C2
+complement C3
+complement C5
+calcyphosin-2
+protein CASC3
+protein CASC4
+protein CASC5
+protein Daple
+CD151 antigen
+chondrolectin
+protein CIAO1
+calsyntenin-1
+calsyntenin-2
+calsyntenin-3
+ceruloplasmin
+protein CREG1
+protein CREG2
+mu-crystallin
+alpha-catulin
+protein CWC15
+cytochrome b5
+protein CYR61
+protein DERPC
+protein DGCR6
+protein DGCR8
+protein Dok-7
+protein Dom3Z
+dipeptidase 1
+dipeptidase 2
+dipeptidase 3
+dermatopontin
+desmocollin-1
+desmocollin-2
+desmocollin-3
+protein EAN57
+ETSous factor
+alpha-enolase
+gamma-enolase
+proepiregulin
+protein EVI2A
+protein EVI2B
+exonuclease 1
+protein FRG1B
+protein furry
+protein fuzzy
+phospholemman
+protein FAM21
+protein FAM22
+protein FAM25
+protein FAM35
+protein FAM45
+galactokinase
+gametogenetin
+somatoliberin
+protein GREB1
+glycophorin-E
+histone H2A.J
+histone H2A.V
+histone H2A.x
+histone H2A.Z
+protein HIDE1
+histone H3.1t
+protein HUG-1
+protein INCA1
+protein ITFG3
+intersectin-1
+intersectin-2
+intelectin-1b
+jerky protein
+protein ajuba
+kallikrein-10
+kallikrein-11
+kallikrein-12
+kallikrein-13
+kallikrein-14
+kallikrein-15
+protein KRIP1
+protein KRBA1
+protein KTI12
+protein LDOC1
+protein LSM12
+protein lyl-1
+protein MAK10
+protein MAK16
+protein MCM10
+microcephalin
+protein MEMO1
+protein MIS12
+antigen KI-67
+protein AF-10
+protein AF-17
+stromelysin-2
+stromelysin-3
+collagenase 3
+stromelysin-1
+protein Mpv17
+melanoregulin
+protein MRVI1
+protein LYRIC
+protein Muted
+N-cym protein
+myosin-XVIIIa
+myosin-XVIIIb
+protein B-Myc
+protein S-myc
+neurochondrin
+protein NDRG1
+protein NDRG2
+protein NDRG3
+protein NDRG4
+protein NEDD1
+neurofibromin
+protein NLRC3
+protein NLRC5
+protein notum
+nucleophosmin
+nucleoredoxin
+protein Niban
+protein odr-4
+protein OSCP1
+protein PCOTH
+fibrocystin-L
+plakophilin-1
+plakophilin-2
+plakophilin-3
+plakophilin-4
+puratrophin-1
+protein Plunc
+protein POF1B
+liprin-beta-1
+liprin-beta-2
+protein PRR15
+protein PPRC1
+protein prune
+prolactin-2A1
+prolactin-2B1
+prolactin-2C2
+prolactin-2C3
+prolactin-2C4
+prolactin-3B1
+prolactin-3C1
+prolactin-3D1
+prolactin-4A1
+prolactin-5A1
+prolactin-6A1
+prolactin-7A1
+prolactin-7A2
+prolactin-7B1
+prolactin-7C1
+prolactin-7D1
+prolactin-8A6
+prolactin-8A8
+prolactin-8A9
+GTPase RhebL1
+protein RIC-3
+prorelaxin H2
+protein rogdi
+retinoschisin
+protein RUFY3
+protein SAAL1
+mammaglobin-B
+mammaglobin-A
+protein SEC13
+semaphorin-3A
+semaphorin-3B
+semaphorin-3C
+semaphorin-3D
+semaphorin-3E
+semaphorin-3F
+semaphorin-3G
+semaphorin-4A
+semaphorin-4B
+semaphorin-4C
+semaphorin-4F
+semaphorin-4G
+semaphorin-5A
+semaphorin-5B
+semaphorin-6A
+semaphorin-6B
+semaphorin-6C
+semaphorin-6D
+semenogelin-1
+semenogelin-2
+endophilin-A2
+endophilin-A1
+endophilin-A3
+endophilin-B1
+endophilin-B2
+protein SPHAR
+synaptophysin
+transaldolase
+protein TANC1
+protein TANC2
+protein TBRG4
+beta-tectorin
+thyroglobulin
+transketolase
+protein TMED8
+tomoregulin-1
+tomoregulin-2
+transportin-1
+transportin-2
+transportin-3
+protein TSC21
+tetraspanin-1
+tetraspanin-2
+tetraspanin-3
+tetraspanin-4
+tetraspanin-5
+tetraspanin-6
+tetraspanin-7
+tetraspanin-8
+tetraspanin-9
+protein TSSC1
+protein TSSC4
+transthyretin
+tubby protein
+gamma-taxilin
+protein VAC14
+pantetheinase
+protein VPRBP
+protein WDFY4
+protein WFDC9
+protein Wnt-2
+protein Wnt-4
+protein Wnt-6
+ATPase WRNIP1
+protein YIF1A
+protein YIF1B
+protein YIPF1
+protein YIPF2
+protein YIPF3
+protein YIPF4
+protein YIPF5
+protein YIPF6
+protein YIPF7
+protein zer-1
+arylsulfatase
+endoglucanase
+protease degQ
+protease degS
+dsdX permease
+protease elaD
+fhuE receptor
+esterase frsA
+GABA permease
+glutaminase 1
+glutaminase 2
+GMP reductase
+catalase HPII
+alpha-amylase
+met repressor
+proP effector
+protein sirB1
+protein sirB2
+FMN reductase
+tryptophanase
+thioredoxin-1
+thioredoxin-2
+USG-1 protein
+max homodimer
+prorelaxin H1
+only_in_taxon
+noggin protein
+interleukin-17
+interleukin-31
+interleukin-11
+interleukin-13
+interleukin-15
+interleukin-16
+interleukin-18
+interleukin-21
+interleukin-22
+interleukin-32
+interleukin-33
+interleukin-34
+interleukin-10
+interleukin-19
+interleukin-20
+interleukin-24
+interleukin-26
+interleukin-29
+thrombomodulin
+catenin beta-1
+14-3-3 protein
+aminoacylase-1
+protein AHNAK2
+angiopoietin-1
+angiopoietin-2
+angiopoietin-4
+protein APCDD1
+protein ARMCX6
+aspartoacylase
+L-asparaginase
+ATM interactor
+renin receptor
+cholinesterase
+protein BHLHB9
+calreticulin-3
+protein CC2D2B
+corneodesmosin
+chondroadherin
+chromogranin-A
+beta-chimaerin
+UMP-CMP kinase
+corticoliberin
+cryptochrome-1
+cryptochrome-2
+chymotrypsin-C
+protein DDX26B
+protein DGCR14
+protein DGCR6L
+protein dpy-30
+erythropoietin
+FAD synthetase
+protein FAM128
+glutaredoxin-1
+glutaredoxin-3
+protein GPR107
+protein GPR108
+protein GTLF3B
+protein GCAP14
+protein HEXIM1
+protein HEXIM2
+protein IMPACT
+insulin-like 3
+junctophilin-1
+junctophilin-2
+junctophilin-3
+junctophilin-4
+ketohexokinase
+protein LDOC1L
+protein lin-37
+protein lin-52
+protein lin-54
+protein LMBR1L
+protein MANBAL
+neuropeptide B
+nephrocystin-1
+nephrocystin-3
+nephrocystin-4
+neuropeptide S
+neuropeptide W
+neuropeptide Y
+neurotrophin-3
+neurotrophin-4
+nucleobindin-1
+nucleobindin-2
+olfactomedin-4
+oligophrenin-1
+5-oxoprolinase
+protein orai-3
+protein orai-2
+protein PAPPAS
+protein pelota
+protein Jade-2
+protein Jade-3
+protein Jade-1
+protein pigeon
+liprin-alpha-1
+liprin-alpha-2
+liprin-alpha-3
+liprin-alpha-4
+proteoglycan 3
+proteoglycan 4
+protein PROCA1
+prokineticin-1
+prokineticin-2
+helicase ARIP4
+calcipressin-1
+calcipressin-2
+calcipressin-3
+ribonuclease 4
+ribonuclease 7
+ribonuclease 8
+ribonuclease 3
+protein RNF187
+protein fantom
+protein S100-B
+protein S100-G
+protein S100-P
+protein S100-Z
+protein SERAC1
+sideroflexin-1
+sideroflexin-2
+sideroflexin-3
+sideroflexin-4
+sideroflexin-5
+helicase SKI2W
+beta-synuclein
+protein SOX-15
+sequestosome-1
+helicase SRCAP
+sulfiredoxin-1
+synaptogyrin-1
+synaptogyrin-2
+synaptogyrin-3
+synaptogyrin-4
+synaptojanin-1
+synaptojanin-2
+synaptopodin-2
+alpha-tectorin
+protein TEX261
+thrombopoietin
+tropomodulin-1
+tropomodulin-2
+tropomodulin-3
+tropomodulin-4
+tryptase gamma
+tetraspanin-10
+tetraspanin-11
+tetraspanin-12
+tetraspanin-13
+tetraspanin-14
+tetraspanin-15
+tetraspanin-16
+tetraspanin-17
+tetraspanin-18
+tetraspanin-31
+tetraspanin-32
+tetraspanin-33
+protein TSPEAR
+protein TCL1B1
+protein TCL1B2
+protein TCL1B3
+protein TCL1B4
+protein TCL1B5
+protein unc-50
+protein unc-80
+protein WFDC11
+protein WFDC13
+protein Wnt-11
+protein Wnt-16
+protein Wnt-2b
+protein Wnt-3a
+protein Wnt-5a
+protein Wnt-5b
+protein Wnt-7a
+protein Wnt-7b
+protein Wnt-8a
+protein Wnt-8b
+protein Wnt-9a
+protein Wnt-9b
+protein ZNF673
+protein ZNF738
+protein ZNF750
+protein ZNF767
+protein ZNF783
+protein zwilch
+protein ZNF365
+signal peptide
+death receptor
+acetate kinase
+beta-lactamase
+endonuclease-1
+L-fuculokinase
+glutaredoxin-2
+glutaredoxin-4
+ferrochelatase
+lexA repressor
+endonuclease V
+endonuclease 4
+lipoprotein 28
+lipoprotein 34
+dihydroorotase
+antitoxin RelB
+rhamnulokinase
+ribonuclease I
+ribonuclease D
+ribonuclease E
+ribonuclease G
+ribonuclease R
+ribonuclease T
+ribonuclease Z
+chaperone surA
+trigger factor
+uridine kinase
+integrin alpha
+signal_peptide
+kinesin complex
+cohesin complex
+caspase complex
+protein complex
+mad-max complex
+myc-max complex
+interleukin-17E
+apelin receptor
+interleukin-17A
+interleukin-17B
+interleukin-17C
+interleukin-17D
+interleukin-17F
+KiSS-1 receptor
+interleukin-28A
+interleukin-28B
+opioid receptor
+orexin receptor
+5'-nucleotidase
+leptin receptor
+integrin beta-1
+integrin beta-2
+integrin beta-3
+protein pellino
+alpha-actinin-1
+alpha-actinin-2
+alpha-actinin-3
+alpha-actinin-4
+beta-centractin
+angiotensinogen
+protein AMAC1L2
+protein AMAC1L3
+alpha-amylase 1
+beta-arrestin-1
+beta-arrestin-2
+arylsulfatase A
+arylsulfatase B
+arylsulfatase D
+arylsulfatase E
+arylsulfatase F
+arylsulfatase G
+arylsulfatase H
+arylsulfatase I
+arylsulfatase J
+arylsulfatase K
+acid ceramidase
+achaete-scute 1
+achaete-scute 2
+achaete-scute 3
+achaete-scute 4
+achaete-scute 5
+alpha-amylase 1
+protein bassoon
+probetacellulin
+complement C4-A
+complement C4-B
+calsequestrin-1
+calsequestrin-2
+protein CBFA2T2
+protein CBFA2T3
+cholecystokinin
+protein CCSMST1
+ceramide kinase
+cryptic protein
+secretogranin-1
+protein capicua
+protein CLEC16A
+alpha-S1-casein
+cystatin-9-like
+cystatin-like 1
+protein cTAGE-6
+cardiotrophin-1
+catenin alpha-1
+catenin alpha-2
+catenin alpha-3
+catenin delta-1
+catenin delta-2
+cytochrome b561
+cardiotrophin-2
+protein artemis
+beta-defensin 1
+dolichol kinase
+protein dopey-1
+protein dopey-2
+protein ripply3
+beta-defensin 3
+beta-defensin 5
+beta-defensin 6
+beta-defensin 7
+beta-defensin 8
+beta-defensin 9
+ectodysplasin-A
+protein enabled
+protein C-ets-1
+protein C-ets-2
+L-fucose kinase
+glycerol kinase
+protein GRINL1B
+protein GRINL1A
+protein HRPAP20
+hyaluronidase-1
+hyaluronidase-2
+hyaluronidase-3
+hyaluronidase-4
+interferon beta
+integrin beta-4
+integrin beta-5
+integrin beta-6
+integrin beta-7
+integrin beta-8
+interleukin-22b
+protein Jumonji
+protein kintoun
+lactoperoxidase
+protein MICAL-2
+protein MICAL-3
+myeloperoxidase
+protein maestro
+L-myc-2 protein
+nucleoplasmin-2
+nucleoplasmin-3
+nucleoporin p54
+Nogo-B receptor
+neurexophilin-1
+neurexophilin-2
+neurexophilin-3
+neurexophilin-4
+protocadherin-1
+protocadherin-7
+protocadherin-8
+protocadherin-9
+protein piccolo
+proenkephalin-B
+proenkephalin-A
+protein PLEKHA9
+peroxiredoxin-1
+peroxiredoxin-2
+peroxiredoxin-4
+peroxiredoxin-6
+enteropeptidase
+protein quaking
+exonuclease GOR
+protein ripply1
+protein ripply2
+ribonuclease K6
+ribonuclease H1
+ribonuclease T2
+protein reprimo
+protein CBFA2T1
+lithostathine-1
+lithostathine-2
+protein S100-A1
+protein S100-A2
+protein S100-A3
+protein S100-A4
+protein S100-A5
+protein S100-A6
+protein S100-A7
+protein S100-A8
+protein S100-A9
+secretogranin-2
+secretogranin-3
+selenoprotein H
+selenoprotein K
+selenoprotein M
+selenoprotein O
+selenoprotein S
+selenoprotein T
+selenoprotein V
+selenoprotein N
+selenoprotein P
+selenoprotein W
+protein shisa-2
+protein shisa-3
+protein shisa-4
+protein shisa-5
+protein Shroom1
+protein Shroom2
+protein Shroom3
+protein Shroom4
+single-minded 1
+single-minded 2
+protein SIX6OS1
+alpha-synuclein
+gamma-synuclein
+sorting nexin-1
+sorting nexin-2
+sorting nexin-3
+sorting nexin-4
+sorting nexin-5
+sorting nexin-6
+sorting nexin-7
+sorting nexin-8
+sorting nexin-9
+protein SPATIAL
+serine racemase
+stanniocalcin-1
+stanniocalcin-2
+synaptotagmin-1
+synaptotagmin-2
+synaptotagmin-3
+synaptotagmin-4
+synaptotagmin-5
+synaptotagmin-6
+synaptotagmin-7
+synaptotagmin-8
+synaptotagmin-9
+protachykinin-1
+treacle protein
+serotransferrin
+protein TMEM155
+thymosin beta-4
+tryptase beta-2
+prothyroliberin
+protein WFDC10B
+protein Wnt-10a
+protein Wnt-10b
+glycoprotein Xg
+xylulose kinase
+ZW10 interactor
+acetyl esterase
+D-allose kinase
+ammonia channel
+biotin synthase
+citrate carrier
+isochorismatase
+lipoyl synthase
+ribonuclease HI
+ribonuclease PH
+lipoprotein spr
+transaldolase A
+transaldolase B
+thiamine kinase
+transketolase 1
+transketolase 2
+uracil permease
+ribonuclease U2
+ribonuclease V1
+ephrin receptor
+beta-defensin 2
+mnt-max complex
+mga-max complex
+material_entity
+transit_peptide
+molecular entity
+connexon complex
+Canis familiaris
+RING-box protein
+interferon gamma
+thrombospondin 1
+thrombospondin 2
+thrombospondin 3
+thrombospondin 4
+integrin alpha-1
+integrin alpha-2
+integrin alpha-D
+integrin alpha-E
+integrin alpha-L
+integrin alpha-M
+integrin alpha-X
+alpha-latrotoxin
+motilin receptor
+mannose receptor
+galanin receptor
+relaxin receptor
+protein jagged-1
+aminopeptidase N
+lymphotoxin-beta
+antithrombin-III
+alpha-centractin
+aspartoacylase-2
+adenosine kinase
+aldose reductase
+alpha-amylase 2B
+aldehyde oxidase
+apolipoprotein D
+apolipoprotein E
+apolipoprotein F
+apolipoprotein M
+apolipoprotein O
+beta-secretase 1
+beta-secretase 2
+flavin reductase
+CD5 antigen-like
+protein cereblon
+Crk-like protein
+protocadherin-16
+protocadherin-23
+protein deltex-1
+protein deltex-2
+protein deltex-3
+protein deltex-4
+beta-defensin 10
+beta-defensin 11
+beta-defensin 12
+beta-defensin 13
+beta-defensin 14
+beta-defensin 15
+beta-defensin 17
+beta-defensin 18
+beta-defensin 19
+beta-defensin 20
+beta-defensin 25
+beta-defensin 29
+beta-defensin 30
+beta-defensin 33
+beta-defensin 34
+beta-defensin 35
+beta-defensin 36
+beta-defensin 37
+beta-defensin 38
+beta-defensin 39
+beta-defensin 40
+beta-defensin 41
+beta-defensin 43
+beta-defensin 50
+exostosin-like 1
+exostosin-like 2
+exostosin-like 3
+protein fat-free
+protein FRA10AC1
+nucleoporin GLE1
+glycerate kinase
+rhodopsin kinase
+guanylate kinase
+headcase protein
+protein hairless
+interferon kappa
+alpha-internexin
+insulin receptor
+integrin alpha-3
+integrin alpha-4
+integrin alpha-5
+integrin alpha-6
+integrin alpha-7
+integrin alpha-8
+integrin alpha-9
+integrin alpha-V
+protein jagged-2
+lamin-B receptor
+chondromodulin-1
+protein ERGIC-53
+protein lunapark
+netrin-G1 ligand
+lactotransferrin
+MAL-like protein
+beta-mannosidase
+murinoglobulin-1
+murinoglobulin-2
+N-myc-interactor
+neurexin-1-alpha
+aminopeptidase O
+protocadherin-10
+protocadherin-12
+protocadherin-15
+protocadherin-17
+protocadherin-18
+protocadherin-19
+protocadherin-20
+protocadherin-21
+protocadherin-24
+pyridoxal kinase
+phospholipase A2
+phospholipase D1
+phospholipase D2
+phospholipase D3
+phospholipase D4
+phospholipase D6
+reticulocalbin-1
+reticulocalbin-2
+reticulocalbin-3
+aminopeptidase B
+protein S100-A10
+protein S100-A11
+protein S100-A12
+protein S100-A13
+protein S100-A14
+protein S100-A16
+protein S100-A7A
+beta-sarcoglycan
+zeta-sarcoglycan
+shugoshin-like 1
+shugoshin-like 2
+ski-like protein
+src-like-adapter
+SLC2A4 regulator
+protein SLC7A6OS
+spermine oxidase
+sorting nexin-10
+sorting nexin-11
+sorting nexin-12
+sorting nexin-13
+sorting nexin-14
+sorting nexin-15
+sorting nexin-16
+sorting nexin-17
+sorting nexin-18
+sorting nexin-19
+sorting nexin-20
+sorting nexin-21
+sorting nexin-22
+sorting nexin-24
+sorting nexin-25
+sorting nexin-27
+sorting nexin-29
+sorting nexin-30
+sorting nexin-31
+sorting nexin-32
+sorting nexin-33
+steryl-sulfatase
+synaptotagmin-10
+synaptotagmin-11
+synaptotagmin-12
+synaptotagmin-13
+synaptotagmin-14
+synaptotagmin-15
+synaptotagmin-16
+synaptotagmin-17
+transcobalamin-1
+transcobalamin-2
+nucleolysin TIAR
+protein timeless
+nucleoporin NDC1
+thymosin beta-10
+protein archease
+tristetraproline
+isocitrate lyase
+adenylate kinase
+AMP nucleosidase
+L-asparaginase 1
+L-asparaginase 2
+carbamate kinase
+bacterioferritin
+excinuclease cho
+citrate synthase
+flavohemoprotein
+lactose permease
+2'-5'-RNA ligase
+lipoprotein nlpD
+lipoprotein nlpE
+lipoprotein nlpI
+cytochrome c-552
+endonuclease III
+phosphatase nudJ
+GTPase obgE/cgtA
+phospholipase A1
+tautomerase pptA
+oligopeptidase A
+uridylate kinase
+O-antigen ligase
+ribonuclease HII
+thymidine kinase
+thiol peroxidase
+lipoprotein vacJ
+xylose isomerase
+ribonuclease CL3
+soluble APP-beta
+beta-defensin 4A
+beta-defensin 4B
+fiat_object_part
+has_modification
+prefoldin complex
+sumoylated lysine
+neddylated lysine
+Bacillus subtilis
+Rattus norvegicus
+Triticum aestivum
+bombesin receptor
+CAMPATH-1 antigen
+CD55-like protein
+interferon lambda
+oxytocin receptor
+melanotransferrin
+lymphotoxin-alpha
+ly-6-like protein
+acylphosphatase-1
+acylphosphatase-2
+alpha-fetoprotein
+archaemetzincin-1
+archaemetzincin-2
+apolipoprotein L1
+apolipoprotein L2
+apolipoprotein L3
+apolipoprotein L4
+apolipoprotein L5
+apolipoprotein L6
+androgen receptor
+protein ariadne-1
+protein ariadne-2
+protein BAT2-like
+BCL-6 corepressor
+BET1-like protein
+CD59 glycoprotein
+chitotriosidase-1
+protein Churchill
+protein cornichon
+beta-crystallin S
+lambda-crystallin
+beta-defensin 103
+beta-defensin 104
+beta-defensin 105
+beta-defensin 106
+beta-defensin 107
+beta-defensin 109
+beta-defensin 110
+beta-defensin 112
+beta-defensin 113
+beta-defensin 114
+beta-defensin 115
+beta-defensin 116
+beta-defensin 118
+beta-defensin 119
+beta-defensin 121
+beta-defensin 123
+beta-defensin 124
+beta-defensin 125
+beta-defensin 126
+beta-defensin 127
+beta-defensin 128
+beta-defensin 129
+beta-defensin 130
+beta-defensin 131
+beta-defensin 132
+beta-defensin 133
+beta-defensin 134
+beta-defensin 135
+beta-defensin 136
+dystrobrevin beta
+desmoglein-1-beta
+alpha-endosulfine
+estrogen receptor
+EVI5-like protein
+fer3-like protein
+FSD1-like protein
+GatC-like protein
+glucagon receptor
+guanine deaminase
+HBS1-like protein
+InaD-like protein
+inverted formin-2
+integrin alpha-10
+integrin alpha-11
+plasma kallikrein
+alpha-lactalbumin
+LAS1-like protein
+LIX1-like protein
+protein maelstrom
+metallothionein-2
+metallothionein-3
+metallothionein-4
+mevalonate kinase
+mucosal pentraxin
+metallothionein-1
+metallothionein-2
+neurocalcin-delta
+NKAP-like protein
+protein syndesmos
+Numb-like protein
+nucleoporin NUP53
+nucleoporin Nup37
+nucleoporin Nup43
+nucleoporin NUP85
+prothymosin alpha
+parvalbumin alpha
+riboflavin kinase
+protein S100-A15A
+secretin receptor
+protein SFRS12IP1
+alpha-sarcoglycan
+delta-sarcoglycan
+gamma-sarcoglycan
+sedoheptulokinase
+spermine synthase
+beta-1-syntrophin
+beta-2-syntrophin
+SRR1-like protein
+PCTP-like protein
+brachyury protein
+TAK1-like protein
+nucleoprotein TPR
+TRM1-like protein
+uromodulin-like 1
+adenine deaminase
+cytidylate kinase
+cytosine permease
+adenylate cyclase
+cyanate hydratase
+KHG/KDPG aldolase
+protein erfK/srfK
+2Fe-2S ferredoxin
+glycogen synthase
+endonuclease VIII
+nifU-like protein
+oligoribonuclease
+pyridoxine kinase
+D-ribose pyranase
+exoribonuclease 2
+secretion monitor
+propionate kinase
+homoserine kinase
+uronate isomerase
+flavoprotein wrbA
+mCD14/LPS complex
+sCD14/LPS complex
+soluble APP-alpha
+soluble APP-theta
+siroheme synthase
+caspase-3 complex
+lipopolysaccharide
+amino-acid residue
+Bcl3-Bcl10 complex
+O-phospho-L-serine
+acetylated residue
+methylated residue
+Cricetulus griseus
+Aspergillus oryzae
+toll-like receptor
+chemokine receptor
+interleukin-1 beta
+B7-related protein
+adenosine receptor
+mu-opioid receptor
+IKK-related kinase
+KLRB1-like protein
+CD59A glycoprotein
+CD59B glycoprotein
+proto-oncogene vav
+protein amnionless
+apolipoprotein A-I
+apolipoprotein A-V
+apolipoprotein C-I
+neutral ceramidase
+annexin-2 receptor
+protein boule-like
+C1q-related factor
+cytidine deaminase
+carboxylesterase 2
+carboxylesterase 7
+carboxylesterase 8
+protein cappuccino
+carboxypeptidase B
+carboxypeptidase D
+carboxypeptidase E
+carboxypeptidase M
+carboxypeptidase O
+carboxypeptidase Z
+C-reactive protein
+beta-crystallin A2
+beta-crystallin A4
+beta-crystallin B1
+beta-crystallin B2
+beta-crystallin B3
+gamma-crystallin A
+gamma-crystallin B
+gamma-crystallin C
+gamma-crystallin D
+gamma-crystallin N
+chymotrypsinogen B
+gamma-crystallin E
+gamma-crystallin F
+beta-defensin 108B
+beta-defensin 108A
+DNA2-like helicase
+diphthine synthase
+dystrobrevin alpha
+thymidylate kinase
+desmoglein-1-alpha
+desmoglein-1-gamma
+espin-like protein
+protein furry-like
+aldose 1-epimerase
+glucosylceramidase
+beta-galactosidase
+progonadoliberin-1
+progonadoliberin-2
+GON-4-like protein
+beta-glucuronidase
+ribonuclease UK114
+interferon alpha-2
+interferon alpha-4
+interferon alpha-5
+interferon alpha-6
+interferon alpha-7
+interferon alpha-8
+interferon epsilon
+interferon omega-1
+integrin alpha-IIb
+interferon alpha-1
+interferon alpha-9
+jerky protein-like
+endothelial lipase
+VIP36-like protein
+lipoprotein lipase
+proto-oncogene DBL
+inositol oxygenase
+mpv17-like protein
+metallothionein-1A
+metallothionein-1B
+metallothionein-1E
+metallothionein-1F
+metallothionein-1G
+metallothionein-1H
+metallothionein-1L
+metallothionein-1M
+metallothionein-1X
+MTSS1-like protein
+nucleoporin NUP188
+nucleoporin-like 2
+protein Mis18-beta
+PACRG-like protein
+prolactin receptor
+sperm protamine-P1
+resistin-like beta
+ribonuclease kappa
+RRP12-like protein
+RRP15-like protein
+protein sidekick-1
+protein sidekick-2
+glia-derived nexin
+src-like-adapter 2
+alpha-1-syntrophin
+gamma-1-syntrophin
+gamma-2-syntrophin
+STAG3-like protein
+AMSH-like protease
+TIP41-like protein
+thyroid peroxidase
+UNC5C-like protein
+synaptobrevin YKT6
+biotin carboxylase
+aerotaxis receptor
+arginine repressor
+arsenate reductase
+cobalamin synthase
+cytosine deaminase
+HMP-PP phosphatase
+phosphopentomutase
+fructose repressor
+L-fucose isomerase
+L-lactate permease
+phosphomannomutase
+glutamate racemase
+NADH dehydrogenase
+peroxiredoxin osmC
+phosphoglucomutase
+exopolyphosphatase
+glutamate 5-kinase
+serine transporter
+threonine synthase
+lacks_modification
+double-stranded DNA
+Bacillus megaterium
+bradykinin receptor
+endothelin receptor
+interleukin-1 alpha
+tachykinin receptor
+red-sensitive opsin
+ADP-ribosyl cyclase
+LPAR4-like receptor
+epithelial cadherin
+prostanoid receptor
+nociceptin receptor
+psychosine receptor
+poliovirus receptor
+CDK2-related kinase
+NF-kappaB inhibitor
+adenosine deaminase
+protein APCDD1-like
+apolipoprotein A-II
+apolipoprotein A-IV
+apolipoprotein C-II
+apolipoprotein C-IV
+bleomycin hydrolase
+calcitonin receptor
+cep170-like protein
+protein cordon-bleu
+carboxypeptidase A1
+carboxypeptidase A2
+carboxypeptidase A4
+carboxypeptidase A5
+carboxypeptidase A6
+carboxypeptidase B2
+chymotrypsinogen B2
+CpG-binding protein
+protein CTLA-2-beta
+phospholipase DDHD1
+phospholipase DDHD2
+D-aspartate oxidase
+deoxyribonuclease-1
+dihydropyrimidinase
+protein argonaute-1
+protein argonaute-2
+protein argonaute-3
+protein argonaute-4
+neutrophil elastase
+fumarylacetoacetase
+squalene synthetase
+ketosamine-3-kinase
+protein FRG2-like-1
+FYN-binding protein
+alpha-L-iduronidase
+interferon alpha-10
+interferon alpha-14
+interferon alpha-16
+interferon alpha-17
+interferon alpha-21
+protein inscuteable
+interferon alpha-11
+interferon alpha-12
+lanosterol synthase
+alpha-mannosidase 2
+protein Mis18-alpha
+MRG-binding protein
+methionine synthase
+nucleoporin p58/p45
+protein polybromo-1
+Xaa-Pro dipeptidase
+parathyroid hormone
+mRNA-capping enzyme
+resistin-like alpha
+lathosterol oxidase
+acyl-CoA desaturase
+alpha-1-antitrypsin
+alpha-2-antiplasmin
+SET-binding protein
+epsilon-sarcoglycan
+sulfate transporter
+antileukoproteinase
+hyaluronidase PH-20
+SPATS2-like protein
+spermidine synthase
+villin-like protein
+viral neuraminidase
+chorismate synthase
+pantothenate kinase
+peptide deformylase
+L-fucose mutarotase
+catalase-peroxidase
+octanoyltransferase
+alpha-galactosidase
+naphthoate synthase
+L-aspartate oxidase
+beta-hexosaminidase
+pyridoxamine kinase
+putrescine importer
+oxidoreductase ucpA
+altronate hydrolase
+xanthosine permease
+glycosylated residue
+Chlorocebus aethiops
+Ustilago sphaerogena
+creb-binding protein
+blue-sensitive opsin
+substance-K receptor
+substance-P receptor
+autoimmune regulator
+P2RY10-like receptor
+P2RY12-like receptor
+follitropin receptor
+thyrotropin receptor
+acetylcholinesterase
+ATP-citrate synthase
+AMMECR1-like protein
+apolipoprotein B-100
+apolipoprotein C-III
+beta-2-microglobulin
+BRI3-binding protein
+protein cramped-like
+proto-oncogene C-crk
+CMRF35-like molecule
+protein CTLA-2-alpha
+D-amino-acid oxidase
+drebrin-like protein
+deoxycytidine kinase
+L-xylulose reductase
+denticleless protein
+protein flightless-1
+proto-oncogene c-Fos
+proto-oncogene FRAT1
+galactocerebrosidase
+galanin-like peptide
+glutamine synthetase
+HRAS-like suppressor
+L-amino-acid oxidase
+junction plakoglobin
+KIF1-binding protein
+lactase-like protein
+LRP2-binding protein
+alpha-mannosidase 2x
+monoglyceride lipase
+mdm2-binding protein
+neuronal pentraxin-1
+neuronal pentraxin-2
+protocadherin beta-1
+protocadherin beta-2
+protocadherin beta-3
+protocadherin beta-4
+protocadherin beta-5
+protocadherin beta-6
+protocadherin beta-7
+protocadherin beta-8
+protocadherin beta-9
+PEX5-related protein
+phosphoglucomutase-1
+phosphoglucomutase-2
+phosphomannomutase 1
+phosphomannomutase 2
+pro-opiomelanocortin
+prolyl endopeptidase
+lithostathine-1-beta
+reprimo-like protein
+reticulon-4 receptor
+protein S100-A1-like
+selenocysteine lyase
+L-serine dehydratase
+STAM-binding protein
+sulfotransferase 1A1
+sulfotransferase 1A2
+sulfotransferase 1C2
+sulfotransferase 1C4
+sulfotransferase 4A1
+sulfotransferase 6B1
+sulfotransferase 1C1
+translocator protein
+thymidylate synthase
+xylosyltransferase 1
+xylosyltransferase 2
+ribonuclease ZC3H12A
+initiator methionine
+dephospho-CoA kinase
+D-serine dehydratase
+D-phenylhydantoinase
+malate dehydrogenase
+NADH pyrophosphatase
+alkaline phosphatase
+polyphosphate kinase
+pseudouridine kinase
+O-antigen polymerase
+L-rhamnose isomerase
+GTP cyclohydrolase-2
+ssrA-binding protein
+insulin-like protein
+myristoylated residue
+isoprenylated residue
+L-pyrrolysine residue
+melanocortin receptor
+green-sensitive opsin
+neuromedin-B receptor
+neuromedin-K receptor
+neuromedin-U receptor
+prokineticin receptor
+somatostatin receptor
+delta-opioid receptor
+fMet-Leu-Phe receptor
+kappa-opioid receptor
+prostacyclin receptor
+eotaxin-like cytokine
+IGFBP-related protein
+alpha-1B-glycoprotein
+acyloxyacyl hydrolase
+beta-2-glycoprotein 1
+apolipoprotein O-like
+ataxin-2-like protein
+cyclin-J-like protein
+CDC45-related protein
+chemokine-like factor
+di-N-acetylchitobiase
+protein deltex-3-like
+eosinophil peroxidase
+ena/VASP-like protein
+IgGFc-binding protein
+fructosamine-3-kinase
+fizzy-related protein
+glucose-6-phosphatase
+alpha-galactosidase A
+iduronate 2-sulfatase
+lysyl-tRNA synthetase
+protein ERGIC-53-like
+alpha-mannosidase 2C1
+meteorin-like protein
+C-Myc-binding protein
+N-acetyltransferase 5
+N-acetyltransferase 6
+N-acetyltransferase 9
+nipped-B-like protein
+neuritin-like protein
+vesicle-fusing ATPase
+protocadherin alpha-1
+protocadherin alpha-2
+protocadherin alpha-3
+protocadherin alpha-4
+protocadherin alpha-5
+protocadherin alpha-6
+protocadherin alpha-7
+protocadherin alpha-8
+protocadherin alpha-9
+protocadherin beta-10
+protocadherin beta-11
+protocadherin beta-12
+protocadherin beta-13
+protocadherin beta-14
+protocadherin beta-15
+protocadherin beta-16
+progesterone receptor
+PRKCA-binding protein
+cardiac phospholamban
+pancreatic prohormone
+prostacyclin synthase
+lithostathine-1-alpha
+S100P-binding protein
+SAP30-binding protein
+nucleoporin SEH1-like
+sepiapterin reductase
+thimet oligopeptidase
+transformer-2 protein
+beta-ureidopropionase
+valyl-tRNA synthetase
+glucose-1-phosphatase
+L-asparagine permease
+L-arabinose isomerase
+choline dehydrogenase
+carboxylesterase bioH
+diacylglycerol kinase
+enterochelin esterase
+fructoselysine kinase
+1-phosphofructokinase
+glutathione reductase
+glucarate dehydratase
+isoaspartyl peptidase
+GTP pyrophosphokinase
+L-rhamnose mutarotase
+seryl-tRNA synthetase
+shikimate transporter
+periplasmic trehalase
+cytoplasmic trehalase
+thioredoxin reductase
+uridine phosphorylase
+mannonate dehydratase
+alpha-2-macroglobulin
+bacterial glutaminase
+macromolecular complex
+mad-max-mSin3A complex
+mad-max-mSin3B complex
+O4'-phospho-L-tyrosine
+phosphorylated residue
+ubiquitinylated lysine
+Sphingomonas wittichii
+interleukin-9 receptor
+CD59-like glycoprotein
+ataxin-1/ataxin-1-like
+adenylosuccinate lyase
+agouti-related protein
+adenosylhomocysteinase
+bcl-2-modifying factor
+valacyclovir hydrolase
+CD2-associated protein
+C-Maf-inducing protein
+coactosin-like protein
+cardiolipin synthetase
+quinone oxidoreductase
+dipeptidyl-peptidase 1
+steroid 21-hydroxylase
+alpha-S2-casein-like A
+alpha-S2-casein-like B
+steroid 21-hydroxylase
+deoxyhypusine synthase
+endoribonuclease Dicer
+dynamin-1-like protein
+dipeptidyl-peptidase 3
+dipeptidyl-peptidase 2
+enolase-phosphatase E1
+glia-activating factor
+glycyl-tRNA synthetase
+glutathione synthetase
+oxidoreductase HTATIP2
+cytosol aminopeptidase
+MAD2L1-binding protein
+MARCKS-related protein
+neutrophil collagenase
+N-acetyltransferase 10
+N-acetyltransferase 11
+N-acetyltransferase 13
+N-acetyltransferase 14
+N-acetyltransferase 15
+oxytocin-neurophysin 1
+PCNA-associated factor
+protocadherin alpha-10
+protocadherin alpha-11
+protocadherin alpha-12
+protocadherin alpha-13
+protocadherin alpha-C1
+protocadherin alpha-C2
+protocadherin gamma-A1
+protocadherin gamma-A2
+protocadherin gamma-A3
+protocadherin gamma-A4
+protocadherin gamma-A5
+protocadherin gamma-A6
+protocadherin gamma-A7
+protocadherin gamma-A8
+protocadherin gamma-A9
+protocadherin gamma-B1
+protocadherin gamma-B2
+protocadherin gamma-B3
+protocadherin gamma-B4
+protocadherin gamma-B5
+protocadherin gamma-B6
+protocadherin gamma-B7
+protocadherin gamma-C3
+protocadherin gamma-C4
+protocadherin gamma-C5
+phosducin-like protein
+GPI inositol-deacylase
+PH-interacting protein
+ribonuclease inhibitor
+sorbitol dehydrogenase
+squalene monooxygenase
+amine sulfotransferase
+thromboxane-A synthase
+TP53-regulating kinase
+TP53RK-binding protein
+ubiquilin-like protein
+uracil-DNA glycosylase
+alanyl-tRNA synthetase
+acetylglutamate kinase
+hexuronate transporter
+lactaldehyde reductase
+glyoxylate carboligase
+aminomethyltransferase
+glycerol dehydrogenase
+glycogen phosphorylase
+leucyl-tRNA synthetase
+methylglyoxal synthase
+alpha-mannosidase mngB
+Xaa-Pro aminopeptidase
+tail-specific protease
+prolyl-tRNA synthetase
+methylisocitrate lyase
+exodeoxyribonuclease 8
+exodeoxyribonuclease I
+deoxyribonuclease tatD
+sulfurtransferase tusA
+sulfurtransferase tusD
+sulfurtransferase tusE
+kinesin-5 homotetramer
+anti-Muellerian hormone
+dipeptidyl-peptidase IV
+fucosyltransferase FUT4
+thrombopoietin receptor
+angiopoietin-1 receptor
+glutamyl aminopeptidase
+caspase-1-like protease
+caspase-3-like protease
+caspase-8-like protease
+alpha-2-macroglobulin-P
+acrosin-binding protein
+alpha-2-HS-glycoprotein
+AKT-interacting protein
+arginine-fifty homeobox
+argininosuccinate lyase
+ATR-interacting protein
+G1/S-specific cyclin-D1
+G1/S-specific cyclin-D2
+G1/S-specific cyclin-D3
+G1/S-specific cyclin-E1
+G1/S-specific cyclin-E2
+dihydrofolate reductase
+myotonin-protein kinase
+deoxyribonuclease gamma
+dynamin-binding protein
+aspartyl aminopeptidase
+dolichyldiphosphatase 1
+dihydrofolate reductase
+erythropoietin receptor
+fibrosin-1-like protein
+fukutin-related protein
+glucose-6-phosphatase 2
+glucose-6-phosphatase 3
+UDP-glucose 4-epimerase
+GEM-interacting protein
+RAB6-interacting golgin
+L-gulonolactone oxidase
+histidine ammonia-lyase
+histidine decarboxylase
+interleukin-21 receptor
+interleukin-23 receptor
+lebercilin-like protein
+MLX-interacting protein
+mesothelin-like protein
+beta-microseminoprotein
+glucocorticoid receptor
+ornithine decarboxylase
+N-glycosylase/DNA lyase
+protocadherin gamma-A10
+protocadherin gamma-A11
+protocadherin gamma-A12
+GPI-anchor transamidase
+ral-GDS-related protein
+ribonuclease pancreatic
+ropporin-1-like protein
+RPA-interacting protein
+serine dehydratase-like
+metalloreductase STEAP1
+metalloreductase STEAP2
+metalloreductase STEAP3
+metalloreductase STEAP4
+alpha-1-antitrypsin 1-1
+alpha-1-antitrypsin 1-2
+alpha-1-antitrypsin 1-3
+alpha-1-antitrypsin 1-4
+alpha-1-antitrypsin 1-5
+alpha-1-antitrypsin 1-6
+tapasin-related protein
+thiamine-triphosphatase
+tripeptidyl-peptidase 1
+tripeptidyl-peptidase 2
+GDP-L-fucose synthetase
+thymidine phosphorylase
+vam6/Vps39-like protein
+tryptophan-rich protein
+arginyl-tRNA synthetase
+shikimate dehydrogenase
+aspartate ammonia-lyase
+dethiobiotin synthetase
+adenylyl-sulfate kinase
+exodeoxyribonuclease 10
+hydroxylamine reductase
+glutamyl-tRNA reductase
+isoaspartyl dipeptidase
+geranyltranstransferase
+pantothenate synthetase
+phosphoglycerate kinase
+peptidyl-tRNA hydrolase
+sulfate-binding protein
+tyrosyl-tRNA synthetase
+mnt-msin3-hdac1 complex
+L-selenocysteine residue
+Saccharomyces cerevisiae
+cholecystokinin receptor
+shc-transforming protein
+pancreatic alpha-amylase
+agouti-signaling protein
+pancreatic alpha-amylase
+bcl-2-interacting killer
+BRCA1-associated protein
+calcyphosin-like protein
+beta-Ala-His dipeptidase
+acyl-CoA-binding protein
+L-dopachrome tautomerase
+deoxyribonuclease-2-beta
+gamma-glutamyl hydrolase
+lactoylglutathione lyase
+homeodomain-only protein
+3-keto-steroid reductase
+insulin-degrading enzyme
+inositol monophosphatase
+kyphoscoliosis peptidase
+hormone-sensitive lipase
+protein-lysine 6-oxidase
+lipoma-preferred partner
+interstitial collagenase
+metallophosphoesterase 1
+MYCBP-associated protein
+N-acetyltransferase MAK3
+neurotensin/neuromedin N
+oocyte-expressed protein
+pyroglutamyl-peptidase 1
+phosphomevalonate kinase
+peroxidasin-like protein
+Capz-interacting protein
+alpha-1-antichymotrypsin
+sialate O-acetylesterase
+msx2-interacting protein
+sulfotransferase 1A3/1A4
+TATA-box-binding protein
+tyrosine 3-monooxygenase
+toll-interacting protein
+trophoblast glycoprotein
+TRAF-interacting protein
+Trpc4-associated protein
+aspartyl-tRNA synthetase
+serine acetyltransferase
+peptidyl-dipeptidase dcp
+D-cysteine desulfhydrase
+dihydropteroate synthase
+glutamyl-tRNA synthetase
+phosphoheptose isomerase
+inosine-guanosine kinase
+histidinol dehydrogenase
+histidyl-tRNA synthetase
+lysine-specific permease
+maltodextrin glucosidase
+mltA-interacting protein
+CTP pyrophosphohydrolase
+2-methylcitrate synthase
+sodium/proline symporter
+RNA pyrophosphohydrolase
+adenylyltransferase thiF
+threonyl-tRNA synthetase
+altronate oxidoreductase
+xanthosine phosphorylase
+exodeoxyribonuclease III
+ccap-HPr-Ser46-P complex
+Sphingomonas paucimobilis
+prostate-specific antigen
+arylacetamide deacetylase
+ADP-dependent glucokinase
+APAF1-interacting protein
+zinc-alpha-2-glycoprotein
+calcyclin-binding protein
+cystathionine gamma-lyase
+dopamine beta-hydroxylase
+deoxycytidylate deaminase
+density-regulated protein
+deoxyribonuclease-2-alpha
+deoxyhypusine hydroxylase
+N-acetyltransferase ESCO1
+N-acetyltransferase ESCO2
+tissue alpha-L-fucosidase
+plasma alpha-L-fucosidase
+D-glucuronyl C5-epimerase
+glycine N-acyltransferase
+gastrin-releasing peptide
+porphobilinogen deaminase
+1-O-acylceramide synthase
+ghrelin O-acyltransferase
+N-acetylneuraminate lyase
+ADP-sugar pyrophosphatase
+protocadherin-11 X-linked
+protocadherin-11 Y-linked
+PGAP2-interacting protein
+6-phosphogluconolactonase
+inorganic pyrophosphatase
+RelA-associated inhibitor
+prolyl endopeptidase-like
+phosphoserine phosphatase
+SEC23-interacting protein
+SFRS2-interacting protein
+sortilin-related receptor
+hsc70-interacting protein
+tyrosine aminotransferase
+triosephosphate isomerase
+UCHL5-interacting protein
+uronyl 2-sulfotransferase
+ureidoglycolate hydrolase
+allantoate amidohydrolase
+cytoplasmic alpha-amylase
+3-dehydroquinate synthase
+calcium/proton antiporter
+cysteinyl-tRNA synthetase
+diaminopimelate epimerase
+D-galactonate dehydratase
+D-galactonate transporter
+ferrichrome-iron receptor
+dihydroneopterin aldolase
+ribosome-recycling factor
+L-fucose-proton symporter
+D-galactarate dehydratase
+phosphoglucosamine mutase
+glutathione S-transferase
+hydroxypyruvate isomerase
+carbamoyltransferase hypF
+L-idonate 5-dehydrogenase
+gluconate 5-dehydrogenase
+isoleucyl-tRNA synthetase
+RNA 2'-phosphotransferase
+methionine aminopeptidase
+methionyl-tRNA synthetase
+NAD-dependent deacetylase
+aspartate 1-decarboxylase
+phosphate acyltransferase
+D-xylose-proton symporter
+anaphase-promoting complex
+Mycobacterium tuberculosis
+melatonin-related receptor
+acetoacetyl-CoA synthetase
+arsenite methyltransferase
+argininosuccinate synthase
+bisphosphoglycerate mutase
+macrophage-capping protein
+CDKN2A-interacting protein
+cholesterol 25-hydroxylase
+casein-like phosphoprotein
+D-dopachrome decarboxylase
+deoxyribonuclease-1-like 1
+deoxyribonuclease-1-like 2
+Dr1-associated corepressor
+dermatan-sulfate epimerase
+dentin sialophosphoprotein
+FK506-binding protein-like
+cytosolic beta-glucosidase
+kynurenine 3-monooxygenase
+galectin-3-binding protein
+macrophage metalloelastase
+matrix metalloproteinase-9
+NFATC2-interacting protein
+FMRFamide-related peptides
+FMRFamide-related peptides
+mineralocorticoid receptor
+p130Cas-associated protein
+2',5'-phosphodiesterase 12
+protoporphyrinogen oxidase
+glutaminyl-tRNA synthetase
+dihydropteridine reductase
+rab-3A-interacting protein
+non-secretory ribonuclease
+secretoglobin-like protein
+neuronal-specific septin-3
+thyroxine-binding globulin
+UDP-galactose translocator
+tryptophan 2,3-dioxygenase
+lactaldehyde dehydrogenase
+arabinose-proton symporter
+aspartate aminotransferase
+carnitinyl-CoA dehydratase
+6-phospho-beta-glucosidase
+alpha-ribazole phosphatase
+ferrienterobactin receptor
+galactose-proton symporter
+UDP-galactopyranose mutase
+dihydroxy-acid dehydratase
+2-isopropylmalate synthase
+maltodextrin phosphorylase
+4-alpha-glucanotransferase
+acetaldehyde dehydrogenase
+N-acetylmannosamine kinase
+N-ethylmaleimide reductase
+ADP-ribose pyrophosphatase
+aminodeoxychorismate lyase
+inositol-1-monophosphatase
+undecaprenyl-diphosphatase
+D-mannonate oxidoreductase
+5-aminolevulinate synthase
+Sphingobacterium multivorum
+retinoblastoma-like protein
+lymphotactin-like chemokine
+arachidonate 5-lipoxygenase
+osteocalcin-related protein
+cystathionine beta-synthase
+chondroadherin-like protein
+choline O-acetyltransferase
+choline/ethanolamine kinase
+cholinephosphotransferase 1
+defensin-related cryptdin-2
+defensin-related cryptdin-7
+defensin-related cryptdin-9
+lysosomal alpha-glucosidase
+gamma-glutamyltransferase 5
+gamma-glutamyltransferase 6
+gamma-glutamyltransferase 7
+appetite-regulating hormone
+glycine N-methyltransferase
+haptoglobin-related protein
+histidine-rich glycoprotein
+indoleamine 2,3-dioxygenase
+intestine-specific homeobox
+lactase-phlorizin hydrolase
+lysosomal alpha-mannosidase
+matrix metalloproteinase-14
+matrix metalloproteinase-15
+matrix metalloproteinase-16
+matrix metalloproteinase-17
+matrix metalloproteinase-19
+matrix metalloproteinase-20
+matrix metalloproteinase-21
+matrix metalloproteinase-23
+matrix metalloproteinase-24
+matrix metalloproteinase-25
+matrix metalloproteinase-26
+matrix metalloproteinase-27
+matrix metalloproteinase-28
+matrix metalloproteinase-23
+protein disulfide-isomerase
+phenylalanine-4-hydroxylase
+prenylcysteine oxidase-like
+prolactin-inducible protein
+prolactin-releasing peptide
+2-5A-dependent ribonuclease
+sodium/iodide cotransporter
+trimethylguanosine synthase
+UDP-glucose 6-dehydrogenase
+5-hydroxyisourate hydrolase
+palmitoyltransferase ZDHHC2
+palmitoyltransferase ZDHHC3
+palmitoyltransferase ZDHHC7
+palmitoyltransferase ZDHHC9
+acetylornithine deacetylase
+asparaginyl-tRNA synthetase
+thiosulfate-binding protein
+GDP-mannose 4,6-dehydratase
+ketol-acid reductoisomerase
+Leu/Ile/Val-binding protein
+dihydrolipoyl dehydrogenase
+S-ribosylhomocysteine lyase
+maltose O-acetyltransferase
+o-succinylbenzoate synthase
+nickel-responsive regulator
+putrescine aminotransferase
+phosphotriesterasey protein
+proline/betaine transporter
+2-methylcitrate dehydratase
+phosphate acetyltransferase
+adenylosuccinate synthetase
+L-rhamnose-proton symporter
+L-threonine 3-dehydrogenase
+hydroxyethylthiazole kinase
+UDP-glucuronosyltransferase
+palmitoyltransferase complex
+gamma-glutamyltranspeptidase
+thrombomodulin-like receptor
+apoptosis-enhancing nuclease
+arachidonate 15-lipoxygenase
+beta-1,3-glucosyltransferase
+G2/mitotic-specific cyclin-F
+CBF1-interacting corepressor
+eosinophil lysophospholipase
+carboxymethylenebutenolidase
+catechol O-methyltransferase
+cartilage-associated protein
+defensin-related cryptdin-10
+defensin-related cryptdin-13
+defensin-related cryptdin-15
+defensin-related cryptdin-16
+defensin-related cryptdin-20
+defensin-related cryptdin-21
+defensin-related cryptdin-22
+defensin-related cryptdin-23
+defensin-related cryptdin-24
+defensin-related cryptdin-25
+defensin-related cryptdin-26
+N-acetylgalactosamine kinase
+maleylacetoacetate isomerase
+hedgehog-interacting protein
+metastasis-suppressor KiSS-1
+ligand-dependent corepressor
+NF-kappa-B-repressing factor
+phosphoglycolate phosphatase
+prostaglandin-H2 D-isomerase
+ribose-5-phosphate isomerase
+spermatid-associated protein
+TIMELESS-interacting protein
+trophinin-associated protein
+ceramide glucosyltransferase
+palmitoyltransferase ZDHHC15
+palmitoyltransferase ZDHHC17
+palmitoyltransferase ZDHHC18
+arginine/agmatine antiporter
+amino-acid acetyltransferase
+3-dehydroquinate dehydratase
+acetyl-CoA acetyltransferase
+periplasmic beta-glucosidase
+dihydrodipicolinate synthase
+phosphogluconate dehydratase
+alpha-ketoglutarate permease
+cystathionine gamma-synthase
+beta-ketoadipyl-CoA thiolase
+phosphoenolpyruvate synthase
+dihydroorotate dehydrogenase
+tryptophanyl-tRNA synthetase
+4-alpha-L-fucosyltransferase
+contactin-associated protein
+6-phosphofructokinase complex
+N-formyl-L-methionine residue
+growth/differentiation factor
+proteinase-activated receptor
+vasopressin/oxytocin receptor
+ecto-ADP-ribosyltransferase 4
+ecto-ADP-ribosyltransferase 5
+ecto-ADP-ribosyltransferase 3
+serotonin N-acetyltransferase
+alpha-methylacyl-CoA racemase
+G2/mitotic-specific cyclin-B1
+G2/mitotic-specific cyclin-B2
+G2/mitotic-specific cyclin-B3
+carnitine O-acetyltransferase
+cytohesin-interacting protein
+dexamethasone-induced protein
+DNA nucleotidylexotransferase
+E2F-associated phosphoprotein
+emopamil-binding protein-like
+S-formylglutathione hydrolase
+fructose-1,6-bisphosphatase 1
+glucose-6-phosphate isomerase
+homogentisate 1,2-dioxygenase
+histamine N-methyltransferase
+leishmanolysin-like peptidase
+mannose-6-phosphate isomerase
+N-acetyl-D-glucosamine kinase
+alpha-N-acetylglucosaminidase
+NF-kappa-B-activating protein
+oviduct-specific glycoprotein
+N-acylglucosamine 2-epimerase
+cystine/glutamate transporter
+synaptotagmin-14-like protein
+thiosulfate sulfurtransferase
+uroporphyrinogen-III synthase
+vertebrate-like neuraminidase
+ureidoglycolate dehydrogenase
+dihydrodipicolinate reductase
+thermoresistant gluconokinase
+ATP phosphoribosyltransferase
+thermosensitive gluconokinase
+lipid-A-disaccharide synthase
+diaminopimelate decarboxylase
+2-keto-4-pentenoate hydratase
+N-acetylglucosamine repressor
+N-acetylneuraminate epimerase
+2-dehydropantoate 2-reductase
+sodium/pantothenate symporter
+pyrazinamidase/nicotinamidase
+N-methyl-L-tryptophan oxidase
+alkanesulfonate monooxygenase
+thiamine-monophosphate kinase
+beta-1,3-glucuronyltransferase
+gamma-glutamyltranspeptidase 1
+2-aminoethanethiol dioxygenase
+7-dehydrocholesterol reductase
+gamma-glutamylcyclotransferase
+gamma-glutamyltranspeptidase 2
+hydrocephalus-inducing protein
+hydrocephalus-inducing protein
+interleukin-18-binding protein
+leucyl-cystinyl aminopeptidase
+myelin-associated glycoprotein
+amidophosphoribosyltransferase
+phosphoserine aminotransferase
+ribulose-phosphate 3-epimerase
+alpha-2,8-sialyltransferase 8B
+alpha-2,8-sialyltransferase 8E
+alpha-2,8-sialyltransferase 8F
+synaptojanin-2-binding protein
+dTDP-D-glucose 4,6-dehydratase
+thiopurine S-methyltransferase
+uroporphyrinogen decarboxylase
+xanthine dehydrogenase/oxidase
+aldehyde-alcohol dehydrogenase
+arginine N-succinyltransferase
+N-succinylarginine dihydrolase
+succinylornithine transaminase
+DNA-cytosine methyltransferase
+D-alanyl-D-alanine dipeptidase
+deoxyribose-phosphate aldolase
+2-dehydro-3-deoxygluconokinase
+nucleoside-triphosphatase rdgB
+phosphomethylpyrimidine kinase
+2-pyrrolidone-5-carboxylic acid
+gamma-butyrobetaine dioxygenase
+24-dehydrocholesterol reductase
+N-acetylglucosamine-6-sulfatase
+epididymal-specific lipocalin-6
+epididymal-specific lipocalin-8
+epididymal-specific lipocalin-9
+lysosomal-trafficking regulator
+epididymal-specific lipocalin-5
+DNA-3-methyladenine glycosylase
+alpha-N-acetylgalactosaminidase
+N-acylneuraminate-9-phosphatase
+nucleotide-binding protein-like
+phosphoacetylglucosamine mutase
+pyridoxine-5'-phosphate oxidase
+queuine tRNA-ribosyltransferase
+corticosteroid-binding globulin
+glucose-6-phosphate translocase
+sphingomyelin phosphodiesterase
+stress-induced-phosphoprotein 1
+thioredoxin-interacting protein
+UDP-glucuronosyltransferase 1-1
+UDP-glucuronosyltransferase 1-3
+UDP-glucuronosyltransferase 1-4
+UDP-glucuronosyltransferase 1-5
+UDP-glucuronosyltransferase 1-6
+UDP-glucuronosyltransferase 1-7
+UDP-glucuronosyltransferase 1-8
+UDP-glucuronosyltransferase 1-9
+UDP-glucuronosyltransferase 2A1
+UDP-glucuronosyltransferase 2A3
+UDP-glucuronosyltransferase 2B4
+UDP-glucuronosyltransferase 2B7
+UDP-glucuronosyltransferase 3A1
+UDP-glucuronosyltransferase 3A2
+UDP-glucuronosyltransferase 1-2
+UDP-glucuronosyltransferase 2A2
+UDP-glucuronosyltransferase 2B5
+6-phospho-beta-glucosidase ascB
+succinylglutamate desuccinylase
+FMN-dependent NADH-azoreductase
+6-phospho-beta-glucosidase bglA
+6-phospho-beta-glucosidase bglB
+8-amino-7-oxononanoate synthase
+2,3-diketo-L-gulonate reductase
+serine hydroxymethyltransferase
+octaprenyl-diphosphate synthase
+galactoside O-acetyltransferase
+3-isopropylmalate dehydrogenase
+tetraacyldisaccharide 4'-kinase
+S-adenosylmethionine synthetase
+methylmalonyl-CoA decarboxylase
+trehalose-phosphate phosphatase
+aminoacyl-histidine dipeptidase
+phenylalanine-specific permease
+putrescine-ornithine antiporter
+phosphoenolpyruvate carboxylase
+rhamnulose-1-phosphate aldolase
+trehalose-6-phosphate hydrolase
+L-tartrate/succinate antiporter
+beta-1,3-glucuronyltransferase 1
+beta-1,3-galactosyltransferase 1
+beta-1,3-galactosyltransferase 2
+beta-1,3-galactosyltransferase 4
+beta-1,3-galactosyltransferase 5
+beta-1,3-galactosyltransferase 6
+beta-1,4-galactosyltransferase 1
+beta-1,4-galactosyltransferase 2
+beta-1,4-galactosyltransferase 3
+beta-1,4-galactosyltransferase 4
+beta-1,4-galactosyltransferase 5
+beta-1,4-galactosyltransferase 6
+beta-1,4-galactosyltransferase 7
+galactose-3-O-sulfotransferase 2
+galactose-3-O-sulfotransferase 3
+galactose-3-O-sulfotransferase 4
+non-lysosomal glucosylceramidase
+hydroxyacylglutathione hydrolase
+epididymal-specific lipocalin-10
+epididymal-specific lipocalin-12
+epididymal-specific lipocalin-13
+neuroblastoma-amplified sequence
+nicotinamide N-methyltransferase
+ethanolaminephosphotransferase 1
+glycerol-3-phosphate transporter
+UDP-glucuronosyltransferase 1-10
+UDP-glucuronosyltransferase 2B10
+UDP-glucuronosyltransferase 2B11
+UDP-glucuronosyltransferase 2B15
+UDP-glucuronosyltransferase 2B17
+UDP-glucuronosyltransferase 2B28
+uracil phosphoribosyltransferase
+UDP-glucuronosyltransferase 1-7C
+2-dehydro-3-deoxygalactonokinase
+phenylacetaldehyde dehydrogenase
+methionyl-tRNA formyltransferase
+2-keto-3-deoxygluconate permease
+leucine-specific-binding protein
+apolipoprotein N-acyltransferase
+homoserine O-succinyltransferase
+4-hydroxy-2-oxovalerate aldolase
+homocysteine S-methyltransferase
+D-alanyl-D-alanine endopeptidase
+phosphatidylglycerophosphatase A
+phosphatidylglycerophosphatase B
+dTDP-4-dehydrorhamnose reductase
+adenine phosphoribosyltransferase
+hydroxyindole O-methyltransferase
+astacin-like metalloendopeptidase
+barrier-to-autointegration factor
+N-acetylgalactosamine-6-sulfatase
+1,4-alpha-glucan-branching enzyme
+beta-galactosidase-1-like protein
+leucine-rich alpha-2-glycoprotein
+diphosphomevalonate decarboxylase
+nebulin-related-anchoring protein
+retinoblastoma-associated protein
+all-trans-retinol 13,14-reductase
+sodium/myo-inositol cotransporter
+transmembrane O-methyltransferase
+crotonobetainyl-CoA dehydrogenase
+glucosamine-6-phosphate deaminase
+deoxyribodipyrimidine photo-lyase
+pyrroline-5-carboxylate reductase
+orotate phosphoribosyltransferase
+lipopolysaccharide-binding protein
+T-cell ecto-ADP-ribosyltransferase
+alpha-1,3-mannosyltransferase ALG2
+alpha-1,2-mannosyltransferase ALG9
+vasopressin-neurophysin 2-copeptin
+3-ketodihydrosphingosine reductase
+puromycin-sensitive aminopeptidase
+N-acetylmuramoyl-L-alanine amidase
+D-3-phosphoglycerate dehydrogenase
+phosphotriesterase-related protein
+D-allulose-6-phosphate 3-epimerase
+L-ribulose-5-phosphate 4-epimerase
+CDP-diacylglycerol pyrophosphatase
+phosphatidate cytidylyltransferase
+xanthine phosphoribosyltransferase
+ribose-phosphate pyrophosphokinase
+formyltetrahydrofolate deformylase
+aromatic-L-amino-acid decarboxylase
+glucose-6-phosphate 1-dehydrogenase
+galactosylceramide sulfotransferase
+N-acetylgalactosaminyltransferase 7
+4-hydroxyphenylpyruvate dioxygenase
+indolethylamine N-methyltransferase
+inositol-pentakisphosphate 2-kinase
+inositol-tetrakisphosphate 1-kinase
+myelin-oligodendrocyte glycoprotein
+methylenetetrahydrofolate reductase
+oligodendrocyte-myelin glycoprotein
+glutaminyl-peptide cyclotransferase
+N-sulphoglucosamine sulphohydrolase
+UDP-N-acetylglucosamine transporter
+5-keto-4-deoxy-D-glucarate aldolase
+UDP-2,3-diacylglucosamine hydrolase
+L-xylulose/3-keto-L-gulonate kinase
+formamidopyrimidine-DNA glycosylase
+gamma-glutamylputrescine synthetase
+trans-aconitate 2-methyltransferase
+UDP-N-acetylglucosamine 2-epimerase
+lutropin/choriogonadotropin receptor
+sphingosylphosphorylcholine receptor
+alpha-hemoglobin-stabilizing protein
+3-oxo-5-beta-steroid 4-dehydrogenase
+guanidinoacetate N-methyltransferase
+mannosyl-oligosaccharide glucosidase
+3-mercaptopyruvate sulfurtransferase
+nicotinate phosphoribosyltransferase
+phosphoinositide-interacting protein
+aspartate-semialdehyde dehydrogenase
+7-alpha-hydroxysteroid dehydrogenase
+transcription-repair-coupling factor
+mannitol-1-phosphate 5-dehydrogenase
+peptidoglycan-associated lipoprotein
+dTDP-4-dehydrorhamnose 3,5-epimerase
+sorbitol-6-phosphate 2-dehydrogenase
+thiamine-phosphate pyrophosphorylase
+aromatic-amino-acid aminotransferase
+alpha-1,2-glucosyltransferase ALG10-A
+aspartyl/asparaginyl beta-hydroxylase
+formimidoyltransferase-cyclodeaminase
+3-hydroxyanthranilate 3,4-dioxygenase
+epididymis-specific alpha-mannosidase
+5-formyltetrahydrofolate cyclo-ligase
+mono-ADP-ribosyltransferase sirtuin-6
+vasodilator-stimulated phosphoprotein
+leucoagglutinating phytohemagglutinin
+D-erythrose-4-phosphate dehydrogenase
+histidinol-phosphate aminotransferase
+erythronate-4-phosphate dehydrogenase
+tRNA guanosine-2'-O-methyltransferase
+N-acylneuraminate cytidylyltransferase
+dolichol-phosphate mannosyltransferase
+fucose-1-phosphate guanylyltransferase
+methylthioribose-1-phosphate isomerase
+prostate-associated microseminoprotein
+nicotinamide phosphoribosyltransferase
+phenylethanolamine N-methyltransferase
+bacterioferritin-associated ferredoxin
+phosphopantetheine adenylyltransferase
+D-serine/D-alanine/glycine transporter
+succinyl-diaminopimelate desuccinylase
+galactitol-1-phosphate 5-dehydrogenase
+inosine-5'-monophosphate dehydrogenase
+hypoxanthine phosphoribosyltransferase
+N-hydroxyarylamine O-acetyltransferase
+pseudouridine-5'-phosphate glycosidase
+lysophosphatidylcholine acyltransferase
+10-formyltetrahydrofolate dehydrogenase
+glycoprotein endo-alpha-1,2-mannosidase
+S-methyl-5'-thioadenosine phosphorylase
+7,8-dihydro-8-oxoguanine triphosphatase
+1-deoxy-D-xylulose-5-phosphate synthase
+glucose-1-phosphate adenylyltransferase
+isopentenyl-diphosphate Delta-isomerase
+mannose-1-phosphate guanylyltransferase
+gamma-glutamylputrescine oxidoreductase
+6,7-dimethyl-8-ribityllumazine synthase
+4-hydroxybenzoate octaprenyltransferase
+glycosylphosphatidylinositolated residue
+choline/ethanolaminephosphotransferase 1
+glyceraldehyde-3-phosphate dehydrogenase
+pterin-4-alpha-carbinolamine dehydratase
+UDP-N-acetylhexosamine pyrophosphorylase
+glutamate-1-semialdehyde 2,1-aminomutase
+5,10-methylenetetrahydrofolate reductase
+2-octaprenyl-6-methoxyphenol hydroxylase
+alpha-1,4-N-acetylglucosaminyltransferase
+galactose-1-phosphate uridylyltransferase
+phosphopantothenoylcysteine decarboxylase
+ADP-L-glycero-D-manno-heptose-6-epimerase
+2-dehydro-3-deoxyphosphooctonate aldolase
+nicotinate-nucleotide adenylyltransferase
+polyribonucleotide nucleotidyltransferase
+delta-1-pyrroline-5-carboxylate synthetase
+phosphatidylcholine-sterol acyltransferase
+phosphoribosylformylglycinamidine synthase
+L-carnitine/gamma-butyrobetaine antiporter
+branched-chain-amino-acid aminotransferase
+protein-L-isoaspartate O-methyltransferase
+lipopolysaccharide 1,2-glucosyltransferase
+ribosomal-protein-serine acetyltransferase
+3-demethylubiquinone-9 3-methyltransferase
+4-trimethylaminobutyraldehyde dehydrogenase
+dolichyl-phosphate beta-glucosyltransferase
+cytosolic endo-beta-N-acetylglucosaminidase
+ethanolamine-phosphate cytidylyltransferase
+N-acetylglucosamine-6-phosphate deacetylase
+phosphoribosylglycinamide formyltransferase
+ribosomal-protein-alanine acetyltransferase
+2',3'-cyclic-nucleotide 3'-phosphodiesterase
+phosphatidylethanolamine N-methyltransferase
+lactosylceramide alpha-2,3-sialyltransferase
+3-phosphoshikimate 1-carboxyvinyltransferase
+glutamate-ammonia-ligase adenylyltransferase
+4-hydroxythreonine-4-phosphate dehydrogenase
+gamma-glutamyl-gamma-aminobutyrate hydrolase
+lipopolysaccharide 1,6-galactosyltransferase
+lipopolysaccharide 1,3-galactosyltransferase
+3-deoxy-D-manno-octulosonic-acid transferase
+serine/threonine/tyrosine-interacting protein
+cyclopropane-fatty-acyl-phospholipid synthase
+2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase
+UDP-N-acetylenolpyruvoylglucosamine reductase
+lactosylceramide 4-alpha-galactosyltransferase
+hypoxanthine-guanine phosphoribosyltransferase
+phosphoethanolamine/phosphocholine phosphatase
+deoxyguanosinetriphosphate triphosphohydrolase
+1-acyl-sn-glycerol-3-phosphate acyltransferase
+phosphoenolpyruvate-protein phosphotransferase
+phosphoribosylformylglycinamidine cyclo-ligase
+trans-1,2-dihydrobenzene-1,2-diol dehydrogenase
+heparan-alpha-glucosaminide N-acetyltransferase
+protein-S-isoprenylcysteine O-methyltransferase
+2-dehydro-3-deoxy-6-phosphogalactonate aldolase
+2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase
+3-deoxy-manno-octulosonate cytidylyltransferase
+1,4-dihydroxy-2-naphthoate octaprenyltransferase
+3-methyl-2-oxobutanoate hydroxymethyltransferase
+4-diphosphocytidyl-2-C-methyl-D-erythritol kinase
+phospho-N-acetylmuramoyl-pentapeptide-transferase
+UDP-N-acetylglucosamine 1-carboxyvinyltransferase

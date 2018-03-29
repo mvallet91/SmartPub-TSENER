@@ -1,0 +1,10 @@
+protein s100-a4
+mucin-4
+beta-defensin 108b
+cd2-associated protein
+oligoribonuclease
+selenoprotein h
+myopalladin
+glyoxylate carboligase
+phospholipase ddhd2
+cardiac phospholamban

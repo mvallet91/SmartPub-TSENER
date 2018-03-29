@@ -1,0 +1,22 @@
+# Ignore downloaded pdfs
+data/pdf/*
+!data/pdf/test
+
+data/xml/*
+!data/xml/test
+
+data/craft-2.0/
+data/tudelft_repo/
+data/content_xml/
+
+models/
+elasticsearch/
+evaluation_filesMet/
+docker/
+
+# Ignore compressed files
+*.gz
+
+# Ignore training text files
+dataDoc2vec.txt
+dataWord2vec.txt
