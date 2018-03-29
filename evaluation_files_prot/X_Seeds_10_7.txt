@@ -1,10 +1,10 @@
-heparanase-2
-myosin-14
-interferon alpha-5
-n-acetylneuraminate epimerase
-calponin-3
-exodeoxyribonuclease 10
-prostate-specific antigen
-protein znf767
-cerebellin-3
-glyceraldehyde-3-phosphate dehydrogenase
+protein plunc
+akirin-2
+protein mtfa
+mucosal pentraxin
+cryptochrome-2
+dolichol kinase
+protein ciao1
+contactin-2
+protor-1
+pacrg-like protein

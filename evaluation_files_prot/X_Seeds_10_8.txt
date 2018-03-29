@@ -1,10 +1,10 @@
-alpha-endosulfine
-inosine-5'-monophosphate dehydrogenase
-allantoinase
-achaete-scute 4
-exodeoxyribonuclease i
-protocadherin beta-3
-bcl3-bcl10 complex
-synaptopodin
-otoancorin
-matrilysin
+plasma alpha-l-fucosidase
+arylsulfatase j
+mannonate dehydratase
+meckelin
+cdc45-related protein
+pygopus 1
+mucolipin-3
+phosphogluconate dehydratase
+neutrophil collagenase
+protein tet1

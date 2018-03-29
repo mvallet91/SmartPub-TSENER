@@ -1,10 +1,10 @@
-kynurenine 3-monooxygenase
-battenin
-protein bola
-protein wnt-8a
-nicotinate-nucleotide adenylyltransferase
-gasdermin-c3
-calponin-3
-fmn-dependent nadh-azoreductase
-metallothionein-1b
-catenin delta-2
+defensin-related cryptdin-20
+desmocollin-2
+testican-2
+titin
+beta-enolase
+claudin-2
+hexokinase-2
+cartilage-associated protein
+neurexophilin-1
+sideroflexin-4
