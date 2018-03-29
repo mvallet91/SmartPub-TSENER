@@ -11,6 +11,7 @@ db = client.pub
 pub = client.pub.publications
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}], 
                    timeout=30, max_retries=10, retry_on_timeout=True)
+
 es.cluster.health(wait_for_status='yellow', request_timeout=1)
 
 def return_chapters(mongo_string_search, db):
@@ -75,6 +76,7 @@ for publication in filter_publications:
     list_of_pubs.append(return_chapters(mongo_string_search, db))
 
 for pubs in list_of_pubs:
+    
     actions = []
     
     for cur in pubs:
@@ -84,13 +86,13 @@ for pubs in list_of_pubs:
 
         actions.append({
                     "_index": "ir",
-                    "_type": "publications",
+                    "_type" : "publications",
                     "_id" : cur['_id'],
-                    "_publication": cur['publication'],
-                    "_year": cur['year'],
                     "_source" : {
                         "text" : cur["content"],
-                        "title": cur["title"]
+                        "title": cur["title"],
+                        "publication" : cur['publication'],
+                        "year": cur['year']
                     }
                 })
     if len(actions) == 0:
