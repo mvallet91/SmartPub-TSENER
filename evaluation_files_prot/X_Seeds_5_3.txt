@@ -1,0 +1,5 @@
+protein s100-a7
+alpha-1,2-mannosyltransferase alg9
+caspase-14
+alpha-latrotoxin
+gasdermin-c

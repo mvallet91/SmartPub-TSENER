@@ -1,0 +1,537 @@
+wt
+pcr
+ap
+table s2
+figure s2
+rt
+mtdna
+cp
+qpcr
+brca1
+orf
+genbank
+life technologies
+s5
+illumina
+h3k27me3
+nacl
+dsrna
+cell signaling
+fc
+erα
+ssdna
+fluorescence intensity
+genbank accession
+lncrnas
+roche
+cpg
+rrna
+kda
+nmd
+fd
+ncbi
+tfbss
+erbb2
+tubulin
+cdc20
+oct4
+figure s1b
+sybr green
+tcr
+brca2
+cruz biotechnology
+prb
+pcna
+pten
+hsp70
+rac1
+sigir
+mdm2
+immunoblot
+figure s2b
+mhc
+figure s10
+h3k9me2
+nk
+ser
+wgs
+cxcr4
+pakt
+pns
+rnase t
+piggybac
+msh2
+ifnγ
+kegg
+imagej
+tdna
+thr
+figure s11
+akt1
+mtor
+cxcr7
+pdb
+asyn
+cdc42
+mean fluorescence
+cpt
+fis
+lpa
+wmel
+hescs
+ninl
+sgrna
+dom34
+aml
+cdk5
+h3k9me3
+ish
+blastp
+rac
+mg132
+smaug
+tca
+bim
+stat1
+cbp
+s1a fig
+ddr
+cfp
+jab1
+aβ42
+pcrs
+cdf
+figure s12
+tbp
+stag3
+nadh
+s2a fig
+eyfp
+foxp3
+lhc
+dlg1
+rab
+wap
+cag
+microsoft excel
+smg
+dictyostelium
+smc3
+atf3
+sano
+cdk1
+pkg
+chx
+la jolla
+trizol
+htf
+mfi
+synthesis kit
+vire2
+graphpad prism
+crif1
+mcc
+rb1
+phyml
+xbai
+genome database
+ptst
+hek293
+goi
+grb10
+nxf1
+mtp
+rhtf
+tbx15
+figure s1d
+ctg
+ptf1a
+pgc1α
+mec
+ssb
+fvb
+drg
+mitf
+hct116
+seca
+trichoderma
+neu
+bonferroni
+runx1
+tm1
+kv4
+wbm
+tcf4
+bcr
+nlr
+pymt
+omr
+wnt3a
+sf1
+drgs
+her1
+sirt2
+mcd
+bl21de3
+jaccard
+tables s4
+mom1
+aos
+orthomcl
+video s1
+fred
+map2
+kog
+tap2
+grp78
+rte
+ddb2
+ca3
+aox
+vic
+tor1
+flic
+brilliant blue
+ttag
+acute myeloid
+np40
+usp
+msas
+tetr
+cripto
+dep
+gly
+figure s4d
+interpro
+kal7
+acp
+deltac
+plc
+a30p
+spearman
+torc2
+scl
+nef
+ofp
+draqp3b
+adi
+cyp
+lip40
+repbase
+mthk
+pparg2
+mas5
+tata
+dr1
+hek293t
+zar1
+sk1
+m1a
+lsu
+placozoa
+table s15
+gln
+dsxm
+ctla4
+mir162a
+atf4
+gata
+bgl
+hmmer
+pha
+jst
+treg
+t4ss
+sry
+iek
+brachyury
+mrp
+ser473
+m2e
+kalirin
+hsl
+nfat2
+exox
+pip3
+rnd
+ksrp
+ldlr
+m12
+pex7
+interproscan
+pufas
+ankyrin repeat
+dav
+mastermix
+bin1
+alpp
+vpi
+pparg2 ko
+cdcl2
+pms2
+afr1
+dmt
+vdj
+upstate biotechnology
+synmuv b
+figure s9b
+elavl1
+hifs
+plasmodb
+rps5
+exoi
+ncbi genome
+eae
+smc1β
+pmrbc
+dnak
+perkinelmer life
+cln
+mical3
+dsmiso
+sox
+forkhead
+brafv600e
+dsn1
+eto
+amv
+transwell
+genome institute
+nrat1
+pthgagc
+chaperonin
+gadd34
+pld
+rada
+laemmli sample
+s6d
+t121
+twyford virus
+clayton
+pou
+pvx
+testto
+hpv16
+got1
+catrapid
+game developers
+plzf
+jurkat
+mom2
+synmuv
+bpv e1
+kal9
+graphpad
+δseqa p
+hormad2
+atgl
+e2a
+blastz
+atcay
+rsbt
+rwc
+de2f2
+aml1
+mps1
+atta
+carlson
+pyr
+nora virus
+campylobacter
+hnrna
+dunn
+genedb
+hht
+nfat
+pereira
+bnip3
+lncnats
+runx3
+erk1
+pmhcs
+rdrp
+flg
+lyl1
+rpoc
+cona
+brf2
+pc12
+rpg
+dgat
+monosiga
+uaa
+jmjc1
+mccarty
+lmo2
+civ
+rsbr
+semg1
+pmb1306
+jaspar core
+pgem
+genemerge
+e4bp4
+psca
+dnaj
+acaa1
+n266
+cpt1b
+sussman
+mlir
+nups
+ip10
+toxoplasma
+cdka2
+cambrex
+fantom2
+biosoft
+nhdf
+rpn4p
+orf1p
+cdr3β
+tric
+n139
+sirnaa
+jeffrey
+resnik
+sycp2
+ser2448
+pks11
+pprs
+ccan
+rpkms
+gli4
+ophiocordycipitaceae
+slc5a3
+sbiii
+lake placid
+rsbu
+pebv
+ck8
+pgaabcd
+omf
+dmtor
+foxn1
+freiburg
+smnδ7
+pdf51
+parahox
+p38mapk
+il7r
+dapk1
+gph
+branchiostoma
+c2h2
+mait
+exot
+pks10
+amphimedon
+klk1b5
+oryzias
+cyp26a1
+ccna2
+f344
+m577
+strongylocentrotus
+chemidoc mp
+nc82
+rlc1p
+got1p1
+cop2
+ywhab
+dki
+rod1
+paex
+nup
+cpa1
+tic20
+lysosomal associated
+grp94
+vird4
+l2427p
+rpl30
+mrps
+mart1
+proopiomelanocortin pomc
+western lightning
+galscm3ha
+pombase
+creert
+ywhaz
+sv5
+hb8
+tc11
+fkbp12
+demospongiae
+pactamycin
+sclm13
+foxn1 forkhead
+paneth
+acsl
+nata
+pt7ts
+glomerellales
+selt
+colletotrichum
+cpmv
+l1tf
+bruchpilot brp
+wirtz
+fup
+statview
+jolla virus
+pcape2
+fatp
+lhx
+pfama1
+sypro
+bonferroni dunn
+jimmy lin
+tg1637
+tg2005
+manipulation suite
+tg1621
+ryr
+scfv1e10
+cg7033
+folr
+phycomyces
+quickchange
+br1704
+tg1630
+zbtb16
+boltzmann sigmoidal
+glmn
+ipr001719
+ap3d
+fatb
+cug2
+rc154
+lmo1
+tg1199
+grpe
+picrophilus
+bfaanatη
+hdlg1
+bonferoni
+lypla3
+hes7
+tg1623
+cg8258
+nicalin
+thr187
+prs426 gal1
+yaqian zhou
+tcon
+tg2074
+cvc1410
+f192i
+nfatc
+kc899090
+irdye800
+ppe1
+aaap
+tg1626
+bspa
+qcr
+tg1627

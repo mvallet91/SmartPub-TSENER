@@ -1,0 +1,25 @@
+protein rhsa
+calpain-7
+matrix metalloproteinase-24
+beta-defensin 116
+nfat protein
+protein cbfa2t3
+neogenin
+tachykinin-4
+rna pyrophosphohydrolase
+matrix metalloproteinase-17
+protein hoka
+mitofusin-1
+cystathionine gamma-synthase
+calpain-9
+metalloreductase steap3
+dolichyldiphosphatase 1
+ustilago sphaerogena
+beclin-1
+aquaporin-12b
+3-ketodihydrosphingosine reductase
+proepiregulin
+bmp10
+aldose 1-epimerase
+l-threonine 3-dehydrogenase
+endophilin-a3

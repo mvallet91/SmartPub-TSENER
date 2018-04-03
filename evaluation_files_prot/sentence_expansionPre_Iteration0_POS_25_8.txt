@@ -1,0 +1,118 @@
+sirna
+figure s5
+pv
+ner
+pi3k
+σe
+gal4
+atpase
+nadh
+nadph
+kp342
+pkd1
+roxs
+gtpase
+pgrmc1
+pvs
+basic local
+ddb1
+moi
+ddb2
+pparγ
+ppnkb
+stat92e
+nicotinamide
+nedd4
+blast basic
+pyrg
+pkd2
+mrc1p
+ykun
+lamin
+dach1
+sir2p
+adenine dinucleotide
+mure
+k051
+tmod3
+fumc
+ap4e1
+xyl1
+tmod2
+cog0019
+iba57
+dynamin shibire
+lysa
+k44a
+lk6
+cd3258
+isd11
+inversin
+sirnas
+fbs
+src
+dcc
+prd
+ffpe
+rankl
+mtj
+fumarate
+cyp19
+fmn
+nicotinamide adenine
+mrc1
+sigb
+xdh
+p2x
+cathepsin k
+tropomodulin
+nat1
+neogenin
+purf
+claspin
+perkinsus
+isa1
+jac1
+dmxl2
+cav2
+yorkie yki
+neo1
+nopp140
+hmoa
+ydbp
+okamura
+jak3
+sirnas
+fbs
+src
+dcc
+prd
+ffpe
+rankl
+mtj
+fumarate
+cyp19
+fmn
+nicotinamide adenine
+mrc1
+sigb
+xdh
+p2x
+cathepsin k
+tropomodulin
+nat1
+neogenin
+purf
+claspin
+perkinsus
+isa1
+jac1
+dmxl2
+cav2
+yorkie yki
+neo1
+nopp140
+hmoa
+ydbp
+okamura
+jak3

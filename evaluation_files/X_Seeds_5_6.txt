@@ -1,5 +1,0 @@
-chemid
-quora
-imagenet
-newegg
-gene ontology

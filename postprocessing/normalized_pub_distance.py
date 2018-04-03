@@ -10,7 +10,7 @@ import math
 
 def NPD(dsnames):
     result = []
-    # print('Started  PMI filtering...')
+    print('Started  PMI filtering...')
 
     # context words for dataset
     # contextwords = ['dataset', 'corpus', 'collection', 'repository', 'benchmark', 'website']
