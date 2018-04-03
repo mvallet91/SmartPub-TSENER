@@ -1,5 +1,0 @@
-tac kbp
-linkedgeodata
-brightkite
-jnlpba
-semeval

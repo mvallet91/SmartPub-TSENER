@@ -1,0 +1,100 @@
+protein casc4
+cd59 glycoprotein
+protein gr6
+lefty 2
+interleukin-26
+udp-glucuronosyltransferase 1-10
+n-sulphoglucosamine sulphohydrolase
+lin-7 b
+anoctamin-1
+calbindin
+ly-6-like protein
+sus scrofa
+tribbles 2
+protein tex261
+desmoplakin
+semaphorin-6b
+dipeptidase 2
+beta-crystallin s
+glomulin
+uroplakin-1a
+myosin-ixa
+palmdelphin
+cadherin
+signal_peptide
+calpain-3
+protein rhsb
+pyridoxine kinase
+protein hemy
+spindlin-3
+prohibitin
+protein cln8
+phosphatidylglycerophosphatase a
+protein sox-15
+beta-defensin 125
+protocadherin alpha-2
+ubiquitin
+phosphotriesterasey protein
+metalloreductase steap1
+chromogranin-a
+l-asparaginase
+protein gapt
+l-fucose-proton symporter
+aquaporin-12a
+cathepsin d
+metalloreductase steap2
+calpain-7
+metallothionein-1m
+protein os-9
+beta-1,4-galactosyltransferase 1
+secretagogin
+dihydropteridine reductase
+n-acetylglucosamine-6-sulfatase
+aquaporin-11
+desmoglein-1-beta
+dystrobrevin alpha
+n-acetylgalactosamine-6-sulfatase
+2-methylcitrate dehydratase
+interferon alpha-11
+protein quaking
+fascin-3
+dermatan-sulfate epimerase
+inversin
+rhophilin-1
+adiponectin
+astrotactin-2
+protein gltf
+gamma-glutamyltranspeptidase
+presenilin-1
+arylsulfatase k
+deoxyhypusine synthase
+protein aaex
+atlastin-3
+cyclin-g2
+protein rrp5
+adenosine receptor
+lithostathine-1-alpha
+8-amino-7-oxononanoate synthase
+khg/kdpg aldolase
+histone h3.1t
+cd63 antigen
+protein mal2
+caspase-3
+protein fecr
+gamma-adducin
+caspase-4
+phospholipase ddhd1
+poliovirus receptor
+lacks_part
+n-succinylarginine dihydrolase
+alanyl-trna synthetase
+protein umud
+ecto-adp-ribosyltransferase 4
+beta-defensin 5
+n-acetyltransferase esco2
+sorting nexin-1
+caspase-10
+myosin-14
+g2/mitotic-specific cyclin-f
+tetraspanin-5
+interleukin-22b

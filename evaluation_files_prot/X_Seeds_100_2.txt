@@ -1,0 +1,100 @@
+sulfurtransferase tuse
+mammaglobin-b
+histone h1.3
+protein hira
+sialidase-1
+tetraspanin-4
+double-stranded dna
+ethanolaminephosphotransferase 1
+neurotrypsin
+interferon alpha-8
+protocadherin gamma-b5
+transaldolase a
+syntaphilin
+udp-glucuronosyltransferase
+protein smg7
+pantothenate synthetase
+dermatan-sulfate epimerase
+synaptotagmin-12
+tetranectin
+2fe-2s ferredoxin
+pyrazinamidase/nicotinamidase
+cyclin-j-like protein
+protein rcsf
+pyridoxal kinase
+protein frg2
+aquaporin-2
+cytosol aminopeptidase
+matrix metalloproteinase-9
+dysbindin
+l-rhamnose isomerase
+calponin-2
+alpha-parvin
+histatin-1
+cystatin-d
+calsyntenin-2
+protein creg1
+sorting nexin-16
+protein sirb1
+thiol peroxidase
+protein s100-a9
+apolipoprotein d
+alpha-1-antitrypsin
+histone h1t
+protein mal2
+interferon epsilon
+protein s100-a16
+gamma-crystallin a
+sorting nexin-1
+spastin
+nociceptin
+bmp10
+xaa-pro aminopeptidase
+cyclin-g2
+gamma-glutamyl-gamma-aminobutyrate hydrolase
+myosin-xv
+prolactin
+apolipoprotein c-i
+phosphoinositide-interacting protein
+talin-2
+neutral ceramidase
+prolactin-7a1
+protein tmed8
+histone h3.3
+protein ambp
+n-acylneuraminate cytidylyltransferase
+dynamin-binding protein
+adenine phosphoribosyltransferase
+plasminogen
+sorting nexin-20
+udp-glucuronosyltransferase 2b11
+n-acetyltransferase 6
+fibronectin
+synaptopodin-2
+nyctalopin
+protein wzxe
+plasma kallikrein
+alpha-synuclein
+apolipoprotein o-like
+protein lmbr1l
+properdin
+protocadherin beta-2
+protein mrp
+lin-28 b
+mucosal pentraxin
+adenylate cyclase
+l-aspartate oxidase
+junctophilin-1
+capucin
+parathyroid hormone
+fractalkine
+mucin-5b
+protein ccsmst1
+galectin-9c
+apoptosis-enhancing nuclease
+myosin-xviiib
+coronin-2b
+formin-1
+aquaporin-5
+plastin-1
+nucleoplasmin-3

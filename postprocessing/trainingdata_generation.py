@@ -80,7 +80,7 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
         Use the  extracted entities in the Expansion steps to find sentences containing those seeds
     """
     for i in range(1, int(numberOfIteration) + 1):
-        with open(ROOTHPATH + '/evaluation_files/' + name + '_Iteration' + str(i) + '_POS_' + str(
+        with open(ROOTPATH + '/evaluation_files_prot/' + name + '_Iteration' + str(i) + '_POS_' + str(
                 numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
             for row in file.readlines():
                 dsnames.append(row.strip())
@@ -88,7 +88,7 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
     """
         Use the  initial seeds
     """
-    with open(ROOTHPATH + '/evaluation_files/X_Seeds_' + str(numberOfSeeds) + '_' + str(iteration) + '.txt',
+    with open(ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(numberOfSeeds) + '_' + str(iteration) + '.txt',
               'r') as file:
         for row in file.readlines():
             dsnames.append(row.strip())
@@ -171,7 +171,7 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
     sentences = re.sub(r"(\.)([A-Z])", r"\1 \2", paragraph)
 
     text_file = open(
-        ROOTHPATH + '/evaluation_files/' + name + 'text_Iteration' + numberOfIteration + str(numberOfSeeds) + '_' + str(
+        ROOTPATH + '/evaluation_files_prot/' + name + 'text_Iteration' + numberOfIteration + str(numberOfSeeds) + '_' + str(
             iteration) + '.txt', 'w')
     text_file.write(sentences)
     text_file.close()
@@ -232,7 +232,7 @@ def generate_trainingTE(numberOfSeeds, name, numberOfIteration, iteration):
 
     else:
         fileUnlabelled = open(
-            ROOTHPATH + '/evaluation_files_prot/' + name + 'text_Iteration' + numberOfIteration + str(
+            ROOTPATH + '/evaluation_files_prot/' + name + 'text_Iteration' + numberOfIteration + str(
                 numberOfSeeds) + '_' + str(
                 iteration) + '.txt')
 
@@ -384,26 +384,24 @@ Function for generating the training data using the extracted terms and sentence
 
 
 def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model):
+    
     dsnames = []
     dstemp = []
-
     """
         Use the intial seed terms
     """
-    corpuspath = ROOTHPATH + '/evaluation_files/X_Seeds_' + str(numberOfSeeds) + '_' + str(
-        iteration) + '.txt'
+    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(numberOfSeeds) + '_' + str(iteration) + '.txt'
     with open(corpuspath, "r") as file:
         for row in file.readlines():
             dsnames.append(row.strip())
             dstemp.append(row.strip())
 
     """
-            Use the entities extracted from the Term Expansion approach
+        Use the entities extracted from the Term Expansion approach
     """
     try:
-        with open(ROOTHPATH + '/evaluation_files/' + name + 'Pre_Iteration' + str(
-                numberOfIteration) + '_POS_' + str(
-            numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
+        with open(ROOTPATH + '/evaluation_files_prot/' + name + 'Pre_Iteration' + str(numberOfIteration) + '_POS_' + 
+                  str(numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
             for row in file.readlines():
                 dsnames.append(row.strip())
     except:
@@ -413,15 +411,16 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
     dsnames = list(set(dsnames))
 
     """
-        If in the first iteration use the initial text extracted using the  intial seeds else use the new extracted training data which contain the new filtered entities
+        If in the first iteration, use the initial text extracted using the intial seeds 
+        else, use the new extracted training data which contain the new filtered entities
     """
     if int(numberOfIteration) == 0:
         fileUnlabelled = open(
-            ROOTHPATH + '/evaluation_files/X_train_' + str(numberOfSeeds) + '_' + str(
+            ROOTPATH + '/evaluation_files_prot/X_train_' + str(numberOfSeeds) + '_' + str(
                 iteration) + '.txt', 'r')
     else:
         fileUnlabelled = open(
-            ROOTHPATH + '/evaluation_files/' + name + 'text_Iteration' + numberOfIteration + str(
+            ROOTPATH + '/evaluation_files_prot/' + name + 'text_Iteration' + numberOfIteration + str(
                 numberOfSeeds) + '_' + str(
                 iteration) + '.txt')
 
@@ -429,7 +428,6 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
     text = text.replace('\\', '')
     text = text.replace('/', '')
     text = text.replace('"', '')
-
     text = text.replace('(', '')
     text = text.replace(')', '')
     text = text.replace('[', '')
@@ -452,7 +450,6 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
         sims = model.docvecs.most_similar([new_vector], topn=1)
         try:
             for ss in sims:
-
                 if ss[1] > 0.50:
                     temp.append(extract_similarsentences(str(ss[0])))
         except:
@@ -463,12 +460,13 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
     for tt in temp:
         lines.append(tt)
     labelledtext = list()
-
     print(len(lines))
+    sys.stdout.flush()
 
     """
         In this loop, for each sentence, we check if it contains the terms of the dsnames (seed terms),
-        if yes annotate that word with 'DATA'. We basically create  a dictionary with all the words and their corresponding labels
+        if yes annotate that word with 'DATA' or 'PROT'. We basically create  a dictionary with all the 
+        words and their corresponding labels
     """
     lines = list(set(lines))
     for line in lines:
@@ -483,24 +481,21 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
         if index:
 
             for i in index:
-
                 dsnamesplitted = dsnames[i].split()
-
                 flag = False
+                
                 for idx, word in enumerate(words):
-
                     if flag == True:
-
                         flag = False
                         if word[0].isupper():
-                            worddict[word] = word + '/DATA'
+                            worddict[word] = word + '/PROT'
 
                     elif dsnames[i] in word.lower() and len(word) > 2 and len(dsnames[i]) > 3:
                         if len(dsnames[i]) < 5:
                             if word.lower().startswith(dsnames[i]):
-                                worddict[word] = word + '/DATA'
+                                worddict[word] = word + '/PROT'
                         else:
-                            worddict[word] = word + '/DATA'
+                            worddict[word] = word + '/PROT'
 
                     elif len(dsnamesplitted) > 1:
                         try:
@@ -508,65 +503,54 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
 
                                 if word.lower() in dsnamesplitted[0] and words[idx + 1].lower() in \
                                         dsnamesplitted[1]:
-                                    worddict[word] = word + '/DATA'
-                                    worddict[words[idx + 1]] = words[idx + 1] + '/DATA'
+                                    worddict[word] = word + '/PROT'
+                                    worddict[words[idx + 1]] = words[idx + 1] + '/PROT'
 
                             elif len(dsnamesplitted) == 3:
 
                                 if word.lower() in dsnamesplitted[0] and words[idx + 1].lower() in \
                                         dsnamesplitted[1] and \
                                                 words[idx + 2].lower() in dsnamesplitted[2]:
-                                    worddict[word] = word + '/DATA'
-                                    worddict[words[idx + 1]] = words[idx + 1] + '/DATA'
-                                    worddict[words[idx + 2]] = words[idx + 2] + '/DATA'
+                                    worddict[word] = word + '/PROT'
+                                    worddict[words[idx + 1]] = words[idx + 1] + '/PROT'
+                                    worddict[words[idx + 2]] = words[idx + 2] + '/PROT'
                                 elif word.lower() in dsnamesplitted[0] and words[idx + 1].lower() in \
                                         dsnamesplitted[1]:
-                                    worddict[word] = word + '/DATA'
-                                    worddict[words[idx + 1]] = words[idx + 1] + '/DATA'
-
+                                    worddict[word] = word + '/PROT'
+                                    worddict[words[idx + 1]] = words[idx + 1] + '/PROT'
                         except:
                             continue
-
             sentence = ''
             for i, word in enumerate(words):
                 if worddict[word] == '':
                     sentence = sentence + ' ' + word
-
                 else:
-                    if '/DATA' in worddict[word]:
+                    if '/PROT' in worddict[word]:
                         sentence = sentence + ' ' + worddict[word]
-
             labelledtext.append(sentence)
         else:
             labelledtext.append(line)
     inputs = []
     for ll in labelledtext:
         words = word_tokenize(ll)
-
         for word in words:
-            if '/DATA' in word:
-
+            if '/PROT' in word:
                 word = word.split('/')
                 word = word[0]
-
-                label = 'DATA'
-
-
+                label = 'PROT'
             else:
                 label = 'O'
             inputs.append([word, label])
-    with open(ROOTHPATH + '/evaluation_files/' + name + '_text_iteration' + numberOfIteration + str(
-            numberOfSeeds) + '_' + str(iteration) + '.txt', 'w') as file:
+    with open(ROOTPATH + '/evaluation_files_prot/' + name + '_text_iteration' + numberOfIteration + 
+              str(numberOfSeeds) + '_' + str(iteration) + '.txt', 'w') as file:
         for item in inputs:
             row = str(item[0]) + '\t' + str(item[1]) + "\n"
             file.write(row)
-    file = open(
-        ROOTHPATH + '/evaluation_files/' + name + '_text_iteration' + numberOfIteration + '_splitted' + str(
-            numberOfSeeds) + '_' + str(iteration) + '.txt', 'w')
-    with open(ROOTHPATH + '/evaluation_files/' + name + '_text_iteration' + numberOfIteration + str(
-            numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as tsvin:
+    file = open(ROOTPATH + '/evaluation_files_prot/' + name + '_text_iteration' + numberOfIteration + '_splitted' + 
+                str(numberOfSeeds) + '_' + str(iteration) + '.txt', 'w')
+    with open(ROOTPATH + '/evaluation_files_prot/' + name + '_text_iteration' + numberOfIteration + 
+              str(numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as tsvin:
         tsvin = csv.reader(tsvin, delimiter='\t')
-
         for row in tsvin:
             # print(row)
             if '###' in row[0]:
@@ -576,8 +560,6 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
                 file.write(rows)
                 file.write("\n")
             else:
-
                 rows = str(row[0]) + '\t' + str(row[1]) + "\n"
                 file.write(rows)
-
     file.close()

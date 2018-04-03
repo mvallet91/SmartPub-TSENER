@@ -7,6 +7,7 @@ This script is used to train the NER model
 import subprocess
 import re
 import config as cfg
+import sys
 
 
 # Testing the results of the trained NER model on the testfile
@@ -51,6 +52,7 @@ def create_austenprop(numberOfSeeds, name, numberOfIteration):
         edited = re.sub(r'serializeTo.*?gz', serializeTo, edited, flags=re.DOTALL)
         print('Edited:')
         print(edited)
+        sys.stdout.flush()
         text_file = open(cfg.ROOTPATH + '/prop_files/austen' + str(numberOfSeeds) + '_' + str(iteration) + '.prop', 'w')
         text_file.write(edited)
         text_file.close()

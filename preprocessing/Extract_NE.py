@@ -4,7 +4,6 @@ This script will be used to extract the entities from the text.
 import nltk
 
 def preprocess_NE(filepath):
-
     fileUnlabelled=open(filepath,'r')
     text = fileUnlabelled.read()
     print('started to extract general NE from text....')

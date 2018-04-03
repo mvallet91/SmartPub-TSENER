@@ -96,7 +96,7 @@ def get_NEs(res):
         filteredword, PMIdata, PMImethod, dssimilarity, mtsimilarity, ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90, mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90 = filter_entities.filter_it(word, model)
 
 
-        store_datasetname_in_mongo(db,doc["_id"],doc["_source"]["title"], doc["_source"]["journal"],doc["_source"]["year"],  word, inwordNet,filteredword, PMIdata, PMImethod, dssimilarity, mtsimilarity, ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90, mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90)
+        store_datasetname_in_mongo(db,doc["_id"],doc["_source"]["title"], doc["_source"]["journal"],doc["_source"]["year"],  word, inwordNet, filteredword, PMIdata, PMImethod, dssimilarity, mtsimilarity, ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90, mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90)
 
 def check_if_id_exist_in_db(db, id, word):
     check_string = {'$and':[{'paper_id':id},{'word':word}]}
@@ -106,14 +106,14 @@ def check_if_id_exist_in_db(db, id, word):
     else:
         return False
     
-def store_datasetname_in_mongo(db, id, title,journal, year, word, inwordNet, filtered_words, PMIdata, PMImethod, dssimilarity, mtsimilarity, ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90, mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90):
+def store_datasetname_in_mongo(db, id, title, journal, year, word, inwordNet, filtered_words, PMIdata, PMImethod, dssimilarity, mtsimilarity, ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90, mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90):
     my_ner = {
-        "paper_id": id,
-        "title": title,
-        "journal": journal,
+        "paper_id":id,
+        "title":title,
+        "journal":journal,
         "year":year,
         "word":word,
-        "label":'method',
+        "label":'protein',
         "inwordNet":inwordNet,
         "filtered_words":filtered_words,
         "PMIdata":PMIdata,
@@ -139,17 +139,17 @@ def store_datasetname_in_mongo(db, id, title,journal, year, word, inwordNet, fil
         return True
 
 
-filter_conference = ["WWW", "ICSE", "VLDB", "JCDL", "TREC",  "SIGIR", "ICWSM", "ECDL", #"ESWC", "TPDL", 
-                         "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", "BMC Biotechnology",
-                        "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR", 
-                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
+publications = ["WWW", "ICSE", "VLDB", "JCDL", "TREC",  "SIGIR", "ICWSM", "ECDL", #"ESWC", "TPDL", 
+                "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", "BMC Biotechnology",
+                "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR", 
+                "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
 
-for conference in filter_conference:
+for publication in publications:
 
     query = {"query":
         {"match": {
             "journal": {
-                "query": conference,
+                "query": publication,
                 "operator": "and"
             }
         }
@@ -171,7 +171,7 @@ for conference in filter_conference:
         query = doc["_source"]["content"]
         print(doc["_source"]["title"])
         
-        path_to_model = 'crf_trained_files/trained_ner_MET.ser.gz'
+        path_to_model = 'crf_trained_files/term_expansion_text_iteration0_splitted10_0.ser.gz'
        
         nertagger = StanfordNERTagger(path_to_model, path_to_jar)
 
