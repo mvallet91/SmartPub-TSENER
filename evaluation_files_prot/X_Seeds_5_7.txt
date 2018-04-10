@@ -1,5 +1,5 @@
-o-antigen ligase
-metallothionein-1b
-kallikrein-12
-lymphotactin
-protein lmbr1l
+lysozyme
+reticulon
+glypican
+ectodysplasin
+protocadherin

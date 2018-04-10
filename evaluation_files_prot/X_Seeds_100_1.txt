@@ -1,100 +1,100 @@
-deoxyribonuclease-1
-protein smta
-matrix metalloproteinase-26
-protocadherin-10
-udp-glucuronosyltransferase 2b4
-l-selectin
-claudin-5
-l-fucose mutarotase
-inositol oxygenase
-beta-tectorin
-2-methylcitrate synthase
-glycophorin-e
-protein kti12
-interleukin-15
-protein sufi
-cyclin-j
-cadherin-22
-cytosine permease
-protein prune
-protein flxa
-protein araj
-interleukin-10
-protein npat
-rootletin
-interferon alpha-9
-psychosine receptor
-histone h3.1t
-caspase-1-like protease
-palmitoyltransferase zdhhc2
-axin
-insulin-like protein
-epsin-1
-sortilin-related receptor
-myosin-1
-metallophosphoesterase 1
+striatin
+growth/differentiation factor
+alkaline phosphatase
+adiponectin
+liprin-alpha
+synaptogyrin
+transcription factor
+mitogen activated protein kinase
+tetraspanin
+metaxin
+gallus gallus
+cystin
+syntaxin
+contactin
+disabled
+amino acid chain
+glycophorin
 adenylate cyclase
-talin-1
-beta-defensin 113
-claudin-16
-reticulon-4 receptor
-histone h1.2
-cathepsin r
-ribonuclease e
-7-dehydrocholesterol reductase
-pappalysin-1
-cathepsin w
-protocadherin gamma-a5
-myocilin
-protocadherin beta-2
-interleukin-22b
-sorting nexin-17
-glucose-1-phosphate adenylyltransferase
-myomegalin
-delta-opioid receptor
-exodeoxyribonuclease 8
-neuromedin-s
-hsc70-interacting protein
-protein gmr
-protein hflc
-dna2-like helicase
-neuromedin-b receptor
-uroplakin-1a
-beta-defensin 10
-protein dpy-30
-3-hydroxyanthranilate 3,4-dioxygenase
-adenylyl-sulfate kinase
-beta-2-syntrophin
-lipopolysaccharide
-phosphomethylpyrimidine kinase
-dipeptidyl-peptidase 3
-fibulin-5
-otogelin
-soluble app-theta
-nicotinate phosphoribosyltransferase
-frizzled-4
-klotho
-protein pcoth
-kallikrein-6
-ficolin-1
-protein wnt-11
-tapasin-related protein
-tomoregulin-1
-axin-2
-alpha-mannosidase 2c1
-protocadherin gamma-a12
-thioredoxin-interacting protein
-tropomodulin-3
-protein kintoun
-follitropin receptor
-protein arv1
-protein cbfa2t3
-secernin-1
-protein armcx6
-gasdermin-a3
-prominin-1
-ribonuclease uk114
-beta-defensin 30
-ligand-dependent corepressor
-protein rutd
-l-xylulose reductase
+flagellin
+protein
+anoctamin
+makorin
+cyclin
+deoxyribonuclease-2-alpha
+selectin
+amino acid residue
+sparc
+ficolin
+nidogen
+arrestin
+plastin
+desmoglein
+neurotrophin
+glypican
+galectin
+cullin
+insulin
+protein lines
+beclin
+ovalbumin
+cadherin
+growth hormone receptor
+cd19
+macroglobulin
+epithelial cadherin
+cystatin
+defensin
+transcription factor complex
+ubiquitin
+elafin
+exportin
+tectonic
+hemicentin
+lysozyme
+dystrophin
+stonin
+phosphofructokinase
+nadh dehydrogenase
+chordin
+trypsin
+beta-arrestin
+death receptor
+ectodysplasin
+calponin
+merlin
+myc protein
+renin
+vasohibin
+cytochrome
+dna binding protein
+frizzled
+protein spatial
+reticulon
+multimerin
+paxillin
+clarin
+chitotriosidase
+nuclear protein
+protein red
+signal peptide
+dna polymerase
+derlin
+ataxin
+glucocorticoid receptor
+acylphosphatase
+histone
+metallothionein
+protein reca
+myosin
+emilin
+spindlin
+stathmin
+latrophilin
+interleukin
+elastase
+prostasin
+desmocollin
+substrate
+copine
+progesterone receptor

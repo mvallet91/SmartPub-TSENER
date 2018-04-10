@@ -10,26 +10,26 @@ from nltk.corpus import stopwords
 import re
 import string
 from config import ROOTPATH, STANFORD_NER_PATH
+import sys
 
 filterbywordnet = []
 
 def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration, iteration, es):
     print('started iteration.....', numberOfSeeds, name, numberOfIteration)
-
     print('numbers:', numberOfSeeds, iteration)
 
-    # change crf_trained_files to  crf_trained_filesMet if you want to extract method entities
+    # change crf_trained_files if you want to extract method or protein entities
     path_to_model = ROOTPATH + '/crf_trained_files/' + name + '_text_iteration' + str(prevnumberOfIteration) + '_splitted' + str(
         numberOfSeeds) + '_' + str(iteration) + '.ser.gz'
 
     """
     use the trained Stanford NER model to extract entities from the publications
     """
-    nertagger = StanfordNERTagger(path_to_model, ROOTPATH + STANFORD_NER_PATH)
+    nertagger = StanfordNERTagger(path_to_model, STANFORD_NER_PATH)
 
     newnames = []
     result = []
-    filter_conference = ["WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL",# "ESWC", "TPDL"]
+    filter_conference = [#"WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL",# "ESWC", "TPDL"]
                         "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", 
                          "BMC Biotechnology", "BMC Neuroscience", "Genome Biology", "PLoS Genetics", 
                          "Breast Cancer Research : BCR", "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
@@ -37,7 +37,7 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
     for conference in filter_conference:
         query = {"query":
             {"match": {
-                "journal": {
+                "publication": {
                     "query": conference,
                     "operator": "and"
                 }
@@ -49,9 +49,10 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
                         body=query, size=10000)
         
         print(len(res['hits']['hits']))
-
+        sys.stdout.flush()
+        
         for doc in res['hits']['hits']:
-            sentence = doc["_source"]["content"]
+            sentence = doc["_source"]["text"]
             sentence = sentence.replace("@ BULLET", "")
             sentence = sentence.replace("@BULLET", "")
             sentence = sentence.replace(", ", " , ")
@@ -63,8 +64,9 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
             sentence = sentence.replace('?', ' ?')
             sentence = sentence.replace('..', '.')
             sentence = re.sub(r"(\.)([A-Z])", r"\1 \2", sentence)
+            
             tagged = nertagger.tag(sentence.split())
-
+            
             for jj, (a, b) in enumerate(tagged):
                 # change DATA to MET or PROT to extract method or protein entities
                 if b == 'PROT':
@@ -72,13 +74,14 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
                     try:
                         if res[jj + 1][1] == 'PROT':
                             temp = res[jj + 1][0].translate(str.maketrans('', '', string.punctuation))
-
                             bigram = a + ' ' + temp
                             result.append(bigram)
                     except:
+                        result.append(a)
                         continue
-
                     result.append(a)
+            print('.', end='')
+            sys.stdout.flush()
 
     result = list(set(result))
     result = [w.replace('"', '') for w in result]
@@ -90,7 +93,9 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
             newnames.append(word.lower())
         except:
             newnames.append(word.lower())
-
+            
+    print('Total of', len(filtered_words), 'filtered words added')
+    sys.stdout.flush()
     f1 = open(ROOTPATH + '/post_processing_files/' + name + '_Iteration' + numberOfIteration + str(
         numberOfSeeds) + '_' + str(iteration) + '.txt', 'w')
     for item in filtered_words:

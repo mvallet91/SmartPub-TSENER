@@ -1,100 +1,100 @@
-protein phnj
-protein ssx6
-anoctamin-4
-noelin
-t-cell ecto-adp-ribosyltransferase
-lipopolysaccharide 1,2-glucosyltransferase
-timeless-interacting protein
-protamine-2
-follitropin receptor
-calcyphosin
-crumbs 1
-protein wibg
-beta-1,3-galactosyltransferase 2
-ephrin
-beta-defensin 37
-calponin-3
-sphingomyelin phosphodiesterase
-interleukin-6
-protein thij
-utrophin
-galactose-3-o-sulfotransferase 2
-semaphorin-4b
-seipin
-synembryn-b
-nucleobindin-1
-fibrillin-1
-tapasin-related protein
-cortexin-1
-makorin-2
-prosaas
-protocadherin gamma-a12
-alpha-1-antitrypsin 1-2
-interferon alpha-11
-valyl-trna synthetase
-calcipressin-1
-vasopressin-neurophysin 2-copeptin
-coronin-1b
-dolichyl-phosphate beta-glucosyltransferase
-fmn reductase
-gmp reductase
-semaphorin-4a
-hspc protein
-acetylglutamate kinase
-inositol-tetrakisphosphate 1-kinase
-importin-4
-n-ethylmaleimide reductase
-claudin-9
-noelin-2
-beta-1,3-glucuronyltransferase 1
-caspase-2
-prothyroliberin
-pyroglutamyl-peptidase 1
-lebercilin
-vigilin
-protein shroom1
-semaphorin-3e
-uronyl 2-sulfotransferase
-cad protein
-caspase-10
-chemokine receptor
-caspase-14
-protein mrvi1
-prolyl-trna synthetase
-ecto-adp-ribosyltransferase 4
-phosphatidylcholine-sterol acyltransferase
-adenylate kinase
-protein tanc1
-roquin
-protein sidekick-2
-sodium/pantothenate symporter
-octaprenyl-diphosphate synthase
-lebercilin-like protein
-protein argonaute-1
-7-alpha-hydroxysteroid dehydrogenase
-endothelin-1
-protein tspear
-beta-klotho
-tribbles 1
-macoilin
-angiogenin-3
-amelotin
+synaptogyrin
+protocadherin
+alpha-2-macroglobulin-p
+mitogen activated protein kinase
+trypsin
+transcription factor
+protease
+frizzled
+stathmin
+desmoglein
+dystrophin
+glucocorticoid receptor
+muskelin
+amino acid residue
+latrophilin
+myosin
+caspase
+aquaporin
+cystatin
+makorin
+liprin-alpha
+double stranded dna
+nidogen
+renin
+vasohibin
+protein lines
+metaxin
+nephrocystin
+dna ligase
+reticulocalbin
+alpha-actinin
+emilin
 elafin
-transportin-3
-claudin-8
-signal_peptide
-diaminopimelate epimerase
-cochlin
-granulins
-protein wnt-5a
-sulfotransferase 1a3/1a4
-isopentenyl-diphosphate delta-isomerase
-pleckstrin-2
-beta-1,3-glucosyltransferase
-podocan
-hyaluronidase ph-20
-vasohibin-1
-smad2
-lefty 2
-matrilysin
-cytohesin-4
+defensin
+hexokinase
+cohesin complex
+protein reca
+tenascin
+disabled
+myc protein
+ubiquitin
+sparc
+adenylate cyclase
+gasdermin
+ataxin
+death receptor
+protein impact
+arrestin
+ovalbumin
+set binding protein
+chordin
+progesterone receptor
+desmocollin
+lysozyme
+liprin-beta
+phenylalanine-4-hydroxylase
+hemicentin
+beta-arrestin
+insulin
+paxillin
+protein red
+flagellin
+homo sapiens
+stonin
+dna binding protein
+dna polymerase
+neurotrophin
+nuclear protein
+bestrophin
+lipopolysaccharide
+napsin
+bacillus subtilis
+glycophorin
+spindlin
+reticulon
+substrate
+mus musculus
+gallus gallus
+cytochrome
+cd19
+exportin
+c99
+exostosin
+thioredoxin
+epithelial cadherin
+cullin
+saccharomyces cerevisiae
+tetraspanin
+phosphofructokinase
+macroglobulin
+claudin
+growth/differentiation factor
+plakophilin
+nadh dehydrogenase
+prostasin
+elastase
+secretogranin
+cd34
+selectin
+chemokine receptor

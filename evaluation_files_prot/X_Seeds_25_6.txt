@@ -1,25 +1,25 @@
-ficolin-3
-vertebrate-like neuraminidase
-pirin
-oligodendrocyte-myelin glycoprotein
-exophilin-5
-sorting nexin-25
-lin-7 b
-prosaas
-stag3-like protein
-protein mon2
-protein gnsb
-ribonuclease hi
-ecotin
-n-acetylglucosamine-6-sulfatase
-interleukin-26
-protein odr-4
-ribonuclease pancreatic
-phosphopantetheine adenylyltransferase
-tryptophanase
-r-spondin-3
-insulin-like 3
-inad-like protein
-tapasin
-serpin b3
-reticulon-4 receptor
+exostosin
+frizzled
+bestrophin
+cystin
+alpha-2-macroglobulin-p
+galectin
+caspase
+transcription factor complex
+spindlin
+pannexin
+exportin
+aquaporin
+sparc
+amino acid chain
+gallus gallus
+ataxin
+mus musculus
+macroglobulin
+histone
+reticulocalbin
+calsyntenin
+defensin
+stathmin
+renin
+dna ligase

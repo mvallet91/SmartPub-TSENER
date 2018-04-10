@@ -1,100 +1,100 @@
-dipeptidyl-peptidase 3
-soluble app-beta
-protein mpv17
-beta-1-syntrophin
-pleckstrin
-glycodelin
-glucose-6-phosphatase 3
-oligoribonuclease
-protocadherin gamma-a8
-protein phnj
-semaphorin-3g
-atlastin-2
-syndecan-3
-nociceptin
-grifin
-glucarate dehydratase
-vip36-like protein
-myosin-1
-interferon alpha-12
-pcna-associated factor
+nuclear protein
+gasdermin
+muskelin
+small gtpase
+nidogen
+tectonic
+tenascin
+c99
+alpha-actinin
+bestrophin
+protein impact
 thioredoxin
-pericentrin
-nucleophosmin
-nkap-like protein
-protein amac1l3
-protein solo
-mucin-12
-n-acylneuraminate-9-phosphatase
-transcobalamin-1
-atlastin-1
-protocadherin-20
-saccharomyces cerevisiae
-udp-glucuronosyltransferase 2a2
-beta-defensin 9
-caveolin-2
-torsin-1b
-transcobalamin-2
-g2/mitotic-specific cyclin-b1
-n-myc-interactor
-gephyrin
-deoxyribonuclease tatd
-exodeoxyribonuclease 8
-golgin-45
-stefin-3
-aspartate 1-decarboxylase
-mesothelin-like protein
-protocadherin beta-14
-exodeoxyribonuclease 10
-ureidoglycolate dehydrogenase
-hydroxyacylglutathione hydrolase
-alpha-actinin-4
-sfrs2-interacting protein
-protein inaa
-nicotinamide n-methyltransferase
-kinesin complex
-thiosulfate sulfurtransferase
-protocadherin beta-15
-angiogenin-3
-s-adenosylmethionine synthetase
-uracil-dna glycosylase
-adp-dependent glucokinase
-lipoprotein 28
-myomesin-1
-gastrin-releasing peptide
-udp-n-acetylglucosamine transporter
-carboxylesterase 7
-contactin-3
-glucagon receptor
-mus musculus
-sortilin
-inositol-1-monophosphatase
-protein maly
-lamin-b2
-met repressor
-dihydropteroate synthase
-hephaestin
-teneurin-4
-protein pprc1
-thrombospondin 4
-defensin-related cryptdin-26
-protein umud
-protein smta
-protein bassoon
-nicotinamide phosphoribosyltransferase
-neurexophilin-1
-rhamnulokinase
-cd59 glycoprotein
-defensin-related cryptdin-25
-tetraspanin-32
-pgap2-interacting protein
-d-allose kinase
-lactose permease
-claudin-8
-glypican-1
-spermine oxidase
-phosphoglucomutase-1
-udp-glucuronosyltransferase 2b11
+phosphofructokinase
+calsyntenin
+alpha-2-macroglobulin-p
+flagellin
+adiponectin
+cohesin complex
+chordin
+histone
+dna ligase
+cd34
+vasohibin
+elastase
+protein spatial
+striatin
+deoxyribonuclease-2-alpha
+signal peptide
+dna binding protein
+protein lines
+desmoglein
+hemicentin
+elafin
+protocadherin
+copine
+nadh dehydrogenase
+deoxyribonuclease
+mucin
+secretogranin
+gallus gallus
+cytochrome
+exportin
+sparc
+frizzled
+plastin
+calponin
+metaxin
+pannexin
+mitogen activated protein kinase
+cadherin
+epithelial cadherin
+cullin
+galectin
+clarin
+lysozyme
+insulin
+dna polymerase
+reticulocalbin
+derlin
+cyclin
+arrestin
+paxillin
 protein reca
-claudin-3
-protein mtfa
+cystatin
+protein red
+metallothionein
+homo sapiens
+ovalbumin
+chemokine receptor
+endonuclease
+beclin
+phenylalanine-4-hydroxylase
+hexokinase
+prostasin
+growth/differentiation factor
+spindlin
+myc protein
+contactin
+myosin
+transcription factor complex
+mus musculus
+reticulon
+macroglobulin
+adenylate cyclase
+death receptor
+acylphosphatase
+protein
+amino acid chain
+neurotrophin
+cd19
+interleukin
+multimerin
+syntaxin
+ubiquitin
+plakophilin
+merlin
+desmocollin
+renin
+transcription factor
+aquaporin

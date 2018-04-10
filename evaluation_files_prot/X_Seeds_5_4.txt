@@ -1,5 +1,5 @@
-gremlin-1
-serpin a12
-metaxin-1
-protein sbma
-queuine trna-ribosyltransferase
+chordin
+amino acid residue
+plakophilin
+cystatin
+cullin

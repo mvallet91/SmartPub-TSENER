@@ -13,6 +13,8 @@ models/
 elasticsearch/
 evaluation_filesMet/
 docker/
+evaluation_files_prot/
+crf_trained_files/
 
 # Ignore compressed files
 *.gz

@@ -1,25 +1,25 @@
-tropomodulin-2
-dynamin-3
-myosin-iiib
-protein argonaute-2
-hydrocephalus-inducing protein
-claspin
-mesothelin-like protein
-nad kinase
-alsin
-porimin
-phospholipase d2
-neurexophilin-4
-fmn reductase
-cathepsin k
-protein lchn
-ribonuclease i
-granzyme h
-oculomedin
-smad9
-aminomethyltransferase
-neogenin
-beta-defensin 17
-inversin
-uroporphyrinogen decarboxylase
-diaminopimelate decarboxylase
+phosphofructokinase
+bestrophin
+alkaline phosphatase
+derlin
+endonuclease
+lipopolysaccharide
+trypsin
+selectin
+protein reca
+liprin-alpha
+mus musculus
+glypican
+caspase
+small gtpase
+protein impact
+exostosin
+ficolin
+exportin
+deoxyribonuclease-2-alpha
+chordin
+cohesin complex
+mucin
+dna polymerase
+bacillus subtilis
+vasohibin

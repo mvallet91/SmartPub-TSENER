@@ -15,7 +15,7 @@ modeldoc2vec = Doc2Vec.load(ROOTPATH + '/models/doc2vec.model')
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 seeds = [5, 10, 25, 50, 100]
-seeds = [5, 25, 100]
+seeds = [5,25,100]
 
 """
 Extract training data for different number of seeds
@@ -76,41 +76,62 @@ Term expansion approach for the first iteration
 # Sentence approach for the first iteration
 # """
 for number in range(0, 10):
-    expansion.term_expansion_proteins(5, 'sentence_expansion', str(0), str(number))
+      expansion.term_expansion_proteins(5, 'sentence_expansion_mix', str(0), str(number))
 #     expansion.term_expansion_proteins(10, 'sentence_expansion', str(0), str(number))
-    expansion.term_expansion_proteins(25, 'sentence_expansion', str(0), str(number))
-#     expansion.term_expansion_proteins(50, 'sentence_expansion', str(0), str(number))
-    expansion.term_expansion_proteins(100, 'sentence_expansion', str(0), str(number))
+      expansion.term_expansion_proteins(25, 'sentence_expansion_mix', str(0), str(number))
+#     expansion.term_expansion_proteins(50, 'sentence_expansion', str(0), str(number))   
+      expansion.term_expansion_proteins(100, 'sentence_expansion_mix', str(0), str(0))
 
 for number in range(0, 10):
-    trainingdata_generation.generate_trainingSE(5, 'sentence_expansion', str(0), str(number), modeldoc2vec)
+      trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_mix', str(0), str(number), modeldoc2vec)
 #     trainingdata_generation.generate_trainingSE(10, 'sentence_expansion', str(0), str(number), modeldoc2vec)
-    trainingdata_generation.generate_trainingSE(25, 'sentence_expansion', str(0), str(number), modeldoc2vec)
-#     trainingdata_generation.generate_trainingSE(50, 'sentence_expansion', str(0), str(number), modeldoc2vec)
-    trainingdata_generation.generate_trainingSE(100, 'sentence_expansion', str(0), str(number), modeldoc2vec)
+      trainingdata_generation.generate_trainingSE(25, 'sentence_expansion_mix', str(0), str(number), modeldoc2vec)
+#      trainingdata_generation.generate_trainingSE(50, 'sentence_expansion', str(0), str(number), modeldoc2vec)   
+      trainingdata_generation.generate_trainingSE(100, 'sentence_expansion_mix', str(0), str(0), modeldoc2vec)
 
-ner_training.create_austenprop(5, 'sentence_expansion', str(0))
+ner_training.create_austenprop(5, 'sentence_expansion_mix', str(0))
 # ner_training.create_austenprop(10, 'sentence_expansion', str(0))
-ner_training.create_austenprop(25, 'sentence_expansion', str(0))
+ner_training.create_austenprop(25, 'sentence_expansion_mix', str(0))
 # ner_training.create_austenprop(50, 'sentence_expansion', str(0))
-ner_training.create_austenprop(100, 'sentence_expansion', str(0))
+ner_training.create_austenprop(100, 'sentence_expansion_mix', str(0))
 
-ner_training.train(5, 'sentence_expansion', str(0))
+ner_training.train(5, 'sentence_expansion_mix', str(0))
 # ner_training.train(10, 'sentence_expansion', str(0))
-ner_training.train(25, 'sentence_expansion', str(0))
+ner_training.train(25, 'sentence_expansion_mix', str(0))
 # ner_training.train(50, 'sentence_expansion', str(0))
-ner_training.train(100, 'sentence_expansion', str(0))
+ner_training.train(100, 'sentence_expansion_mix', str(0))
 
 ########################################################
-
+# ner_training.create_austenprop(5, 'sentence_expansion', str(1))
+# ner_training.train(5, 'sentence_expansion', str(1))
 # An example for 5 iterations:
-# for i in range(5):
-#     extract_new_entities.ne_extraction(100, 'sentence_expansion', i, i + 1, 0, es)
-#     filtering.PMI(100, 'sentence_expansion', i, 0)
-#     trainingdata_generation.extract(100, 'sentence_expansion', i, 0)
-#     expansion.term_expansion_protein(100, 'sentence_expansion', i, 0)
-#     trainingdata_generation.generate_trainingSE(100, 'sentence_expansion', i, 0)
-#     ner_training.create_austenprop(100, 'sentence_expansion', 0)
-#     ner_training.train(100, 'sentence_expansion', 0)
+
+####TESTING
+# expansion.term_expansion_proteins(5, 'sentence_expansion_PROT', str(0), str(0))
+# trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_PROT', str(0), str(0), modeldoc2vec)
+# ner_training.create_austenprop(5, 'sentence_expansion_PROT', str(0))
+# ner_training.train(5, 'sentence_expansion_PROT', str(0))
+
+# for i in range(0,3):
+#     extract_new_entities.ne_extraction(5, 'sentence_expansion_bigrams', str(i), str(i + 1), str(0), es)
+#     #filtering.PMI(100, 'sentence_expansion', i, 0)
+#     filtering.WordNet_StopWord(5, 'sentence_expansion_bigrams', str(i+1), str(0)) 
+#     trainingdata_generation.extract(5, 'sentence_expansion_bigrams', str(i+1), str(0))
+#     expansion.term_expansion_proteins(5, 'sentence_expansion_bigrams', str(i+1), str(0))
+#     trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_bigrams', str(i+1), str(0), modeldoc2vec)
+#     ner_training.create_austenprop(5, 'sentence_expansion_bigrams', str(i+1))
+#     ner_training.train(5, 'sentence_expansion_bigrams', str(i+1))
+#     print('Finished with iter', i)
+#     print('#' * 1000)
+
+# for i in range(0,3):
+#     extract_new_entities.ne_extraction(5, 'sentence_expansion_PROT', str(i), str(i + 1), str(0), es)
+#     #filtering.PMI(100, 'sentence_expansion', i, 0)
+#     filtering.WordNet_StopWord(5, 'sentence_expansion_PROT', str(i+1), str(0)) 
+#     trainingdata_generation.extract(5, 'sentence_expansion_PROT', str(i+1), str(0))
+#     expansion.term_expansion_proteins(5, 'sentence_expansion_PROT', str(i+1), str(0))
+#     trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_PROT', str(i+1), str(0), modeldoc2vec)
+#     ner_training.create_austenprop(5, 'sentence_expansion_PROT', str(i+1))
+#     ner_training.train(5, 'sentence_expansion_PROT', str(i+1))
 
 ########################################################

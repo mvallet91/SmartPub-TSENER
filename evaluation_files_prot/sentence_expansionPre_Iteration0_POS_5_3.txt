@@ -1,0 +1,542 @@
+wt
+pcr
+mirnas
+figure s1
+rnai
+mirna
+tfs
+sirna
+brca1
+transgenic
+egfr
+akt
+dmso
+gapdh
+microarray analysis
+s3 fig
+alexa fluor
+molecular probes
+gscs
+tubulin
+tnbc
+emt
+bd biosciences
+gata3
+s5 fig
+tp53
+facs
+meta
+brdu
+stat3
+bl
+brca2
+cruz biotechnology
+egf
+millipore
+cre
+egr1
+rac1
+ezh2
+mapk
+h3k27ac
+bax
+sxl
+vector laboratories
+national institutes
+dfs
+mic
+shv
+imagej
+fgf
+hpd
+hescs
+vimentin
+merkel cells
+cd24
+edu
+msn
+fibronectin
+reagent invitrogen
+cd44
+bo
+s2b
+pmsf
+immunocytochemistry
+hgf
+ic50
+fitc
+sox9
+lcis
+cancer research
+s6 table
+dsred
+bbb
+nanog
+cafs
+tunel
+la jolla
+pearson
+xbp1
+bd pharmingen
+utp
+kif7
+mmps
+hek293
+mmp9
+hybridoma bank
+otbcs
+esa
+abcam cambridge
+pyv mt
+agt
+s5b
+grhl3
+foxa1
+adherens junctions
+bfgf
+hes1
+hprt
+cd31
+hoechst
+notch4
+dmax
+germaria
+cd45
+noti
+biolegend
+vegfa
+dshb
+trp53
+pstat3
+epcam
+ctgf
+rtta
+tiam1
+ifng
+cadherin
+s7b
+cgh
+a549
+figure s6c
+avp
+agps
+mlc
+s7b fig
+at2
+zo1
+tgfbr2
+axin
+cry1ac
+idh
+bd bioscience
+tebs
+igfir
+neurog3
+miltenyi biotec
+cdh2
+jackson laboratories
+vinculin
+gsi
+tcf
+ck5
+p2y2r
+atcc60483
+rassf1a
+mys
+ein avdat
+s14 fig
+s1e
+takara bio
+cd49f
+mgmt
+aff3
+ajuba
+tgfβ3
+hsvtk
+cry1a
+ck1e
+cd44poscd24pos
+vwf
+sox
+sum1315
+ros1
+h1299
+mlck
+y27632
+gli2cko
+gstp1
+e16
+pmch
+cbx7
+signaling technology
+sigrhl3
+metallothionein
+pmapk
+ife
+limk1
+ic1
+invitrogen cat
+epiglir
+k14cre
+s7e fig
+ecad
+mcf
+studies hybridoma
+ck1
+yedf
+nmhciia
+etr
+atxn1
+postm
+figure s3f
+vncs
+pmchl2
+zeb2
+dvl2
+ubs
+isocitrate
+s8d
+pfak
+sec5
+ic261
+gm130
+hmle
+goosecoid
+merkel
+yfo
+pgcp
+s13 table
+hes5
+sftpc
+cysc
+anp
+technology infrastructure
+cry1ab
+deps
+pmos
+eiv
+cup1
+ephb3
+bbmv
+haals
+cd49d
+epitomics
+duf3343
+ilc
+raas
+ppaxillin
+snail tg
+iqgap1
+arhgap19
+pipkiγi2
+nmt2
+socs36e
+snai1
+mir215
+wt ck1e
+ephb1
+microbeads miltenyi
+dok4
+upstate biotech
+mab2
+aci fig
+zeb
+dok2
+ncst
+shiga
+ros8
+crumbs crb
+stat3sh
+irie
+y658
+teashirt
+rictor santa
+su5402
+s3sh
+zip5
+tris cl
+malpighian
+brain cadherin
+otbc
+βps
+cmhc
+ncad
+cd45pos
+lamc
+goh3
+dapi lonza
+iplab
+biosciences uk
+im7
+ifi30
+wt
+pcr
+mirnas
+figure s1
+rnai
+mirna
+tfs
+sirna
+brca1
+transgenic
+egfr
+akt
+dmso
+gapdh
+microarray analysis
+s3 fig
+alexa fluor
+molecular probes
+gscs
+tubulin
+tnbc
+emt
+bd biosciences
+gata3
+s5 fig
+tp53
+facs
+meta
+brdu
+stat3
+bl
+brca2
+cruz biotechnology
+egf
+millipore
+cre
+egr1
+rac1
+ezh2
+mapk
+h3k27ac
+bax
+sxl
+vector laboratories
+national institutes
+dfs
+mic
+shv
+imagej
+fgf
+hpd
+hescs
+vimentin
+merkel cells
+cd24
+edu
+msn
+fibronectin
+reagent invitrogen
+cd44
+bo
+s2b
+pmsf
+immunocytochemistry
+hgf
+ic50
+fitc
+sox9
+lcis
+cancer research
+s6 table
+dsred
+bbb
+nanog
+cafs
+tunel
+la jolla
+pearson
+xbp1
+bd pharmingen
+utp
+kif7
+mmps
+hek293
+mmp9
+hybridoma bank
+otbcs
+esa
+abcam cambridge
+pyv mt
+agt
+s5b
+grhl3
+foxa1
+adherens junctions
+bfgf
+hes1
+hprt
+cd31
+hoechst
+notch4
+dmax
+germaria
+cd45
+noti
+biolegend
+vegfa
+dshb
+trp53
+pstat3
+epcam
+ctgf
+rtta
+tiam1
+ifng
+cadherin
+s7b
+cgh
+a549
+figure s6c
+avp
+agps
+mlc
+s7b fig
+at2
+zo1
+tgfbr2
+axin
+cry1ac
+idh
+bd bioscience
+tebs
+igfir
+neurog3
+miltenyi biotec
+cdh2
+jackson laboratories
+vinculin
+gsi
+tcf
+ck5
+p2y2r
+atcc60483
+rassf1a
+mys
+ein avdat
+s14 fig
+s1e
+takara bio
+cd49f
+mgmt
+aff3
+ajuba
+tgfβ3
+hsvtk
+cry1a
+ck1e
+cd44poscd24pos
+vwf
+sox
+sum1315
+ros1
+h1299
+mlck
+y27632
+gli2cko
+gstp1
+e16
+pmch
+cbx7
+signaling technology
+sigrhl3
+metallothionein
+pmapk
+ife
+limk1
+ic1
+invitrogen cat
+epiglir
+k14cre
+s7e fig
+ecad
+mcf
+studies hybridoma
+ck1
+yedf
+nmhciia
+etr
+atxn1
+postm
+figure s3f
+vncs
+pmchl2
+zeb2
+dvl2
+ubs
+isocitrate
+s8d
+pfak
+sec5
+ic261
+gm130
+hmle
+goosecoid
+merkel
+yfo
+pgcp
+s13 table
+hes5
+sftpc
+cysc
+anp
+technology infrastructure
+cry1ab
+deps
+pmos
+eiv
+cup1
+ephb3
+bbmv
+haals
+cd49d
+epitomics
+duf3343
+ilc
+raas
+ppaxillin
+snail tg
+iqgap1
+arhgap19
+pipkiγi2
+nmt2
+socs36e
+snai1
+mir215
+wt ck1e
+ephb1
+microbeads miltenyi
+dok4
+upstate biotech
+mab2
+aci fig
+zeb
+dok2
+ncst
+shiga
+ros8
+crumbs crb
+stat3sh
+irie
+y658
+teashirt
+rictor santa
+su5402
+s3sh
+zip5
+tris cl
+malpighian
+brain cadherin
+otbc
+βps
+cmhc
+ncad
+cd45pos
+lamc
+goh3
+dapi lonza
+iplab
+biosciences uk
+im7
+ifi30

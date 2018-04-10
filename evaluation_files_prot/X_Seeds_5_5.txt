@@ -1,5 +1,5 @@
-complexin-4
-protein dgcr6
-paxillin
-adenylyl-sulfate kinase
-cryptochrome-2
+dna polymerase
+gasdermin
+latrophilin
+substrate
+protein impact

@@ -25,8 +25,6 @@ def extract(numberOfSeeds):
     X_testB = [ds.lower() for ds in X_testB]
     X_testB = list(set(X_testB))
     
-    # print(X_testB)
-
     # List of seed names
     dsnames = []
     corpuspath = cfg.ROOTPATH + "/data/protein-names-train.txt"
@@ -41,7 +39,7 @@ def extract(numberOfSeeds):
 
         # shuffle the list
         X_train = random.sample(dsnames, numberOfSeeds)
-
+        print('Selected seed terms', X_train)
         paragraph = []
 
         # using the seeds, extract the sentences from the publications using the query in elastic search
@@ -60,8 +58,10 @@ def extract(numberOfSeeds):
             }
 
             res = es.search(index="twosent", doc_type="twosentnorules",
-                            body=query, size=10000)
-
+                            body=query, size=1000)
+            print(datasetname)
+            print("Got %d hits in ES" % res['hits']['total'])
+            
             # clean up the sentences and if they dont contain the names of the testB then add them as the training data
             for doc in res['hits']['hits']:
 
@@ -85,7 +85,10 @@ def extract(numberOfSeeds):
                 sentence = sentence.replace('?', ' ?')
                 sentence = sentence.replace('..', '.')
 
-                if any(ext in sentence.lower() for ext in X_testB):
+#                 if any(ext in sentence.lower() for ext in X_testB):
+
+                if any(ext in words for ext in X_testB):
+                    print('sentence removed')
                     continue
 
                 else:
@@ -93,28 +96,15 @@ def extract(numberOfSeeds):
 
         paragraph = list(set(paragraph))
         print(len(paragraph), 'sentences added')
-
-#         # Split the data into training and testing and keep the sentences and also the seed names for annotation that will be used later
-#         X_traintext, X_testA = train_test_split(
-#             paragraph, test_size=0.3, random_state=100)
-
+        print('')
+        sys.stdout.flush()
+        
         f1 = open(cfg.ROOTPATH + '/evaluation_files_prot/X_train_' + str(numberOfSeeds) + '_' + str(i) + '.txt', 'w')
         for item in paragraph:
             f1.write(item)
         f1.close()
         
-        # f1 = open(ROOTHPATH + '/evaluation_files/X_testA_' + str(numberOfSeeds) + '_' + str(i) + '.txt', 'w')
-        # for item in X_testA:
-        #     f1.write(item)
-        # f1.close()
-        
         f1 = open(cfg.ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(numberOfSeeds) + '_' + str(i) + '.txt', 'w')
         for item in X_train:
             f1.write(item + '\n')
         f1.close()
-        sys.stdout.flush()
-
-# extract(10)
-# extract(25)
-# extract(50)
-# extract(100)

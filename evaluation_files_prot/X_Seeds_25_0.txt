@@ -1,25 +1,25 @@
-carboxypeptidase m
-bmp8a
-myeloperoxidase
-6-phosphofructokinase complex
-beta-defensin 105
-dapper 2
-thermosensitive gluconokinase
-protein gpr107
-frizzled-6
-profilin-3
-spartin
-lengsin
-integrin beta-8
-ubiquitin d
-periaxin
-protein fdra
-serine acetyltransferase
-beta-defensin 11
-dtdp-4-dehydrorhamnose reductase
-helicase arip4
-caspase complex
-2-dehydropantoate 2-reductase
-netrin-1
-calretinin
-protein dos
+chitotriosidase
+deoxyribonuclease
+latrophilin
+sparc
+derlin
+mitogen activated protein kinase
+nadh dehydrogenase
+caspase
+ectodysplasin
+cadherin
+selectin
+hemicentin
+small gtpase
+ficolin
+adenylate cyclase
+defensin
+protein red
+phenylalanine-4-hydroxylase
+cystatin
+hexokinase
+macroglobulin
+chemokine receptor
+makorin
+gallus gallus
+cystin

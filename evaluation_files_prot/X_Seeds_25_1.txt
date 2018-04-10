@@ -1,25 +1,25 @@
-protein bean
-protein admp
-annexin a3
-protein seqa
-neurogenin-2
-cadherin-5
-protein crcb
-insulin receptor
-talin-1
-protein smg7
-ataxin-1
-cytochrome b5
-teashirt 3
-malcavernin
-ubiquitin d
-cystatin-d
-sodium/iodide cotransporter
-corneodesmosin
-protein amac1l2
-catenin alpha-1
-radixin
-catalase-peroxidase
-d-allulose-6-phosphate 3-epimerase
-matrix metalloproteinase-21
-follistatin
+syntaxin
+disabled
+elafin
+exostosin
+pannexin
+growth/differentiation factor
+gallus gallus
+vasohibin
+paxillin
+deoxyribonuclease
+protein
+renin
+mucin
+nuclear protein
+derlin
+striatin
+epithelial cadherin
+nidogen
+gasdermin
+ubiquitin
+calponin
+insulin
+liprin-beta
+spindlin
+ovalbumin

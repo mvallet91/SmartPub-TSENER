@@ -1,25 +1,25 @@
-protein maelstrom
-desmocollin-3
-pantothenate kinase
-envoplakin
-deoxycytidylate deaminase
-hexokinase-2
-protein kti12
-collectrin
-protocadherin-1
-drebrin-like protein
-dysferlin
-n-acylneuraminate cytidylyltransferase
-anoctamin-9
-testican-1
-palmdelphin
-protein rhsb
-merlin
-separin
-protein phna
-hyaluronidase ph-20
-caprin-2
-protein mrp
-aquaporin-1
-mucin-3a
-protein six6os1
+ficolin
+claudin
+caspase
+paxillin
+hemicentin
+ubiquitin
+secretogranin
+macroglobulin
+cd34
+alpha-actinin
+exostosin
+derlin
+c99
+hexokinase
+protein
+synaptogyrin
+mus musculus
+makorin
+calsyntenin
+ataxin
+cd19
+liprin-beta
+pannexin
+contactin
+beta-arrestin
