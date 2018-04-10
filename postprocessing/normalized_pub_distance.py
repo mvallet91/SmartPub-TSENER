@@ -19,7 +19,8 @@ def NPD(dsnames):
     # contextwords = ['method', 'model', 'algorithm', 'approach','technique']
     
     # contextwords for proteins
-    contextwords = ['protein', 'amino', 'kinase', 'receptor', 'peptide']
+    #contextwords = ['protein', 'amino', 'kinase', 'receptor', 'peptide']
+    contextwords = ['protein',  'receptor']
 
 
     es = Elasticsearch(

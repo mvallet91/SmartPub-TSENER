@@ -1,100 +1,100 @@
-insulin-like protein
-contactin-3
-protein ndrg2
-adenylosuccinate synthetase
-protein timeless
-neddylated lysine
-pannexin-1
-ethanolaminephosphotransferase 1
-protein disulfide-isomerase
-deoxyhypusine synthase
-mad-max-msin3b complex
-hexokinase-3
-protein nagd
-cathepsin s
-n-acetylgalactosaminyltransferase 7
-beta-parvin
-thrombospondin 2
-glucosylceramidase
-prolactin-7b1
-protein nrdi
-calpastatin
-arginine n-succinyltransferase
-palmitoyltransferase zdhhc18
-epididymal-specific lipocalin-6
-contactin-6
-protein phnh
-bmp8b
-endophilin-b2
-glycerate kinase
-3-demethylubiquinone-9 3-methyltransferase
-lactase-like protein
-protein s100-a8
-prolactin-3c1
-endophilin-b1
-sphingomyelin phosphodiesterase
-retinoblastoma-like protein
-bcl-2-modifying factor
-dystroglycan
-4-diphosphocytidyl-2-c-methyl-d-erythritol kinase
-exostosin-like 1
-contactin-5
-protein ariadne-2
-macoilin
-l-amino-acid oxidase
-astrotactin-2
-mannosyl-oligosaccharide glucosidase
-isoprenylated residue
-protein gltf
-protein fixa
-gremlin-1
-protein shroom4
-porphobilinogen deaminase
-mucosal pentraxin
-dihydroxy-acid dehydratase
-plexin-b3
-meteorin-like protein
-myosin-va
-glutamate-ammonia-ligase adenylyltransferase
-resistin-like beta
-adp-dependent glucokinase
-galactocerebrosidase
-protein sidekick-2
-antileukoproteinase
-centlein
+plakophilin
+histone
+exostosin
+ubiquitin
+multimerin
+macroglobulin
+mucin
+dna binding protein
+tectonic
+chitotriosidase
+tenascin
+c99
+stonin
+set binding protein
+liprin-beta
+tetraspanin
+spindlin
+cd19
+ataxin
+acylphosphatase
+protein reca
+deoxyribonuclease
+cystin
 saccharomyces cerevisiae
-ribonuclease uk114
-vinexin
-interferon alpha-21
-protein cereblon
-amine sulfotransferase
-oligopeptidase a
-cadherin-18
-beta-defensin 50
-o4'-phospho-l-tyrosine
-cystathionine gamma-synthase
-alpha-2-antiplasmin
-aromatic-amino-acid aminotransferase
-centrin-3
-protein dgcr14
-ornithine decarboxylase
-lithostathine-1-beta
-latrophilin-3
-mucin-7
-tissue factor
-apelin receptor
-protein mal2
-glucagon receptor
-gasdermin-b
-hydrocephalus-inducing protein
-myosin-ixb
-alpha-1,2-glucosyltransferase alg10-a
-ribonuclease hi
-protocadherin gamma-a12
-protein ssx4
-integrin alpha-d
-follitropin receptor
-glutathione s-transferase
-calneuron-1
-protein tcl1b1
-arginine/agmatine antiporter
+alpha-actinin
+hexokinase
+caspase
+reticulocalbin
+nuclear protein
+substrate
+progesterone receptor
+signal peptide
+protein red
+death receptor
+amino acid chain
+adenylate cyclase
+metallothionein
+calponin
+glycophorin
+stathmin
+dystrophin
+ovalbumin
+cohesin complex
+claudin
+striatin
+prostasin
+cyclin
+glucocorticoid receptor
+galectin
+contactin
+secretogranin
+double stranded dna
+paxillin
+growth hormone receptor
+cullin
+nephrocystin
+clarin
+pannexin
+neurotrophin
+deoxyribonuclease-2-alpha
+selectin
+lipopolysaccharide
+insulin
+adiponectin
+myosin
+nidogen
+bestrophin
+lysozyme
+mitogen activated protein kinase
+transcription factor complex
+gasdermin
+cd34
+vasohibin
+protocadherin
+syntaxin
+beta-arrestin
+dna polymerase
+protease
+elastase
+protein
+aquaporin
+cystatin
+desmocollin
+mus musculus
+plastin
+muskelin
+sparc
+calsyntenin
+alpha-2-macroglobulin-p
+defensin
+myc protein
+interleukin
+ectodysplasin
+homo sapiens
+chemokine receptor
+growth/differentiation factor
+synaptogyrin
+transcription factor
+liprin-alpha
+nadh dehydrogenase

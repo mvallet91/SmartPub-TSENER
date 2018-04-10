@@ -1,100 +1,100 @@
-lactoylglutathione lyase
-flavin reductase
-netrin-g1 ligand
-bos taurus
-d-serine dehydratase
-prop effector
-1-acyl-sn-glycerol-3-phosphate acyltransferase
-l-myc-2 protein
-reelin
-ataxin-1-like
-galactitol-1-phosphate 5-dehydrogenase
-sorting nexin-7
-serpin b10
-adenylyl-sulfate kinase
-ligand-dependent corepressor
-torsin-1a
-cd59b glycoprotein
-protein vprbp
-plexin-b2
-dachshund 2
-protein jade-3
-palmdelphin
-protein tsc21
-protein damx
-integrin alpha-3
-coactosin-like protein
-dtdp-d-glucose 4,6-dehydratase
-oxytocin receptor
-aromatic-amino-acid aminotransferase
-klotho
-interleukin-7
-retinoschisin
-phosphoribosylglycinamide formyltransferase
-lactase-like protein
-ferrichrome-iron receptor
-beta-1,4-galactosyltransferase 4
-protein kti12
-glycoprotein xg
-bmp8b
-protein ssx3
-tuberin
-choline/ethanolamine kinase
-complement c5
-ribosomal-protein-alanine acetyltransferase
-cd4
-gtpase rhebl1
-radixin
-cd166 antigen
-beta-ketoadipyl-coa thiolase
-gamma-crystallin c
-membralin
-alsin
-glycerate kinase
-alkanesulfonate monooxygenase
-galactocerebrosidase
-protein yipf4
-vitrin
-uridine kinase
-importin-9
-nipped-b-like protein
-gastrin
-fidgetin
-lysophosphatidylcholine acyltransferase
-protein ctage-6
-klrb1-like protein
-caspase-7
-etsous factor
-r-spondin-2
-dihydropteridine reductase
-inositol-tetrakisphosphate 1-kinase
-n-cym protein
-deoxyribonuclease-1
-protein bex6
-prostate-associated microseminoprotein
-sarcalumenin
-protocadherin gamma-b7
-pygopus 1
-2-isopropylmalate synthase
-protein fixa
-tectonic-1
-defensin-related cryptdin-15
-orexin receptor
-homoserine o-succinyltransferase
-phospholipase ddhd2
-beta-sarcoglycan
-fyn-binding protein
-adenosylhomocysteinase
-desmoplakin
-protein s100-a2
-triticum aestivum
-cyclopropane-fatty-acyl-phospholipid synthase
-l-threonine 3-dehydrogenase
-kallikrein-7
-interleukin-29
-gamma-glutamylputrescine oxidoreductase
-dtdp-4-dehydrorhamnose 3,5-epimerase
-sco-spondin
-alpha-fetoprotein
-protein mpv17
-liprin-alpha-3
+ovalbumin
+multimerin
+cohesin complex
+progesterone receptor
+reticulon
+tectonic
+small gtpase
+flagellin
+elafin
+merlin
+adiponectin
+myc protein
+death receptor
+exportin
+adenylate cyclase
+lipopolysaccharide
+deoxyribonuclease
+bestrophin
+derlin
+latrophilin
+endonuclease
+cystin
+dna polymerase
+ubiquitin
+c99
+growth hormone receptor
+ataxin
+desmoglein
+tenascin
+alkaline phosphatase
+emilin
+secretogranin
+hexokinase
+substrate
+prostasin
+spindlin
+macroglobulin
+transcription factor complex
+striatin
+cadherin
+transcription factor
+mus musculus
+defensin
+nephrocystin
+histone
+syntaxin
+protein
+amino acid residue
+dystrophin
+trypsin
+set binding protein
+arrestin
+ectodysplasin
+acylphosphatase
+calponin
+caspase
+paxillin
+disabled
+exostosin
+liprin-beta
+elastase
+cystatin
+plakophilin
+dna ligase
+phosphofructokinase
+nadh dehydrogenase
+neurotrophin
+myosin
+galectin
+deoxyribonuclease-2-alpha
+chordin
+gallus gallus
+gasdermin
+protein impact
+vasohibin
+liprin-alpha
+renin
+frizzled
+makorin
+plastin
+muskelin
+interleukin
+aquaporin
+metallothionein
+metaxin
+calsyntenin
+nidogen
+saccharomyces cerevisiae
+mitogen activated protein kinase
+protein spatial
+claudin
+cd19
+signal peptide
+dna binding protein
+epithelial cadherin
+chemokine receptor
+glucocorticoid receptor
+homo sapiens
+thioredoxin
+cd34

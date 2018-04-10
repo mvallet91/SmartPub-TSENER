@@ -75,6 +75,7 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 
     '''Extract All the entities from the text'''
     propernouns = preprocess_NE(fileUnlabelled)
+    
 
     dsnames = []
 
@@ -115,6 +116,7 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 ########################################################
 
     sentences_split = [s.lower() for s in newpropernouns]
+    print(sentences_split)
 
     # use the word2vec model
     df, labels_array = build_word_vector_matrix(
@@ -148,14 +150,13 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 
                         for ww in cluster_to_words[c]:
                             finallist.append(ww.replace('_', ' '))
-            print('.', end = '')
-            sys.stdout.flush()
+#             print('.', end = '')
+#             sys.stdout.flush()
             try:
                 silhouette_avg = silhouette_score(df, cluster_labelss)
                 if silhouette_avg > maxcluster:
                     maxcluster = silhouette_avg
-                    thefile = open(ROOTPATH + "/evaluation_files_prot/" + name + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
-                            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
+                    thefile = open(ROOTPATH + "/evaluation_files_prot/" + name + "Pre_Iteration" + numberOfIteration + "_POS_" +str(numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
                     for item in finallist:
                         thefile.write("%s\n" % item)
             except:

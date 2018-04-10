@@ -1,25 +1,25 @@
-g1/s-specific cyclin-e1
-otospiralin
-synaptotagmin-3
-protein argonaute-4
-sarcalumenin
-kaptin
-protein znf365
-talin-1
-udp-glucuronosyltransferase 2b15
-tetraspanin-16
-viral neuraminidase
-tetraspanin-9
-leukosialin
-peptidase t
-hornerin
-importin-5
-protein shisa-3
-ameloblastin
-sarcolipin
-protein sphar
-udp-glucuronosyltransferase 3a1
-d-amino-acid oxidase
-tetraspanin-6
-catenin delta-2
-n-acetylgalactosaminyltransferase 7
+phenylalanine-4-hydroxylase
+protein
+epithelial cadherin
+cohesin complex
+c99
+cadherin
+cd34
+growth/differentiation factor
+pannexin
+stathmin
+protein lines
+bacillus subtilis
+desmoglein
+deoxyribonuclease-2-alpha
+paxillin
+signal peptide
+glycophorin
+aquaporin
+claudin
+metallothionein
+calsyntenin
+beclin
+cytochrome
+dna binding protein
+homo sapiens

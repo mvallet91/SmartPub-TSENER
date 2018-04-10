@@ -48,7 +48,7 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
     These are all sentences containing any term from the test set, and they need to to be excluded from any
      training
     """
-    fileUnlabelled = open('/data/testB_datasettext.txt')
+    fileUnlabelled = open(ROOTPATH+'/data/protein-names-test.txt')
 
     text = fileUnlabelled.read()
     text = text.replace('\\', '')
@@ -69,7 +69,7 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
     """
         Exclude all the entities appeared in the test file from the training file
     """
-    with open('/data/dataset-names-testb.txt', 'r') as file:
+    with open(ROOTPATH+'/data/protein-names-test.txt', 'r') as file:
         # with open('/data/method-names-testb', 'r') as file:
         for row in file.readlines():
             X_testB.append(row.strip())
@@ -160,10 +160,10 @@ def extract(numberOfSeeds, name, numberOfIteration, iteration):
                 #
                 #
             else:
-                sentences = tokenize.sent_tokenize(sentence)
-                if sentences[0] not in paragraph and sentences[0] not in testsentences:
-                    if sentences[1] not in paragraph and sentences[1] not in testsentences:
-                        paragraph.append(sentence)
+#                 sentences = tokenize.sent_tokenize(sentence)
+#                 if sentences[0] not in paragraph and sentences[0] not in testsentences:
+#                     if sentences[1] not in paragraph and sentences[1] not in testsentences:
+                paragraph.append(sentence)
 
     paragraph = list(set(paragraph))
     paragraph = ' '.join(paragraph)
@@ -541,6 +541,10 @@ def generate_trainingSE(numberOfSeeds, name, numberOfIteration, iteration, model
             else:
                 label = 'O'
             inputs.append([word, label])
+            
+    print('.', end='')
+    sys.stdout.flush()
+    
     with open(ROOTPATH + '/evaluation_files_prot/' + name + '_text_iteration' + numberOfIteration + 
               str(numberOfSeeds) + '_' + str(iteration) + '.txt', 'w') as file:
         for item in inputs:

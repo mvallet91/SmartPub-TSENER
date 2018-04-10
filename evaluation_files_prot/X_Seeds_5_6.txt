@@ -1,5 +1,5 @@
-d-galactarate dehydratase
-limkain-b1
-copine-8
-collectin-11
-protocadherin alpha-2
+glycophorin
+napsin
+death receptor
+beta-arrestin
+protocadherin

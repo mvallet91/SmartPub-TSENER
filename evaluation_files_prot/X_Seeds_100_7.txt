@@ -1,100 +1,100 @@
-crk-like protein
-harmonin
-vertebrate-like neuraminidase
-ena/vasp-like protein
-protocadherin beta-9
-myosin-7
-endonuclease-1
-trpc4-associated protein
-mucin-1
-protein greb1
-glypican-1
-protein zer-1
-tail-specific protease
-reticulon-4
-stanniocalcin-2
-branched-chain-amino-acid aminotransferase
-vimentin
-nucleoplasmin-2
-lipoyl synthase
-anosmin-1
-dapper 1
-p-selectin
-exonuclease gor
-kappa-opioid receptor
-tautomerase ppta
-cytochrome b5
-neurabin-1
-calpain-15
-1-deoxy-d-xylulose-5-phosphate synthase
-cyclin-l2
-alpha-1-antitrypsin 1-3
-liprin-beta-1
-filaggrin
-beta-secretase 2
-ceramide kinase
-humanin
-protein dok-7
-thyroid peroxidase
-pcna complex
-beta-1,4-galactosyltransferase 5
-protein mtfa
-serine hydroxymethyltransferase
-protein mon2
-lamin-b receptor
-flavodoxin-2
-teneurin-3
-anamorsin
-protein gr6
-14-3-3 protein
-calpain-8
-protein btg4
-n-chimaerin
-galactose-1-phosphate uridylyltransferase
-bystin
-beta-defensin 13
-tetraspanin-4
-alkanesulfonate monooxygenase
-protein fimh
-threonyl-trna synthetase
-peptide yy
-isthmin-1
-ankycorbin
-protein hexim1
-dipeptidase 2
-protein rer1
-plasma kallikrein
-igfbp-related protein
-pro-opiomelanocortin
-protein furry-like
-dystrophin
-protein flxa
-glutaredoxin-2
-homocysteine s-methyltransferase
-interferon kappa
-protein bat4
-deoxycytidylate deaminase
-peregrin
-carbamate kinase
-urocortin-3
+exportin
+nidogen
+bacillus subtilis
+adiponectin
+derlin
+secretogranin
+tetraspanin
+nuclear protein
+trypsin
+cullin
+protease
+protocadherin
+stathmin
+cd34
+beclin
+ficolin
+contactin
+cytochrome
+striatin
+multimerin
+mucin
+transcription factor
+alkaline phosphatase
+myosin
+chordin
+protein
+myc protein
+vasohibin
+dna binding protein
+selectin
+growth hormone receptor
+merlin
+muskelin
+ovalbumin
+protein spatial
+saccharomyces cerevisiae
+nephrocystin
+deoxyribonuclease-2-alpha
+amino acid residue
+double stranded dna
+emilin
+plakophilin
 cadherin
-beta-2-syntrophin
-astrotactin-2
-involucrin
-gluconate 5-dehydrogenase
-protein usha
-tachykinin-4
-reticulocalbin-3
-beta-defensin 17
-nucleobindin-1
-protein aatf
-galanin
-hspb protein
-phosphoinositide-interacting protein
-sphingobacterium multivorum
-protocadherin-19
-protocadherin alpha-5
-beta-defensin 14
-espin-like protein
-protein yipf2
-filamin-c
+disabled
+spindlin
+flagellin
+prostasin
+bestrophin
+lipopolysaccharide
+protein red
+makorin
+glycophorin
+cystatin
+cystin
+interleukin
+set binding protein
+exostosin
+galectin
+phenylalanine-4-hydroxylase
+tectonic
+syntaxin
+arrestin
+liprin-beta
+synaptogyrin
+lysozyme
+clarin
+cohesin complex
+transcription factor complex
+cyclin
+sparc
+frizzled
+hexokinase
+desmocollin
+reticulon
+calsyntenin
+nadh dehydrogenase
+ubiquitin
+progesterone receptor
+desmoglein
+claudin
+tenascin
+adenylate cyclase
+insulin
+latrophilin
+homo sapiens
+stonin
+dystrophin
+phosphofructokinase
+substrate
+mitogen activated protein kinase
+hemicentin
+caspase
+elafin
+thioredoxin
+reticulocalbin
+gasdermin
+anoctamin
+glucocorticoid receptor
+glypican
+small gtpase

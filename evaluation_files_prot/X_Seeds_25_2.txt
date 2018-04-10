@@ -1,25 +1,25 @@
-melanophilin
-protein phnj
-endonuclease iii
-allantoinase
-tetraspanin-1
-ubiquilin-2
-n-succinylarginine dihydrolase
-arginine/agmatine antiporter
-roundabout 2
-matrix metalloproteinase-26
-proenkephalin-a
-mesothelin
-r-spondin-1
-gastrokine-1
-parathyroid hormone
-pyroglutamyl-peptidase 1
-formin-1
-bisphosphoglycerate mutase
-mucin-4
-integrin beta-7
-glycoprotein endo-alpha-1,2-mannosidase
-atlastin-3
-protein deltex-3-like
-alpha-1,4-n-acetylglucosaminyltransferase
-glucose-6-phosphate 1-dehydrogenase
+chordin
+homo sapiens
+chitotriosidase
+thioredoxin
+nephrocystin
+stathmin
+death receptor
+merlin
+vasohibin
+endonuclease
+reticulon
+mus musculus
+bacillus subtilis
+transcription factor
+anoctamin
+c99
+selectin
+dna polymerase
+tectonic
+protocadherin
+emilin
+glypican
+elafin
+interleukin
+neurotrophin

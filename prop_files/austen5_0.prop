@@ -2,10 +2,10 @@
 
 
 
-trainFile=/data2/SmartPub-TSENER/evaluation_files_prot/sentence_expansion_text_iteration0_splitted5_0.txt
-testFile=/data2/SmartPub-TSENER/evaluation_files_prot/sentence_expansion_text_iteration0test_splitted5_0.txt
+trainFile=/data2/SmartPub-TSENER/evaluation_files_prot/sentence_expansion_mix_text_iteration0_splitted5_0.txt
+testFile=/data2/SmartPub-TSENER/evaluation_files_prot/sentence_expansion_mix_text_iteration0test_splitted5_0.txt
 
-serializeTo=/data2/SmartPub-TSENER/crf_trained_files/sentence_expansion_text_iteration0_splitted5_0.ser.gz
+serializeTo=/data2/SmartPub-TSENER/crf_trained_files/sentence_expansion_mix_text_iteration0_splitted5_0.ser.gz
 
 
 

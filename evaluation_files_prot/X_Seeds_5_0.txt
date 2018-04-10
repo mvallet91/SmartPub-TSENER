@@ -1,5 +1,5 @@
-ataxin-2-like protein
-n-formyl-l-methionine residue
-protein enabled
-cystatin-f
-phosphomannomutase 2
+hexokinase
+reticulon
+endonuclease
+death receptor
+cystatin

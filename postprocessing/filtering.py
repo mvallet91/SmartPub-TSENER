@@ -15,7 +15,12 @@ import nltk
 import requests
 from xml.etree import ElementTree
 from postprocessing import normalized_pub_distance
+corpuspath = ROOTPATH + "/data/stopword_en.txt"
+stopwordList=[]
 
+with open(corpuspath, "r") as file:
+        for row in file.readlines():
+            stopwordList.append(row.strip())
 
 class autovivify_list(dict):
     '''Pickleable class to replicate the functionality of collections.defaultdict'''
@@ -596,6 +601,44 @@ def MV(numberOfSeeds, name, numberOfIteration, iteration):
         ROOTHPATH + "/evaluation_filesMet/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
             numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
     finallist = list(set(finallist))
+
+    for item in finallist:
+        thefile.write("%s\n" % item)
+    thefile.close()
+def WordNet_StopWord(numberOfSeeds, name, numberOfIteration, iteration):
+    # for iteration in range(0,10):
+    propernouns = []
+    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
+
+    path = ROOTPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
+        numberOfSeeds) + '_' + str(iteration) + '.txt'
+    print(path)
+    with open(path, "r") as file:
+        for row in file.readlines():
+            propernouns.append(row.strip())
+    dsnames = []
+    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(
+        numberOfSeeds) + '_' + str(iteration) + '.txt'
+
+    with open(corpuspath, "r") as file:
+        for row in file.readlines():
+            dsnames.append(row.strip())
+    filterbywordnet = []
+    filtered_words = [word for word in set(propernouns) if word not in stopwords.words('english')]
+    filtered_words = [word for word in set(filtered_words) if word.lower() not in stopwordList]
+
+    # filterbywordnet = [word for word in filtered_words if not wordnet.synsets(word)]
+    print(filtered_words)
+    for word in set(filtered_words):
+
+        inwordNet = 1
+
+        if not wordnet.synsets(word):
+            filterbywordnet.append(word)
+    thefile = open(
+        ROOTPATH + "/evaluation_files_prot/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
+            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
+    finallist = list(set(filterbywordnet))
 
     for item in finallist:
         thefile.write("%s\n" % item)
