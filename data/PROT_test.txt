@@ -1,0 +1,1536 @@
+myoc
+caii
+carbonic anhydrase ii
+lepr
+tyrosinase
+tyr
+leptin
+caiv
+car2
+myocilin
+leptin receptor
+brca1
+brca2
+xrcc2
+rad51b
+rad51
+rad51d
+rad51c
+rad51 recombinase
+xrcc3
+myelin/oligodendrocyte glycoprotein
+cup-5
+β-actin
+neuropathy target esterase
+mog
+nte
+insr
+mcoln1
+beta-actin
+lif
+beta-globin
+placental alkaline phosphatase
+alphaa
+myogenin
+alphaa- ... crystallin
+hspb2
+alphaa-crystallin
+alphab
+alphab-crystallin
+cp49
+small heat shock protein
+shsp
+cp115
+alpha
+myosin ... viia
+nt-3
+trkc
+hes 1
+neutrophins
+neurotrophic
+brn 3c
+myoviia
+neurotrophin
+dfna15
+hes ... 5
+fgfr3
+parvalbumin
+fgf8
+brn3c
+myosin viia
+calretinin
+trkb
+gdnf
+myo viia
+neurotrophins
+myosin vi
+pou4f3
+bdnf
+ache
+von willebrand factor
+sorcin
+stomatin
+annexin a7
+vwf
+annexin a2
+anxa7
+insulin
+acetylcholine esterase
+acetylcholinesterase
+galectin-3
+cln2
+type i collagen
+glucagon
+cholecystokinin
+collagen
+tripeptidyl-peptidase i
+subunit c of mitochondrial atp synthase
+tpp-i
+s16
+ribosomal s16
+acdp3
+corc
+acdp1
+acdp-1
+acdp4
+cora
+acdp2
+tbx22
+hoxb6
+hao3
+lmx1b
+hsd3b6
+msx2
+en1
+hsd3b1
+wars2
+agouti
+tbx14
+alx4
+tbx8
+wnt7a
+tbx18
+hsd3b2
+tbx15
+4931427f14rik
+t-box gene 15
+alx3
+brachyury
+hsd3b3
+engrailed1
+msx1
+surfactant proteins ... c
+ldlr
+aqp5
+sc5d
+t1α
+smoothened
+aquaporin 5
+sonic hedgehog
+pcna
+terminal deoxynucleotidyltransferase
+dhcr24
+shh
+sp-d
+platelet endothelial cell adhesion molecular
+sp-c
+dhcr7
+surfactant proteins ... d
+sp-b
+surfactant protein c
+gli3
+sp-a
+full-length shh
+low density lipoprotein receptor
+smo
+surfactant proteins a
+gli1
+caveolin-1
+meg
+megalin
+pecam-1
+7-dehydrocholesterol δ7-reductase
+proliferating cell nuclear antigen
+dehydrocholesterol δ7-reductase
+surfactant proteins ... b
+glucose-6-phosphate dehydrogenase
+abcg5
+srebp-1c
+abcg8
+apolipoproteins ... ai
+hmg-coa reductase
+cholesterol 7α-hydroxylase
+bsep
+hmgr
+mdr2
+pngase f
+sterolin-1
+liver x receptor alpha
+endo-h
+ung
+transferrin
+cyp7a1
+spnt
+apolipoproteins ... e
+apolipoproteins ... aii
+srebp-2
+abcb11
+abca1
+sterolin-2
+pngasef
+lxrα
+hmg coa reductase
+ung enzyme
+apolipoproteins b
+d2 receptors
+d-1
+d4r
+d1
+d-2
+dopamine d2
+d-2 like
+d2-like receptors
+dopamine d1rs
+d2 receptor
+d-1 like
+d2rs
+d1r
+d1-like receptors
+d4rs
+dopamine d2 receptors
+d2r
+d1b
+dopamine d2r
+dopamine d2 receptor
+d3rs
+dopamine d2r's
+d1ar
+drd2
+d3r
+dopamine d1r
+dopamine d2rs
+d1-like ... receptors
+d2
+gpx3
+maskin
+gprk6
+rbap48
+stu2
+tpm1
+rgs12
+l-sm7
+ch-tog
+dmgas41
+lsm7
+tacc2s
+arnt
+lin-53
+tbph
+tacc2
+mta-1
+fgfrl
+aurora a kinase
+carboxypeptidase z
+kif3b
+eif4e
+aurora c kinase
+nsd1
+gas41
+bard1
+tacc3
+evc
+smg
+tacc3's
+rhamm
+gprk2l
+egr-1
+arnt transcription factor
+nkx2e
+msps
+stx18
+rxrβ
+fgfr
+tacc1
+pcaf
+aurora kinase a
+lin37
+klp2
+tdp43
+hgcn5l2
+retinoid-x receptor β
+ini1
+stat5
+rxr-β
+gst
+lsm-7
+fgfr4
+human tifγ
+scl
+moonshine
+tif1α
+tfii-b
+ikaros
+tif1β
+nras
+sema3a
+tifγ
+gata1
+estrogen receptor
+tif1γ
+transcriptional intermediary factor 1γ
+pml
+stem cell leukemia
+c-myb
+er
+mre11
+bonus
+gata2
+myb
+promyelocytic leukemia
+trim33
+hp1α
+stem cell leukemiahematopoietic transcription factor
+rag1
+mon
+apcs
+fcγrii
+cd35
+fcγriib
+cd21
+c-reactive protein
+lpr
+fas receptor
+serum amyloid p component
+cd55
+cr1
+decay-accelerating factor
+pds
+cx26
+kcne1
+kcnq4
+gjb2
+serum albumin
+glutathione-s-transferase
+pendrin
+kcnq1
+kcnj10 k+ channel
+zo-1
+kcnj10
+connexin 26
+catalase
+slc26a4
+slc12a2
+pgc-1α
+peroxisome proliferator-activated receptor-gamma
+coxii
+mcip1
+myoglobin
+peroxisome proliferator-activated receptor-gamma coactivator 1α
+troponin i (fast)
+cytochrome ... b
+mcpt1
+peroxisome proliferator-activated receptor δ
+ppar ... δ
+muscle carnitine palmitoyltransferase-1
+pparα
+cytochrome c oxidase ... ii
+pparδ
+cytochrome c
+cox ... ii
+peroxisome proliferator-activated receptor ... δ
+troponin i (slow)
+α-skeletal actin
+rac 1
+transforming growth factor-β1
+crk ii
+β2-glycoprotein 1
+interleukin-10
+terminal deoxynucleotidyl transferase
+ced-10
+transglutaminase 2
+f4/80
+sfpi1
+pu.1
+annexin v
+apaf1
+activated caspase 3
+phosphatidylserine receptor
+cd91
+gas-6
+ced-5
+interleukin-6
+cd14
+milk fat globule epidermal growth factor 8
+mer
+terminal deoxynucleotide transferase
+tumor necrosis factor-α
+tyrosine kinase receptor
+lox-1
+psr
+ced-2
+dock 180
+cd36
+monocyte chemoattractant protein-1
+m-csf
+ptdsr
+tgf-β1
+il-10
+annexin i
+sr-a
+macrophage colony-stimulating factor
+acasp3
+tnf-α
+protein s
+cd68
+psr-1
+mfg-e8
+lectin-like oxidized low-density lipoprotein receptor-1
+calreticulin
+bmpr1b
+bmpr2
+sox9 transcription factor
+tgf-β
+bmpr1a
+madh1
+smad
+smad3
+growth differentiation factor 5
+col2a1
+transforming growth factor β ... type ii receptor
+matrilin-4
+noggin
+l-sox5
+col10a1
+gdf7
+col3a1
+bmps
+bmp5
+sox9
+bone morphogenetic protein receptor 1a
+col2
+tgf-β ... type ii receptor
+agg
+col1a1
+gdf5
+collagen 1
+sox5
+collagen 10
+collagen 3
+bone morphogenetic protein
+parathyroid hormone
+transforming growth factor β
+tgfβ
+bmp2
+wnt14
+bmp4
+aggrecan
+col10
+mmp13
+sox-6
+bmp
+gdf6
+sox6
+parathyroid hormone-related protein
+mat4
+bmpr1a receptor
+matrix metalloprotease-13
+nestin
+brain-derived neurotrophic factor
+bax
+nerve growth factor
+trkc receptors
+p75ntr
+pea3
+slit2
+wnt-3
+neurofilament-m
+runx3
+trka
+er81
+neurotrophin-3
+p75
+pv
+nf-m
+transferrin receptor
+α-fgf
+mitochondrial atpase subunit c
+sub c
+eea1
+gm130
+mitochondrial atp synthase, subunit c
+dnase i
+cathepsin b
+tppi
+early endosome antigen 1
+pdi
+grp75
+unprocessed ... forms of cathepsin d
+battenin
+btn1
+subunit c
+calbindin
+lamp
+atp synthase subunit c
+gfap
+map-2
+subunit c of mitochondrial atpase
+cathepsin d
+lamp1
+rab7
+cln3
+rab 7
+vvl
+early endosome antigen-1
+lamp 1
+cln3 p
+mitochondrial subunit c
+map2
+atpase subunit c
+cox4
+protein disulfide isomerase
+cytochrome c oxidase subunit iv
+subunit c of the mitochondrial atp synthase complex
+lamp 2
+unprocessed ... cathepsin d
+β-cat
+sry
+fillagrin
+cd104
+snail
+transforming growth factor β2
+zyxin
+ajuba
+ki67
+p-cadherin
+lef-1
+smad2
+smads
+k5
+β4 int
+lor
+smad 2
+involucrin
+e-cadherin
+tgf-β2
+wnt-3a
+bone morphogenic protein
+lymphoid enhancer factor-1
+filaggrin
+fil
+keratin 5
+small phenotype– and mothers against decapentaplegic–related protein 2
+β4 integrin
+loricrin
+cadherin
+transforming growth factor βs
+integrin β4
+tgf-βs
+slug
+k14
+twist
+inv
+growth factor receptor-bound protein-2
+β-catenin
+small phenotype– and mothers against decapentaplegic–related proteins
+tgf-β factors
+p-cad
+e-cad
+gapdh
+vimentin
+ecad
+grb-2
+bone morphogenic proteins
+gsk-3β
+cnga3
+gucy2d
+ninae
+cript
+hgf
+rds
+laminin beta2
+kif3a
+cofilin 1
+opsin
+beta2
+crb3
+hgf-regulated tyrosine kinase substrate
+microtubule associated protein 4
+rhodosin
+aipl-1
+hrg4
+otx2
+rom-1
+crb1
+laminin beta2 chain
+rho
+crx
+sv2
+rhodopsin
+cone-rod homeobox
+unc119
+rpe65
+crb-1
+nrl
+peripherin
+cyclic nucleotide-gated channel, alpha-3
+rpgrip-1
+synaptotagmin 1
+synaptophysin
+glial fibrillary acidic protein
+atp synthase β
+diglyceride acyltransferase
+pparγ
+β3-adrenergic
+peroxisome proliferator-activated receptor-γ
+β2 ... adrenergic
+fas
+steroyl-coa desaturase
+ucp-1
+fxr
+prc
+pparγ ... coactivator-1α
+scd-1
+l-cpt i
+liver-type carnitine palmitoyltransferase
+diacylglycerol acyltransferase
+peroxisome proliferator-activated receptor-γ ... coactivator-1α
+scd
+stearoyl-coa desaturase
+estrogen-related receptor α
+β3-adrenergic receptor
+steroyl coa desaturase
+glycerol-3-phosphate acyltransferase
+mcad
+cyto c
+pgc-1 related coactivator
+beta subunit of atp synthase
+mitochondrial uncoupling protein-1
+ucp1
+fatty acid synthase
+β1 ... adrenergic
+α1-adrenergic
+mcpt
+scd1
+pgc-1β
+β3
+pgcα
+36b4
+tfam
+medium-chain acyl-coa dehydrogenase
+dgat
+pgc-lα
+mitochondrial transcription factor a
+peroxisome proliferator-activated receptor-γ coactivator-1α
+nrf-1
+gpat
+nuclear respiratory factors 1
+β-adrenergic
+anxa2
+annexins ... a2
+annexin ... a5
+annexin ... a4
+annexins ... a11
+annexins ... a5
+s100a6
+annexin a1
+tenascin-c
+annexin a11
+annexina5
+p11
+calcyclin
+annexins a1
+annexina7
+annexins ... a4
+emerin
+members of ... bmp family
+trk receptors
+ews
+brn3a
+neurotrophin 3
+bcl-xl
+trk receptor
+erm
+vglut1
+cr
+tau
+anti-apoptotic bcl2 family members
+hb9
+apterous
+isl1
+thy1
+ewing sarcoma
+egr3
+bcl2
+ngf
+adam2
+adam22
+furin
+neuron-specific activator of cyclin 5
+adam23
+beta-1 integrin
+myelin basic protein
+tace
+plp
+adam3
+cyclin 5
+alpha-6 ... integrin
+epidermal growth factor
+p35
+adam17
+heparin-binding epidermal growth factor-like growth factor
+transforming growth factor alpha
+laminin gamma-1
+calbindin 28 k
+tumour necrosis factor alpha
+alpha-v ... integrin
+mbp
+adam11
+beta-3 integrin
+proteolipid protein
+dystroglycan
+polynucleotide kinase
+mcm8
+mcm2
+mcm3
+dnab
+mcm 2
+cdc7 kinases
+mcm4
+mcm ... 6
+pria
+mcm6
+pria helicase
+cdc45
+mcm ... 7
+mcm7
+lamin-b2
+mcm8 helicase
+mcm 4
+dnasei
+lamin b2
+c-myc
+il22
+fcer1g
+sell
+muc2
+tnfsf4
+kcnc2
+cd4
+fcer1a
+mmp7
+leucine-rich high endothelial cell glycoprotein
+kcnj5
+mcpt2
+serum amyloid a3
+sele
+slamf1
+icam1
+fcgr2b
+kitl
+dmbt1
+mast cell protease 2
+selp
+cystic fibrosis transmembrane conductance regulator
+stat2
+mmp3
+lrhg
+jak
+leucine-rich α2 glycoprotein
+gastrin
+il-10 interleukin
+saa3
+lyzs
+lrg1
+kcnj9
+suppressor of cytokine signaling 3
+xcl1
+stat
+cftr
+muclin
+tnf superfamily members
+stem cell factor
+tlr5
+fcgr3
+fcrl3
+socs3
+ifng
+tas2r124
+tas2r114
+tas2r117
+tas2r104
+tas1r3
+tas2r103
+tas2r110
+tas2r105
+tas2r116
+tas2r120
+tas2r106
+stat3
+trim11
+tripartite motif protein family member 11
+dynein cytoplasmic light chain 1
+dlc8
+atp5a1
+guanylate kinase domain-associated protein
+ura3
+myosin va
+mash1
+ngn2
+neuronal nitric oxide synthase
+humanin
+pax6
+ubiqutin
+dncl1
+pax2
+sox2
+homer3
+pin
+myosin-va
+guanylate kinase
+couptfii
+zfpm2
+hepatocyte growth factor
+pax3
+fog2
+scatter factor
+hgf receptor
+gatas 1
+gatas ... 6
+friend of gata 2
+c-met
+gata4
+myod
+ddk1
+flk1
+gsc
+alphafetoprotein
+goosecoid
+hesx
+tbx6
+apob
+hesx1
+pem
+lefty1
+rest
+hnf4
+hd
+tal1
+wnt3a
+rbtn2
+afp
+tfn
+hdh
+evx1
+nodal
+dll1
+dkk1
+mdkk-1
+apo-aiv
+huntingtin
+huntington's disease
+apoai
+t
+ndl
+eed
+foxa2
+nrsf
+flt1
+embryonic ectoderm development
+dkk-1
+hnf3β
+ttr
+s-opsin
+elovl2
+opn1mw
+notch1
+glo1
+ece1
+photoreceptor nuclear receptor
+blue opsin
+pde6a
+hexokinase 2
+prdm1
+crumbs
+thyroid hormone receptor β2
+fabp7
+opn1sw
+opsins
+nr2e3
+tcta
+hk2
+rbp3
+s-cone
+bub1b
+gucy2e
+smug1
+otop3
+thrb2
+gckr
+pcdh21
+m-opsin
+cnga1
+gnb3
+pygm
+glucokinase regulatory protein
+rgs9
+glucokinase
+s-cone opsin
+aqp2 channel
+calnexin
+endo h
+aqp1
+aqp3
+vasopressin receptor 2
+aquaporin 2
+avp receptor
+avpr2
+aquaporin-2
+endoglycosidase h
+aqp2
+avp type 2 receptor
+fibronectin
+scad
+short-chain acyl-coa dehydrogenase
+cpt-1
+cpt ... -2
+lcad
+very long-chain acyl-coa dehydrogenase
+acadm
+vlcad
+mcad enzyme
+glur1
+glur-b ... subunits
+glur-a
+αcamkii
+glur- ... d
+nr2c
+glur-b subunit
+glur-b
+selenoprotein w, muscle 1
+thioredoxin reductase 1
+gsr
+cysteine- and glycine-rich protein 1
+znt1
+mt1
+hypoxanthin-guanin-phosphoribosyltransferase
+albumin
+kdelr2
+heavy chain subunit of gamma-glutamylcysteine synthetase
+glutathione reductase
+plgf
+mtf-1
+csrp1
+hprt
+sepw1
+cebpa
+mt2
+catalytic subunit of glutamate-cysteine ligase
+gclc
+ndrg1
+mt4
+placental growth factor
+glutathione reductase 1
+bcl2-associated athanogene 3
+alpha-fetoprotein
+bag3
+selenoprotein w
+kdel endoplasmic reticulum protein retention receptor 2
+metal-responsive transcription factor 1
+villin
+slc39a10
+mx1
+n-myc
+mx
+glutathione-s-transferases
+ggcs-hc
+ccaat/enhancer binding protein alpha
+sp1
+n-myc downstream regulated gene 1
+solute carrier family 39, member 10
+txnrd1
+specificity protein 1
+mtf1
+cebpe
+gstm1
+pax5
+e2f6
+e2f1
+sod1
+evi1
+ercc5
+cat
+gpx1
+il-8
+evi
+e2f5
+ercc2
+e2f3
+cebpb
+gstz1
+e2f4
+il-6
+ercc1
+cebpg transcription factor
+cebpg
+xrcc1
+presenilins 1
+amyloid-β
+aβ42
+amyloid precursor protein
+swedish
+ind
+β-app cleaving enzyme 1
+calmodulin
+bace1
+superoxide dismutase 1
+huapp695
+thy-1
+calcium-calmodulin kinase iiα
+app
+neprilysin
+superoxide dismutase
+camkiiα
+indiana
+presenilins ... 2
+mouse app
+swe
+β-app
+prp
+camk2a
+amyloid precursor-like protein 2
+aβ40
+prion protein
+amyloid precursor
+aβ
+gld-1
+bone morphogenetic protein-2
+sam68
+klf5
+c/ebpβ
+c/ebpδ
+rankl
+fmrp
+bmp-2
+tartrate-resistant alp
+how
+trap
+quaking rna binding protein
+tartrate-resistant acid phosphatase
+peroxisome proliferator–activated receptor γ
+fosb
+slm-2
+slm-1
+breast tumor kinase
+sam68 rna binding protein
+qki
+intestinal sik
+capn1
+p27kip1
+p107
+μ-80 k
+egf
+interferon-inducible protein 9
+capn4
+μ-calpain catalytic subunit
+m-80 k
+p53
+m-calpain large subunit
+μ-80 k ... subunits
+capn2
+mixed lineage leukemia
+m-80 k subunit
+calpastatin
+μ-calpain large subunit
+m-80 k subunits
+cyclin d1
+mll
+m-calpain catalytic subunit
+apolipoprotein e
+apoe
+syt ... iv
+adam19
+adam8
+adam15
+synaptotagmin ... iv
+neural cell adhesion molecule
+syt iv
+adam12
+ncam
+unc-71
+adam9
+nr2c subunits
+nr2a ... subunits
+adam10
+igf2
+leukemia inhibitory factor
+embryonic stem cell-specific gene ... 1
+ecat2
+ctgf
+ptgs2
+dppa5
+inhba
+ph34
+krt1
+esg ... 1
+esg1
+oct3/4
+cdk4
+nanog
+collagen type ii
+prolactin
+ctla4
+mhc class ii a beta
+cd152
+cii
+ephrin receptor a4
+mrs
+ephb2
+g3pdh
+trβ2
+neural retina leucine zipper
+l(3)mbt
+eph family receptor tyrosine kinases
+translocation ets leukemia
+nuclear receptor subfamily 2 group e member 3
+lethal(3) malignant brain tumor
+tel
+mph1
+major retinal sam domain protein
+p73 tumor suppressor
+mr-s
+epha4
+rae28
+eph
+ephrin receptor b2
+thyroid hormone receptor beta 2
+orthodenticle-related homeobox 2
+e2 subunits of bckdh
+e2
+β subunits
+α ... subunits
+bcat
+lap
+e2 subunits
+actin
+mitochondrial bcat
+e3
+e2 subunit of bckdh
+e2 subunit
+branched chain aminotransferase
+e3 subunits
+e1 α subunit
+dihydrolipoyl transacylase
+dihydrolipoyl dehydrogenase
+mitochondrial branched-chain aminotransferase
+chm
+dyskerin
+atrx
+dnmt3a
+placental lactogen-i
+hand1
+atr-x
+eomes
+placental lactogen-1
+choroideremia
+pl-1
+dnmt1
+gata-1
+glucose 6-phosphate dehydrogenase
+dkc1
+dnmt3b
+tdt
+daxx
+cdx2
+g6pd
+ubr1
+mmp9
+a
+ptpns1
+stat5b
+somatostatin
+suppressor of cytokine signaling 2
+gh
+signal transducer and activator of transcription 1
+socs2
+sstr5
+ubce7ip5
+growth hormone
+nonagouti
+stat5a
+stat1
+stat4
+cradd
+wnt4
+fibroblast growth factor 9
+dax1
+active caspase-3
+pecam
+wingless-related mmtv integration site 4
+insulin-like growth factor 1 receptor
+irr
+insulin receptor
+dosage-sensitive sex reversal-congenital adrenal hypoplasia critical region on the x chromosome protein 1
+anti-mullerian hormone
+igf1r
+prm1
+fgf receptors
+platelet/endothelial cell adhesion molecule
+sry-like hmg box 9
+transforming growth factor beta
+sex-determining region of the y
+amh
+zp3
+insulin-like growth factor 1
+myc
+desert hedgehog
+insulin receptor-related receptor
+caspase-3
+dhh
+fgf9
+ir
+trp53
+keratin 14
+k8
+dlg1
+plakoglobin
+arhgef4
+k1
+apc
+eb1
+axin 2
+axin2
+kinesin superfamily–associated protein 3
+mapre1
+asef
+axin-2
+kifap3
+k18
+keratins ... 14
+keratins ... 5
+adenomatous polyposis coli
+keratins 1
+keratin 8
+homolog of drosophila discs large
+jup
+lef1
+ctrf
+methylmalonyl coa mutase
+hhr23b
+p8
+xpg
+mat1
+p62 subunit of tfiih
+cdk7
+p52
+argininosuccinate lyase
+p34
+p62 subunit of ... tfiih
+galactose-1-phosphate uridylyltransferase
+xpd
+β-globin
+p44
+xpb
+xpc
+rad15
+p62
+xpf
+cyclin h
+factor vii
+factor x
+fix
+α2-anitplasmin
+factors ... viii
+prothrombin
+plasminogen activator inhibitor-1
+tpa
+upa
+von willebrand antigen
+plasminogen
+endothelial nitric oxide synthase
+plg ... activator inhibitor
+plasminogen ... activator inhibitor
+tissue plasminogen activator
+factors ... ix
+α2-antiplasmin
+factors xii
+urokinase plasminogen activator
+pai
+plg
+protease-activated receptor-4
+factors ... xi
+tissue factor
+methylenetetrahydrofalate reductase
+fviii
+pai-1
+glutathione s-transferase
+green opsin
+ran
+rangap
+ranbp1
+exportin-1
+hkii
+yrb1p
+crm1
+nup160
+nup107
+brain hexokinase i
+sumo-1
+placental alkaline phophatase
+hexokinase i
+nup62
+interferon-β
+hkiii
+hexokinase type i
+nup358
+red ... opsin
+hk1
+cox11
+sumo1
+kif5c
+ranbp2
+rangtpase
+parkin
+nup153
+ran-binding protein 2
+cox 11
+cox1
+ubc9
+plap
+hki
+ran-binding protein 1
+nup96
+glyceraldehyde-3-phosphate dehydrogenase
+kif5b
+pth
+bmps ... -7
+smads ... 2
+α-sma
+growth and differentiation factors ... 9
+bmp type ii receptor
+alk3
+alk2
+tbx1
+smads ... 5
+cleaved caspase-3
+alk5
+crkl
+growth and differentiation factors ... 8
+gdfs ... 9
+tgf-β ... type i receptors
+α-smooth muscle actin
+gdfs ... 8
+αsma
+tgfbr2
+gdfs ... 15
+tgfβrii
+smads 2
+activin type iib receptor
+tgf-β smads
+gdf9
+gdf11
+gdf8
+bmp smads
+gdfs ... 11
+wnt1
+gdfs 8
+tgf-β type i receptor
+tgf-β type ii receptor
+tgf-βrii
+smads ... 3
+smads ... 1
+bmps 6
+type i receptors
+type i receptor
+smads ... 8
+gdf15
+p150caf-1
+p48
+hira
+p150
+p60
+p150caf1
+p60caf-1
+chaf1a
+mbd1
+runx2
+colx
+prx1
+col x
+osteopontin
+actriib
+actrii
+type x collagen
+col i
+col ii
+bmpria
+bmpib
+bmp7
+rnase a
+bmp6
+type ii collagen
+type i ... receptors
+bmp rii
+alk6
+bone morphogenetic proteins
+bmpr-ib receptor
+bmp receptor–specific smads
+coli
+akt
+sonic hedghog
+bmprib
+osterix
+collagen ii
+h2-q10
+pscd1
+wdr1
+interleukin-1
+padi4
+gna12
+cd25
+oas1a
+c5
+hc
+p38 ... mapk ... alpha
+p38 mapk
+hspa1a
+mapk14
+ptpn22
+hla-dr4
+mapk8ip3
+kpnb1
+tumour necrosis factor
+complement component c5
+p38 mitogen-activated protein kinase ... alpha
+renin 1
+pyg1
+glial cell line-derived neurotrophic factor
+aldh1a7
+col8a1
+armadillo
+slc5a2
+wg
+uvomorulin
+dnase1
+wnt7b
+cdh1
+ccnd1
+klk6
+lgs
+cxcl13
+pygo 2
+cited1
+wisp1
+pygo
+timeless
+wnt11
+slco1a4
+ren2
+wt1
+actb
+pygo1
+pygo2
+klk5
+wnt9b
+h2ax
+germ-cell nuclear factor
+sycp1
+sycp3
+dmrt1
+dmrt4
+small ubiquitin-related modifier 1
+dmrt2
+hp1β
+ar
+gmp-1
+dmrt7
+smooth muscle actin
+heterochromatin protein 1 beta
+calmegin
+androgen receptor
+atr
+heterochromatin protein 1β
+calb1
+park7
+inositol 1,4,5-triphosphate receptor 1
+itpr1
+sulfatase modifying factor 1
+sumf1
+iptr1
+p19arf
+rb
+cdkn1a
+e2f ... 1
+e2f2
+atp2b1
+vesicular acetyl choline transporter
+pou4f2
+mtap2
+cdkn1b
+p27
+vacht
+s-antigen
+chx10
+p21
+e2f-3
+dp1
+snap25
+e2f7
+prkca
+retinoblastoma protein
+tfdp1
+cabp5
+e2f transcription factor ... 1
+vsx1
+islet1
+brn3b
+rb1
+kcnc1b
+e2f-1
+tacr3
+calb2
+mecp2
+ccna2
+sv2c
+slc18a3
+myod1
+βiii-tubulin
+cdkn2d
+rcvrn
+hprt1
+mki67
+chat
+sag
+tubb3
+rod arrestin
+dmc1
+blm helicase
+pch-2
+pch1
+dot1
+blm
+thyroid hormone receptor interacting protein 13
+rec8
+pch2
+spo-11
+mlh1
+reca
+scp3
+med31
+topbp1
+rad1
+rad54
+trip13
+trp63
+spo11
+mlh3
+rad24
+msh5
+stag3
+atm
+rad17
+clpa
+msh4
+thyroid receptor beta
+pachytene checkpoint 2
+thrb
+trf2
