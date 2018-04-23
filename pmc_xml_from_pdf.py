@@ -31,9 +31,10 @@ class TextExtraction:
 
     def get_grobid_xml(self, paper_id):
         """
-        Loads the GROBID XML of the paper with the provided filename. If possible uses the XML cache. If not, uses the GROBID web service. New results are caches.
+        Loads the GROBID XML of the paper with the provided filename. If possible uses the XML cache. 
+        If not, uses the GROBID web service. New results are cached.
         :param paper_id:
-        :return an LXML root node of the grobid XML
+        :return an LXML root node of the grobid XML:
         """
         
         print(paper_id)
