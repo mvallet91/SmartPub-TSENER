@@ -15,7 +15,7 @@ modeldoc2vec = Doc2Vec.load(ROOTPATH + '/models/doc2vec.model')
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 seeds = [5, 10, 25, 50, 100]
-seeds = [5,25,100]
+seeds = [5, 25, 100]
 
 """
 Extract training data for different number of seeds
