@@ -1,35 +1,37 @@
 import logging, os, requests, re, pickle
 from pyhelpers import tools, grobid_mapping
-tools.setup_logging(file_name="extractor.log")
 import config as cfg
 from lxml import etree
 from six import text_type
 from sickle import Sickle
 
-
+tools.setup_logging(file_name="extractor.log")
 items = {}
 db = tools.connect_to_mongo()
 working_dir = 'data/tudelft_repo/test/'
 working_dir_xml = 'data/tudelft_repo/test/xml/'
 
-# sickle = Sickle('http://oai.tudelft.nl/ir')
-# records = sickle.ListRecords( **{'metadataPrefix': 'oai_dc', 'ignore_deleted': 'True'})
-# for r in records:
-#     uuid = ''
-#     uuid = r.metadata['identifier'][0][32:]
-#     items[uuid] = r.metadata
-    
-with open('tud_metadata.pickle', 'rb') as handle:
-    items = pickle.load(handle)
-    
+update = True
+
+if update:
+    sickle = Sickle('http://oai.tudelft.nl/ir')
+    records = sickle.ListRecords(**{'metadataPrefix': 'oai_dc', 'ignore_deleted': 'True'})
+    for r in records:
+        uuid = ''
+        uuid = r.metadata['identifier'][0][32:]
+        items[uuid] = r.metadata
+else:
+    with open('tud_metadata.pickle', 'rb') as handle:
+        items = pickle.load(handle)
+
 
 def check_validity_of_xml(root):
-    string_XML = etree.tostring(root)
-    if "<teiHeader xml:lang=\"en\">" in str(string_XML):
+    string_xml = etree.tostring(root)
+    if "<teiHeader xml:lang=\"en\">" in str(string_xml):
         return True
     else:
-        return False 
-    
+        return False
+
 
 def get_grobid_xml(paper_id):
     """
@@ -40,7 +42,7 @@ def get_grobid_xml(paper_id):
     """
 
     print(paper_id)
-    filename = working_dir + paper_id 
+    filename = working_dir + paper_id
     filename_xml = working_dir_xml + paper_id.split(".")[0] + ".xml"
 
     if os.path.isfile(filename_xml):
@@ -73,8 +75,9 @@ def get_grobid_xml(paper_id):
             else:
                 raise Exception("Error in xml, pdf  either broken or not extractable (i.e Unicode mapping missing)")
         else:
-            raise Exception("Error calling GROBID for "+paper_id+": "+str(response.status_code)+" "+response.reason)
-    
+            raise Exception(
+                "Error calling GROBID for " + paper_id + ": " + str(response.status_code) + " " + response.reason)
+
 
 def process_paper(file, db):
     """
@@ -98,14 +101,14 @@ def process_paper(file, db):
 
         date = items[uuid]['date'][0]
         result['year'] = date[:4]
-        
+
         abstract = items[uuid]['description'][0]
         abstract = re.sub('<.*?>', ' ', abstract)
         mongo_set_dict["content.abstract"] = abstract
-        
+
         if 'abstract' in result and len(result["abstract"]) > len(abstract):
             mongo_set_dict["content.abstract"] = result["abstract"]
-            
+
         if 'notes' in result:
             mongo_set_dict["content.notes"] = result["notes"]
 
@@ -117,18 +120,18 @@ def process_paper(file, db):
         if 'chapters' in result:
             mongo_set_dict["content.chapters"] = result["chapters"]
 
-        mongoResult = db.publications.update_one(
-        {'_id': name},
-        {'$set': result},
-        upsert=True
+        mongo_result = db.publications.update_one(
+            {'_id': name},
+            {'$set': result},
+            upsert=True
         )
-        print(mongoResult)
-
+        print(mongo_result)
         logging.info("Processed " + file)
 
     except:
         logging.exception('Cannot process paper', file, exc_info=True)
-    
+
+
 for file in os.listdir(working_dir):
     if file.endswith(".pdf"):
         process_paper(file, db)
