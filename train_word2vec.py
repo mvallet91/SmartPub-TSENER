@@ -1,5 +1,5 @@
 import logging
-import os.path
+import os
 import sys
 import multiprocessing
 import nltk
@@ -20,8 +20,8 @@ if __name__ == '__main__':
         sys.exit(1)
 
     sentence_stream = []
-    inp, output_1, output_2 = sys.argv[1:4]
-    file_sent = open(inp)
+    input_file, output_1, output_2 = sys.argv[1:4]
+    file_sent = open(input_file)
     sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     lines = (sent_detector.tokenize(file_sent.read().strip()))
     bigram_transformer = Phrases(min_count=1, threshold=2)

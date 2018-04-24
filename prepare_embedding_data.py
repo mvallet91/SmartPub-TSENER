@@ -1,94 +1,79 @@
-from pymongo import MongoClient
-from elasticsearch import Elasticsearch
-from elasticsearch import helpers
-import math
+import pymongo
+import elasticsearch
 import nltk
 import string
 import config as cfg
-sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
 import sys
 import re
 
-###############################
-
-client = MongoClient('localhost:' + str(cfg.mongoDB_Port))
-db = client.pub
-pub = client.pub.publications
-es = Elasticsearch(
-    [{'host': 'localhost', 'port': 9200}], timeout=30, max_retries=10, retry_on_timeout=True
-)
+sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
+client = pymongo.MongoClient('localhost:' + str(cfg.mongoDB_Port))
+publications_collection = client.pub.publications
+es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}],
+                                 timeout=30, max_retries=10, retry_on_timeout=True)
 es.cluster.health(wait_for_status='yellow', request_timeout=1)
 
-def returnnames(mongo_string_search, db):
+
+def return_names(mongo_string_search, db):
     results = db.publications.find(mongo_string_search)
     list_of_docs = list()
-    my_dict = {
+    extracted = {
         "_id": "",
-
     }
     for i, r in enumerate(results):
-
-        my_dict['_id'] = r['_id']
-        
-        list_of_docs.append((my_dict))
-
-        my_dict = {
+        extracted['_id'] = r['_id']
+        list_of_docs.append(extracted)
+        extracted = {
             "_id": "",
         }
-
     return list_of_docs
-    
-filter_publications = ["WWW", "ICSE", "VLDB", "JCDL", "TREC",  "SIGIR", "ICWSM", "ECDL", "ESWC", "TPDL", 
-                          "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", "BMC Biotechnology",
-                        "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR", 
-                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
 
-list_of_pubs = []
 
+filter_publications = ["WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL", "ESWC", "TPDL",
+                       "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
+                       "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
+                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
+
+extracted_publications = []
 for publication in filter_publications:
-    mongo_string_search = {'$or': [{'$and': [{'booktitle': publication}, {'content.fulltext': {'$exists': True}}]},
-                                   {'$and': [{'journal': publication},   {'content.fulltext': {'$exists': True}}]}
-                                  ]
-                          }
-    list_of_pubs.append(returnnames(mongo_string_search, db))
+    query = {'$or': [{'$and': [{'booktitle': publication}, {'content.fulltext': {'$exists': True}}]},
+                     {'$and': [{'journal': publication}, {'content.fulltext': {'$exists': True}}]}]}
+    extracted_publications.append(return_names(query, publications_collection))
 
-papersText = []
-sentText = []
-
+papers_text = []
+sentence_text = []
 translator = str.maketrans('', '', string.punctuation)
 
-for pubs in list_of_pubs:
-    for cur in pubs:
+for publication in extracted_publications:
+    for article in publication:
         query = {"query":
-            {"match": {
-                "_id": {
-                    "query": cur['_id'],
-                    "operator": "and"
-                }
-            }
-            }
-        }
+                     {"match":
+                          {"_id":
+                               {"query": article['_id'],
+                                "operator": "and"
+                                }
+                           }
+                      }
+                 }
 
-        res = es.search(index = "ir", body = query, size = 200)
-
-        for doc in res['hits']['hits']:
+        results = es.search(index="ir", body=query, size=200)
+        for doc in results['hits']['hits']:
             fulltext = doc["_source"]["text"]
             fulltext = re.sub("[\[].*?[\]]", "", fulltext)
-            word_text = fulltext.translate(translator)
-            papersText.append(word_text.lower())
-            sentText.append(fulltext)
+            cleaned_text = fulltext.translate(translator)
+            papers_text.append(cleaned_text.lower())
+            sentence_text.append(fulltext)
             print('.', end="")
             sys.stdout.flush()
-            
-    print('Done', '-'*100)
-    
-papersText = " ".join(papersText)
-sentText = ". ".join(sentText)
+    print('Done', '-' * 100)
+
+tokens = " ".join(papers_text)
+sentences = ". ".join(sentence_text)
 
 f = open("data/dataWord2vec.txt", "w")
-f.write(papersText)
+f.write(tokens)
 f.close()
 
 f = open("data/dataDoc2vec.txt", "w")
-f.write(sentText)
+f.write(sentences)
 f.close()

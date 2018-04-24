@@ -1,9 +1,15 @@
-import logging, os, requests, re, pickle
-from pyhelpers import tools, grobid_mapping
-import config as cfg
+import logging
+import os
+import pickle
+import re
+import requests
+
 from lxml import etree
-from six import text_type
 from sickle import Sickle
+from six import text_type
+
+import config as cfg
+from pyhelpers import tools, grobid_mapping
 
 tools.setup_logging(file_name="extractor.log")
 items = {}
@@ -12,6 +18,8 @@ working_dir = 'data/tudelft_repo/test/'
 working_dir_xml = 'data/tudelft_repo/test/xml/'
 
 update = True
+
+# Get list of OAI records ##############################
 
 if update:
     sickle = Sickle('http://oai.tudelft.nl/ir')
@@ -38,7 +46,7 @@ def get_grobid_xml(paper_id):
     Loads the GROBID XML of the paper with the provided filename. If possible uses the XML cache. 
     If not, uses the GROBID web service. New results are cached.
     :param paper_id:
-    :return an LXML root node of the grobid XML:
+    :return root node of the grobid XML:
     """
 
     print(paper_id)
