@@ -1,10 +1,9 @@
-import shutil, os.path, pickle, time, requests, sys
+import shutil, os, pickle, time, requests
 from sickle import Sickle
 
-sickle = Sickle('http://oai.tudelft.nl/ir')
 working_dir = 'data/tudelft_repo/test/'
 filter_types = ['master thesis', 'conference paper', 'doctoral thesis', 'journal article']
-max_size = 100  # In MB
+MAX_SIZE = 100  # In MB
 
 types = []
 items = {}
@@ -13,15 +12,20 @@ downloaded = {}
 x = 0
 large = []
 
-############################ Get list of OAI records ##############################
+# Get list of OAI records ##############################
 
-records = sickle.ListRecords(**{'metadataPrefix': 'oai_dc', 'ignore_deleted': 'True'})
+update = True
 
-for r in records:
-    types.append(r.metadata['type'][0])
-    uuid = ''
-    uuid = r.metadata['identifier'][0][32:]
-    items[uuid] = r.metadata
+if update:
+    sickle = Sickle('http://oai.tudelft.nl/ir')
+    records = sickle.ListRecords(**{'metadataPrefix': 'oai_dc', 'ignore_deleted': 'True'})
+    for r in records:
+        uuid = ''
+        uuid = r.metadata['identifier'][0][32:]
+        items[uuid] = r.metadata
+else:
+    with open('tud_metadata.pickle', 'rb') as handle:
+        items = pickle.load(handle)
 
 print('items', len(items), '- types', len(types))
 
@@ -31,7 +35,7 @@ for dirpath, dirs, files in os.walk(working_dir):
         uuid = path.split('_')[-1].split('.')[0]
         downloaded[uuid] = items[uuid]
 
-############################ Download files ##############################
+# Download files ##############################
 
 for uuid in items.keys():
     download = 'https://repository.tudelft.nl/islandora/object/uuid:' + uuid + '/datastream/OBJ/download'
@@ -54,9 +58,9 @@ for uuid in items.keys():
     if x == 20:
         break
 
-############################ Delete large files ##############################
+# Delete large files ##############################
 
-target_size = max_size * 1048514
+target_size = MAX_SIZE * 1048514
 
 for dirpath, dirs, files in os.walk(working_dir):
     for file in files:

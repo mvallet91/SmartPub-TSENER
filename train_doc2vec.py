@@ -1,5 +1,5 @@
 import logging
-import os.path
+import os
 import sys
 import gensim
 from nltk import tokenize
@@ -16,9 +16,9 @@ if __name__ == '__main__':
     logging.root.setLevel(level=logging.INFO)
     logger.info("running %s" % ' '.join(sys.argv))
 
-    inp, outp1 = sys.argv[1:3]
+    input_file, output_file = sys.argv[1:3]
 
-    file = open(inp, 'r')
+    file = open(input_file, 'r')
     text = file.read()
     sentences = tokenize.sent_tokenize(text)
     count = 0
@@ -43,12 +43,9 @@ if __name__ == '__main__':
 
 
     labeled_sentences = LabeledLineSentence(sentences, docLabels)
-
     model = Doc2Vec(vector_size=100, window=10, min_count=5, workers=multiprocessing.cpu_count(),
                     epochs=10, alpha=0.025, min_alpha=0.025)  # use fixed learning rate
 
     model.build_vocab(labeled_sentences)
-
     model.train(labeled_sentences, total_examples=model.corpus_count, epochs=model.epochs)
-
-    model.save(outp1)
+    model.save(output_file)

@@ -1,139 +1,126 @@
-from pymongo import MongoClient
-from elasticsearch import Elasticsearch
+import pymongo
+import elasticsearch
 from elasticsearch import helpers
-import math
-import requests
 import nltk
-import _pickle as cPickle
 import config as cfg
 import logging
 
-###############################
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
-client = MongoClient('localhost:' + str(cfg.mongoDB_Port))
-pub = client.pub.publications
-db = client.pub
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}],
-                   timeout=30, max_retries=10, retry_on_timeout=True)
+client = pymongo.MongoClient('localhost:' + str(cfg.mongoDB_Port))
+publications_collection = client.pub.publications
+es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}],
+                                 timeout=30, max_retries=10, retry_on_timeout=True)
 es.cluster.health(wait_for_status='yellow', request_timeout=1)
 
-def return_paragraphs(mongo_string_search, db):
-    # mongo_string_search = {"dblpkey": "{}".format(dblkey)}
-    results = db.publications.find(mongo_string_search)
-    chapters = list()
-    chapter_nums = list()
-    list_of_docs = list()
-    # list_of_abstracts = list()
-    merged_chapters = list()
-    my_dict = {
+
+def extract_paragraphs(search_string, collection):
+    results = collection.find(search_string)
+    list_of_docs = []
+
+    extracted = {
         "_id": "",
         "paragraphs": list(),
         "title": ""
     }
     for i, r in enumerate(results):
-        my_dict['_id'] = r['_id']
-        my_dict['title'] = r['title']
+        extracted['_id'] = r['_id']
+        extracted['title'] = r['title']
         paragraphs = []
-        
         try:
-
             for chapter in r['content']['chapters']:
-                if (chapter == {}):
+                if chapter == {}:
                     continue
 
                 if len(chapter) == 1:
                     for paragraph in chapter[0]['paragraphs']:
                         if paragraph == {}:
-                            continue 
+                            continue
                         paragraphs.append(paragraph)
-                
+
                 else:
                     for paragraph in chapter['paragraphs']:
                         if paragraph == {}:
-                            continue                    
+                            continue
                         paragraphs.append(paragraph)
 
-                            
-            my_dict['paragraphs'] = paragraphs
+            extracted['paragraphs'] = paragraphs
 
-            paragraphs = []
-            
         except:
             logging.exception('No chapters in ' + r['_id'], exc_info=True)
             continue
 
-        list_of_docs.append(my_dict)
-        my_dict = {
+        list_of_docs.append(extracted)
+        extracted = {
             "_id": "",
             "paragraphs": list(),
             "title": ""
         }
 
-
     return list_of_docs
 
 
-# filter_publications = ["WWW", "ICSE", "VLDB", "JCDL", "TREC",  "SIGIR", "ICWSM", "ECDL", "ESWC", "TPDL", 
-filter_publications = ["PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", "BMC Biotechnology",
-                        "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR", 
-                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
+filter_publications = ["WWW", "ICSE", "VLDB", "PVLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL", "ESWC",
+                       "IEEE J. Robotics and Automation", "IEEE Trans. Robotics", "ICRA", "ICARCV", "HRI",
+                       "ICSR", "PVLDB", "TPDL", "ICDM", "Journal of Machine Learning Research", "Machine Learning"]
 
-list_of_pubs = []
+# "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
+# "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
+# "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
 
+extracted_publications = []
 for publication in filter_publications:
-    mongo_string_search = {'$or': [{'$and': [{'booktitle': publication}, {'content.fulltext': {'$exists': True}}]} ,
-                                   {'$and': [{'journal': publication},   {'content.fulltext': {'$exists': True}}]} ]}
-    
-    list_of_pubs.append(return_paragraphs(mongo_string_search, db))
+    query = {'$or': [{'$and': [{'booktitle': publication}, {'content.fulltext': {'$exists': True}}]},
+                     {'$and': [{'journal': publication}, {'content.fulltext': {'$exists': True}}]}]}
+    extracted_publications.append(extract_paragraphs(query, publications_collection))
 
-print("Total journals:", len(list_of_pubs))
+print("Total journals:", len(extracted_publications))
 
-for pubs in list_of_pubs:
-    for paper in pubs:
-        print(paper['_id'])
+for publication in extracted_publications:
+    for article in publication:
         actions = []
         cleaned = []
-        datasetsent = []
-        othersent = []
-        
-        for paragraph in paper['paragraphs']:
+        dataset_sent = []
+        other_sent = []
+
+        for paragraph in article['paragraphs']:
             if paragraph == {}:
                 continue
+
             lines = (sent_detector.tokenize(paragraph.strip()))
-            
+            with open('data/allcorpus_papers.txt', 'a') as f:
+                for line in lines:
+                    f.write(line)
+
             if len(lines) < 3:
                 continue
 
             for i in range(len(lines)):
                 words = nltk.word_tokenize(lines[i])
-                lengths = [len(x) for x in words]
-                average = sum(lengths) / len(lengths)
-                if average < 4:
+                word_lengths = [len(x) for x in words]
+                average_word_length = sum(word_lengths) / len(word_lengths)
+                if average_word_length < 4:
                     continue
-                    
-                twosentences = ''
+
+                two_sentences = ''
                 try:
-                    twosentences = lines[i] + ' ' + lines[i-1]
-
+                    two_sentences = lines[i] + ' ' + lines[i - 1]
                 except:
-                    twosentences = lines[i] + ' ' + lines[i+1]
-                    
-                datasetsent.append(twosentences)
+                    two_sentences = lines[i] + ' ' + lines[i + 1]
 
-        for num, parag in enumerate(datasetsent):
+                dataset_sent.append(two_sentences)
+
+        for num, added_lines in enumerate(dataset_sent):
             actions.append({
                 "_index": "twosent",
                 "_type": "twosentnorules",
-                "_id": paper['_id'] + str(num),
-
-                "_source" : {
-                    "title" : paper['title'],
-                    "content.chapter.sentpositive" : parag,
-                    "paper_id":paper['_id']
+                "_id": article['_id'] + str(num),
+                "_source": {
+                    "title": article['title'],
+                    "content.chapter.sentpositive": added_lines,
+                    "paper_id": article['_id']
                 }})
-            
+
         if len(actions) == 0:
             continue
-
         res = helpers.bulk(es, actions)
         print(res)
