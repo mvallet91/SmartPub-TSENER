@@ -1,7 +1,7 @@
 """
 This script generates training data and trains NER using different number of seeds and approach.
-The training data should be extracted using the training_data_extraction.py  using the seed terms (done with different number of seeds 10 times)
-and be stored in the "evaluation_files folder".
+The training data should be extracted using the training_data_extraction.py  using the seed terms
+(done with different number of seeds 10 times) and be stored in the "evaluation_files folder".
 """
 
 from preprocessing import ner_training, expansion, training_data_extraction
