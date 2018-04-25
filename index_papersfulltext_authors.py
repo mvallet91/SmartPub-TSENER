@@ -12,10 +12,9 @@ es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}],
 es.cluster.health(wait_for_status='yellow', request_timeout=1)
 
 
-def extract_from_mongodb(search_string, collection):
-    results = collection.find(search_string)
-    list_of_docs = []
+def extract_metadata(documents):
 
+    list_of_docs = []
     extracted = {
         "_id": "",
         "title": "",
@@ -27,7 +26,7 @@ def extract_from_mongodb(search_string, collection):
         "references": []
 
     }
-    for i, r in enumerate(results):
+    for i, r in enumerate(documents):
         # try:
         # list_of_sections = list()
         extracted['_id'] = r['_id']
@@ -74,7 +73,6 @@ def extract_from_mongodb(search_string, collection):
             "references": []
 
         }
-
     return list_of_docs
 
 
@@ -90,7 +88,8 @@ extracted_publications = []
 for publication in filter_publications:
     query = {'$or': [{'$and': [{'booktitle': publication}, {'content.fulltext': {'$exists': True}}]},
                      {'$and': [{'journal': publication}, {'content.fulltext': {'$exists': True}}]}]}
-    extracted_publications.append(extract_from_mongodb(query, publications_collection))
+    results = publications_collection.find(query)
+    extracted_publications.append(extract_metadata(results))
 
 for publication in extracted_publications:
     actions = []

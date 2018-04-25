@@ -1,19 +1,14 @@
-import pymongo
 import elasticsearch
 from elasticsearch import helpers
 import nltk
-import config as cfg
 import sys
 
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
-client = pymongo.MongoClient('localhost:' + str(cfg.mongoDB_Port))
-publications_collection = client.pub.publications
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}],
                                  timeout=30, max_retries=10, retry_on_timeout=True)
 es.cluster.health(wait_for_status='yellow', request_timeout=1)
 
-paper_names = []
-file = open('data/allcorpus_papers.txt', 'r')
+file = open('data/full_text_corpus.txt', 'r')
 text = file.read()
 sentences = nltk.tokenize.sent_tokenize(text)
 print('Sentences ready')

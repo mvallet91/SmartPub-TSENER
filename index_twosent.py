@@ -19,7 +19,7 @@ def extract_paragraphs(search_string, collection):
 
     extracted = {
         "_id": "",
-        "paragraphs": list(),
+        "paragraphs": [],
         "title": ""
     }
     for i, r in enumerate(results):
@@ -50,9 +50,10 @@ def extract_paragraphs(search_string, collection):
             continue
 
         list_of_docs.append(extracted)
+
         extracted = {
             "_id": "",
-            "paragraphs": list(),
+            "paragraphs": [],
             "title": ""
         }
 
@@ -86,7 +87,7 @@ for publication in extracted_publications:
                 continue
 
             lines = (sent_detector.tokenize(paragraph.strip()))
-            with open('data/allcorpus_papers.txt', 'a') as f:
+            with open('data/full_text_corpus.txt', 'a') as f:
                 for line in lines:
                     f.write(line)
 
