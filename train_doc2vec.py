@@ -8,6 +8,8 @@ import multiprocessing
 
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
+# run: python3 doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
+
 if __name__ == '__main__':
     program = os.path.basename(sys.argv[0])
     logger = logging.getLogger(program)
