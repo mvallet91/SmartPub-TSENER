@@ -61,11 +61,10 @@ def extract_paragraphs(search_string, collection):
 
 filter_publications = ["WWW", "ICSE", "VLDB", "PVLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL", "ESWC",
                        "IEEE J. Robotics and Automation", "IEEE Trans. Robotics", "ICRA", "ICARCV", "HRI",
-                       "ICSR", "PVLDB", "TPDL", "ICDM", "Journal of Machine Learning Research", "Machine Learning"]
-
-# "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
-# "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
-# "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
+                       "ICSR", "PVLDB", "TPDL", "ICDM", "Journal of Machine Learning Research", "Machine Learning",
+                       "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
+                       "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
+                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
 
 extracted_publications = []
 for publication in filter_publications:
