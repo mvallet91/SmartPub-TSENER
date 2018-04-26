@@ -1,8 +1,3 @@
-"""
-Here we will extract a number of sentences for the training data using different number of dataset name seeds
-(e.g  2, 5, 10, ...)
-"""
-
 import random
 import elasticsearch
 import nltk
@@ -11,42 +6,49 @@ import config as cfg
 import sys
 
 
-def extract(number_of_seeds):
+def sentence_extraction(number_of_seeds: int) -> None:
+    """
+    Extracts from the corpus all sentences that include one of the given number of seeds (number_of_seeds).
+    This iterative process is executed 10 times selecting number_of_seeds new entities, generating one file
+    with the sentences for each iteration. In addition, it excludes sentences that have any of the entities
+    from a test set, when provided.
+    :param number_of_seeds: desired number of seed entities to extract from set
+    :type number_of_seeds: int
+    :returns: Creates and saves files with sentences in path
+    :rtype: None
+    """
     es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
     print('Started training data extraction')
 
-    # First we get the dataset names which have been used in the testing set (TestB) to exclude them from the
+    # First we get the entity names which have been used in the testing set to exclude them from the
     # training sentences
     test_entities = []
-    with open(cfg.ROOTPATH + '/data/protein-names-test.txt', 'r') as file:
+    path = cfg.ROOTPATH + '/data/names-test.txt'
+    with open(path, 'r') as file:
         for row in file.readlines():
             test_entities.append(row.strip())
-    # lowercase the names
     test_entities = [e.lower() for e in test_entities]
     test_entities = list(set(test_entities))
 
     # List of seed names
     seed_entities = []
-    path = cfg.ROOTPATH + "/data/protein-names-train.txt"
-    with open(path, "r") as file:
+    path = cfg.ROOTPATH + '/data/names-train.txt'
+    with open(path, 'r') as file:
         for row in file.readlines():
             seed_entities.append(row.strip())
     seed_entities = [e.lower() for e in seed_entities]
     seed_entities = list(set(seed_entities))
 
-    # 10 times randomly pick i number of seeds
+    # 10 times randomly pick n number of seeds
     for i in range(10):
-
-        # shuffle the list
         training_entities = random.sample(seed_entities, number_of_seeds)
         print('Selected seed terms', training_entities)
         paragraph = []
 
-        # using the seeds, extract the sentences from the publications using the query in elastic search
+        # using the seeds, extract the sentences from the publications' text (with Elasticsearch)
         for entity in training_entities:
             entity_name = re.sub(r'\([^)]*\)', '', entity)
 
-            # Matching
             query = {"query":
                         {"match":
                             {"content.chapter.sentpositive":
@@ -62,18 +64,15 @@ def extract(number_of_seeds):
             print(entity_name)
             print("Got %d hits in ES" % res['hits']['total'])
 
-            # clean up the sentences and if they dont contain the names of the test set then add them as
+            # clean up the sentences and if they don't contain the names of the test set then add them as
             # the training data
             for doc in res['hits']['hits']:
-
                 sentence = doc["_source"]["content.chapter.sentpositive"]
                 words = nltk.word_tokenize(doc["_source"]["content.chapter.sentpositive"])
                 lengths = [len(x) for x in words]
                 average = sum(lengths) / len(lengths)
-                # Remove noise sentences
                 if average < 3:
                     continue
-
                 sentence = sentence.replace("@ BULLET", "")
                 sentence = sentence.replace("@BULLET", "")
                 sentence = sentence.replace(", ", " , ")
@@ -85,7 +84,7 @@ def extract(number_of_seeds):
                 sentence = sentence.replace('?', ' ?')
                 sentence = sentence.replace('..', '.')
 
-                if any(ext in words for ext in test_entities):
+                if any(e in words for e in test_entities):
                     print('sentence removed')
                     continue
 
@@ -93,7 +92,7 @@ def extract(number_of_seeds):
                     paragraph.append(sentence)
 
         paragraph = list(set(paragraph))
-        print(len(paragraph), 'sentences added')
+        print(len(paragraph), 'sentences added for training in iteration', i)
         print('')
         sys.stdout.flush()
 
@@ -106,3 +105,5 @@ def extract(number_of_seeds):
         for item in training_entities:
             f1.write(item + '\n')
         f1.close()
+
+    print('Process finished with', number_of_seeds, 'seeds')

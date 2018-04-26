@@ -9,7 +9,7 @@ from sklearn.metrics import silhouette_score
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 import string
-from preprocessing.Extract_NE import preprocess_NE
+from preprocessing.Extract_NE import preprocess_named_entities
 from sklearn.cluster import KMeans
 from default_config import ROOTHPATH
 import nltk
@@ -77,7 +77,7 @@ def clusteringec_all_dataset(numberOfSeeds,name ,numberOfIteration,iteration):
             numberOfSeeds) + '_' + str(iteration) + '.txt'
 
     #extract all the entities from the text
-    propernouns = preprocess_NE(fileUnlabelled)
+    propernouns = preprocess_named_entities(fileUnlabelled)
 
     dsnames = []
 
@@ -189,7 +189,7 @@ def clusteringec_all_method(numberOfSeeds,name , numberOfIteration,iteration):
     else:
         fileUnlabelled = ROOTHPATH + '/evaluation_filesMet/' + name + 'text_Iteration' + numberOfIteration + str(
             numberOfSeeds) + '_' + str(iteration) + '.txt'
-    propernouns = preprocess_NE(fileUnlabelled)
+    propernouns = preprocess_named_entities(fileUnlabelled)
 
     dsnames = []
 

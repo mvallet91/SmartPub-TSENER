@@ -1,11 +1,14 @@
-"""
-This script will be used to extract the entities from the text.
-"""
 import nltk
 
-def preprocess_NE(filepath):
-    fileUnlabelled=open(filepath,'r')
-    text = fileUnlabelled.read()
+
+def generic_named_entities(file_path):
+    """
+
+    :param file_path:
+    :return:
+    """
+    unlabelled_sentence_file = open(file_path, 'r')
+    text = unlabelled_sentence_file.read()
     print('started to extract general NE from text....')
     sentences = nltk.sent_tokenize(text)
     tokenized_sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
@@ -16,7 +19,13 @@ def preprocess_NE(filepath):
         entity_names.extend(extract_entity_names(tree))
     return entity_names
 
+
 def extract_entity_names(t):
+    """
+
+    :param t:
+    :return:
+    """
     entity_names = []
     if hasattr(t, 'label') and t.label:
         if t.label() == 'NE':

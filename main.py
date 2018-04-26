@@ -15,15 +15,10 @@ es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 seeds = [5, 25, 100]
 
-"""
-Extract training data for different number of seeds
-"""
+# "Extract training data for different number of seeds
 for seed in seeds:
-    training_data_extraction.extract(seed)
+    training_data_extraction.sentence_extraction(seed)
 
-"""
-Term expansion approach for the first iteration
-"""
 # perform term expansion on the text of the training data using different number of seeds (i.e. 5,10,25,50,100)
 
 # for number in range(10):
