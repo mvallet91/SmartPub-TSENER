@@ -1,53 +1,50 @@
-'''
-@author: mesbahs
-'''
-"""
-This script will be used to find similar dataset/method
-names based on the existing seeds using embedding clustering.
-"""
-
+import codecs
+import numpy
 from numbers import Number
-from sklearn.preprocessing import StandardScaler
-import codecs, numpy
-from sklearn.metrics import silhouette_score
-import string
-from preprocessing.Extract_NE import preprocess_NE
-from sklearn.cluster import KMeans
-from config import ROOTPATH
+
 import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
-import sys
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
+
+from config import ROOTPATH
+from preprocessing.Extract_NE import preprocess_named_entities
+
 
 class autovivify_list(dict):
-    '''Pickleable class to replicate the functionality of collections.defaultdict'''
+    """Pickleable class to replicate the functionality of collections.defaultdict"""
 
     def __missing__(self, key):
         value = self[key] = []
         return value
 
     def __add__(self, x):
-        '''Override addition for numeric types when self is empty'''
+        """Override addition for numeric types when self is empty"""
         if not self and isinstance(x, Number):
             return x
         raise ValueError
 
     def __sub__(self, x):
-        '''Also provide subtraction method'''
+        """Also provide subtraction method"""
         if not self and isinstance(x, Number):
             return -1 * x
         raise ValueError
 
 
-def build_word_vector_matrix(vector_file, propernouns):
-    '''Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays'''
+def build_word_vector_matrix(vector_file, proper_nouns):
+    """
+    Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays
+    """
     numpy_arrays = []
     labels_array = []
     with codecs.open(vector_file, 'r', 'utf-8') as f:
         for c, r in enumerate(f):
             sr = r.split()
             try:
-                if sr[0] in propernouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words('english') and 'protein' not in sr[0].lower():
+                if sr[0] in proper_nouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
+                        'english') and 'protein' not in sr[0].lower():
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
@@ -55,49 +52,62 @@ def build_word_vector_matrix(vector_file, propernouns):
 
     return numpy.array(numpy_arrays), labels_array
 
+
 def find_word_clusters(labels_array, cluster_labels):
-    '''Read the labels array and clusters label and return the set of words in each cluster'''
+    """
+    Read the labels array and clusters label and return the set of words in each cluster
+    """
     cluster_to_words = autovivify_list()
     for c, i in enumerate(cluster_labels):
         cluster_to_words[i].append(labels_array[c])
     return cluster_to_words
 
 
-def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
+def term_expansion_proteins(number_of_seeds, expansion_type, training_cycle, iteration):
+    """
+    :param number_of_seeds: desired number of seed entities extracted from set
+    :type number_of_seeds: int
+    :param expansion_type:
+    :type expansion_type:
+    :param training_cycle:
+    :type training_cycle:
+    :param iteration:
+    :type iteration:
+
+    """
     # in the first iteration use the initial text extracted using the seeds
-    if int(numberOfIteration) == 0:
-        fileUnlabelled = ROOTPATH + '/evaluation_files_prot/X_train_' + str(numberOfSeeds) + '_' + str(iteration) + '.txt'
+    if int(training_cycle) == 0:
+        unlabelled_sentences_file = (ROOTPATH + '/evaluation_files_prot/X_train_' + str(number_of_seeds) +
+                                     '_' + str(iteration) + '.txt')
 
     # in the next iterations use the text extracted using the new set of seeds
     else:
-        fileUnlabelled = ROOTPATH + '/evaluation_files_prot/' + name + 'text_Iteration' + numberOfIteration + str(
-                         numberOfSeeds) + '_' + str(iteration) + '.txt'
+        unlabelled_sentences_file = (ROOTPATH + '/evaluation_files_prot/' + expansion_type + 'text_Iteration' +
+                                     training_cycle + str(number_of_seeds) + '_' + str(iteration) + '.txt')
 
-    '''Extract All the entities from the text'''
-    propernouns = preprocess_NE(fileUnlabelled)
-    
+    proper_nouns = generic_named_entities(unlabelled_sentences_file)
 
     dsnames = []
 
     '''Extract All the seed names'''
-    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(numberOfSeeds) + '_' + str(iteration) + '.txt'
+    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(number_of_seeds) + '_' + str(iteration) + '.txt'
     with open(corpuspath, "r") as file:
         for row in file.readlines():
             dsnames.append(row.strip())
-            propernouns.append(row.strip())
+            proper_nouns.append(row.strip())
 
             # this step is used for the iterations >1
-    # for i in range(1, int(numberOfIteration)+1):
-    #     with open(ROOTHPATH+'/evaluation_files/' + name + '_Iteration' + str(
+    # for i in range(1, int(training_cycle)+1):
+    #     with open(ROOTHPATH+'/evaluation_files/' + expansion_type + '_Iteration' + str(
     #             i) + '_POS_' + str(
-    #         numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
+    #         number_of_seeds) + '_' + str(iteration) + '.txt', 'r') as file:
     #         for row in file.readlines():
     #             dsnames.append(row.strip())
-    #             propernouns.append(row.strip())
+    #             proper_nouns.append(row.strip())
 
     '''replace the space between the bigram words with _ (for the word2vec embedding)'''
     newpropernouns = []
-    for pp in propernouns:
+    for pp in proper_nouns:
         temp = pp.split(' ')
         if len(temp) > 1:
             bigram = list(nltk.bigrams(pp.split()))
@@ -111,9 +121,9 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 
     dsnames = [x.lower() for x in dsnames]
 
-########################################################
-#    dsnames = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
-########################################################
+    ########################################################
+    #    dsnames = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
+    ########################################################
 
     sentences_split = [s.lower() for s in newpropernouns]
     print(sentences_split)
@@ -125,8 +135,8 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
     '''We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means. 
     Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain 
     at least one of the seed terms are considered to (only) contain entities the same type (e.g Protein). '''
-    
-    maxcluster=0
+
+    maxcluster = 0
     if len(df) >= 9:
         for n_clusters in range(2, 10):
 
@@ -150,27 +160,28 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 
                         for ww in cluster_to_words[c]:
                             finallist.append(ww.replace('_', ' '))
-#             print('.', end = '')
-#             sys.stdout.flush()
+            #             print('.', end = '')
+            #             sys.stdout.flush()
             try:
                 silhouette_avg = silhouette_score(df, cluster_labelss)
                 if silhouette_avg > maxcluster:
                     maxcluster = silhouette_avg
-                    thefile = open(ROOTPATH + "/evaluation_files_prot/" + name + "Pre_Iteration" + numberOfIteration + "_POS_" +str(numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
+                    thefile = open(
+                        ROOTPATH + "/evaluation_files_prot/" + expansion_type + "Pre_Iteration" + training_cycle + "_POS_" + str(
+                            number_of_seeds) + "_" + str(iteration) + ".txt", 'w')
                     for item in finallist:
                         thefile.write("%s\n" % item)
             except:
                 continue
 
-
-# def term_expansion_method(numberOfSeeds, name, numberOfIteration, iteration):
+# def term_expansion_method(numberOfSeeds, expansion_type, numberOfIteration, iteration):
 #     if int(numberOfIteration) == 0:
 #         fileUnlabelled = ROOTPATH + '/evaluation_filesMet/X_train_' + str(numberOfSeeds) + '_' + str(
 #             iteration) + '.txt'
 #     else:
-#         fileUnlabelled = ROOTPATH + '/evaluation_filesMet/' + name + 'text_Iteration' + numberOfIteration + str(
+#         fileUnlabelled = ROOTPATH + '/evaluation_filesMet/' + expansion_type + 'text_Iteration' + numberOfIteration + str(
 #             numberOfSeeds) + '_' + str(iteration) + '.txt'
-#     propernouns = preprocess_NE(fileUnlabelled)
+#     propernouns = preprocess_named_entities(fileUnlabelled)
 
 #     dsnames = []
 
@@ -183,7 +194,7 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 
 #     # this step is used for the iterations >1
 #     # for i in range(1, int(numberOfIteration)+1):
-#     #             with open(ROOTHPATH+'/evaluation_filesMet/' + name + '_Iteration' + str(
+#     #             with open(ROOTHPATH+'/evaluation_filesMet/' + expansion_type + '_Iteration' + str(
 #     #                     i) + '_POS_' + str(
 #     #                 numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
 #     #                 for row in file.readlines():
@@ -251,7 +262,7 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 #                 if silhouette_avg > maxcluster:
 #                     maxcluster = silhouette_avg
 #                     thefile = open(
-#                         ROOTHPATH + "/evaluation_filesMet/" + name + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
+#                         ROOTHPATH + "/evaluation_filesMet/" + expansion_type + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
 #                             numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
 
 #                     for item in finallist:
@@ -292,7 +303,7 @@ def term_expansion_proteins(numberOfSeeds, name, numberOfIteration, iteration):
 #                 if silhouette_avg > maxcluster:
 #                     maxcluster = silhouette_avg
 #                     thefile = open(
-#                         ROOTPATH + "/evaluation_filesMet/" + name + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
+#                         ROOTPATH + "/evaluation_filesMet/" + expansion_type + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
 #                             numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
 
 #                     for item in finallist:
