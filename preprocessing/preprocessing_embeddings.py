@@ -9,7 +9,7 @@ from sklearn.metrics import silhouette_score
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 import string
-from preprocessing.Extract_NE import preprocess_named_entities
+from preprocessing.generic_entity_extraction import preprocess_named_entities
 from sklearn.cluster import KMeans
 from default_config import ROOTHPATH
 import nltk
