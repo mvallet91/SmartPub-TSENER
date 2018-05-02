@@ -16,21 +16,20 @@ mongoDB_db = 'pub'
 ## pdf extraction
 grobid_url = 'http://127.0.0.1:8080'
 
-
 ## conferences we like
-#book_titles = ['JCDL','SIGIR','ECDL','TPDL','TREC', 'ICWSM', 'ESWC', 'ICSR','WWW', 'ICSE', 'HRI', 'VLDB', 'ICRA', 'ICARCV']
+# book_titles = ['JCDL','SIGIR','ECDL','TPDL','TREC', 'ICWSM', 'ESWC', 'ICSR','WWW', 'ICSE', 'HRI', 'VLDB', 'ICRA', 'ICARCV']
 booktitles = ['test_no_conf']
 
-
-#root to the project
-ROOTPATH='/data2/SmartPub-TSENER'
-STANFORD_NER_PATH='/data2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
-
+# root to the project
+# ROOTPATH = '/data2/SmartPub-TSENER'
+ROOTPATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER'
+STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 
 ## journals we like
-#journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']
+# journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']
 
-journals = ['I. J. Robotics and Automation', 'IEEE J. Biomedical and Health Informatics', 'Journal of Intelligent and Robotic Systems'] #ieee and Springer
+journals = ['I. J. Robotics and Automation', 'IEEE J. Biomedical and Health Informatics',
+            'Journal of Intelligent and Robotic Systems']  # ieee and Springer
 
 source = 'data/pdf/'
 source_xml = 'data/xml/'

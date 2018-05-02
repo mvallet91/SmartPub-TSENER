@@ -1,5 +1,6 @@
 import codecs
 import numpy
+import sys
 from numbers import Number
 
 import nltk
@@ -10,11 +11,13 @@ from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 
 from config import ROOTPATH
-from preprocessing.Extract_NE import preprocess_named_entities
+from preprocessing.generic_entity_extraction import generic_named_entities
 
 
 class autovivify_list(dict):
-    """Pickleable class to replicate the functionality of collections.defaultdict"""
+    """
+    Pickleable class to replicate the functionality of collections.defaultdict
+    """
 
     def __missing__(self, key):
         value = self[key] = []
@@ -33,7 +36,7 @@ class autovivify_list(dict):
         raise ValueError
 
 
-def build_word_vector_matrix(vector_file, proper_nouns):
+def build_word_vector_matrix(vector_file, proper_nouns, model_name):
     """
     Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays
     """
@@ -44,12 +47,11 @@ def build_word_vector_matrix(vector_file, proper_nouns):
             sr = r.split()
             try:
                 if sr[0] in proper_nouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
-                        'english') and 'protein' not in sr[0].lower():
+                        'english') and model_name not in sr[0].lower():
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
                 continue
-
     return numpy.array(numpy_arrays), labels_array
 
 
@@ -63,255 +65,84 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def term_expansion_proteins(number_of_seeds, expansion_type, training_cycle, iteration):
+def term_expansion(model_name, training_cycle):
     """
-    :param number_of_seeds: desired number of seed entities extracted from set
-    :type number_of_seeds: int
-    :param expansion_type:
-    :type expansion_type:
+    :param model_name:
+    :type model_name:
     :param training_cycle:
     :type training_cycle:
-    :param iteration:
-    :type iteration:
-
     """
-    # in the first iteration use the initial text extracted using the seeds
+    # In the first cycle use the initial text extracted using the seeds
     if int(training_cycle) == 0:
-        unlabelled_sentences_file = (ROOTPATH + '/evaluation_files_prot/X_train_' + str(number_of_seeds) +
-                                     '_' + str(iteration) + '.txt')
+        unlabelled_sentences_file = (ROOTPATH + '/processing_files/sentences_from_seeds.txt')
 
-    # in the next iterations use the text extracted using the new set of seeds
+    # In the next iterations use the text extracted using the new set of seeds
     else:
-        unlabelled_sentences_file = (ROOTPATH + '/evaluation_files_prot/' + expansion_type + 'text_Iteration' +
-                                     training_cycle + str(number_of_seeds) + '_' + str(iteration) + '.txt')
+        unlabelled_sentences_file = (ROOTPATH + '/processing_files/sentences_from_cycle' + str(training_cycle) + '.txt')
 
-    proper_nouns = generic_named_entities(unlabelled_sentences_file)
+    all_entities = generic_named_entities(unlabelled_sentences_file)
+    seed_entities = []
 
-    dsnames = []
-
-    '''Extract All the seed names'''
-    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(number_of_seeds) + '_' + str(iteration) + '.txt'
-    with open(corpuspath, "r") as file:
+    # Extract seed entities
+    path = ROOTPATH + '/processing_files/seeds.txt'
+    with open(path, 'r', encoding='utf-8') as file:
         for row in file.readlines():
-            dsnames.append(row.strip())
-            proper_nouns.append(row.strip())
+            seed_entities.append(row.strip())
+            all_entities.append(row.strip())
+    seed_entities = [e.lower() for e in seed_entities]
 
-            # this step is used for the iterations >1
-    # for i in range(1, int(training_cycle)+1):
-    #     with open(ROOTHPATH+'/evaluation_files/' + expansion_type + '_Iteration' + str(
-    #             i) + '_POS_' + str(
-    #         number_of_seeds) + '_' + str(iteration) + '.txt', 'r') as file:
-    #         for row in file.readlines():
-    #             dsnames.append(row.strip())
-    #             proper_nouns.append(row.strip())
-
-    '''replace the space between the bigram words with _ (for the word2vec embedding)'''
-    newpropernouns = []
-    for pp in proper_nouns:
+    # Replace the space between the bigram words with underscore _ (for the word2vec embedding)
+    processed_entities = []
+    for pp in all_entities:
         temp = pp.split(' ')
         if len(temp) > 1:
             bigram = list(nltk.bigrams(pp.split()))
-
             for bi in bigram:
                 bi = bi[0].lower() + '_' + bi[1].lower()
-                # print(bi)
-                newpropernouns.append(bi)
+                processed_entities.append(bi)
         else:
-            newpropernouns.append(pp)
+            processed_entities.append(pp)
+    processed_entities = [e.lower() for e in processed_entities]
+    processed_entities = list(set(processed_entities))
 
-    dsnames = [x.lower() for x in dsnames]
+    # Use the word2vec model
+    df, labels_array = build_word_vector_matrix(ROOTPATH + '/models/modelword2vecbigram.vec',
+                                                processed_entities, model_name)
 
-    ########################################################
-    #    dsnames = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
-    ########################################################
+    # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
+    # Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain
+    # at least one of the seed terms are considered to (only) contain entities the same type (e.g dataset).
 
-    sentences_split = [s.lower() for s in newpropernouns]
-    print(sentences_split)
-
-    # use the word2vec model
-    df, labels_array = build_word_vector_matrix(
-        ROOTPATH + "/models/modelword2vecbigram.vec", sentences_split)
-
-    '''We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means. 
-    Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain 
-    at least one of the seed terms are considered to (only) contain entities the same type (e.g Protein). '''
-
-    maxcluster = 0
+    max_cluster = 0
     if len(df) >= 9:
+        print('started clustering')
         for n_clusters in range(2, 10):
-
             df = StandardScaler().fit_transform(df)
             kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
             kmeans_model.fit(df)
             cluster_labels = kmeans_model.labels_
-
             cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-            cluster_labelss = kmeans_model.fit_predict(df)
+            cluster_labels = kmeans_model.fit_predict(df)
 
-            finallist = []
+            final_list = []
             for c in cluster_to_words:
                 counter = dict()
-
                 for word in cluster_to_words[c]:
                     counter[word] = 0
-
                 for word in cluster_to_words[c]:
-                    if word in dsnames:
-
+                    if word in seed_entities:
                         for ww in cluster_to_words[c]:
-                            finallist.append(ww.replace('_', ' '))
-            #             print('.', end = '')
-            #             sys.stdout.flush()
+                            final_list.append(ww.replace('_', ' '))
+                        print('.', end='')
+                        sys.stdout.flush()
             try:
-                silhouette_avg = silhouette_score(df, cluster_labelss)
-                if silhouette_avg > maxcluster:
-                    maxcluster = silhouette_avg
-                    thefile = open(
-                        ROOTPATH + "/evaluation_files_prot/" + expansion_type + "Pre_Iteration" + training_cycle + "_POS_" + str(
-                            number_of_seeds) + "_" + str(iteration) + ".txt", 'w')
-                    for item in finallist:
-                        thefile.write("%s\n" % item)
+                silhouette_avg = silhouette_score(df, cluster_labels)
+                if silhouette_avg > max_cluster:
+                    max_cluster = silhouette_avg
+                    f = open(ROOTPATH + '/processing_files/expanded_seeds_' + model_name + '_'
+                             + str(training_cycle) + '.txt', 'w', encoding='utf-8')
+                    for item in final_list:
+                        f.write("%s\n" % item)
+                    print('added', len(final_list), 'expanded terms')
             except:
                 continue
-
-# def term_expansion_method(numberOfSeeds, expansion_type, numberOfIteration, iteration):
-#     if int(numberOfIteration) == 0:
-#         fileUnlabelled = ROOTPATH + '/evaluation_filesMet/X_train_' + str(numberOfSeeds) + '_' + str(
-#             iteration) + '.txt'
-#     else:
-#         fileUnlabelled = ROOTPATH + '/evaluation_filesMet/' + expansion_type + 'text_Iteration' + numberOfIteration + str(
-#             numberOfSeeds) + '_' + str(iteration) + '.txt'
-#     propernouns = preprocess_named_entities(fileUnlabelled)
-
-#     dsnames = []
-
-#     corpuspath = ROOTPATH + '/evaluation_filesMet/X_Seeds2_' + str(
-#         numberOfSeeds) + '_' + str(iteration) + '.txt'
-#     with open(corpuspath, "r") as file:
-#         for row in file.readlines():
-#             dsnames.append(row.strip())
-#             propernouns.append(row.strip())
-
-#     # this step is used for the iterations >1
-#     # for i in range(1, int(numberOfIteration)+1):
-#     #             with open(ROOTHPATH+'/evaluation_filesMet/' + expansion_type + '_Iteration' + str(
-#     #                     i) + '_POS_' + str(
-#     #                 numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
-#     #                 for row in file.readlines():
-#     #                     dsnames.append(row.strip())
-#     #                     propernouns.append(row.strip())
-
-
-#     newpropernouns = []
-#     bigrams = []
-#     for pp in propernouns:
-#         temp = pp.split(' ')
-#         if len(temp) > 1:
-#             bigram = list(nltk.bigrams(pp.split()))
-
-#             for bi in bigram:
-#                 bi = bi[0].lower() + '_' + bi[1].lower()
-#                 # print(bi)
-#                 newpropernouns.append(bi)
-#         else:
-#             newpropernouns.append(pp)
-#     dsnames = [x.lower() for x in dsnames]
-
-#     dsnamestemp = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
-#     finalds = []
-#     for ds in dsnamestemp:
-#         dss = ds.split(' ')
-#         if len(dss) > 1:
-#             ds = ds.replace(' ', '_')
-#         finalds.append(ds)
-
-#     sentences_split = [s.lower() for s in newpropernouns]
-
-#     df, labels_array = build_word_vector_matrix(
-#         ROOTPATH + "/models/modelword2vecbigram.txt", sentences_split)
-
-#     sse = {}
-#     maxcluster = 0
-#     if len(df) >= 9:
-#         for n_clusters in range(2, 10):
-
-#             df = StandardScaler().fit_transform(df)
-#             kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-#             kmeans_model.fit(df)
-#             cluster_labels = kmeans_model.labels_
-
-#             cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-#             cluster_labelss = kmeans_model.fit_predict(df)
-#             sse[n_clusters] = kmeans_model.inertia_
-
-#             finallist = []
-#             for c in cluster_to_words:
-#                 counter = dict()
-#                 for word in cluster_to_words[c]:
-#                     counter[word] = 0
-#                 for word in cluster_to_words[c]:
-#                     if word in finalds:
-
-#                         for ww in cluster_to_words[c]:
-#                             finallist.append(ww.replace('_', ' '))
-
-#             try:
-
-#                 silhouette_avg = silhouette_score(df, cluster_labelss)
-
-#                 if silhouette_avg > maxcluster:
-#                     maxcluster = silhouette_avg
-#                     thefile = open(
-#                         ROOTHPATH + "/evaluation_filesMet/" + expansion_type + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
-#                             numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-
-#                     for item in finallist:
-#                         # if item.lower() not in dsnames:
-#                         thefile.write("%s\n" % item)
-
-#             except:
-
-#                 continue
-
-
-#     else:
-#         for n_clusters in range(2, len(df)):
-
-#             df = StandardScaler().fit_transform(df)
-#             kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-#             kmeans_model.fit(df)
-#             cluster_labels = kmeans_model.labels_
-
-#             cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-#             cluster_labelss = kmeans_model.fit_predict(df)
-#             sse[n_clusters] = kmeans_model.inertia_
-
-#             finallist = []
-#             for c in cluster_to_words:
-#                 counter = dict()
-#                 dscounter = 0
-#                 for word in cluster_to_words[c]:
-#                     counter[word] = 0
-#                 for word in cluster_to_words[c]:
-#                     if word in finalds:
-
-#                         for ww in cluster_to_words[c]:
-#                             finallist.append(ww.replace('_', ' '))
-
-#             try:
-#                 silhouette_avg = silhouette_score(df, cluster_labelss)
-#                 if silhouette_avg > maxcluster:
-#                     maxcluster = silhouette_avg
-#                     thefile = open(
-#                         ROOTPATH + "/evaluation_filesMet/" + expansion_type + "Pre_Iteration" + numberOfIteration + "_POS_" + str(
-#                             numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-
-#                     for item in finallist:
-#                         # if item.lower() not in dsnames:
-#                         thefile.write("%s\n" % item)
-#                     for item in bigrams:
-#                         # if item.lower() not in dsnames:
-#                         thefile.write("%s\n" % item)
-
-#             except:
-#                 continue
