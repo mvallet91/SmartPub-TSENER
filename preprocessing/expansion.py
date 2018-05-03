@@ -1,11 +1,14 @@
 import codecs
 import numpy
 import sys
-from numbers import Number
-
 import nltk
+import gensim
+
+from numbers import Number
+from elasticsearch import Elasticsearch
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
+from nltk import tokenize
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
@@ -13,6 +16,7 @@ from sklearn.preprocessing import StandardScaler
 from config import ROOTPATH
 from preprocessing.generic_entity_extraction import generic_named_entities
 
+es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 class autovivify_list(dict):
     """
@@ -65,26 +69,21 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def term_expansion(model_name, training_cycle):
+def term_expansion(model_name: str, training_cycle: int) -> None:
     """
     :param model_name:
     :type model_name:
     :param training_cycle:
     :type training_cycle:
     """
-    # In the first cycle use the initial text extracted using the seeds
-    if int(training_cycle) == 0:
-        unlabelled_sentences_file = (ROOTPATH + '/processing_files/sentences_from_seeds.txt')
-
-    # In the next iterations use the text extracted using the new set of seeds
-    else:
-        unlabelled_sentences_file = (ROOTPATH + '/processing_files/sentences_from_cycle' + str(training_cycle) + '.txt')
-
+    print('Starting term expansion')
+    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' +
+                                 str(training_cycle) + '.txt')
     all_entities = generic_named_entities(unlabelled_sentences_file)
     seed_entities = []
 
     # Extract seed entities
-    path = ROOTPATH + '/processing_files/seeds.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '.txt'
     with open(path, 'r', encoding='utf-8') as file:
         for row in file.readlines():
             seed_entities.append(row.strip())
@@ -112,10 +111,10 @@ def term_expansion(model_name, training_cycle):
     # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
     # Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain
     # at least one of the seed terms are considered to (only) contain entities the same type (e.g dataset).
-
+    expanded_terms = []
     max_cluster = 0
     if len(df) >= 9:
-        print('started clustering')
+        print('Started term clustering')
         for n_clusters in range(2, 10):
             df = StandardScaler().fit_transform(df)
             kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
@@ -133,16 +132,89 @@ def term_expansion(model_name, training_cycle):
                     if word in seed_entities:
                         for ww in cluster_to_words[c]:
                             final_list.append(ww.replace('_', ' '))
-                        print('.', end='')
-                        sys.stdout.flush()
             try:
                 silhouette_avg = silhouette_score(df, cluster_labels)
                 if silhouette_avg > max_cluster:
                     max_cluster = silhouette_avg
-                    f = open(ROOTPATH + '/processing_files/expanded_seeds_' + model_name + '_'
-                             + str(training_cycle) + '.txt', 'w', encoding='utf-8')
-                    for item in final_list:
-                        f.write("%s\n" % item)
-                    print('added', len(final_list), 'expanded terms')
+                    expanded_terms = final_list
             except:
                 continue
+    path = (ROOTPATH + '/processing_files/' + model_name + '_expanded_seeds_' + str(training_cycle) + '.txt')
+    f = open(path, 'w', encoding='utf-8')
+    for item in expanded_terms:
+        f.write("%s\n" % item)
+    print('Added', len(expanded_terms), 'expanded terms')
+
+
+def extract_similar_sentences(es_id):
+    """
+    Function for finding similar sentences given the code of a sentence (everything is stored in elasticsearch)
+    """
+    query = {"query":
+                 {"match":
+                      {"_id":
+                           {"query": es_id,
+                            "operator": "and"
+                           }
+                      }
+                 }
+             }
+
+    res = es.search(index="devtwosentnew", doc_type="devtwosentnorulesnew",
+                    body=query, size=1)
+    for doc in res['hits']['hits']:
+        similar_sentence = doc['_source']['content.chapter.sentpositive']
+
+    return similar_sentence
+
+
+def sentence_expansion(model_name: str, training_cycle: int, doc2vec_model: gensim.models.doc2vec.Doc2Vec) -> None:
+    """
+
+    :param model_name:
+    :param training_cycle:
+    :param doc2vec_model:
+    """
+    print('Starting sentence expansion')
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '.txt'
+    unlabelled_sentences_file = open(path, 'r', encoding='utf-8')
+    text = unlabelled_sentences_file.read()
+    text = text.replace('\\', '')
+    text = text.replace('/', '')
+    text = text.replace('"', '')
+    text = text.replace('(', '')
+    text = text.replace(')', '')
+    text = text.replace('[', '')
+    text = text.replace(']', '')
+    text = text.replace(',', ' ,')
+    text = text.replace('?', ' ?')
+    text = text.replace('..', '.')
+
+    sentences = (tokenize.sent_tokenize(text.strip()))
+    sentences = list(set(sentences))
+    print('Finding similar sentences')
+    temp = []
+    for i, line in enumerate(sentences):
+        tokens = line.split()
+        new_vector = doc2vec_model.infer_vector(tokens)
+        sims = doc2vec_model.docvecs.most_similar([new_vector], topn=1)
+        if sims:
+            for ss in sims:
+                if ss[1] > 0.50:
+                    temp.append(extract_similar_sentences(str(ss[0])))
+        if i % 1000 == 0:
+            print('.', end='')
+
+    sentences = list(set(sentences))
+    temp = list(set(temp))
+    print('Added', len(temp), 'expanded sentences to the', len(sentences), 'original')
+    for tt in temp:
+        sentences.append(tt)
+    expanded_sentences = list(set(sentences))
+
+    path = (ROOTPATH + '/processing_files/' + model_name + '_expanded_sentences_' + str(training_cycle) + '.txt')
+    f = open(path, 'w', encoding='utf-8')
+    for item in expanded_sentences:
+        f.write('%s\n' % item)
+    f.close()

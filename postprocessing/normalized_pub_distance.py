@@ -1,48 +1,38 @@
-"""
-This scripts uses PMI to filter out irrelevant entities
-"""
 from elasticsearch import Elasticsearch
 import re
-
-regex = re.compile(".*?\((.*?)\)")
 import math
 
+regex = re.compile(".*?\((.*?)\)")
 
-def NPD(dsnames):
-    result = []
-    print('Started  PMI filtering...')
+
+def npd(extracted_entities):
+    filtered_entities = []
+    print('Started  pmi filtering...')
 
     # context words for dataset
-    # contextwords = ['dataset', 'corpus', 'collection', 'repository', 'benchmark', 'website']
+    context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark', 'website']
 
     # context words for method
-    # contextwords = ['method', 'model', 'algorithm', 'approach','technique']
-    
-    # contextwords for proteins
-    #contextwords = ['protein', 'amino', 'kinase', 'receptor', 'peptide']
-    contextwords = ['protein',  'receptor']
+    # context_words = ['method', 'model', 'algorithm', 'approach','technique']
 
+    # context words for proteins
+    # context_words = ['protein', 'receptor']
 
-    es = Elasticsearch(
-        [{'host': 'localhost', 'port': 9200}]
-    )
+    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+    extracted_entities = [x.lower() for x in extracted_entities]
+    extracted_entities = list(set(extracted_entities))
 
-    dsnames = [x.lower() for x in dsnames]
+    for cn in context_words:
+        print('Calculating npd with', cn)
+        for entity in extracted_entities:
+            if any(x in entity.lower() for x in context_words):
+                filtered_entities.append(entity)
 
-    dsnames = list(set(dsnames))
-
-    X_train = dsnames
-
-    for cn in contextwords:
-        for datasetname in X_train:
-            if any(x in datasetname.lower() for x in contextwords):
-                result.append(datasetname)
             NN = 2897901
-
             query = {"query":
                 {"match": {
                     "content.chapter.sentpositive": {
-                        "query": datasetname,
+                        "query": entity,
                         "operator": "and"
                     }
                 }
@@ -52,7 +42,7 @@ def NPD(dsnames):
             res = es.search(index="twosent", doc_type="twosentnorules",
                             body=query)
 
-            totala = res['hits']['total']
+            total_a = res['hits']['total']
 
             query = {"query":
                 {"match": {
@@ -67,15 +57,14 @@ def NPD(dsnames):
             res = es.search(index="twosent", doc_type="twosentnorules",
                             body=query)
 
-            totalb = res['hits']['total']
+            total_b = res['hits']['total']
 
-            querytext = datasetname + ' ' + cn
-            # print(querytext)
+            query_text = entity + ' ' + cn
 
             query = {"query":
                 {"match": {
                     "content.chapter.sentpositive": {
-                        "query": querytext,
+                        "query": query_text,
                         "operator": "and"
                     }
                 }
@@ -84,19 +73,15 @@ def NPD(dsnames):
 
             res = es.search(index="twosent", doc_type="twosentnorules",
                             body=query)
+            total_ab = res['hits']['total']
 
-            totalab = res['hits']['total']
+            if total_a and total_b and total_ab:
+                total_ab = total_ab / NN
+                total_a = total_a / NN
+                total_b = total_b / NN
+                pmi = total_ab / (total_a * total_b)
+                pmi = math.log(pmi, 2)
+                if pmi >= 2:
+                    filtered_entities.append(entity)
 
-            try:
-                totalab = totalab / NN
-                totala = totala / NN
-                totalb = totalb / NN
-                PMI = totalab / (totala * totalb)
-                PMI = math.log(PMI, 2)
-
-                if PMI >= 2:
-                    result.append(datasetname)
-            except:
-                continue
-
-    return result
+    return filtered_entities

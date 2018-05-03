@@ -84,7 +84,7 @@ def get_NEs(res):
     filterbywordnet = []
     filtered_words = [word for word in set(result) if word not in stopwords.words('english')]
 
-    # filterbywordnet = [word for word in filtered_words if not wordnet.synsets(word)]
+    # filter_by_wordnet = [word for word in filtered_words if not wordnet.synsets(word)]
     print(filtered_words)
     for word in set(filtered_words):
 

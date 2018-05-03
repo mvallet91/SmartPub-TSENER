@@ -1,10 +1,10 @@
 from preprocessing import ner_training, expansion, seed_data_extraction
-from postprocessing import trainingdata_generation, extract_new_entities, filtering
+from postprocessing import training_data_generation, extract_new_entities, filtering
 import config as cfg
 import gensim
 import elasticsearch
 
-model_doc2vec = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/models/doc2vec.model')
+doc2vec_model = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/models/doc2vec.model')
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 # User input
@@ -12,28 +12,19 @@ seeds = ['clueweb', 'imagenet', 'flickr', 'webkb', 'netflix', 'imdb']
 sentence_expansion = True
 training_cycles = 5
 model_name = 'dataset'
+cycle = 1
+filtering_pmi = True
 
-# "Extract training data using seeds provided
 
-seed_data_extraction.sentence_extraction(seeds)
+# for cycle in range(training_cycles):
 
-if not sentence_expansion:
-    for cycle in range(training_cycles):
-        seed_data_extraction.sentence_extraction(seeds)
-        expansion.term_expansion(model_name, cycle)
-        trainingdata_generation.label_sentences_term_expansion_only(model_name, cycle)
-        ner_training.create_austenprop(100, 'term_expansion', 0)
-        ner_training.train(100, 'term_expansion', 0)
-        extract_new_entities.ne_extraction(100, 'term_expansion', i, i + 1, 0, es)
-        filtering.PMI(100, 'term_expansion', i, 0)
-
-else:
-    for cycle in range(training_cycles):
-        seed_data_extraction.sentence_extraction(seeds)
-        expansion.term_expansion(model_name, cycle)
-        trainingdata_generation.label_sentences_term_sentence_expansion(model_name, cycle, model_doc2vec)
-        ner_training.create_austenprop(100, 'term_expansion', 0)
-        ner_training.train(100, 'term_expansion', 0)
-        extract_new_entities.ne_extraction(100, 'term_expansion', i, i + 1, 0, es)
-        filtering.PMI(100, 'term_expansion', i, 0)
+seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
+expansion.term_expansion(model_name, cycle)
+expansion.sentence_expansion(model_name, cycle, doc2vec_model)
+training_data_generation.sentence_labelling(model_name, cycle, sentence_expansion)
+ner_training.create_prop(model_name, cycle, sentence_expansion)
+ner_training.train_model(model_name, cycle)
+extract_new_entities.ne_extraction(model_name, cycle, sentence_expansion)
+if filtering_pmi:
+    filtering.pmi(model_name, cycle)
 

@@ -68,7 +68,7 @@ def filter_it(word, model):
                     if isint != -1:
                         filtered_words.remove(word)
 
-                # filterbywordnet = [word for word in filtered_words if not wordnet.synsets(word)]
+                # filter_by_wordnet = [word for word in filtered_words if not wordnet.synsets(word)]
                 # print(filtered_words)
                 
                 for word in set(filtered_words):
