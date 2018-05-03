@@ -1,56 +1,55 @@
-'''
-@author: mesbahs
-'''
-"""
-This script uses the trained NER model in the (crf_trained_files or crf_trained_filesMet folder)
-to extract entities from the text of papers and stores them in the post_processing_files folder.
-"""
-from nltk.tag.stanford import StanfordNERTagger
-from nltk.corpus import stopwords
 import re
 import string
-from config import ROOTPATH, STANFORD_NER_PATH
 import sys
 
-filterbywordnet = []
+from config import ROOTPATH, STANFORD_NER_PATH
+from nltk.tag.stanford import StanfordNERTagger
+from nltk.corpus import stopwords
+from elasticsearch import Elasticsearch
 
-def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration, iteration, es):
-    print('started iteration.....', numberOfSeeds, name, numberOfIteration)
-    print('numbers:', numberOfSeeds, iteration)
+es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
-    # change crf_trained_files if you want to extract method or protein entities
-    path_to_model = ROOTPATH + '/crf_trained_files/' + name + '_text_iteration' + str(prevnumberOfIteration) + '_splitted' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.ser.gz'
+filter_by_wordnet = []
 
-    """
-    use the trained Stanford NER model to extract entities from the publications
-    """
-    nertagger = StanfordNERTagger(path_to_model, STANFORD_NER_PATH)
 
-    newnames = []
+def ne_extraction(model_name, training_cycle, sentence_expansion):
+    print('started extraction for the', model_name, 'model, in cycle number', training_cycle)
+
+    if sentence_expansion:
+        path_to_model = ROOTPATH + '/crf_trained_files/' + model_name + '_TSE_model_' + str(training_cycle) + '.ser.gz'
+    else:
+        path_to_model = ROOTPATH + '/crf_trained_files/' + model_name + '_TE_model_' + str(training_cycle) + '.ser.gz'
+
+    # use the trained Stanford NER model to extract entities from the publications
+
+    ner_tagger = StanfordNERTagger(path_to_model, STANFORD_NER_PATH)
+    new_names = []
     result = []
-    filter_conference = [#"WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL",# "ESWC", "TPDL"]
-                        "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics", 
-                         "BMC Biotechnology", "BMC Neuroscience", "Genome Biology", "PLoS Genetics", 
-                         "Breast Cancer Research : BCR", "Genome Biology and Evolution", "Breast Cancer Research and Treatment"]
-    
+    # filter_conference = ["WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR",
+    filter_conference = ["ICWSM", "ECDL", "ESWC", "TPDL"]
+    # "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
+    #  "BMC Biotechnology", "BMC Neuroscience", "Genome Biology", "PLoS Genetics",
+    #  "Breast Cancer Research : BCR", "Genome Biology and Evolution",
+    # "Breast Cancer Research and Treatment"]
+
     for conference in filter_conference:
-        query = {"query":
-            {"match": {
-                "publication": {
-                    "query": conference,
-                    "operator": "and"
+        query = {
+            "query": {
+                "match": {
+                    "publication": {
+                        "query": conference,
+                        "operator": "and"
+                                    }
+                    }
                 }
             }
-            }
-        }
 
         res = es.search(index="ir", doc_type="publications",
                         body=query, size=10000)
-        
+
         print(len(res['hits']['hits']))
         sys.stdout.flush()
-        
+
         for doc in res['hits']['hits']:
             sentence = doc["_source"]["text"]
             sentence = sentence.replace("@ BULLET", "")
@@ -64,15 +63,15 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
             sentence = sentence.replace('?', ' ?')
             sentence = sentence.replace('..', '.')
             sentence = re.sub(r"(\.)([A-Z])", r"\1 \2", sentence)
-            
-            tagged = nertagger.tag(sentence.split())
-            
+
+            tagged = ner_tagger.tag(sentence.split())
+
             for jj, (a, b) in enumerate(tagged):
-                # change DATA to MET or PROT to extract method or protein entities
-                if b == 'PROT':
+                tag = model_name.upper()
+                if b == tag:
                     a = a.translate(str.maketrans('', '', string.punctuation))
                     try:
-                        if res[jj + 1][1] == 'PROT':
+                        if res[jj + 1][1] == tag:
                             temp = res[jj + 1][0].translate(str.maketrans('', '', string.punctuation))
                             bigram = a + ' ' + temp
                             result.append(bigram)
@@ -88,16 +87,15 @@ def ne_extraction(numberOfSeeds, name, prevnumberOfIteration, numberOfIteration,
     filtered_words = [word for word in set(result) if word not in stopwords.words('english')]
 
     for word in set(filtered_words):
-        try:
-            filterbywordnet.append(word)
-            newnames.append(word.lower())
-        except:
-            newnames.append(word.lower())
-            
-    print('Total of', len(filtered_words), 'filtered words added')
+        if filter_by_wordnet:
+            filter_by_wordnet.append(word)
+            new_names.append(word.lower())
+        else:
+            new_names.append(word.lower())
+
+    print('Total of', len(filtered_words), 'filtered entities added')
     sys.stdout.flush()
-    f1 = open(ROOTPATH + '/post_processing_files/' + name + '_Iteration' + numberOfIteration + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt', 'w')
+    f1 = open(ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt', 'w')
     for item in filtered_words:
         f1.write(item + '\n')
     f1.close()

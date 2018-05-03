@@ -1,79 +1,81 @@
-"""
-This script will be used to filter the noisy extracted entities.
-"""
-from numbers import Number
-from sklearn.preprocessing import StandardScaler
-import codecs, numpy
-from sklearn.metrics import silhouette_score
-from nltk.corpus import stopwords
-from nltk.corpus import wordnet
+import codecs
+import numpy
 import string
-import gensim
-from sklearn.cluster import KMeans
-from config import ROOTPATH
+from numbers import Number
+from xml.etree import ElementTree
+
 import nltk
 import requests
-from xml.etree import ElementTree
-from postprocessing import normalized_pub_distance
-corpuspath = ROOTPATH + "/data/stopword_en.txt"
-stopwordList=[]
+from nltk.corpus import stopwords
+from nltk.corpus import wordnet
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
 
-with open(corpuspath, "r") as file:
+from config import ROOTPATH
+from postprocessing import normalized_pub_distance
+
+corpus_path = ROOTPATH + "/data/stopword_en.txt"
+stopwords = []
+
+with open(corpus_path, "r") as file:
         for row in file.readlines():
-            stopwordList.append(row.strip())
+            stopwords.append(row.strip())
+
 
 class autovivify_list(dict):
-    '''Pickleable class to replicate the functionality of collections.defaultdict'''
+    """
+    Pickleable class to replicate the functionality of collections.defaultdict
+    """
 
     def __missing__(self, key):
         value = self[key] = []
         return value
 
     def __add__(self, x):
-        '''Override addition for numeric types when self is empty'''
+        """
+        Override addition for numeric types when self is empty
+        """
         if not self and isinstance(x, Number):
             return x
         raise ValueError
 
     def __sub__(self, x):
-        '''Also provide subtraction method'''
+        """
+        Also provide subtraction method
+        """
         if not self and isinstance(x, Number):
             return -1 * x
         raise ValueError
 
 
 def build_word_vector_matrix(vector_file, propernouns):
-    '''Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays'''
+    """
+    Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays
+    """
     numpy_arrays = []
     labels_array = []
     with codecs.open(vector_file, 'r', 'utf-8') as f:
         for c, r in enumerate(f):
             sr = r.split()
-
             try:
                 if sr[0] in propernouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
                         'english'):
                     labels_array.append(sr[0])
-                    # print(sr[0].strip())
-
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
                 continue
-
     return numpy.array(numpy_arrays), labels_array
 
 
 def find_word_clusters(labels_array, cluster_labels):
-    '''Read the labels array and clusters label and return the set of words in each cluster'''
+    """
+    Read the labels array and clusters label and return the set of words in each cluster
+    """
     cluster_to_words = autovivify_list()
     for c, i in enumerate(cluster_labels):
         cluster_to_words[i].append(labels_array[c])
     return cluster_to_words
-
-
-"""
-Majority vote filtering
-"""
 
 
 def majorityVote(result):
@@ -105,7 +107,7 @@ def majorityVote(result):
 
         # check PMI
         temp.append(rr)
-        temp = normalized_pub_distance.NPD(temp)
+        temp = normalized_pub_distance.npd(temp)
         if temp:
             count = count + 1
 
@@ -263,11 +265,6 @@ def ec_clustering(numberOfSeeds, name, numberOfIteration, iteration):
             except:
                 print("ERROR:::Silhoute score invalid")
                 continue
-
-
-"""
-Knowledgebase look-up + EC filtering
-"""
 
 
 def Kb_ecall(numberOfSeeds, name, numberOfIteration, iteration):
@@ -438,11 +435,6 @@ def Kb_ecall(numberOfSeeds, name, numberOfIteration, iteration):
                 continue
 
 
-"""
-Knowledge base look-up filtering
-"""
-
-
 def Kb(numberOfSeeds, name, numberOfIteration, iteration):
     # for iteration in range(0,10):
     propernouns = []
@@ -510,56 +502,45 @@ def Kb(numberOfSeeds, name, numberOfIteration, iteration):
     thefile.close()
 
 
-"""
-PMI filtering
-"""
+def pmi(model_name, training_cycle):
+    """
 
+    :param training_cycle:
+    :param model_name:
+    """
+    print('Filtering with PMI...')
 
-def PMI(numberOfSeeds, name, numberOfIteration, iteration):
-    # for iteration in range(0,10):
-    propernouns = []
-    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
+    extracted_entities = []
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, 'r') as f:
+        for e in f.readlines():
+            extracted_entities.append(e.strip())
 
-    path = ROOTPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    print(path)
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-    dsnames = []
-    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
+    original_seeds = []
+    path = ROOTPATH + '/processing_files/' + model_name + '_seeds.txt'
+    with open(path, "r") as f:
+        for s in f.readlines():
+            original_seeds.append(s.strip())
 
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
-
-    newpropernouns = []
-    for pp in propernouns:
+    processed_entities = []
+    for pp in extracted_entities:
         temp = pp.split(' ')
         if len(temp) > 1:
             bigram = list(nltk.bigrams(pp.split()))
-
             for bi in bigram:
                 bi = bi[0].lower() + '_' + bi[1].lower()
-                newpropernouns.append(bi)
+                processed_entities.append(bi)
         else:
-            newpropernouns.append(pp)
-    finallist = normalized_pub_distance.NPD(newpropernouns)
+            processed_entities.append(pp)
 
-    thefile = open(
-        ROOTPATH + "/evaluation_files_prot/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-    finallist = list(set(finallist))
-
-    for item in finallist:
-        thefile.write("%s\n" % item)
-    thefile.close()
-
-
-"""
-Majority vote filtering
-"""
+    results = normalized_pub_distance.npd(processed_entities)
+    results = list(set(results))
+    print(len(results), 'entities are kept from the total of', len(processed_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    for item in results:
+        f.write("%s\n" % item)
+    f.close()
 
 
 def MV(numberOfSeeds, name, numberOfIteration, iteration):
@@ -605,7 +586,9 @@ def MV(numberOfSeeds, name, numberOfIteration, iteration):
     for item in finallist:
         thefile.write("%s\n" % item)
     thefile.close()
-def WordNet_StopWord(numberOfSeeds, name, numberOfIteration, iteration):
+
+
+def WordNet_StopWord(model_name, training_cycle):
     # for iteration in range(0,10):
     propernouns = []
     print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
@@ -625,9 +608,9 @@ def WordNet_StopWord(numberOfSeeds, name, numberOfIteration, iteration):
             dsnames.append(row.strip())
     filterbywordnet = []
     filtered_words = [word for word in set(propernouns) if word not in stopwords.words('english')]
-    filtered_words = [word for word in set(filtered_words) if word.lower() not in stopwordList]
+    filtered_words = [word for word in set(filtered_words) if word.lower() not in stopwords]
 
-    # filterbywordnet = [word for word in filtered_words if not wordnet.synsets(word)]
+    # filter_by_wordnet = [word for word in filtered_words if not wordnet.synsets(word)]
     print(filtered_words)
     for word in set(filtered_words):
 

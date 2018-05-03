@@ -17,8 +17,12 @@ def generic_named_entities(file_path):
     tagged_sentences = [nltk.pos_tag(sentence) for sentence in tokenized_sentences]
     chunked_sentences = nltk.ne_chunk_sents(tagged_sentences, binary=True)
     entity_names = []
+    x = 0
     for tree in chunked_sentences:
         entity_names.extend(extract_entity_word(tree))
+        x+=1
+        if x % 1000 == 0:
+            print('.', end='')
     print('Finished processing sentences with', len(entity_names), 'new possible entities')
     return entity_names
 
