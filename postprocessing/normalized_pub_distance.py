@@ -5,12 +5,18 @@ import math
 regex = re.compile(".*?\((.*?)\)")
 
 
-def npd(extracted_entities):
+def calculate_npd(extracted_entities, context):
+    """
+
+    :param extracted_entities:
+    :param context:
+    :return filtered_entities:
+    """
     filtered_entities = []
-    print('Started  pmi filtering...')
+    context_words = context
 
     # context words for dataset
-    context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark', 'website']
+    # context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark', 'website']
 
     # context words for method
     # context_words = ['method', 'model', 'algorithm', 'approach','technique']
@@ -21,13 +27,10 @@ def npd(extracted_entities):
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
     extracted_entities = [x.lower() for x in extracted_entities]
     extracted_entities = list(set(extracted_entities))
-
     for cn in context_words:
-        print('Calculating npd with', cn)
         for entity in extracted_entities:
             if any(x in entity.lower() for x in context_words):
                 filtered_entities.append(entity)
-
             NN = 2897901
             query = {"query":
                 {"match": {
@@ -38,12 +41,8 @@ def npd(extracted_entities):
                 }
                 }
             }
-
-            res = es.search(index="twosent", doc_type="twosentnorules",
-                            body=query)
-
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_a = res['hits']['total']
-
             query = {"query":
                 {"match": {
                     "content.chapter.sentpositive": {
@@ -53,14 +52,9 @@ def npd(extracted_entities):
                 }
                 }
             }
-
-            res = es.search(index="twosent", doc_type="twosentnorules",
-                            body=query)
-
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_b = res['hits']['total']
-
             query_text = entity + ' ' + cn
-
             query = {"query":
                 {"match": {
                     "content.chapter.sentpositive": {
@@ -70,11 +64,8 @@ def npd(extracted_entities):
                 }
                 }
             }
-
-            res = es.search(index="twosent", doc_type="twosentnorules",
-                            body=query)
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_ab = res['hits']['total']
-
             if total_a and total_b and total_ab:
                 total_ab = total_ab / NN
                 total_a = total_a / NN
@@ -83,5 +74,4 @@ def npd(extracted_entities):
                 pmi = math.log(pmi, 2)
                 if pmi >= 2:
                     filtered_entities.append(entity)
-
     return filtered_entities
