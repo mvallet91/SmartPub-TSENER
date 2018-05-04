@@ -1,5 +1,6 @@
 import codecs
 import numpy
+import os
 import string
 from numbers import Number
 from xml.etree import ElementTree
@@ -11,17 +12,18 @@ from nltk.corpus import wordnet
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
+from collections import defaultdict
 
 from config import ROOTPATH
 from postprocessing import normalized_pub_distance
 
-corpus_path = ROOTPATH + "/data/stopword_en.txt"
-stopwords = []
+stopword_path = ROOTPATH + "/data/stopword_en.txt"
+stopword_list = []
+with open(stopword_path, 'r') as file:
+        for sw in file.readlines():
+            stopword_list.append(sw.strip())
 
-with open(corpus_path, "r") as file:
-        for row in file.readlines():
-            stopwords.append(row.strip())
-
+url_dbpedia = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString='
 
 class autovivify_list(dict):
     """
@@ -49,7 +51,7 @@ class autovivify_list(dict):
         raise ValueError
 
 
-def build_word_vector_matrix(vector_file, propernouns):
+def build_word_vector_matrix(vector_file, named_entities):
     """
     Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays
     """
@@ -59,7 +61,7 @@ def build_word_vector_matrix(vector_file, propernouns):
         for c, r in enumerate(f):
             sr = r.split()
             try:
-                if sr[0] in propernouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
+                if sr[0] in named_entities and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
                         'english'):
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
@@ -78,449 +80,18 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def majorityVote(result):
-    finalresult = []
-    print(len(result))
-    result = list(set(result))
-    print(len(result))
-    for rr in result:
-
-        count = 0
-        # check if in DBpedia
-        url = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=&QueryString=' + str(rr)
-        try:
-
-            resp = requests.request('GET', url)
-            root = ElementTree.fromstring(resp.content)
-            check_if_exist = []
-            for child in root.iter('*'):
-                check_if_exist.append(child)
-            if len(check_if_exist) == 1:
-                count = count + 1
-        except:
-            pass
-
-        # check if in wordnet or stopword
-        if not wordnet.synsets(rr) and rr.lower() not in stopwords.words('english'):
-            count = count + 1
-        temp = []
-
-        # check PMI
-        temp.append(rr)
-        temp = normalized_pub_distance.npd(temp)
-        if temp:
-            count = count + 1
-
-        if count > 1:
-            finalresult.append(rr)
-    return finalresult
-
-
-"""
-Embedding clustering filtering
-"""
-
-
-def ec_clustering(numberOfSeeds, name, numberOfIteration, iteration):
-    print('started embeding ranking....', numberOfSeeds, name, iteration)
-    propernouns = []
-
-    # read the extracted entities from the file
-    path = ROOTHPATH + '/post_processing_files/' + name + '_Iteration' + numberOfIteration + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-    dsnames = []
-    dsnamestemp = []
-
-    # read the seed terms
-    corpuspath = ROOTHPATH + '/evaluation_files/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
-            propernouns.append(row.strip())
-
-    # read the new seed terms (if exist)
-    for i in range(1, int(numberOfIteration) + 1):
-        try:
-            with open(ROOTHPATH + '/evaluation_files/' + name + '_Iteration' + str(i) + '_POS_' + str(
-                    numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
-                for row in file.readlines():
-                    dsnames.append(row.strip())
-                    propernouns.append(row.strip())
-        except:
-            continue
-
-    newpropernouns = []
-    for pp in propernouns:
-        temp = pp.split(' ')
-        if len(temp) > 1:
-            bigrams = list(nltk.bigrams(pp.split()))
-            for bi in bigrams:
-                aa = bi[0].translate(str.maketrans('', '', string.punctuation))
-                bb = bi[1].translate(str.maketrans('', '', string.punctuation))
-                bi = aa.lower() + '_' + bb.lower()
-
-                newpropernouns.append(bi)
-        else:
-            newpropernouns.append(pp)
-
-    dsnames = [x.lower() for x in dsnames]
-    dsnames = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
-
-    sentences_split = [s.lower() for s in newpropernouns]
-
-    df, labels_array = build_word_vector_matrix(
-        ROOTHPATH + "/models/modelword2vecbigram.txt", sentences_split)
-
-    sse = {}
-    maxcluster = 0
-    if len(df) >= 9:
-        for n_clusters in range(2, 10):
-            finallist = []
-
-            df = StandardScaler().fit_transform(df)
-            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-            kmeans_model.fit(df)
-            cluster_labels = kmeans_model.labels_
-
-            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-            cluster_labelss = kmeans_model.fit_predict(df)
-            sse[n_clusters] = kmeans_model.inertia_
-
-            for c in cluster_to_words:
-                counter = dict()
-                for word in cluster_to_words[c]:
-                    counter[word] = 0
-                for word in cluster_to_words[c]:
-                    if word in dsnames:
-
-                        for ww in cluster_to_words[c]:
-                            finallist.append(ww.replace('_', ' '))
-
-            try:
-
-                silhouette_avg = silhouette_score(df, cluster_labelss)
-                print("For n_clusters =", n_clusters,
-                      "The average silhouette_score is :", silhouette_avg)
-                if silhouette_avg > maxcluster:
-                    maxcluster = silhouette_avg
-                    thefile = open(
-                        ROOTHPATH + "/evaluation_files/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-                            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-                    finallist = list(set(finallist))
-
-                    for item in finallist:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-
-            except:
-                print("ERROR:::Silhoute score invalid")
-                continue
-    else:
-        for n_clusters in range(2, len(df)):
-            finallist = []
-
-            df = StandardScaler().fit_transform(df)
-            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-            kmeans_model.fit(df)
-            cluster_labels = kmeans_model.labels_
-
-            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-            cluster_labelss = kmeans_model.fit_predict(df)
-            sse[n_clusters] = kmeans_model.inertia_
-
-            for c in cluster_to_words:
-                print(cluster_to_words[c])
-
-            for c in cluster_to_words:
-                counter = dict()
-                for word in cluster_to_words[c]:
-                    counter[word] = 0
-                for word in cluster_to_words[c]:
-                    if word in dsnames:
-
-                        for ww in cluster_to_words[c]:
-                            if ww not in dsnames:
-                                finallist.append(ww.replace('_', ' '))
-            try:
-
-                silhouette_avg = silhouette_score(df, cluster_labelss)
-                print("For n_clusters =", n_clusters,
-                      "The average silhouette_score is :", silhouette_avg)
-                if silhouette_avg > maxcluster:
-                    maxcluster = silhouette_avg
-                    thefile = open(
-                        ROOTHPATH + "/evaluation_files/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-                            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-                    finallist = list(set(finallist))
-
-                    for item in finallist:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-
-            except:
-                print("ERROR:::Silhoute score invalid")
-                continue
-
-
-def Kb_ecall(numberOfSeeds, name, numberOfIteration, iteration):
-    # for iteration in range(0,10):
-    propernouns = []
-    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
-
-    path = ROOTHPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    print(path)
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-
-    dsnames = []
-
-    corpuspath = ROOTHPATH + '/evaluation_files/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
-            propernouns.append(row.strip())
-    for i in range(1, int(numberOfIteration)):
-        try:
-            with open(ROOTHPATH + '/evaluation_files/' + name + '_Iteration' + str(i) + '_POS_' + str(
-                    numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
-                for row in file.readlines():
-                    dsnames.append(row.strip())
-                    propernouns.append(row.strip())
-        except:
-            continue
-    newpropernouns = []
-    bigrams = []
-    for pp in propernouns:
-        temp = pp.split(' ')
-        if len(temp) > 1:
-            bigram = list(nltk.bigrams(pp.split()))
-
-            for bi in bigram:
-                bi = bi[0].lower() + '_' + bi[1].lower()
-                # print(bi)
-                newpropernouns.append(bi)
-        else:
-            newpropernouns.append(pp)
-
-    dsnames = [x.lower() for x in dsnames]
-    dsnamestemp = [s.translate(str.maketrans('', '', string.punctuation)) for s in dsnames]
-    finalds = []
-    for ds in dsnamestemp:
-        dss = ds.split(' ')
-        if len(dss) > 1:
-            ds = ds.replace(' ', '_')
-        finalds.append(ds)
-
-    sentences_split = [s.lower() for s in newpropernouns]
-
-    sentences_split = [s.replace('"', '') for s in sentences_split]
-
-    df, labels_array = build_word_vector_matrix(
-        ROOTHPATH + "/models/modelword2vecbigram.txt", sentences_split)
-
-    sse = {}
-    maxcluster = 0
-    if len(df) >= 9:
-        for n_clusters in range(2, 10):
-            finallist = []
-
-            df = StandardScaler().fit_transform(df)
-            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-            kmeans_model.fit(df)
-            cluster_labels = kmeans_model.labels_
-            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-            cluster_labelss = kmeans_model.fit_predict(df)
-            sse[n_clusters] = kmeans_model.inertia_
-
-            # print("\n")
-
-            for c in cluster_to_words:
-                counter = dict()
-                dscounter = 0
-                for word in cluster_to_words[c]:
-                    counter[word] = 0
-                for word in cluster_to_words[c]:
-                    if word in finalds:
-
-                        for ww in cluster_to_words[c]:
-                            finallist.append(ww.replace('_', ' '))
-
-            # print(finallist)
-            try:
-
-                silhouette_avg = silhouette_score(df, cluster_labelss)
-
-                if silhouette_avg > maxcluster:
-                    maxcluster = silhouette_avg
-                    thefile = open(
-                        ROOTHPATH + "/evaluation_files/" + name + "_Iteration" + str(
-                            numberOfIteration) + "_POS_" + str(
-                            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-                    finallist = list(set(finallist))
-
-                    for item in finallist:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-                    for item in bigrams:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-                    thefile.close()
-            except:
-                print("ERROR:::Silhoute score invalid")
-                continue
-
-
-    else:
-        for n_clusters in range(2, len(df)):
-            finallist = []
-
-            df = StandardScaler().fit_transform(df)
-            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
-            kmeans_model.fit(df)
-            cluster_labels = kmeans_model.labels_
-            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
-            cluster_labelss = kmeans_model.fit_predict(df)
-            sse[n_clusters] = kmeans_model.inertia_
-
-            # print("\n")
-
-            for c in cluster_to_words:
-                counter = dict()
-                dscounter = 0
-                for word in cluster_to_words[c]:
-                    counter[word] = 0
-                for word in cluster_to_words[c]:
-                    if word in finalds:
-
-                        for ww in cluster_to_words[c]:
-                            url = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString=' + str(
-                                ww)
-                            resp = requests.request('GET', url)
-                            root = ElementTree.fromstring(resp.content)
-                            check_if_exist = []
-                            for child in root.iter('*'):
-                                check_if_exist.append(child)
-                            if len(check_if_exist) == 1:
-                                finallist.append(ww.replace('_', ' '))
-
-            try:
-
-                silhouette_avg = silhouette_score(df, cluster_labelss)
-
-                if silhouette_avg > maxcluster:
-                    maxcluster = silhouette_avg
-                    thefile = open(
-                        ROOTHPATH + "/evaluation_files/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-                            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-                    finallist = list(set(finallist))
-
-                    for item in finallist:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-                    for item in bigrams:
-                        if item.lower() not in dsnamestemp and item.lower() not in dsnames:
-                            thefile.write("%s\n" % item)
-                    thefile.close()
-            except:
-                print("ERROR:::Silhoute score invalid")
-                continue
-
-
-def Kb(numberOfSeeds, name, numberOfIteration, iteration):
-    # for iteration in range(0,10):
-    propernouns = []
-    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
-
-    path = ROOTHPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    print(path)
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-
-    dsnames = []
-    corpuspath = ROOTHPATH + '/evaluation_files/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
-            propernouns.append(row.strip())
-    for i in range(1, int(numberOfIteration)):
-        try:
-            with open(ROOTHPATH + '/evaluation_files/' + name + '_Iteration' + str(i) + '_POS_' + str(
-                    numberOfSeeds) + '_' + str(iteration) + '.txt', 'r') as file:
-                for row in file.readlines():
-                    dsnames.append(row.strip())
-                    propernouns.append(row.strip())
-        except:
-            continue
-    newpropernouns = []
-
-    for pp in propernouns:
-        temp = pp.split(' ')
-        if len(temp) > 1:
-            bigram = list(nltk.bigrams(pp.split()))
-
-            for bi in bigram:
-                bi = bi[0].lower() + '_' + bi[1].lower()
-
-                newpropernouns.append(bi)
-        else:
-            newpropernouns.append(pp)
-    finallist = []
-    for nn in newpropernouns:
-        url = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString=' + str(
-            nn)
-        try:
-            resp = requests.request('GET', url)
-            root = ElementTree.fromstring(resp.content)
-            check_if_exist = []
-            for child in root.iter('*'):
-                check_if_exist.append(child)
-            if len(check_if_exist) == 1:
-                finallist.append(nn.replace('_', ' '))
-        except:
-            finallist.append(nn.replace('_', ' '))
-    thefile = open(
-        ROOTHPATH + "/evaluation_files/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-    finallist = list(set(finallist))
-
-    for item in finallist:
-        if item.lower() not in dsnames:
-            thefile.write("%s\n" % item)
-    thefile.close()
-
-
-def pmi(model_name, training_cycle):
+def filter_pmi(model_name, training_cycle, context):
     """
 
     :param training_cycle:
     :param model_name:
+    :param context: list of words that provide context to the entities
+    :type context: list
     """
-    print('Filtering with PMI...')
-
-    extracted_entities = []
     path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
-    with open(path, 'r') as f:
-        for e in f.readlines():
-            extracted_entities.append(e.strip())
-
-    original_seeds = []
-    path = ROOTPATH + '/processing_files/' + model_name + '_seeds.txt'
     with open(path, "r") as f:
-        for s in f.readlines():
-            original_seeds.append(s.strip())
+        extracted_entities = [e.strip() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities with PMI')
 
     processed_entities = []
     for pp in extracted_entities:
@@ -533,96 +104,352 @@ def pmi(model_name, training_cycle):
         else:
             processed_entities.append(pp)
 
-    results = normalized_pub_distance.npd(processed_entities)
+    results = normalized_pub_distance.calculate_npd(processed_entities, context)
     results = list(set(results))
-    print(len(results), 'entities are kept from the total of', len(processed_entities))
-    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + str(training_cycle) + ".txt"
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_pmi_' + str(training_cycle) + ".txt"
     f = open(path, 'w', encoding='utf-8')
     for item in results:
         f.write("%s\n" % item)
     f.close()
 
 
-def MV(numberOfSeeds, name, numberOfIteration, iteration):
-    # for iteration in range(0,10):
-    propernouns = []
-    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
-
+def filter_ws(model_name: str, training_cycle: int) -> None:
     """
-    Use the extracted entities from the publications
+
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
     """
-    path = ROOTHPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    print(path)
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-    dsnames = []
-    corpuspath = ROOTHPATH + '/evaluation_files/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities with WordNet and Stopwords')
 
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
+    stopword_filtered = [word for word in set(extracted_entities) if word.lower() not in stopwords.words('english')]
+    stopword_filtered = [word for word in set(stopword_filtered) if word.lower() not in stopword_list]
+    filter_by_wordnet = [word for word in stopword_filtered if not wordnet.synsets(word)]
+    results = list(set(filter_by_wordnet))
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_ws_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    for item in results:
+        f.write("%s\n" % item)
+    f.close()
 
-    newpropernouns = []
-    for pp in propernouns:
+
+def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> None:
+    """
+
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    :param original_seeds: list of original seeds provided for training
+    :type original_seeds: list
+    """
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities by term similarity')
+
+    processed_entities = []
+    for pp in extracted_entities:
         temp = pp.split(' ')
         if len(temp) > 1:
-            bigram = list(nltk.bigrams(pp.split()))
-
-            for bi in bigram:
-                bi = bi[0].lower() + '_' + bi[1].lower()
-                newpropernouns.append(bi)
+            bigrams = list(nltk.bigrams(pp.split()))
+            for bi in bigrams:
+                aa = bi[0].translate(str.maketrans('', '', string.punctuation))
+                bb = bi[1].translate(str.maketrans('', '', string.punctuation))
+                bi = aa + '_' + bb
+                processed_entities.append(bi)
         else:
-            newpropernouns.append(pp)
-    finallist = majorityVote(newpropernouns, numberOfSeeds, iteration)
+            processed_entities.append(pp)
 
-    thefile = open(
-        ROOTHPATH + "/evaluation_filesMet/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-    finallist = list(set(finallist))
+    seed_entities = [x.lower() for x in original_seeds]
+    seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
+    df, labels_array = build_word_vector_matrix(ROOTPATH + "/models/modelword2vecbigram.vec", processed_entities)
+    sse = {}
+    max_cluster = 0
+    if len(df) >= 9:
+        for n_clusters in range(2, 10):
+            results = []
+            df = StandardScaler().fit_transform(df)
+            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
+            kmeans_model.fit(df)
+            cluster_labels = kmeans_model.labels_
+            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
+            cluster_labels_predicted = kmeans_model.fit_predict(df)
+            sse[n_clusters] = kmeans_model.inertia_
+            for c in cluster_to_words:
+                counter = dict()
+                for word in cluster_to_words[c]:
+                    counter[word] = 0
+                for word in cluster_to_words[c]:
+                    if word in seed_entities:
+                        for ww in cluster_to_words[c]:
+                            results.append(ww.replace('_', ' '))
+            if silhouette_score(df, cluster_labels_predicted):
+                silhouette_avg = silhouette_score(df, cluster_labels_predicted)
+                if silhouette_avg > max_cluster:
+                    max_cluster = silhouette_avg
+                    filtered_entities = results
+            else:
+                print("ERROR: Silhouette score invalid")
+                continue
+    else:
+        for n_clusters in range(2, len(df)):
+            results = []
+            df = StandardScaler().fit_transform(df)
+            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
+            kmeans_model.fit(df)
+            cluster_labels = kmeans_model.labels_
+            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
+            cluster_labels_predicted = kmeans_model.fit_predict(df)
+            sse[n_clusters] = kmeans_model.inertia_
+            for c in cluster_to_words:
+                counter = dict()
+                for word in cluster_to_words[c]:
+                    counter[word] = 0
+                for word in cluster_to_words[c]:
+                    if word in seed_entities:
+                        for ww in cluster_to_words[c]:
+                            results.append(ww.replace('_', ' '))
+            if silhouette_score(df, cluster_labels_predicted):
+                silhouette_avg = silhouette_score(df, cluster_labels_predicted)
+                if silhouette_avg > max_cluster:
+                    max_cluster = silhouette_avg
+                    filtered_entities = results
+            else:
+                print("ERROR: Silhouette score invalid")
+                continue
 
-    for item in finallist:
-        thefile.write("%s\n" % item)
-    thefile.close()
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_st_' + str(training_cycle) + ".txt"
+    results = list(set(filtered_entities))
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    f = open(path, 'w', encoding='utf-8')
+    for item in results:
+        if item.lower() not in seed_entities_clean and item.lower() not in seed_entities:
+            f.write("%s\n" % item)
 
 
-def WordNet_StopWord(model_name, training_cycle):
-    # for iteration in range(0,10):
-    propernouns = []
-    print('filteriiingg....' + str(numberOfSeeds) + '_' + str(name) + '_' + str(iteration))
+def filter_kbl(model_name: str, training_cycle: int, original_seeds: list) -> None:
+    """
 
-    path = ROOTPATH + '/post_processing_files/' + name + '_Iteration' + str(numberOfIteration) + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
-    print(path)
-    with open(path, "r") as file:
-        for row in file.readlines():
-            propernouns.append(row.strip())
-    dsnames = []
-    corpuspath = ROOTPATH + '/evaluation_files_prot/X_Seeds_' + str(
-        numberOfSeeds) + '_' + str(iteration) + '.txt'
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    :param original_seeds: list of original seeds provided for training
+    :type original_seeds: list
+    """
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities with knowledge base lookup')
 
-    with open(corpuspath, "r") as file:
-        for row in file.readlines():
-            dsnames.append(row.strip())
-    filterbywordnet = []
-    filtered_words = [word for word in set(propernouns) if word not in stopwords.words('english')]
-    filtered_words = [word for word in set(filtered_words) if word.lower() not in stopwords]
+    processed_entities = []
+    for pp in extracted_entities:
+        temp = pp.split(' ')
+        if len(temp) > 1:
+            bigrams = list(nltk.bigrams(pp.split()))
+            for bi in bigrams:
+                aa = bi[0].translate(str.maketrans('', '', string.punctuation))
+                bb = bi[1].translate(str.maketrans('', '', string.punctuation))
+                bi = aa + '_' + bb
+                processed_entities.append(bi)
+        else:
+            processed_entities.append(pp)
 
-    # filter_by_wordnet = [word for word in filtered_words if not wordnet.synsets(word)]
-    print(filtered_words)
-    for word in set(filtered_words):
+    seed_entities = [x.lower() for x in original_seeds]
+    seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
+    results = []
 
-        inwordNet = 1
+    for nn in processed_entities:
+        url = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString=' + str(nn)
+        try:
+            resp = requests.request('GET', url)
+            root = ElementTree.fromstring(resp.content)
+            check_if_exist = []
+            for child in root.iter('*'):
+                check_if_exist.append(child)
+            if len(check_if_exist) == 1:
+                results.append(nn.replace('_', ' '))
+        except:
+            results.append(nn.replace('_', ' '))
 
-        if not wordnet.synsets(word):
-            filterbywordnet.append(word)
-    thefile = open(
-        ROOTPATH + "/evaluation_files_prot/" + name + "_Iteration" + numberOfIteration + "_POS_" + str(
-            numberOfSeeds) + "_" + str(iteration) + ".txt", 'w')
-    finallist = list(set(filterbywordnet))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_kbl_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    results = list(set(results))
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    for item in results:
+        if item.lower() not in seed_entities not in seed_entities_clean:
+            f.write("%s\n" % item)
+    f.close()
 
-    for item in finallist:
-        thefile.write("%s\n" % item)
-    thefile.close()
+
+def filter_st_pmi_kbl_ec(model_name: str, training_cycle: int, original_seeds: list) -> None:
+    """
+
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    :param original_seeds: list of original seeds provided for training
+    :type original_seeds: list
+    """
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities with embedded clustering')
+
+    processed_entities = []
+    for pp in extracted_entities:
+        temp = pp.split(' ')
+        if len(temp) > 1:
+            bigrams = list(nltk.bigrams(pp.split()))
+            for bi in bigrams:
+                aa = bi[0].translate(str.maketrans('', '', string.punctuation))
+                bb = bi[1].translate(str.maketrans('', '', string.punctuation))
+                bi = aa + '_' + bb
+                processed_entities.append(bi)
+        else:
+            processed_entities.append(pp)
+
+    seed_entities = [x.lower() for x in original_seeds]
+    seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
+    seed_entities_bigram = []
+    for s in seed_entities_clean:
+        ss = s.split(' ')
+        if len(ss) > 1:
+            s = s.replace(' ', '_')
+        seed_entities_bigram.append(s)
+    sentences_split = [s.lower() for s in processed_entities]
+    sentences_split = [s.replace('"', '') for s in sentences_split]
+    df, labels_array = build_word_vector_matrix(ROOTPATH + "/models/modelword2vecbigram.vec", sentences_split)
+
+    sse = {}
+    max_cluster = 0
+    if len(df) >= 9:
+        for n_clusters in range(2, 10):
+            print('.', end='')
+            results = []
+            df = StandardScaler().fit_transform(df)
+            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
+            kmeans_model.fit(df)
+            cluster_labels = kmeans_model.labels_
+            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
+            cluster_labelss = kmeans_model.fit_predict(df)
+            sse[n_clusters] = kmeans_model.inertia_
+            for c in cluster_to_words:
+                counter = {}
+                dscounter = 0
+                for word in cluster_to_words[c]:
+                    counter[word] = 0
+                for word in cluster_to_words[c]:
+                    if word in seed_entities_bigram:
+                        for ww in cluster_to_words[c]:
+                            url = url_dbpedia + str(ww)
+                            resp = requests.request('GET', url)
+                            root = ElementTree.fromstring(resp.content)
+                            check_if_exist = []
+                            for child in root.iter('*'):
+                                check_if_exist.append(child)
+                            if len(check_if_exist) == 1:
+                                results.append(ww.replace('_', ' '))
+            try:
+                silhouette_avg = silhouette_score(df, cluster_labelss)
+                if silhouette_avg > max_cluster:
+                    max_cluster = silhouette_avg
+                    results_list = results
+            except:
+                print("ERROR:::Silhouette score invalid")
+                continue
+
+    else:
+        for n_clusters in range(2, len(df)):
+            print('.', end='')
+            results = []
+            df = StandardScaler().fit_transform(df)
+            kmeans_model = KMeans(n_clusters=n_clusters, max_iter=300, n_init=100)
+            kmeans_model.fit(df)
+            cluster_labels = kmeans_model.labels_
+            cluster_to_words = find_word_clusters(labels_array, cluster_labels)
+            cluster_labelss = kmeans_model.fit_predict(df)
+            sse[n_clusters] = kmeans_model.inertia_
+            for c in cluster_to_words:
+                counter = {}
+                dscounter = 0
+                for word in cluster_to_words[c]:
+                    counter[word] = 0
+                for word in cluster_to_words[c]:
+                    if word in seed_entities_bigram:
+                        for ww in cluster_to_words[c]:
+                            url = url_dbpedia + str(ww)
+                            resp = requests.request('GET', url)
+                            root = ElementTree.fromstring(resp.content)
+                            check_if_exist = []
+                            for child in root.iter('*'):
+                                check_if_exist.append(child)
+                            if len(check_if_exist) == 1:
+                                results.append(ww.replace('_', ' '))
+            try:
+                silhouette_avg = silhouette_score(df, cluster_labelss)
+                if silhouette_avg > max_cluster:
+                    max_cluster = silhouette_avg
+                    results_list = results
+            except:
+                print("ERROR:::Silhouette score invalid")
+                continue
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_all_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    results = list(set(results_list))
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    for item in results:
+        if item.lower() not in seed_entities and item.lower() not in seed_entities_clean:
+            f.write("%s\n" % item)
+    f.close()
+
+
+def majority_vote(model_name: str, training_cycle: int) -> None:
+    """
+
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    """
+    results = []
+    filters = ['pmi', 'kbl', 'ws', 'st']
+    votes = defaultdict(int)
+    max_votes = 0
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities by vote of selected filter methods')
+
+    for filter_name in filters:
+        path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_'\
+               + str(training_cycle) + '.txt'
+        if os.path.isfile(path):
+            max_votes += 1
+            with open(path, "r") as f:
+                filtered_entities = [e.strip().lower() for e in f.readlines()]
+            for entity in extracted_entities:
+                if entity in filtered_entities:
+                    votes[entity] += 1
+
+    for vote in votes:
+        if votes[vote] > max_votes/2:
+            results.append(vote)
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_majority_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    results = list(set(results))
+    print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    for item in results:
+        f.write("%s\n" % item)
+    f.close()

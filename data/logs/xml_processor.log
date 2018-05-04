@@ -1,220 +1,32 @@
-2018-03-13 14:52:42,239 Start XML Parsing
-2018-03-13 14:53:04,973 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:53:05,257 http://ieeexplore.ieee.org:80 "GET /ielx5/6221020/6472751/06389693.pdf HTTP/1.1" 302 329
-2018-03-13 14:53:05,410 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx5%2F6221020%2F6472751%2F06389693.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:53:05,820 Cannot download or store https://doi.org/10.1109/JBHI.2012.2235453 with dblpkey: journals_titb_KarimiSS13
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:53:38,084 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:53:38,395 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6999985/06758338.pdf HTTP/1.1" 302 329
-2018-03-13 14:53:38,533 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6999985%2F06758338.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:53:38,714 Cannot download or store https://doi.org/10.1109/JBHI.2014.2310204 with dblpkey: journals_titb_MansoorPSRR15
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:54:23,142 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:54:23,442 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7920455/07414385.pdf HTTP/1.1" 302 329
-2018-03-13 14:54:23,590 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7920455%2F07414385.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:54:23,774 Cannot download or store https://doi.org/10.1109/JBHI.2016.2532354 with dblpkey: journals_titb_ChaiNNLTC017
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:55:05,156 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:55:05,458 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6999985/06823644.pdf HTTP/1.1" 302 329
-2018-03-13 14:55:05,593 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6999985%2F06823644.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:55:05,783 Cannot download or store https://doi.org/10.1109/JBHI.2014.2327635 with dblpkey: journals_titb_YangLPSP15
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:56:03,562 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:56:03,869 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6999985/06825801.pdf HTTP/1.1" 302 329
-2018-03-13 14:56:04,016 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6999985%2F06825801.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:56:04,199 Cannot download or store https://doi.org/10.1109/JBHI.2014.2328593 with dblpkey: journals_titb_KauC15
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:56:24,020 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:56:24,293 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7425118/07041189.pdf HTTP/1.1" 302 329
-2018-03-13 14:56:24,456 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7425118%2F07041189.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:56:24,635 Cannot download or store https://doi.org/10.1109/JBHI.2015.2403397 with dblpkey: journals_titb_ZhuHJ16
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:56:50,961 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:56:51,276 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7104199/06846265.pdf HTTP/1.1" 302 329
-2018-03-13 14:56:51,415 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7104199%2F06846265.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:56:51,632 Cannot download or store https://doi.org/10.1109/JBHI.2014.2328315 with dblpkey: journals_titb_ColoignerFKWDLS15
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:57:01,592 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:57:01,916 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7963898/07792565.pdf HTTP/1.1" 302 329
-2018-03-13 14:57:02,062 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7963898%2F07792565.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:57:02,258 Cannot download or store https://doi.org/10.1109/JBHI.2016.2642837 with dblpkey: journals_titb_FallGDGDCGG17
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:57:18,880 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:57:19,133 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6701130/06514596.pdf HTTP/1.1" 302 329
-2018-03-13 14:57:19,358 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6701130%2F06514596.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:57:19,542 Cannot download or store https://doi.org/10.1109/JBHI.2013.2261997 with dblpkey: journals_titb_DehkordiAP14
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:58:11,334 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:58:11,589 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7505456/07421935.pdf HTTP/1.1" 302 329
-2018-03-13 14:58:11,762 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7505456%2F07421935.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:58:11,948 Cannot download or store https://doi.org/10.1109/JBHI.2016.2535721 with dblpkey: journals_titb_TaiTC16
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:58:51,365 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:58:51,656 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6701130/06468049.pdf HTTP/1.1" 302 329
-2018-03-13 14:58:51,787 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6701130%2F06468049.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:58:51,978 Cannot download or store https://doi.org/10.1109/JBHI.2013.2248161 with dblpkey: journals_titb_BecattiniMC14
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 14:59:37,308 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 14:59:37,609 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7425118/07055215.pdf HTTP/1.1" 302 329
-2018-03-13 14:59:37,812 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7425118%2F07055215.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 14:59:38,002 Cannot download or store https://doi.org/10.1109/JBHI.2015.2410279 with dblpkey: journals_titb_MohantyDV16
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:00:23,812 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:00:24,075 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/8097350/07762101.pdf HTTP/1.1" 302 329
-2018-03-13 15:00:24,197 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F8097350%2F07762101.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:00:24,385 Cannot download or store https://doi.org/10.1109/JBHI.2016.2632976 with dblpkey: journals_titb_MlynczakMMK17
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:01:12,744 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:01:13,050 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7839252/07776792.pdf HTTP/1.1" 302 329
-2018-03-13 15:01:13,190 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7839252%2F07776792.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:01:13,379 Cannot download or store https://doi.org/10.1109/JBHI.2016.2636929 with dblpkey: journals_titb_Christodoulidis17
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:01:51,778 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:01:52,089 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7839252/07317722.pdf HTTP/1.1" 302 329
-2018-03-13 15:01:52,243 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7839252%2F07317722.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:01:52,437 Cannot download or store https://doi.org/10.1109/JBHI.2015.2497717 with dblpkey: journals_titb_MunozWLSKMMDWCD17
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:02:01,580 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:02:01,889 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7839252/07769199.pdf HTTP/1.1" 302 329
-2018-03-13 15:02:02,028 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7839252%2F07769199.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:02:02,221 Cannot download or store https://doi.org/10.1109/JBHI.2016.2635663 with dblpkey: journals_titb_KumarKLFF17
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:02:37,307 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:02:37,707 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7870722/07397827.pdf HTTP/1.1" 200 1464837
-2018-03-13 15:02:39,862  Downloaded journals_titb_AnsariWN17
-2018-03-13 15:02:58,346 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:02:58,626 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/7317613/07210128.pdf HTTP/1.1" 302 329
-2018-03-13 15:02:58,815 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F7317613%2F07210128.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:02:58,997 Cannot download or store https://doi.org/10.1109/JBHI.2015.2469540 with dblpkey: journals_titb_DemonceauDCSBMG15
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
-2018-03-13 15:03:33,564 Starting new HTTP connection (1): ieeexplore.ieee.org
-2018-03-13 15:03:33,974 http://ieeexplore.ieee.org:80 "GET /ielx7/6221020/6809230/06600731.pdf HTTP/1.1" 302 329
-2018-03-13 15:03:34,643 http://ieeexplore.ieee.org:80 "GET /Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fielx7%2F6221020%2F6809230%2F06600731.pdf&authDecision=-203 HTTP/1.1" 200 None
-2018-03-13 15:03:34,883 Cannot download or store https://doi.org/10.1109/JBHI.2013.2281915 with dblpkey: journals_titb_GuoVZ14
-Traceback (most recent call last):
-  File "dblp_xml.py", line 379, in download_and_store
-    skipped = not self.extract_paper_from_IEEE(url_open, filename)
-  File "dblp_xml.py", line 507, in extract_paper_from_IEEE
-    localfilename=filename, printOutput=False)
-  File "/data2/SmartPub/pyhelpers/tools.py", line 124, in downloadFile
-    raise BaseException("HTML container - html doc")
-BaseException: HTML container - html doc
+2018-04-26 15:54:05,643 Start XML Parsing
+2018-04-26 15:54:05,721 Start XML Parsing
+2018-04-26 15:54:06,145 Converted retries value: False -> Retry(total=False, connect=None, read=None, redirect=0, status=None)
+2018-04-26 15:54:06,147 Starting new HTTP connection (1): localhost
+2018-04-26 15:54:06,158 http://localhost:9200 "GET /_cluster/health?wait_for_status=yellow HTTP/1.1" 200 386
+2018-04-26 15:54:06,160 GET http://localhost:9200/_cluster/health?wait_for_status=yellow [status:200 request:0.014s]
+2018-04-26 15:54:06,160 > None
+2018-04-26 15:54:06,161 < {"cluster_name":"smartpub","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":30,"active_shards":30,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+2018-04-26 15:54:06,178 Converted retries value: False -> Retry(total=False, connect=None, read=None, redirect=0, status=None)
+2018-04-26 15:54:06,180 Starting new HTTP connection (1): localhost
+2018-04-26 15:54:06,187 http://localhost:9200 "GET /_cluster/health?wait_for_status=yellow HTTP/1.1" 200 386
+2018-04-26 15:54:06,187 GET http://localhost:9200/_cluster/health?wait_for_status=yellow [status:200 request:0.009s]
+2018-04-26 15:54:06,188 > None
+2018-04-26 15:54:06,188 < {"cluster_name":"smartpub","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":30,"active_shards":30,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+2018-04-26 15:54:36,387 Converted retries value: False -> Retry(total=False, connect=None, read=None, redirect=0, status=None)
+2018-04-26 15:54:36,388 Starting new HTTP connection (1): localhost
+2018-04-26 15:54:36,398 http://localhost:9200 "GET /_cluster/health?wait_for_status=yellow HTTP/1.1" 200 386
+2018-04-26 15:54:36,400 GET http://localhost:9200/_cluster/health?wait_for_status=yellow [status:200 request:0.013s]
+2018-04-26 15:54:36,401 > None
+2018-04-26 15:54:36,402 < {"cluster_name":"smartpub","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":30,"active_shards":30,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+2018-04-26 15:55:06,566 Converted retries value: False -> Retry(total=False, connect=None, read=None, redirect=0, status=None)
+2018-04-26 15:55:06,567 Starting new HTTP connection (1): localhost
+2018-04-26 15:55:06,581 http://localhost:9200 "GET /_cluster/health?wait_for_status=yellow HTTP/1.1" 200 386
+2018-04-26 15:55:06,582 GET http://localhost:9200/_cluster/health?wait_for_status=yellow [status:200 request:0.016s]
+2018-04-26 15:55:06,582 > None
+2018-04-26 15:55:06,583 < {"cluster_name":"smartpub","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":30,"active_shards":30,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+2018-04-26 15:55:36,767 Converted retries value: False -> Retry(total=False, connect=None, read=None, redirect=0, status=None)
+2018-04-26 15:55:36,768 Starting new HTTP connection (1): localhost
+2018-04-26 15:55:36,782 http://localhost:9200 "GET /_cluster/health?wait_for_status=yellow HTTP/1.1" 200 386
+2018-04-26 15:55:36,784 GET http://localhost:9200/_cluster/health?wait_for_status=yellow [status:200 request:0.018s]
+2018-04-26 15:55:36,786 > None
+2018-04-26 15:55:36,787 < {"cluster_name":"smartpub","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":30,"active_shards":30,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}

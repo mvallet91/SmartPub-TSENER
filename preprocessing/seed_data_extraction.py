@@ -5,7 +5,7 @@ from config import ROOTPATH
 import sys
 
 
-def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: str) -> None:
+def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: list) -> None:
     """
     Extracts from the corpus all sentences that include at least one of the given seeds (in list_of_seeds).
     In addition, it excludes sentences that have any of the entities from a test set, when provided.
