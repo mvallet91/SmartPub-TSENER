@@ -1,5 +1,5 @@
 """
-Here we will extract a number of sentences for the training data using different number of dataset name seeds (e.g  2,5,10,...)
+Here we will extract a number of sentences for the training data using different number of dataset name seeds (e.g  2, 5, 10, ...)
 """
 
 import random
