@@ -1,5 +1,0 @@
-protein
-beta-arrestin
-nuclear protein
-frizzled
-desmoglein
