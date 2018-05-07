@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "index_paperfulltext.py", line 5, in <module>
-    import config as cfg
-ImportError: No module named 'config'
-Traceback (most recent call last):
-  File "index_paperfulltext.py", line 5, in <module>
-    from Smartpub import config as cfg
-ImportError: No module named 'Smartpub'

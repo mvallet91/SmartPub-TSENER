@@ -1,0 +1,1552 @@
+trec
+xml
+ap
+wikipedia
+data collection
+pagerank
+named entity
+personalization
+rdf
+large scale
+javascript
+pdf
+world wide
+support vector
+pearson correlation
+flickr
+wide web
+international world
+lsi
+mrr
+mmr
+loc
+dblp
+hidden markov
+kmeans
+svd
+alice
+mechanical turk
+dcg
+prp
+mean reciprocal
+semantic search
+rocchio
+unigram
+digital collections
+latent variables
+div
+matlab
+wang
+pinterest
+freebase
+gbm
+dns
+inquery
+cqa
+trec web
+docid
+lfp
+stochastic gradient
+ebay
+homophily
+reciprocal rank
+mysql
+singular value
+cnn
+entity ranking
+linkedin
+tpr
+data sparsity
+hadoop
+cdf
+microsoft research
+clueweb09
+instagram
+google news
+captcha
+wt10g
+bbc
+markov random
+yago
+sra
+pearson
+xhtml
+erm
+gov2
+kim
+ccf
+ptr
+slashdot
+movielens
+squared error
+plsi
+lif
+cmu
+netflix
+zipf
+gmm
+gwa
+bm25f
+livejournal
+mixture models
+trec terabyte
+newsgroup
+zettair
+feasibility study
+gpu
+xquad
+pmf
+object id
+dynamic tuning
+xmark
+creative commons
+entity list
+userid
+hdfs
+gmail
+msd
+lib
+wikipedia categories
+fov
+eachmovie
+rbm
+mvd
+mellon university
+emd
+nutch
+youtube video
+knowitall
+isps
+technorati
+annotea
+uc berkeley
+mudrecs
+google api
+uiuc
+browsegraph
+wom
+warc
+bpr
+kendall rank
+fmf
+corel
+uniform resource
+cnet
+xbox
+mpc
+btc
+mesur
+gowalla
+klostu
+simpl
+vector machine
+ott
+itunes
+soco
+qprp
+librarything
+trec wt10g
+mapa
+hurricane katrina
+heritrix
+bm25l
+ngd
+huberman
+bibsonomy
+research asia
+ss1
+heteromf
+clustmrf
+webkb
+grouplens
+cormack
+jabref
+csrf
+yahoo mail
+buir
+rmit
+google docs
+cfn
+biomed
+tagmaps
+imls
+networks cdns
+csel
+tagnsearch
+jin
+mondial
+opinion morphology
+vmware
+text2kb
+trec123
+dropbox
+pph
+searchask
+bpmf
+ccdf
+llorma
+lqc
+sjmn
+adsense
+ccmr
+leuven
+accams
+uima
+chrissie
+universum
+hulu
+pss1
+teevan
+sunnyvale
+mapc
+vimeo
+endnote
+xsketch
+photo tag
+tivo
+lavrenko
+paragrab
+nexi
+groupon
+wikimapia
+spotify
+flickr commons
+idref
+dtl
+lqd
+simlearn
+anytime ta
+searchonly
+hcla
+chat noir
+mape
+pss2
+mbox
+baccams
+pedro
+caltech
+beeradvocate
+van house
+nintendo
+section2
+sraa
+saj
+recsys
+naaman
+qualcomm
+rotten tomatoes
+brfs
+homogeneous texture
+lance armstrong
+tx1
+urest
+senior engineer
+stumbleupon
+groupme
+netflix users
+froogle
+vivienne
+original topo
+van zwol
+pbase
+mika
+docmrf
+pruningjoin pj
+imagenet
+coffman
+oriented architecture
+mnm
+purdue ir
+clue10
+qwerty
+xsketches
+anagnostopoulos
+oracle10g
+flickr feasibility
+trec
+xml
+ap
+wikipedia
+data collection
+pagerank
+named entity
+personalization
+rdf
+large scale
+javascript
+pdf
+world wide
+support vector
+pearson correlation
+flickr
+wide web
+international world
+lsi
+mrr
+mmr
+loc
+dblp
+hidden markov
+kmeans
+svd
+alice
+mechanical turk
+dcg
+prp
+mean reciprocal
+semantic search
+rocchio
+unigram
+digital collections
+latent variables
+div
+matlab
+wang
+pinterest
+freebase
+gbm
+dns
+inquery
+cqa
+trec web
+docid
+lfp
+stochastic gradient
+ebay
+homophily
+reciprocal rank
+mysql
+singular value
+cnn
+entity ranking
+linkedin
+tpr
+data sparsity
+hadoop
+cdf
+microsoft research
+clueweb09
+instagram
+google news
+captcha
+wt10g
+bbc
+markov random
+yago
+sra
+pearson
+xhtml
+erm
+gov2
+kim
+ccf
+ptr
+slashdot
+movielens
+squared error
+plsi
+lif
+cmu
+netflix
+zipf
+gmm
+gwa
+bm25f
+livejournal
+mixture models
+trec terabyte
+newsgroup
+zettair
+feasibility study
+gpu
+xquad
+pmf
+object id
+dynamic tuning
+xmark
+creative commons
+entity list
+userid
+hdfs
+gmail
+msd
+lib
+wikipedia categories
+fov
+eachmovie
+rbm
+mvd
+mellon university
+emd
+nutch
+youtube video
+knowitall
+isps
+technorati
+annotea
+uc berkeley
+mudrecs
+google api
+uiuc
+browsegraph
+wom
+warc
+bpr
+kendall rank
+fmf
+corel
+uniform resource
+cnet
+xbox
+mpc
+btc
+mesur
+gowalla
+klostu
+simpl
+vector machine
+ott
+itunes
+soco
+qprp
+librarything
+trec wt10g
+mapa
+hurricane katrina
+heritrix
+bm25l
+ngd
+huberman
+bibsonomy
+research asia
+ss1
+heteromf
+clustmrf
+webkb
+grouplens
+cormack
+jabref
+csrf
+yahoo mail
+buir
+rmit
+google docs
+cfn
+biomed
+tagmaps
+imls
+networks cdns
+csel
+tagnsearch
+jin
+mondial
+opinion morphology
+vmware
+text2kb
+trec123
+dropbox
+pph
+searchask
+bpmf
+ccdf
+llorma
+lqc
+sjmn
+adsense
+ccmr
+leuven
+accams
+uima
+chrissie
+universum
+hulu
+pss1
+teevan
+sunnyvale
+mapc
+vimeo
+endnote
+xsketch
+photo tag
+tivo
+lavrenko
+paragrab
+nexi
+groupon
+wikimapia
+spotify
+flickr commons
+idref
+dtl
+lqd
+simlearn
+anytime ta
+searchonly
+hcla
+chat noir
+mape
+pss2
+mbox
+baccams
+pedro
+caltech
+beeradvocate
+van house
+nintendo
+section2
+sraa
+saj
+recsys
+naaman
+qualcomm
+rotten tomatoes
+brfs
+homogeneous texture
+lance armstrong
+tx1
+urest
+senior engineer
+stumbleupon
+groupme
+netflix users
+froogle
+vivienne
+original topo
+van zwol
+pbase
+mika
+docmrf
+pruningjoin pj
+imagenet
+coffman
+oriented architecture
+mnm
+purdue ir
+clue10
+qwerty
+xsketches
+anagnostopoulos
+oracle10g
+flickr feasibility
+trec
+xml
+ap
+wikipedia
+data collection
+pagerank
+named entity
+personalization
+rdf
+large scale
+javascript
+pdf
+world wide
+support vector
+pearson correlation
+flickr
+wide web
+international world
+lsi
+mrr
+mmr
+loc
+dblp
+hidden markov
+kmeans
+svd
+alice
+mechanical turk
+dcg
+prp
+mean reciprocal
+semantic search
+rocchio
+unigram
+digital collections
+latent variables
+div
+matlab
+wang
+pinterest
+freebase
+gbm
+dns
+inquery
+cqa
+trec web
+docid
+lfp
+stochastic gradient
+ebay
+homophily
+reciprocal rank
+mysql
+singular value
+cnn
+entity ranking
+linkedin
+tpr
+data sparsity
+hadoop
+cdf
+microsoft research
+clueweb09
+instagram
+google news
+captcha
+wt10g
+bbc
+markov random
+yago
+sra
+pearson
+xhtml
+erm
+gov2
+kim
+ccf
+ptr
+slashdot
+movielens
+squared error
+plsi
+lif
+cmu
+netflix
+zipf
+gmm
+gwa
+bm25f
+livejournal
+mixture models
+trec terabyte
+newsgroup
+zettair
+feasibility study
+gpu
+xquad
+pmf
+object id
+dynamic tuning
+xmark
+creative commons
+entity list
+userid
+hdfs
+gmail
+msd
+lib
+wikipedia categories
+fov
+eachmovie
+rbm
+mvd
+mellon university
+emd
+nutch
+youtube video
+knowitall
+isps
+technorati
+annotea
+uc berkeley
+mudrecs
+google api
+uiuc
+browsegraph
+wom
+warc
+bpr
+kendall rank
+fmf
+corel
+uniform resource
+cnet
+xbox
+mpc
+btc
+mesur
+gowalla
+klostu
+simpl
+vector machine
+ott
+itunes
+soco
+qprp
+librarything
+trec wt10g
+mapa
+hurricane katrina
+heritrix
+bm25l
+ngd
+huberman
+bibsonomy
+research asia
+ss1
+heteromf
+clustmrf
+webkb
+grouplens
+cormack
+jabref
+csrf
+yahoo mail
+buir
+rmit
+google docs
+cfn
+biomed
+tagmaps
+imls
+networks cdns
+csel
+tagnsearch
+jin
+mondial
+opinion morphology
+vmware
+text2kb
+trec123
+dropbox
+pph
+searchask
+bpmf
+ccdf
+llorma
+lqc
+sjmn
+adsense
+ccmr
+leuven
+accams
+uima
+chrissie
+universum
+hulu
+pss1
+teevan
+sunnyvale
+mapc
+vimeo
+endnote
+xsketch
+photo tag
+tivo
+lavrenko
+paragrab
+nexi
+groupon
+wikimapia
+spotify
+flickr commons
+idref
+dtl
+lqd
+simlearn
+anytime ta
+searchonly
+hcla
+chat noir
+mape
+pss2
+mbox
+baccams
+pedro
+caltech
+beeradvocate
+van house
+nintendo
+section2
+sraa
+saj
+recsys
+naaman
+qualcomm
+rotten tomatoes
+brfs
+homogeneous texture
+lance armstrong
+tx1
+urest
+senior engineer
+stumbleupon
+groupme
+netflix users
+froogle
+vivienne
+original topo
+van zwol
+pbase
+mika
+docmrf
+pruningjoin pj
+imagenet
+coffman
+oriented architecture
+mnm
+purdue ir
+clue10
+qwerty
+xsketches
+anagnostopoulos
+oracle10g
+flickr feasibility
+trec
+xml
+ap
+wikipedia
+data collection
+pagerank
+named entity
+personalization
+rdf
+large scale
+javascript
+pdf
+world wide
+support vector
+pearson correlation
+flickr
+wide web
+international world
+lsi
+mrr
+mmr
+loc
+dblp
+hidden markov
+kmeans
+svd
+alice
+mechanical turk
+dcg
+prp
+mean reciprocal
+semantic search
+rocchio
+unigram
+digital collections
+latent variables
+div
+matlab
+wang
+pinterest
+freebase
+gbm
+dns
+inquery
+cqa
+trec web
+docid
+lfp
+stochastic gradient
+ebay
+homophily
+reciprocal rank
+mysql
+singular value
+cnn
+entity ranking
+linkedin
+tpr
+data sparsity
+hadoop
+cdf
+microsoft research
+clueweb09
+instagram
+google news
+captcha
+wt10g
+bbc
+markov random
+yago
+sra
+pearson
+xhtml
+erm
+gov2
+kim
+ccf
+ptr
+slashdot
+movielens
+squared error
+plsi
+lif
+cmu
+netflix
+zipf
+gmm
+gwa
+bm25f
+livejournal
+mixture models
+trec terabyte
+newsgroup
+zettair
+feasibility study
+gpu
+xquad
+pmf
+object id
+dynamic tuning
+xmark
+creative commons
+entity list
+userid
+hdfs
+gmail
+msd
+lib
+wikipedia categories
+fov
+eachmovie
+rbm
+mvd
+mellon university
+emd
+nutch
+youtube video
+knowitall
+isps
+technorati
+annotea
+uc berkeley
+mudrecs
+google api
+uiuc
+browsegraph
+wom
+warc
+bpr
+kendall rank
+fmf
+corel
+uniform resource
+cnet
+xbox
+mpc
+btc
+mesur
+gowalla
+klostu
+simpl
+vector machine
+ott
+itunes
+soco
+qprp
+librarything
+trec wt10g
+mapa
+hurricane katrina
+heritrix
+bm25l
+ngd
+huberman
+bibsonomy
+research asia
+ss1
+heteromf
+clustmrf
+webkb
+grouplens
+cormack
+jabref
+csrf
+yahoo mail
+buir
+rmit
+google docs
+cfn
+biomed
+tagmaps
+imls
+networks cdns
+csel
+tagnsearch
+jin
+mondial
+opinion morphology
+vmware
+text2kb
+trec123
+dropbox
+pph
+searchask
+bpmf
+ccdf
+llorma
+lqc
+sjmn
+adsense
+ccmr
+leuven
+accams
+uima
+chrissie
+universum
+hulu
+pss1
+teevan
+sunnyvale
+mapc
+vimeo
+endnote
+xsketch
+photo tag
+tivo
+lavrenko
+paragrab
+nexi
+groupon
+wikimapia
+spotify
+flickr commons
+idref
+dtl
+lqd
+simlearn
+anytime ta
+searchonly
+hcla
+chat noir
+mape
+pss2
+mbox
+baccams
+pedro
+caltech
+beeradvocate
+van house
+nintendo
+section2
+sraa
+saj
+recsys
+naaman
+qualcomm
+rotten tomatoes
+brfs
+homogeneous texture
+lance armstrong
+tx1
+urest
+senior engineer
+stumbleupon
+groupme
+netflix users
+froogle
+vivienne
+original topo
+van zwol
+pbase
+mika
+docmrf
+pruningjoin pj
+imagenet
+coffman
+oriented architecture
+mnm
+purdue ir
+clue10
+qwerty
+xsketches
+anagnostopoulos
+oracle10g
+flickr feasibility
+keyword
+api
+ground truth
+semantic web
+sql
+svm
+facebook
+bm25
+web track
+ndcg
+mean average
+recommender systems
+conference committee
+ctr
+mutual information
+xml schema
+youtube
+pj
+microsoft
+uris
+rtree
+maximum entropy
+acm
+image search
+matrix factorization
+implicit feedback
+naive bayes
+aps
+recommender system
+ner
+knn
+svms
+recommender
+rdbms
+citeseer
+mir
+php
+rank correlation
+odp
+ssr
+digg
+nmf
+parallelization
+rmse
+username
+dbpedia
+hsa
+reuters
+mae
+serps
+open directory
+msn
+tag recommendation
+liu
+amazon mechanical
+mean squared
+mozilla
+ndcg10
+csf
+related entity
+lod
+simrank
+english wikipedia
+hpa
+myspace
+open web
+epinions
+fpr
+inex
+ann
+carnegie mellon
+google maps
+imdb
+isp
+aol
+yahoo search
+entity recognition
+gov
+mrf
+acm digital
+entity track
+qac
+stopword
+service oriented
+hac
+clueweb12
+harry potter
+clueweb
+reverb
+fred
+click through
+redde
+acl
+cdns
+reuters21578
+release date
+linked open
+laplacian
+random fields
+dcf
+spearman
+tripadvisor
+internet movie
+usd
+trec question
+unstructured information
+markov models
+iolaus
+cbir
+cccp
+normalized mutual
+crcs
+sioc
+opinion lexicon
+citeulike
+qlm
+flickr api
+letor
+listcf
+netflix data
+google trends
+google image
+rwr
+jquery
+objectid
+rcv1
+mediovis
+orkut
+goodreads
+browserank
+haa
+prev
+douban
+google base
+robust04
+sync kit
+topx
+us patent
+itq
+bidirectional search
+dlms
+bep
+sfi
+kdd
+flixster
+elc
+picasa
+personal blogs
+rmit university
+hdv
+rae
+konstanz
+usm
+srn
+swoogle
+npca
+york times
+adf
+mpq
+directory project
+central london
+blogcatalog
+creating metadata
+friendfeed
+legodb
+netflix prize
+bookcrossing
+arsa
+uam
+dnn
+gdr
+billion triple
+exif
+gocad
+nsfc
+cia world
+flickr network
+atmospheric science
+arabicweb16
+imls digital
+kaggle
+panoramio
+clueweb category
+clueweb search
+backward expanding
+barnes
+sapterm
+marlow
+central florida
+krovetz
+stlm
+michael schumacher
+peter mika
+srns
+llt
+spheresearch engine
+q1de
+likert
+caffe
+geofolk
+imdb website
+distqc
+arsc
+opinion collocation
+rankcompete
+trec ids
+mirflickr
+comcast
+blogspot
+cophir
+eigenrank
+janice
+jaiku
+microsoft azure
+rankscorediff
+blum
+web conference
+mediothek
+clueweb b
+emtree
+etsy
+lerman
+rcv1 reuters
+facc1
+joinfirst jf
+sampled topo
+adagrad
+dfis
+fc7
+clueweb english
+boardtracker
+shoe knowledge
+onesearch
+tipster gazetteer
+choudhury
+kairam
+rdf xpress
+homeandabroad
+flickr gt
+sagrada familia
+mislove
+fullmodel
+reutersv1
+clough
+siel
+sortedaccessjoin saj
+keyword
+api
+ground truth
+semantic web
+sql
+svm
+facebook
+bm25
+web track
+ndcg
+mean average
+recommender systems
+conference committee
+ctr
+mutual information
+xml schema
+youtube
+pj
+microsoft
+uris
+rtree
+maximum entropy
+acm
+image search
+matrix factorization
+implicit feedback
+naive bayes
+aps
+recommender system
+ner
+knn
+svms
+recommender
+rdbms
+citeseer
+mir
+php
+rank correlation
+odp
+ssr
+digg
+nmf
+parallelization
+rmse
+username
+dbpedia
+hsa
+reuters
+mae
+serps
+open directory
+msn
+tag recommendation
+liu
+amazon mechanical
+mean squared
+mozilla
+ndcg10
+csf
+related entity
+lod
+simrank
+english wikipedia
+hpa
+myspace
+open web
+epinions
+fpr
+inex
+ann
+carnegie mellon
+google maps
+imdb
+isp
+aol
+yahoo search
+entity recognition
+gov
+mrf
+acm digital
+entity track
+qac
+stopword
+service oriented
+hac
+clueweb12
+harry potter
+clueweb
+reverb
+fred
+click through
+redde
+acl
+cdns
+reuters21578
+release date
+linked open
+laplacian
+random fields
+dcf
+spearman
+tripadvisor
+internet movie
+usd
+trec question
+unstructured information
+markov models
+iolaus
+cbir
+cccp
+normalized mutual
+crcs
+sioc
+opinion lexicon
+citeulike
+qlm
+flickr api
+letor
+listcf
+netflix data
+google trends
+google image
+rwr
+jquery
+objectid
+rcv1
+mediovis
+orkut
+goodreads
+browserank
+haa
+prev
+douban
+google base
+robust04
+sync kit
+topx
+us patent
+itq
+bidirectional search
+dlms
+bep
+sfi
+kdd
+flixster
+elc
+picasa
+personal blogs
+rmit university
+hdv
+rae
+konstanz
+usm
+srn
+swoogle
+npca
+york times
+adf
+mpq
+directory project
+central london
+blogcatalog
+creating metadata
+friendfeed
+legodb
+netflix prize
+bookcrossing
+arsa
+uam
+dnn
+gdr
+billion triple
+exif
+gocad
+nsfc
+cia world
+flickr network
+atmospheric science
+arabicweb16
+imls digital
+kaggle
+panoramio
+clueweb category
+clueweb search
+backward expanding
+barnes
+sapterm
+marlow
+central florida
+krovetz
+stlm
+michael schumacher
+peter mika
+srns
+llt
+spheresearch engine
+q1de
+likert
+caffe
+geofolk
+imdb website
+distqc
+arsc
+opinion collocation
+rankcompete
+trec ids
+mirflickr
+comcast
+blogspot
+cophir
+eigenrank
+janice
+jaiku
+microsoft azure
+rankscorediff
+blum
+web conference
+mediothek
+clueweb b
+emtree
+etsy
+lerman
+rcv1 reuters
+facc1
+joinfirst jf
+sampled topo
+adagrad
+dfis
+fc7
+clueweb english
+boardtracker
+shoe knowledge
+onesearch
+tipster gazetteer
+choudhury
+kairam
+rdf xpress
+homeandabroad
+flickr gt
+sagrada familia
+mislove
+fullmodel
+reutersv1
+clough
+siel
+sortedaccessjoin saj
