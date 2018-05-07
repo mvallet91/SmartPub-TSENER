@@ -1,137 +1,40 @@
+from m1_preprocessing import ner_training, term_sentence_expansion, training_data_generation
+from m1_postprocessing import extract_new_entities, filtering
+import config as cfg
+import gensim
+import elasticsearch
 
-"""
-This scripts generates training data and trains NER using different number of seeds and approach.
-The training data should be extracted using the training_data_extraction.py  using the seed terms (done with different number of seeds 10 times)
-and be stored in the "evaluation_files folder".
-"""
+doc2vec_model = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/embedding_models/doc2vec.model')
+es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
-from preprocessing import ner_training, expansion, training_data_extraction
-from postprocessing import trainingdata_generation, extract_new_entities, filtering
-from config import ROOTPATH
-from gensim.models import Doc2Vec
-from elasticsearch import Elasticsearch
+# User input
+seeds = ['clueweb', 'imagenet', 'flickr', 'webkb', 'netflix', 'imdb']
+context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark']
+sentence_expansion = True
+training_cycles = 4
+model_name = 'dataset'
+filtering_pmi = True
+filtering_st = True
+filtering_ws = True
+filtering_kbl = True
+filtering_majority = True
 
-modeldoc2vec = Doc2Vec.load(ROOTPATH + '/models/doc2vec.model')
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+cycle = 1
+for cycle in range(training_cycles):
 
-seeds = [5, 10, 25, 50, 100]
-seeds = [5,25,100]
-
-"""
-Extract training data for different number of seeds
-"""
-for seed in seeds:
-    training_data_extraction.extract(seed)
-
-"""
-Term expansion approach for the first iteration
-"""
-# perform term expansion on the text of the training data using different number of seeds (i.e. 5,10,25,50,100)
-
-# for number in range(10):
-#     expansion.term_expansion_proteins(5, 'term_expansion', str(0), str(number))
-#     expansion.term_expansion_proteins(10, 'term_expansion', str(0), str(number))
-#     expansion.term_expansion_proteins(25, 'term_expansion', str(0), str(number))
-#     expansion.term_expansion_proteins(50, 'term_expansion', str(0), str(number))
-#     expansion.term_expansion_proteins(100, 'term_expansion', str(0), str(number))
-
-# # training data generation
-# for number in range(10):
-#     trainingdata_generation.generate_trainingTE(5, 'term_expansion', str(0), str(number))
-#     trainingdata_generation.generate_trainingTE(10, 'term_expansion', str(0), str(number))
-#     trainingdata_generation.generate_trainingTE(25, 'term_expansion', str(0), str(number))
-#     trainingdata_generation.generate_trainingTE(50, 'term_expansion', str(0), str(number))
-#     trainingdata_generation.generate_trainingTE(100, 'term_expansion', str(0), str(number))
-
-# # training the NER model which will be saved in the crf_trained_files folder
-# ner_training.create_austenprop(5, 'term_expansion', str(0))
-# ner_training.create_austenprop(10, 'term_expansion', str(0))
-# ner_training.create_austenprop(25, 'term_expansion', str(0))
-# ner_training.create_austenprop(50, 'term_expansion', str(0))
-# ner_training.create_austenprop(100, 'term_expansion', str(0))
-
-# #
-# ner_training.train(5, 'term_expansion', str(0))
-# ner_training.train(10, 'term_expansion', str(0))
-# ner_training.train(25, 'term_expansion', str(0))
-# ner_training.train(50, 'term_expansion', str(0))
-# ner_training.train(100, 'term_expansion', str(0))
-
-########################################################
-
-# # An example for 5 iterations:
-# for i in range(5):
-#     extract_new_entities.ne_extraction(100, 'term_expansion', i, i + 1, 0, es)
-#     filtering.PMI(100, 'term_expansion', i, 0)
-#     trainingdata_generation.extract(100, 'term_expansion', i, 0)
-#     expansion.term_expansion_protein(100, 'term_expansion', i, 0)
-#     trainingdata_generation.generate_trainingTE(100, 'term_expansion', i, 0)
-#     ner_training.create_austenprop(100, 'term_expansion', 0)
-#     ner_training.train(100, 'term_expansion', 0)
-
-########################################################
-
-
-# """
-# Sentence approach for the first iteration
-# """
-for number in range(0, 10):
-      expansion.term_expansion_proteins(5, 'sentence_expansion_mix', str(0), str(number))
-#     expansion.term_expansion_proteins(10, 'sentence_expansion', str(0), str(number))
-      expansion.term_expansion_proteins(25, 'sentence_expansion_mix', str(0), str(number))
-#     expansion.term_expansion_proteins(50, 'sentence_expansion', str(0), str(number))   
-      expansion.term_expansion_proteins(100, 'sentence_expansion_mix', str(0), str(0))
-
-for number in range(0, 10):
-      trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_mix', str(0), str(number), modeldoc2vec)
-#     trainingdata_generation.generate_trainingSE(10, 'sentence_expansion', str(0), str(number), modeldoc2vec)
-      trainingdata_generation.generate_trainingSE(25, 'sentence_expansion_mix', str(0), str(number), modeldoc2vec)
-#      trainingdata_generation.generate_trainingSE(50, 'sentence_expansion', str(0), str(number), modeldoc2vec)   
-      trainingdata_generation.generate_trainingSE(100, 'sentence_expansion_mix', str(0), str(0), modeldoc2vec)
-
-ner_training.create_austenprop(5, 'sentence_expansion_mix', str(0))
-# ner_training.create_austenprop(10, 'sentence_expansion', str(0))
-ner_training.create_austenprop(25, 'sentence_expansion_mix', str(0))
-# ner_training.create_austenprop(50, 'sentence_expansion', str(0))
-ner_training.create_austenprop(100, 'sentence_expansion_mix', str(0))
-
-ner_training.train(5, 'sentence_expansion_mix', str(0))
-# ner_training.train(10, 'sentence_expansion', str(0))
-ner_training.train(25, 'sentence_expansion_mix', str(0))
-# ner_training.train(50, 'sentence_expansion', str(0))
-ner_training.train(100, 'sentence_expansion_mix', str(0))
-
-########################################################
-# ner_training.create_austenprop(5, 'sentence_expansion', str(1))
-# ner_training.train(5, 'sentence_expansion', str(1))
-# An example for 5 iterations:
-
-####TESTING
-# expansion.term_expansion_proteins(5, 'sentence_expansion_PROT', str(0), str(0))
-# trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_PROT', str(0), str(0), modeldoc2vec)
-# ner_training.create_austenprop(5, 'sentence_expansion_PROT', str(0))
-# ner_training.train(5, 'sentence_expansion_PROT', str(0))
-
-# for i in range(0,3):
-#     extract_new_entities.ne_extraction(5, 'sentence_expansion_bigrams', str(i), str(i + 1), str(0), es)
-#     #filtering.PMI(100, 'sentence_expansion', i, 0)
-#     filtering.WordNet_StopWord(5, 'sentence_expansion_bigrams', str(i+1), str(0)) 
-#     trainingdata_generation.extract(5, 'sentence_expansion_bigrams', str(i+1), str(0))
-#     expansion.term_expansion_proteins(5, 'sentence_expansion_bigrams', str(i+1), str(0))
-#     trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_bigrams', str(i+1), str(0), modeldoc2vec)
-#     ner_training.create_austenprop(5, 'sentence_expansion_bigrams', str(i+1))
-#     ner_training.train(5, 'sentence_expansion_bigrams', str(i+1))
-#     print('Finished with iter', i)
-#     print('#' * 1000)
-
-# for i in range(0,3):
-#     extract_new_entities.ne_extraction(5, 'sentence_expansion_PROT', str(i), str(i + 1), str(0), es)
-#     #filtering.PMI(100, 'sentence_expansion', i, 0)
-#     filtering.WordNet_StopWord(5, 'sentence_expansion_PROT', str(i+1), str(0)) 
-#     trainingdata_generation.extract(5, 'sentence_expansion_PROT', str(i+1), str(0))
-#     expansion.term_expansion_proteins(5, 'sentence_expansion_PROT', str(i+1), str(0))
-#     trainingdata_generation.generate_trainingSE(5, 'sentence_expansion_PROT', str(i+1), str(0), modeldoc2vec)
-#     ner_training.create_austenprop(5, 'sentence_expansion_PROT', str(i+1))
-#     ner_training.train(5, 'sentence_expansion_PROT', str(i+1))
-
-########################################################
+    # seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
+    # expansion.term_expansion(model_name, cycle)
+    term_sentence_expansion.sentence_expansion(model_name, cycle, doc2vec_model)
+    training_data_generation.sentence_labelling(model_name, cycle, sentence_expansion)
+    ner_training.create_prop(model_name, cycle, sentence_expansion)
+    ner_training.train_model(model_name, cycle)
+    extract_new_entities.ne_extraction(model_name, cycle, sentence_expansion)
+    if filtering_pmi:
+        filtering.filter_pmi(model_name, cycle, context_words)
+    if filtering_st:
+        filtering.filter_st(model_name, cycle, seeds)
+    if filtering_ws:
+        filtering.filter_ws(model_name, cycle)
+    if filtering_kbl:
+        filtering.filter_kbl(model_name, cycle, seeds)
+    filtering.majority_vote(model_name, cycle)

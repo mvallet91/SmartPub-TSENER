@@ -1,3 +1,13 @@
+sklearn
+numpy
+gensim
+six
+lxml
+requests
+sickle
+pymongo
+nltk
 pymongo=3.3.0
 requests=2.11.1
 plac=0.9.6
+elasticsearch
