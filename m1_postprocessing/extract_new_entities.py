@@ -23,7 +23,6 @@ def ne_extraction(model_name, training_cycle, sentence_expansion):
     # use the trained Stanford NER model to extract entities from the publications
 
     ner_tagger = StanfordNERTagger(path_to_model, STANFORD_NER_PATH)
-    new_names = []
     result = []
     # filter_conference = ["WWW", "ICSE", "VLDB", "JCDL", "TREC", "SIGIR",
     filter_conference = ["ICWSM", "ECDL", "ESWC", "TPDL"]
