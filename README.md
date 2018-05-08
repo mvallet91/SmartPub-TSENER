@@ -41,11 +41,9 @@ This allows for the quick queries required for the processing in all modules.
 In addition, we need to prepare data and train word2vec and doc2vec models used in the expansion and 
 filtering steps.
 
-
 ### Module 1: NER Training
 This first module provides with the environment for anyone interested to train a NER model (Stanford NER) 
-for the labelling of long-tail entities, for example datasets used in scientific publications: 
-“...in this work, we benchmark our algorithm using the *ImageNet* corpus...”.
+for the labelling of long-tail entities.
 
 ### Module 2: NER Labelling
 Once a model is trained, it can be used to label certain types of long-tail entities in text.

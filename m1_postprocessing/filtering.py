@@ -215,6 +215,21 @@ def filter_ws(model_name: str, training_cycle: int) -> None:
     f.close()
 
 
+def filter_ws_fly(words: list) -> list:
+    """
+    Filter words on the fly
+    :param words: Words to filter using stopwords and wordnet
+    :type words: string
+    """
+    extracted_entities = words
+    stopword_filtered = [word for word in set(extracted_entities) if word.lower() not in stopwords.words('english')]
+    stopword_filtered = [word for word in set(stopword_filtered) if word.lower() not in stopword_list]
+    filter_by_wordnet = [word for word in stopword_filtered if not wordnet.synsets(word)]
+    results = list(set(filter_by_wordnet))
+
+    return results
+
+
 def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> None:
     """
 

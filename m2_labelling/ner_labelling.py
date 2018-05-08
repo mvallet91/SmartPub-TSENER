@@ -15,32 +15,18 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 filter_by_wordnet = []
 
 
-def long_tail_labelling(model_name, input_text, sentence_expansion):
+def long_tail_labelling(model_name, input_text):
 
     result = []
     print('started extraction for the', model_name, 'model')
     path_to_model = ROOTPATH + '/crf_trained_files/' + model_name + '_TSE_model_0.ser.gz'
-
-    if sentence_expansion:
-        for x in range(10, 0):
-            path = ROOTPATH + '/crf_trained_files/' + model_name + '_TSE_model_' + str(x) + '.ser.gz'
-            if os.path.isfile(path):
-                path_to_model = path
-            else:
-                continue
-    else:
-        for x in range(10, 0):
-            path = ROOTPATH + '/crf_trained_files/' + model_name + '_TE_model_' + str(x) + '.ser.gz'
-            if os.path.isfile(path):
-                path_to_model = path
-            else:
-                continue
 
     # use the trained Stanford NER model to extract entities from the publications
     ner_tagger = StanfordNERTagger(path_to_model, STANFORD_NER_PATH)
     sentences = nltk.sent_tokenize(input_text)
 
     for sentence in sentences:
+        sentence = re.sub(r'\[[^\(]*?\]', r'', sentence)
         sentence = sentence.replace("@ BULLET", "")
         sentence = sentence.replace("@BULLET", "")
         sentence = sentence.replace(", ", " , ")
@@ -77,12 +63,8 @@ def long_tail_labelling(model_name, input_text, sentence_expansion):
     filtered_words = [word for word in filtered_words if not wordnet.synsets(word)]
     print('Total of', len(filtered_words), 'filtered entities added')
     sys.stdout.flush()
-    # f1 = open(ROOTPATH + '/processing_files/' + model_name + '_user_extracted_entities.txt', 'w',
-    #           encoding='utf-8')
-    # for item in filtered_words:
-    #     f1.write(item + '\n')
-    # f1.close()
     for sentence in sentences:
         print(sentence)
     print('')
     print('Entities labelled', filtered_words)
+    return filtered_words
