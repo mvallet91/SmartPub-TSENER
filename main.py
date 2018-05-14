@@ -1,17 +1,17 @@
-from m1_preprocessing import ner_training, term_sentence_expansion, training_data_generation
+from m1_preprocessing import ner_training, term_sentence_expansion, training_data_generation, seed_data_extraction
 from m1_postprocessing import extract_new_entities, filtering
 import config as cfg
 import gensim
 import elasticsearch
 
-doc2vec_model = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/embedding_models/doc2vec.model')
+doc2vec_model = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/models/doc2vec.model')
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 # User input
 seeds = ['clueweb', 'imagenet', 'flickr', 'webkb', 'netflix', 'imdb']
 context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark']
 sentence_expansion = True
-training_cycles = 4
+training_cycles = 5
 model_name = 'dataset'
 filtering_pmi = True
 filtering_st = True
@@ -19,11 +19,9 @@ filtering_ws = True
 filtering_kbl = True
 filtering_majority = True
 
-cycle = 1
 for cycle in range(training_cycles):
-
-    # seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
-    # expansion.term_expansion(model_name, cycle)
+    seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
+    term_sentence_expansion.term_expansion(model_name, cycle)
     term_sentence_expansion.sentence_expansion(model_name, cycle, doc2vec_model)
     training_data_generation.sentence_labelling(model_name, cycle, sentence_expansion)
     ner_training.create_prop(model_name, cycle, sentence_expansion)
