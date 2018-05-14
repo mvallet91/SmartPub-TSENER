@@ -1,4 +1,8 @@
+<<<<<<< HEAD:main.py
 from m1_preprocessing import ner_training, term_sentence_expansion, training_data_generation, seed_data_extraction
+=======
+from m1_preprocessing import seed_data_extraction, term_sentence_expansion, training_data_generation, ner_training
+>>>>>>> d447a74639ab956fab1a7240559944b4322f28fa:module_1.py
 from m1_postprocessing import extract_new_entities, filtering
 import config as cfg
 import gensim
