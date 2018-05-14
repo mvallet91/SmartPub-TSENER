@@ -1,3 +1,5 @@
+flasgger
+flask
 sklearn
 numpy
 gensim
