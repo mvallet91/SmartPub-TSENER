@@ -8,7 +8,7 @@ import multiprocessing
 
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
-# run: python3 doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
+# run: python3 train_doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
 
 if __name__ == '__main__':
     program = os.path.basename(sys.argv[0])
@@ -20,8 +20,9 @@ if __name__ == '__main__':
 
     input_file, output_file = sys.argv[1:3]
 
-    file = open(input_file, 'r')
+    file = open(input_file, 'r', encoding='utf-8')
     text = file.read()
+    file.close()
     sentences = tokenize.sent_tokenize(text)
     count = 0
     docLabels = []
