@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     labeled_sentences = LabeledLineSentence(sentences, docLabels)
     model = Doc2Vec(vector_size=100, window=10, min_count=5, workers=multiprocessing.cpu_count(),
-                    epochs=10, alpha=0.025, min_alpha=0.025)  # use fixed learning rate
+                    epochs=5, alpha=0.1, min_alpha=0.025)  # use decaying learning rate
 
     model.build_vocab(labeled_sentences)
     model.train(labeled_sentences, total_examples=model.corpus_count, epochs=model.epochs)
