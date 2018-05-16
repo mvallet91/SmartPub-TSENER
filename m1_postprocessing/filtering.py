@@ -188,6 +188,7 @@ def filter_pmi(model_name, training_cycle, context):
     for item in results:
         f.write("%s\n" % item)
     f.close()
+    return results
 
 
 def filter_ws(model_name: str, training_cycle: int) -> None:
@@ -200,7 +201,7 @@ def filter_ws(model_name: str, training_cycle: int) -> None:
     """
     path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
     with open(path, "r") as f:
-        extracted_entities = [e.strip() for e in f.readlines()]
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
     print('Filtering', len(extracted_entities), 'entities with WordNet and Stopwords')
 
     stopword_filtered = [word for word in set(extracted_entities) if word.lower() not in stopwords.words('english')]
@@ -213,6 +214,7 @@ def filter_ws(model_name: str, training_cycle: int) -> None:
     for item in results:
         f.write("%s\n" % item)
     f.close()
+    return results
 
 
 def filter_ws_fly(words: list) -> list:
@@ -285,7 +287,7 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> Non
                 silhouette_avg = silhouette_score(df, cluster_labels_predicted)
                 if silhouette_avg > max_cluster:
                     max_cluster = silhouette_avg
-                    filtered_entities = results
+                    temp_results = results
             else:
                 print("ERROR: Silhouette score invalid")
                 continue
@@ -311,18 +313,19 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> Non
                 silhouette_avg = silhouette_score(df, cluster_labels_predicted)
                 if silhouette_avg > max_cluster:
                     max_cluster = silhouette_avg
-                    filtered_entities = results
+                    temp_results = results
             else:
                 print("ERROR: Silhouette score invalid")
                 continue
 
     path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_st_' + str(training_cycle) + ".txt"
-    results = list(set(filtered_entities))
+    results = list(set(temp_results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
     f = open(path, 'w', encoding='utf-8')
     for item in results:
         if item.lower() not in seed_entities_clean and item.lower() not in seed_entities:
             f.write("%s\n" % item)
+    return results
 
 
 def filter_kbl(model_name: str, training_cycle: int, original_seeds: list) -> None:
@@ -375,9 +378,10 @@ def filter_kbl(model_name: str, training_cycle: int, original_seeds: list) -> No
     results = list(set(results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
     for item in results:
-        if item.lower() not in seed_entities not in seed_entities_clean:
+        if item.lower():# not in seed_entities not in seed_entities_clean:
             f.write("%s\n" % item)
     f.close()
+    return results
 
 
 def filter_st_pmi_kbl_ec(model_name: str, training_cycle: int, original_seeds: list) -> None:
@@ -537,10 +541,11 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
         if votes[vote] == max_votes:
             results.append(vote)
 
-    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_majority_' + str(training_cycle) + ".txt"
-    f = open(path, 'w', encoding='utf-8')
     results = list(set(results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_majority_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
     for item in results:
         f.write("%s\n" % item)
     f.close()
+    return results

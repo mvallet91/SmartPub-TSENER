@@ -8,7 +8,7 @@ import multiprocessing
 
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
-# run: python3 doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
+# run: python3 train_doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
 
 if __name__ == '__main__':
     program = os.path.basename(sys.argv[0])
@@ -20,8 +20,9 @@ if __name__ == '__main__':
 
     input_file, output_file = sys.argv[1:3]
 
-    file = open(input_file, 'r')
+    file = open(input_file, 'r', encoding='utf-8')
     text = file.read()
+    file.close()
     sentences = tokenize.sent_tokenize(text)
     count = 0
     docLabels = []
@@ -46,7 +47,7 @@ if __name__ == '__main__':
 
     labeled_sentences = LabeledLineSentence(sentences, docLabels)
     model = Doc2Vec(vector_size=100, window=10, min_count=5, workers=multiprocessing.cpu_count(),
-                    epochs=10, alpha=0.025, min_alpha=0.025)  # use fixed learning rate
+                    epochs=5, alpha=0.1, min_alpha=0.025)  # use decaying learning rate
 
     model.build_vocab(labeled_sentences)
     model.train(labeled_sentences, total_examples=model.corpus_count, epochs=model.epochs)
