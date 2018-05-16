@@ -201,7 +201,7 @@ def filter_ws(model_name: str, training_cycle: int) -> None:
     """
     path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
     with open(path, "r") as f:
-        extracted_entities = [e.strip() for e in f.readlines()]
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
     print('Filtering', len(extracted_entities), 'entities with WordNet and Stopwords')
 
     stopword_filtered = [word for word in set(extracted_entities) if word.lower() not in stopwords.words('english')]
@@ -378,7 +378,7 @@ def filter_kbl(model_name: str, training_cycle: int, original_seeds: list) -> No
     results = list(set(results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
     for item in results:
-        if item.lower() not in seed_entities not in seed_entities_clean:
+        if item.lower():# not in seed_entities not in seed_entities_clean:
             f.write("%s\n" % item)
     f.close()
     return results
@@ -541,10 +541,10 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
         if votes[vote] == max_votes:
             results.append(vote)
 
-    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_majority_' + str(training_cycle) + ".txt"
-    f = open(path, 'w', encoding='utf-8')
     results = list(set(results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_majority_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
     for item in results:
         f.write("%s\n" % item)
     f.close()

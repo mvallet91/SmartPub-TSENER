@@ -201,11 +201,12 @@ def extract_similar_sentences(es_id):
                       }
                  }
              }
-
+    similar_sentence = ''
     res = es.search(index="devtwosentnew", doc_type="devtwosentnorulesnew",
                     body=query, size=1)
-    for doc in res['hits']['hits']:
-        similar_sentence = doc['_source']['content.chapter.sentpositive']
+    if len(res) > 1:
+        for doc in res['hits']['hits']:
+            similar_sentence = doc['_source']['content.chapter.sentpositive']
 
     return similar_sentence
 
@@ -249,7 +250,9 @@ def sentence_expansion(model_name: str, training_cycle: int, doc2vec_model: gens
         if sims:
             for ss in sims:
                 if ss[1] > 0.50:
-                    temp.append(extract_similar_sentences(str(ss[0])))
+                    similar = extract_similar_sentences(str(ss[0]))
+                    if len(similar) > 1:
+                        temp.append(similar)
 
     temp = list(set(temp))
     print('Added', len(temp), 'expanded sentences to the', len(sentences), 'original')
