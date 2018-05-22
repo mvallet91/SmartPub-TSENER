@@ -1,7 +1,7 @@
 # location of the training file
-trainFile=C:/Users/mvall/PycharmProjects/SmartPub-TSENER/processing_files/dataset_TSE_tagged_sentence_0.txt
+trainFile=/data2/SmartPub-TSENER/processing_files/dataset_TSE_tagged_sentence_0.txt
 #testFile=/path/to/train/file
-serializeTo=C:/Users/mvall/PycharmProjects/SmartPub-TSENER/crf_trained_files/dataset_TSE_model_0.ser.gz
+serializeTo=/data2/SmartPub-TSENER/crf_trained_files/dataset_TSE_model_0.ser.gz
 
 # structure of your training file; this tells the classifier that
 # the word is in column 0 and the correct answer is in column 1

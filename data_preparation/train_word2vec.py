@@ -8,7 +8,7 @@ from gensim.models import Word2Vec, Phrases
 from gensim.models.phrases import Phraser
 
 
-# run: python3 train_word2vec.py data/dataWord2vec.txt data/modelword2vecbigram.model data/modelword2vecbigram.vec
+# run: python3 data_preparation/train_word2vec.py data/tud_data2vec.txt embedding_models/modelword2vecbigram.model embedding_models/modelword2vecbigram.vec
 
 if __name__ == '__main__':
     program = os.path.basename(sys.argv[0])

@@ -8,7 +8,7 @@ import multiprocessing
 
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
-# run: python3 train_doc2vec.py data/dataDoc2vec.txt data/doc2vec.model
+# run: python3 data_preparation/train_doc2vec.py data/tud_data2vec.txt embedding_models/doc2vec.model
 
 if __name__ == '__main__':
     program = os.path.basename(sys.argv[0])

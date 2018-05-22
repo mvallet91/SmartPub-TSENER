@@ -70,10 +70,6 @@ for publication in extracted_publications:
 tokens = " ".join(papers_text)
 sentences = ". ".join(sentence_text)
 
-f = open("data/dataWord2vec.txt", "w")
-f.write(tokens)
-f.close()
-
-f = open("data/dataDoc2vec.txt", "w")
+f = open("data/data2vec.txt", "w")
 f.write(sentences)
 f.close()

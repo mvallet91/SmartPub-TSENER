@@ -2,20 +2,22 @@ import logging
 import os
 import pickle
 import re
+import sys
 import requests
 
 from lxml import etree
 from sickle import Sickle
 from six import text_type
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config as cfg
 from pyhelpers import tools, grobid_mapping
 
 tools.setup_logging(file_name="extractor.log")
 items = {}
 db = tools.connect_to_mongo()
-working_dir = 'data/tudelft_repo/test/'
-working_dir_xml = 'data/tudelft_repo/test/xml/'
+working_dir = 'data/tudelft_repo/'
+working_dir_xml = 'data/tudelft_repo_xml/'
 
 update = True
 
@@ -56,6 +58,7 @@ def get_grobid_xml(paper_id):
     if os.path.isfile(filename_xml):
         root = etree.parse(filename_xml)
         if check_validity_of_xml(root):
+            print('Using existing xml')
             return root
         else:
             raise Exception("Error in xml, pdf either broken or not extractable i.e Unicode mapping missing")
@@ -105,8 +108,25 @@ def process_paper(file, db):
 
         result['title'] = items[uuid]['title'][0]
         result['authors'] = items[uuid]['creator']
-        mongo_set_dict["content.keywords"] = items[uuid]["subject"]
+        result['faculty'] = items[uuid]['description'][1]
+        result['type'] = items[uuid]['type'][0]
 
+        mentors = []
+        promotors = []
+        try:
+            for c in items[uuid]['contributor']:
+                if 'mentor' in c:
+                    mentors.append(c)
+                    result['mentors'] = mentors
+                if 'promotor' in c:
+                    promotors.append(c)
+                    result['promotors'] = promotors
+        except KeyError:
+            pass
+        try:
+            mongo_set_dict["content.keywords"] = items[uuid]["subject"]
+        except KeyError:
+            pass
         date = items[uuid]['date'][0]
         result['year'] = date[:4]
 
@@ -143,3 +163,9 @@ def process_paper(file, db):
 for file in os.listdir(working_dir):
     if file.endswith(".pdf"):
         process_paper(file, db)
+        
+for file in os.listdir(working_dir):
+    if file.endswith(".pdf"):
+        os.remove(working_dir + file)
+                
+print('Done')
