@@ -120,7 +120,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
             total_a = res['hits']['total']
             query = {"query":
                 {"match": {
@@ -131,7 +131,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
             total_b = res['hits']['total']
             query_text = entity + ' ' + cn
             query = {"query":
@@ -143,7 +143,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
             total_ab = res['hits']['total']
             if total_a and total_b and total_ab:
                 total_ab = total_ab / NN
@@ -538,7 +538,7 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
                     votes[entity] += 1
 
     for vote in votes:
-        if votes[vote] == max_votes:
+        if votes[vote] > max_votes/2:
             results.append(vote)
 
     results = list(set(results))

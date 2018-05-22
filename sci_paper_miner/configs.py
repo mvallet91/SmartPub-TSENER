@@ -5,7 +5,7 @@ from pathlib import Path
 root = Path(__file__).parent.absolute()
 data_root = root / Path("data")
 
-core_dataset_name = data_root / Path('arxiv_test')
+core_dataset_name = data_root / Path('arxiv_2018')
 core_cs_query_path = core_dataset_name / Path('raw_query')
 core_cs_db_path = core_dataset_name / Path('db')
 

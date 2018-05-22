@@ -36,7 +36,8 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
 
     # List of seed names
     seed_entities = []
-
+    seed_entities = list_of_seeds
+    
     if training_cycle == 0:
         seed_entities = list_of_seeds
     else:
@@ -44,6 +45,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
         with open(path, 'r') as file:
             for row in file.readlines():
                 seed_entities.append(row.strip())
+        file.close()
 
     seed_entities = [e.lower() for e in seed_entities]
     seed_entities = list(set(seed_entities))
@@ -65,7 +67,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
                      }
                  }
 
-        res = es.search(index="twosent", doc_type="twosentnorules",
+        res = es.search(index="twosent_tud", doc_type="twosentnorules",
                         body=query, size=1000)
 
         # clean up the sentences and if they don't contain the names of the test set then add them as

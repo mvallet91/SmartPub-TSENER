@@ -68,7 +68,7 @@ class CoreDataWrapper(object):
         ft_file_num = 0
         output_dir = self.data_path
         try:
-            os.makedirs(output_dir)
+            os.makedirs(str(output_dir))
         except:
             print("Dataset folder %s already exists... exiting" % (output_dir))
             return
@@ -112,7 +112,7 @@ class CoreDataWrapper(object):
         ft_df.to_json(str(output_dir / ('fulltext_%d.json' % (ft_file_num))), lines=True, orient="records")
 
         # Remove temp. query files
-        shutil.rmtree(raw_query_root)
+        shutil.rmtree(str(raw_query_root))
 
     def identity_extractor(self, d):
         return d

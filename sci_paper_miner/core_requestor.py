@@ -98,7 +98,7 @@ class CoreApiRequestor:
     def handle_query(self, q_output_dir, query_params, method):
         print('Saving query to  %s... (This may take a while)' % (q_output_dir))
         try:
-            os.makedirs(q_output_dir)
+            os.makedirs(str(q_output_dir))
         except:
             pass
         arrays = [v for (k, v) in query_params.values()]
@@ -118,7 +118,7 @@ class CoreApiRequestor:
                 self.save_page(page, Path(str(base_output_name) + '_' + str(p_num) + '.json'))
         # remove temporary files
         for lck_file in q_output_dir.glob('*.lck'):
-            os.remove(lck_file)
+            os.remove(str(lck_file))
 
     def save_page(self, page, output_name):
         if page['data']:

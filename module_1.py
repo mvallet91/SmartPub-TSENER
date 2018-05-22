@@ -9,13 +9,15 @@ doc2vec_model = gensim.models.Doc2Vec.load(cfg.ROOTPATH + '/embedding_models/doc
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 # User input
-seeds = ['buzzfeed', 'pslnl', 'dailymed', 'robust04', 'scovo', 'ask.com', 'cacm', 'stanford large network dataset', 'mediaeval', 'lexvo', 'spambase', 'shop.com', 'orkut', 'jnlpba', 'cyworld', 'citebase', 'blog06', 'worldcat', 'booking.com', 'semeval', 'imagenet', 'nasdaq', 'brightkite', 'movierating', 'webkb', 'ionosphere', 'moviepilot', 'duc2001', 'datahub', 'cifar', 'tdt', 'refseq', 'stack overflow', 'wikiwars', 'blogpulse', 'ws-353', 'gerbil', 'wikia', 'reddit', 'ldoce', 'kitti dataset', 'specweb', 'fedweb', 'wt2g', 'as3ap', 'friendfeed', 'new york times', 'chemid', 'imageclef', 'newegg']
-context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark']
+# seeds = ['buzzfeed', 'pslnl', 'dailymed', 'robust04', 'scovo', 'ask.com', 'cacm', 'stanford large network dataset', 'mediaeval', 'lexvo', 'spambase', 'shop.com', 'orkut', 'jnlpba', 'cyworld', 'citebase', 'blog06', 'worldcat', 'booking.com', 'semeval', 'imagenet', 'nasdaq', 'brightkite', 'movierating', 'webkb', 'ionosphere', 'moviepilot', 'duc2001', 'datahub', 'cifar', 'tdt', 'refseq', 'stack overflow', 'wikiwars', 'blogpulse', 'ws-353', 'gerbil', 'wikia', 'reddit', 'ldoce', 'kitti dataset', 'specweb', 'fedweb', 'wt2g', 'as3ap', 'friendfeed', 'new york times', 'chemid', 'imageclef', 'newegg']
+seeds = ['hierarchical agglomerative', 'selection algorithm', 'stochastic gradient descent', 'pearson correlation', 'semantic relevance', 'gpbased', 'pattern matching', 'clir', 'random forest', 'random indexing', 'basic load control method', 'linear regression', 'recursive function', 'latent dirichlet allocation', 'convolutional dnn', 'likelihood function', 'folding-in', 'restricted boltzmann machine', 'lstm', 'radial basis function network', 'bmecat', 'lib', 'fast fourier', 'adaptive filter', 'spectral clustering', 'dmp method', 'reinforcement learning', 'graph-based propagation', 'semantictyper', 'hierarchical clustering', 'variational em', 'qald', 'fourier analysis', 'simple random algorithm', 'random search', 'lsh method', 'regular expression', 'rapid7', 'word embedding', 'autoencoder', 'bayesian nonparametric', 'variational bayesian inference', 'tsa algorithm', 'predictive modeling', 'query optimization', 'softmax', 'ridge regularization', 'tdcm', 'support vector machine', 'mcmc']
+# context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark']
+context_words = ['method', 'algorithm', 'approach', 'evaluate']
 sentence_expansion = True
-training_cycles = 2
-model_name = 'dataset_50'
+training_cycles = 4 
+model_name = 'method_tud'
 filtering_pmi = True
-filtering_st = True
+filtering_st = False
 filtering_ws = True
 filtering_kbl = True
 filtering_majority = True

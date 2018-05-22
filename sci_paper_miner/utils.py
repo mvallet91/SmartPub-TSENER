@@ -43,8 +43,8 @@ def yield_lines(file, whatlines):
 
 
 def touch(fname, times=None):
-    with open(fname, 'a'):
-        os.utime(fname, times)
+    with open(str(fname), 'a'):
+        os.utime(str(fname), times)
 
 
 def get_file_line_offsets(fname):

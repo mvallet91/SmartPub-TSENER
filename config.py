@@ -11,7 +11,8 @@ folder_clusters = './data/clusters/'
 # mongoDB
 mongoDB_IP = '127.0.0.1'
 mongoDB_Port = 27017  # default local port. change this if you use SSH tunneling on your machine (likely 4321 or 27017).
-mongoDB_db = 'pub'
+# mongoDB_db = 'pub'
+mongoDB_db = 'TU_Delft_Library'
 
 # pdf extraction
 grobid_url = 'http://127.0.0.1:8080'
@@ -21,9 +22,10 @@ grobid_url = 'http://127.0.0.1:8080'
 booktitles = ['test_no_conf']
 
 # root to the project
-# ROOTPATH = '/data2/SmartPub-TSENER'
-ROOTPATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER'
-STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+ROOTPATH = '/data2/SmartPub-TSENER'
+# ROOTPATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER'
+STANFORD_NER_PATH = '/data2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+# STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 
 # journals we like
 # journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']

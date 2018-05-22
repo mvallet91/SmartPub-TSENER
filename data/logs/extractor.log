@@ -1,17 +1,1 @@
-2018-04-16 17:47:30,414 Start XML Parsing
-2018-04-16 17:47:30,689 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:47:30,744 "POST /api/processFulltextDocument HTTP/1.1" 400 191
-2018-04-16 17:47:30,751 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:47:30,791 "POST /api/processFulltextDocument HTTP/1.1" 400 191
-2018-04-16 17:47:30,827 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:47:46,593 "POST /api/processFulltextDocument HTTP/1.1" 409 217
-2018-04-16 17:47:46,597 Processed TUD_049295ca-e209-4359-ba56-3d275edb22ff.pdf
-2018-04-16 17:47:46,619 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:48:06,693 "POST /api/processFulltextDocument HTTP/1.1" 409 183
-2018-04-16 17:48:06,710 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:48:26,825 "POST /api/processFulltextDocument HTTP/1.1" 409 183
-2018-04-16 17:48:26,837 Processed TUD_2cca6b39-e76f-4445-8c62-5cf46786aca6.pdf
-2018-04-16 17:48:26,893 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:48:47,179 "POST /api/processFulltextDocument HTTP/1.1" 409 183
-2018-04-16 17:48:47,210 Starting new HTTP connection (1): 127.0.0.1
-2018-04-16 17:48:47,259 "POST /api/processFulltextDocument HTTP/1.1" 400 191
+2018-05-18 19:23:01,192 Start XML Parsing

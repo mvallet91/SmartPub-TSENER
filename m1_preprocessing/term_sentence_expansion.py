@@ -202,8 +202,8 @@ def extract_similar_sentences(es_id):
                  }
              }
     similar_sentence = ''
-    res = es.search(index="devtwosentnew", doc_type="devtwosentnorulesnew",
-                    body=query, size=1)
+    res = es.search(index="devtwosentnew_tud", doc_type="devtwosentnorulesnew",
+                    body=query, size=5)
     if len(res) > 1:
         for doc in res['hits']['hits']:
             similar_sentence = doc['_source']['content.chapter.sentpositive']
