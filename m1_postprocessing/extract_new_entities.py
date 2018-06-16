@@ -107,14 +107,17 @@ def ne_extraction(model_name, training_cycle, sentence_expansion):
    
     query = {}
     
-    res = es.search(index="ir_tud", doc_type="publications",
+    res = es.search(index="ir", doc_type="publications",
                     body=query, size=10000)
 
     print(len(res['hits']['hits']))
     sys.stdout.flush()
 
+    counter = 0
     for doc in res['hits']['hits']:
-        sentence = doc["_source"]["content"]
+        counter+=1
+        if counter % 20 is 0: print(f'Tagged {counter}/' + str(len(res['hits']['hits'])), 'full texts')
+        sentence = doc["_source"]["text"]
         sentence = sentence.replace("@ BULLET", "")
         sentence = sentence.replace("@BULLET", "")
         sentence = sentence.replace(", ", " , ")
@@ -155,3 +158,4 @@ def ne_extraction(model_name, training_cycle, sentence_expansion):
     for item in filtered_words:
         f1.write(item + '\n')
     f1.close()
+
