@@ -290,6 +290,9 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
             all_entities.append(row.strip())
     seed_entities = [e.lower() for e in seed_entities]
 
+    # Append Coner entitites that labelled as 'relevant' by majority of users
+    seed_entities = seed_entities + list(rel_scores.keys())
+
     # Replace the space between the bigram words with underscore _ (for the word2vec embedding)
     processed_entities = []
     for pp in all_entities:
@@ -344,7 +347,7 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
     # Add the entities that are of type 'selected'
     data_date = '2018_05_28'
     rel_scores = read_coner_overview(model_name, data_date)
-    expanded_terms = list(set(expanded_terms + list(rel_scores.keys())))
+    expanded_terms = list(set(expanded_terms))
     for item in expanded_terms:
         f.write("%s\n" % item)
     print('Added', len(expanded_terms), 'expanded terms')

@@ -557,7 +557,7 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
 #     CONER CUSTOM FILTERING     #
 ##################################
 
-def mv_coner_filtering(model_name: str, training_cycle: int) -> None:
+def filter_mv_coner(model_name: str, training_cycle: int) -> None:
     """
 
     :param model_name: selected name of the NER model
@@ -605,7 +605,7 @@ def mv_coner_filtering(model_name: str, training_cycle: int) -> None:
     f.close()
     return results
 
-def coner_filtering(model_name: str, training_cycle: int) -> None:
+def filter_coner(model_name: str, training_cycle: int) -> None:
     
     """
     :param model_name: selected name of the NER model
@@ -637,10 +637,10 @@ def coner_filtering(model_name: str, training_cycle: int) -> None:
     return results
 
 def coner_relevant(rel_scores, entity):
-    return rel_scores[entity] and rel_scores[entity]['relevance'] == 'relevant'
+    return entity in rel_scores.keys() and rel_scores[entity]['relevance'] == 'relevant'
 
 def coner_irrelevant(rel_scores, entity):
-    return rel_scores[entity] and rel_scores[entity]['relevance'] == 'irrelevant'
+    return entity in rel_scores.keys() and rel_scores[entity]['relevance'] == 'irrelevant'
 
 # Read Coner entities feedback overview file for model_name and write list of entities text file
 def read_coner_overview(model_name, data_date):
