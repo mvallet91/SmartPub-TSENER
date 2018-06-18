@@ -19,6 +19,11 @@ grobid_url = 'http://127.0.0.1:8080'
 
 # conferences we like
 # book_titles = ['JCDL','SIGIR','ECDL','TPDL','TREC', 'ICWSM', 'ESWC', 'ICSR','WWW', 'ICSE', 'HRI', 'VLDB', 'ICRA', 'ICARCV']
+
+evaluation_conferences = ['JCDL', 'TPDL', 'TREC', 'ECDL', 'ESWC', 'ICWSM', 'VLDB', 'ACL', 'WWW', 'ICSE', 'SIGIR']
+# Data Coner feedback data exported from Firebase
+data_date = '2018_05_28'
+
 booktitles = ['test_no_conf']
 
 # root to the project

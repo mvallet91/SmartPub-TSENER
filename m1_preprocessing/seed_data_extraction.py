@@ -67,7 +67,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
                      }
                  }
 
-        res = es.search(index="twosent_tud", doc_type="twosentnorules",
+        res = es.search(index="twosent", doc_type="twosentnorules",
                         body=query, size=1000)
 
         # clean up the sentences and if they don't contain the names of the test set then add them as

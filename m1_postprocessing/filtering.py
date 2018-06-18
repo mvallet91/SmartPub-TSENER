@@ -265,6 +265,7 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> Non
 
     seed_entities = [x.lower() for x in original_seeds]
     seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
+
     df, labels_array = build_word_vector_matrix(ROOTPATH + "/embedding_models/modelword2vecbigram.vec", processed_entities)
     sse = {}
     max_cluster = 0
@@ -572,15 +573,13 @@ def filter_mv_coner(model_name: str, training_cycle: int) -> None:
 
     relevance_scores, entity_list = read_coner_overview(model_name, '2018_05_28')
 
-
     path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
     with open(path, "r") as f:
         extracted_entities = [e.strip().lower() for e in f.readlines()]
     print('Filtering', len(extracted_entities), 'entities by vote of selected filter methods')
 
     for filter_name in filters:
-        path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_'\
-               + str(training_cycle) + '.txt'
+        path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_' + str(training_cycle) + '.txt'
         if os.path.isfile(path):
             max_votes += 1
             with open(path, "r") as f:
@@ -593,7 +592,8 @@ def filter_mv_coner(model_name: str, training_cycle: int) -> None:
         # Only keep entity if not rated as 'irrelevant' and rated as 'relevant' and/or passed majority vote of ensemble filters
         # So: Filter out entities rated as 'irrelevant' and filter out entities rated as 'neutral' that don't pass ensemble filtering majority vote
         # Coner 'irrelevant' and 'relevant' always overrule the ensemble filter majority vote, unless it's undetermined ('neutral'), then ensemble filtering majority vote decide
-        if not coner_irrelevant(relevance_scores, vote) and (coner_relevant(relevance_scores, vote) or votes[vote] > max_votes/2):
+        # print(votes[vote], max_votes/2, votes[vote], max_votes/2)
+        if not coner_irrelevant(relevance_scores, vote) and (coner_relevant(relevance_scores, vote) or votes[vote] > float(max_votes/2)):
             results.append(vote)
 
     results = list(set(results))
