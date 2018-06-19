@@ -68,7 +68,8 @@ def main():
     nr_seeds = len(read_seeds(model_name, expansion_iteration))
 
     expansion_results.append(['Term Expansion', execute_expansion(model_name, 'te', expansion_iteration)])
-    expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tec', expansion_iteration)])
+    expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tece', expansion_iteration)])
+    expansion_results.append(['Term Expansion + Coner Expansion (Separate Clustering)', execute_expansion(model_name, 'tecesc', expansion_iteration)])
 
     print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
     print(f'{model_name}: Coner entities of type "selected" and rated as "relevant: {nr_added_entities}')
@@ -77,7 +78,7 @@ def main():
     print(f'\n\n<MODEL NAME>: <EXPANSION METHOD> expanded entities from <SEED ENTITIES> to <EXPANDED ENTITIES> (<PERCENTAGE>)\n-------------------------------------------------------------------------------------------------------')
 
     header = [f'<MODEL NAME>', '<EXPANSION METHOD>', f'<SEED ENTITIES> -> <EXPANDED ENTITIES> (<PERCENTAGE>)']
-    print("{: <20} {: <50} {: <40}".format(*header))
+    print("{: <20} {: <60} {: <40}".format(*header))
 
     table_data = []
     for results in expansion_results:
@@ -85,7 +86,7 @@ def main():
       table_data.append([model_name, results[0], f'{nr_seeds} -> {nr_seeds + len(results[1])} ({round(float((nr_seeds + len(results[1]))*100)/nr_seeds,1)}%)'])
 
     for row in table_data:
-      print("{: <20} {: <50} {: <40}".format(*row))
+      print("{: <20} {: <60} {: <40}".format(*row))
 
 def execute_filter(model_name, filter_name, iteration):
   context_words = { 'dataset_50': ['dataset', 'corpus', 'collection', 'repository', 'benchmark'], 'method_50': ['method', 'algorithm', 'approach', 'evaluate'] }
@@ -136,8 +137,10 @@ def execute_expansion(model_name, expansion_name, iteration):
     # print("Calculating filtered entities")
     if expansion_name == 'te':
       return term_sentence_expansion.term_expansion(model_name, iteration)
-    if expansion_name == 'tec':
+    if expansion_name == 'tece':
       return term_sentence_expansion.coner_term_expansion(model_name, iteration)
+    if expansion_name == 'tecesc':
+      return term_sentence_expansion.coner_term_expansion_separate_clustering(model_name, iteration)
     
     return None
 
