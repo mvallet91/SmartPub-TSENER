@@ -2,8 +2,12 @@ import pymongo
 import elasticsearch
 from elasticsearch import helpers
 import nltk
-import config as cfg
 import logging
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import config as cfg
 
 sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
 client = pymongo.MongoClient('localhost:' + str(cfg.mongoDB_Port))
@@ -28,37 +32,56 @@ def extract_metadata(documents):
 
     }
     for i, r in enumerate(documents):
-        # try:
-        # list_of_sections = list()
+        if i % 5000 == 0:
+            print(i, 'docs processed')
+
+        extracted = {
+            "_id": "",
+            "title": "",
+            "publication": "",
+            "year": "",
+            "content": "",
+            "abstract": "",
+            "link": "",
+            "authors": [],
+            "paragraphs": [],
+            "references": []
+
+        }
+        
         extracted['_id'] = r['_id']
         extracted['title'] = r['title']
         try:
             extracted['publication'] = r['booktitle']
-        except:
+        except KeyError:
             pass
         try:
             extracted['publication'] = r['journal']
-        except:
+        except KeyError:
             pass
         try:
             extracted['year'] = r['year']
-        except:
+        except KeyError:
             pass
         try:
             extracted['content'] = r['content']['fulltext']
-        except:
+        except KeyError:
             extracted['content'] = ""
         try:
             extracted['abstract'] = r['content']['abstract']
-        except:
+        except KeyError:
             extracted['abstract'] = ""
         try:
+            extracted['link'] = r['ee']
+        except KeyError:
+            pass
+        try:
             extracted['authors'] = r['authors']
-        except:
+        except KeyError:
             extracted['authors'] = []
         try:
             extracted['references'] = r['content']['references']
-        except:
+        except KeyError:
             extracted['references'] = []
 
         paragraphs = []
@@ -82,23 +105,11 @@ def extract_metadata(documents):
             extracted['paragraphs'] = paragraphs
 
         except:
-            logging.exception('No chapters in ' + r['_id'], exc_info=True)
-            continue
+#             logging.exception('No chapters in ' + r['_id'], exc_info=True)
+            pass
 
         list_of_docs.append(extracted)
 
-        extracted = {
-            "_id": "",
-            "title": "",
-            "publication": "",
-            "year": "",
-            "content": "",
-            "abstract": "",
-            "authors": [],
-            "paragraphs": [],
-            "references": []
-
-        }
     return list_of_docs
 
 
@@ -123,7 +134,7 @@ def index_metadata(publication_list):
                     authors = article['authors']
 
             actions.append({
-                "_index": "ir_full",  # surfall   # ir_full
+                "_index": "ir_arxiv",  # surfall   # ir_full
                 "_type": "publications",  # pubs      # publications
                 "_id": article['_id'],
                 "_source": {
@@ -154,7 +165,7 @@ def index_sentences(publication_list):
                     continue
 
                 lines = (sent_detector.tokenize(paragraph.strip()))
-                with open('data/full_text_corpus.txt', 'a') as f:
+                with open('data/arxiv_full_text_corpus.txt', 'a') as f:
                     for line in lines:
                         f.write(line)
 
@@ -178,7 +189,7 @@ def index_sentences(publication_list):
 
             for num, added_lines in enumerate(dataset_sent):
                 actions.append({
-                    "_index": "twosent",
+                    "_index": "twosent_arxiv",
                     "_type": "twosentnorules",
                     "_id": article['_id'] + str(num),
                     "_source": {
@@ -193,12 +204,12 @@ def index_sentences(publication_list):
             print(res)
 
 
-filter_publications = ["WWW", "ICSE", "VLDB", "PVLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL", "ESWC",
-                       "IEEE J. Robotics and Automation", "IEEE Trans. Robotics", "ICRA", "ICARCV", "HRI",
-                       "ICSR", "PVLDB", "TPDL", "ICDM", "Journal of Machine Learning Research", "Machine Learning",
-                       "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
-                       "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
-                       "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
+filter_publications = ["arxiv"]#"WWW", "ICSE", "VLDB", "PVLDB", "JCDL", "TREC", "SIGIR", "ICWSM", "ECDL", "ESWC",
+#                        "IEEE J. Robotics and Automation", "IEEE Trans. Robotics", "ICRA", "ICARCV", "HRI",
+#                        "ICSR", "PVLDB", "TPDL", "ICDM", "Journal of Machine Learning Research", "Machine Learning",
+#                        "PLoS Biology", "Breast Cancer Research", "BMC Evolutionary Biology", "BMC Genomics",
+#                        "BMC Neuroscience", "Genome Biology", "PLoS Genetics", "Breast Cancer Research : BCR",
+#                        "Genome Biology and Evolution", "Breast Cancer Research and Treatment", "BMC Biotechnology"]
 
 extracted_publications = []
 for publication in filter_publications:
@@ -206,6 +217,7 @@ for publication in filter_publications:
                      {'$and': [{'journal': publication}, {'content.fulltext': {'$exists': True}}]}]}
     results = publications_collection.find(query)
     extracted_publications.append(extract_metadata(results))
+    print('Meta:', len(extracted_publications), len(extracted_publications[0]))
 
 index_metadata(extracted_publications)
 index_sentences(extracted_publications)

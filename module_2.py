@@ -19,4 +19,4 @@ text_to_label = ('Phrase searching—or imposing an order on query terms�
 
 model_path = ROOTPATH + '/crf_trained_files' + '.ser.gz'
 
-ner_labelling.long_tail_labelling(model_name, text_to_label, sentence_expansion)
+simple_ner_labelling.long_tail_labelling(model_name, text_to_label, sentence_expansion)

@@ -113,3 +113,5 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
     print('Process finished with', len(seed_entities), 'seeds and',
           len(paragraph), 'sentences added for training in cycle number', str(training_cycle))
     sys.stdout.flush()
+
+    return paragraph, seed_entities
