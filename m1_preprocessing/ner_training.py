@@ -1,6 +1,7 @@
 import subprocess
 import re
 from config import ROOTPATH
+import sys
 
 
 def train_model(model_name: str, training_cycle: int) -> None:
@@ -10,6 +11,7 @@ def train_model(model_name: str, training_cycle: int) -> None:
     :param training_cycle:
     """
     print('Training the model...')
+    sys.stdout.flush()
     output_file = open(ROOTPATH + '/crf_trained_files/temp' + model_name + str(training_cycle) + '.txt', 'a')
     command = ('java -cp ' + ROOTPATH + '/stanford_files/stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -prop '
                + ROOTPATH + '/prop_files/' + model_name + '_' + str(training_cycle) + '.prop')
@@ -45,3 +47,4 @@ def create_prop(model_name: str, training_cycle: int, sentence_expansion: bool) 
     text_file = open(ROOTPATH + '/prop_files/' + model_name + '_' + str(training_cycle) + '.prop', 'w')
     text_file.write(edited)
     text_file.close()
+    

@@ -1,29 +1,21 @@
 from nltk.corpus import wordnet
 from nltk.corpus import stopwords
-from m1_postprocessing.filtering import normalized_pub_distance
+from m1_postprocessing.filtering import normalized_entity_distance
 
 ds_names = []
 mt_names = []
-# prnames = []
 
-dataset_path = '/data/dataset_names.txt'
+dataset_path = 'data/dataset_names2.txt'
 with open(dataset_path, "r") as file:
     for row in file.readlines():
         ds_names.append(row.strip())
 
-method_path = '/data/method_names.txt'
+method_path = 'data/method_names2.txt'
 with open(method_path, "r") as file:
     for row in file.readlines():
         mt_names.append(row.strip())
 
-
-#
-# proteinpath = '/data/protein_names.txt'
-# with open(proteinpath, "r") as file:
-#         for row in file.readlines():
-#                     prnames.append(row.strip())
-
-
+        
 def is_int_or_float(s):
     """
     return 1 for int, 2 for float, -1 for not a number
@@ -48,17 +40,11 @@ def filter_it(ner_word, model):
     mt_sim_60 = 0
     mt_sim_50 = 0
 
-    # pr_sim_90 = 0
-    # pr_sim_80 = 0
-    # pr_sim_70 = 0
-    # pr_sim_60 = 0
-    # pr_sim_50 = 0
-
     ner_word = ner_word.split()
 
     if len(ner_word) > 1:
         filter_by_wordnet = []
-        filtered_words = [word for word in set(ner_word) if word not in stopwords.words('english')]
+        filtered_words = [word for word in ner_word if word not in stopwords.words('english')]
 
         for word in filtered_words:
             isint = is_int_or_float(word)
@@ -72,6 +58,8 @@ def filter_it(ner_word, model):
             if not wordnet.synsets(word):
                 in_wordnet = 0
                 filter_by_wordnet.append(word)
+                
+        filter_by_wordnet = ' '.join(filter_by_wordnet)
 
         filtered_words = ' '.join(filtered_words)
         filtered_words = filtered_words.replace('(', '')
@@ -80,18 +68,21 @@ def filter_it(ner_word, model):
         filtered_words = filtered_words.replace(']', '')
         filtered_words = filtered_words.replace('{', '')
         filtered_words = filtered_words.replace('}', '')
-        filtered_words = filtered_words.replace(',', '')
-        lower_filtered_words = filtered_words.lower()
-        filter_by_wordnet = ' '.join(filter_by_wordnet)
-        pmi_data = normalized_pub_distance(filtered_words, 'dataset')
-        pmi_method = normalized_pub_distance(filtered_words, 'method')
+        filtered_word = filtered_words.replace(',', '')
+        lower_filtered_word = filtered_word.lower()
+        filter_by_wordnet = filter_by_wordnet.replace(' ', '_')
+        pmi_data = normalized_entity_distance(filtered_word, 'dataset')
+        pmi_method = normalized_entity_distance(filtered_word, 'method')
 
         ds_similarity = []
         mt_similarity = []
-
+        
+        lower_filtered_word = lower_filtered_word.replace(' ', '_')
+        
         for ds in ds_names:
             try:
-                similarity = model.wv.similarity(ds, lower_filtered_words)
+                ds = ds.replace(' ', '_')
+                similarity = model.wv.similarity(ds, lower_filtered_word)
                 ds_similarity.append(similarity)
                 if similarity > 0.89:
                     ds_sim_90 = 1
@@ -109,7 +100,8 @@ def filter_it(ner_word, model):
 
         for mt in mt_names:
             try:
-                similarity = model.wv.similarity(mt, lower_filtered_words)
+                mt = mt.replace(' ', '_')
+                similarity = model.wv.similarity(mt, lower_filtered_word)
                 mt_similarity.append(similarity)
                 if similarity > 0.89:
                     mt_sim_90 = 1
@@ -127,15 +119,16 @@ def filter_it(ner_word, model):
 
         try:
             mt_similarity = float(sum(mt_similarity)) / len(mt_similarity)
-        except:
+        except ZeroDivisionError:
             mt_similarity = 0
 
         try:
             ds_similarity = float(sum(ds_similarity)) / len(ds_similarity)
-        except:
+        except ZeroDivisionError:
             ds_similarity = 0
 
     else:
+        ner_word = ner_word[0]
         isint = is_int_or_float(ner_word)
         if isint == -1:
             filtered_words = ner_word.replace('(', '')
@@ -143,15 +136,16 @@ def filter_it(ner_word, model):
             filtered_words = filtered_words.replace('[', '')
             filtered_words = filtered_words.replace(']', '')
             filtered_words = filtered_words.replace('{', '')
-            filtered_words = filtered_words.replace('}', '')
-            pmi_data = normalized_pub_distance(filtered_words, 'dataset')
-            pmi_method = normalized_pub_distance(filtered_words, 'method')
+            filtered_word = filtered_words.replace('}', '')
+            pmi_data = normalized_entity_distance(filtered_word, 'dataset')
+            pmi_method = normalized_entity_distance(filtered_word, 'method')
             ds_similarity = []
             mt_similarity = []
 
             for ds in ds_names:
                 try:
-                    similarity = model.wv.similarity(ds, filtered_words.lower())
+                    ds = ds.replace(' ', '_')
+                    similarity = model.wv.similarity(ds, filtered_word.lower())
                     ds_similarity.append(similarity)
                     if similarity > 0.89:
                         ds_sim_90 = 1
@@ -169,7 +163,8 @@ def filter_it(ner_word, model):
 
             for mt in mt_names:
                 try:
-                    similarity = model.wv.similarity(mt, filtered_words.lower())
+                    mt.replace(' ', '_')
+                    similarity = model.wv.similarity(mt, filtered_word.lower())
                     mt_similarity.append(similarity)
                     if similarity > 0.89:
                         mt_sim_90 = 1
@@ -187,14 +182,14 @@ def filter_it(ner_word, model):
 
             try:
                 mt_similarity = float(sum(mt_similarity)) / len(mt_similarity)
-            except:
+            except ZeroDivisionError:
                 mt_similarity = 0
 
             try:
                 ds_similarity = float(sum(ds_similarity)) / len(ds_similarity)
-            except:
+            except ZeroDivisionError:
                 ds_similarity = 0
 
-    return (filtered_words, pmi_data, pmi_method, ds_similarity, mt_similarity,
+    return (filtered_word, pmi_data, pmi_method, ds_similarity, mt_similarity,
             ds_sim_50, ds_sim_60, ds_sim_70, ds_sim_80, ds_sim_90,
             mt_sim_50, mt_sim_60, mt_sim_70, mt_sim_80, mt_sim_90)

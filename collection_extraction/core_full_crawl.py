@@ -13,11 +13,15 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from elasticsearch import helpers
 
+print('Starting...')
+os.system("sudo python3 sci_paper_miner/crawl_core.py NfvFp7q5Xm6kQZWOIrLnR1JUAKbtEYGS")
+print('Done crawling...')
+
 mongoDB_IP = '127.0.0.1'
 mongoDB_Port = 27017
-mongoDB_db = 'pub'
+mongoDB_db = 'smartpub'
 client = pymongo.MongoClient('localhost:' + str(mongoDB_Port))
-publications_collection = client.pub.publications
+publications_collection = client.smartpub.publications
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}],
                                  timeout=30, max_retries=10, retry_on_timeout=True)
 
@@ -76,7 +80,7 @@ def arxiv_json_to_mongo(article):
     mongo_input['content.references'] = article_data['references']
 
     mongo_mongo_input = db.publications.update_one(
-        {'_id': 'arxiv_' + str(article_data['id'])},
+        {'_id': 'arxiv_' + str(article['identifiers'][0][14:])},
         {'$set': mongo_input},
         upsert=True
     )    
@@ -92,12 +96,14 @@ def extract_metadata(documents):
                 "year": "",
                 "content": "",
                 "abstract": "",
+                "link": "",
                 "authors": [],
                 "references": []}
         extracted['_id'] = r['_id']
         extracted['title'] = r['title']
         extracted['publication'] = r['journal']
         extracted['year'] = r['year']
+        extracted['link'] = r['ee']
         extracted['content'] = r['content']['fulltext']
         extracted['abstract'] = r['content']['abstract']
         extracted['authors'] = r['authors']
@@ -127,8 +133,10 @@ print(len(articles_full), 'with full and', len(articles_abstract), 'with abstrac
 
 for article in articles_full:
     article = articles_full[article]
+    
     # Process text and references for each article
     article = manage_text_and_refs(article)
+    
     # Store to database
     arxiv_json_to_mongo(article)
 
@@ -141,39 +149,96 @@ for publication in filter_publications:
     results = publications_collection.find(query)
     extracted_publications.append(extract_metadata(results))
 
-for publication in extracted_publications:
-    actions = []
-    for article in publication:
-        authors = []
-        if len(article['authors']) > 0:
-            if type(article['authors'][0]) == list:
-                try:
-                    for name in article['authors']:
-                        authors.append(', '.join([name[1], name[0]]))
-                    authors = list(set(authors))
-                except:
-                    pass
-            else:
-                authors = article['authors']
-        actions.append({
-            "_index": "ir", 
-            "_type": "publications",  
-            "_id": article['_id'],
-            "_source": {
-                "title": article["title"],
-                "journal": article['publication'],
-                "year": str(article['year']),
-                "content": article["content"],
-                "abstract": article["abstract"],
-                "authors": authors,
-                "references": article["references"]
-            }
-        })
-    if len(actions) == 0:
-        continue
-    res = helpers.bulk(es, actions)
-    print('Done with', res, 'articles added to index')
+def index_metadata(extracted_publications):
+    for publication in extracted_publications:
+        actions = []
+        for article in publication:
+            authors = []
+            if len(article['authors']) > 0:
+                if type(article['authors'][0]) == list:
+                    try:
+                        for name in article['authors']:
+                            authors.append(', '.join([name[1], name[0]]))
+                        authors = list(set(authors))
+                    except:
+                        pass
+                else:
+                    authors = article['authors']
+            actions.append({
+                "_index": "smartpub", 
+                "_type": "publications",  
+                "_id": article['_id'],
+                "_source": {
+                    "title": article["title"],
+                    "journal": article['publication'],
+                    "year": str(article['year']),
+                    "content": article["content"],
+                    "abstract": article["abstract"],
+                    "link" : article["link"],
+                    "authors": authors,
+                    "references": article["references"]
+                }
+            })
+        if len(actions) == 0:
+            continue
+        res = helpers.bulk(es, actions)
+        print('Done with', res, 'articles added to index')
+        
+        
+def index_sentences(extracted_publications):
+    for publication in extracted_publications:
+        for article in publication:
+            actions = []
+            dataset_sent = []
+
+            for paragraph in article['paragraphs']:
+                if paragraph == {}:
+                    continue
+
+                lines = (sent_detector.tokenize(paragraph.strip()))
+                with open('data/smartpub_full_text_corpus.txt', 'a') as f:
+                    for line in lines:
+                        f.write(line)
+
+                if len(lines) < 3:
+                    continue
+
+                for i in range(len(lines)):
+                    words = nltk.word_tokenize(lines[i])
+                    word_lengths = [len(x) for x in words]
+                    average_word_length = sum(word_lengths) / len(word_lengths)
+                    if average_word_length < 4:
+                        continue
+
+                    two_sentences = ''
+                    try:
+                        two_sentences = lines[i] + ' ' + lines[i - 1]
+                    except:
+                        two_sentences = lines[i] + ' ' + lines[i + 1]
+
+                    dataset_sent.append(two_sentences)
+
+            for num, added_lines in enumerate(dataset_sent):
+                actions.append({
+                    "_index": "twosent_smartpub",
+                    "_type": "twosentnorules",
+                    "_id": article['_id'] + str(num),
+                    "_source": {
+                        "title": article['title'],
+                        "content.chapter.sentpositive": added_lines,
+                        "paper_id": article['_id']
+                    }})
+
+            if len(actions) == 0:
+                continue
+            res = helpers.bulk(es, actions)
+            print(res)
+
+
+index_metadata(extracted_publications)
+index_sentences(extracted_publications)
     
-    
+# Delete downloaded files
+
 shutil.rmtree(path)
 ('Done')

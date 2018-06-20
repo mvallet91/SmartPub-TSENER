@@ -26,10 +26,13 @@ def extract_metadata(documents):
                 "content": "",
                 "abstract": "",
                 "authors": [],
-                "references": []}
+                "references": [],
+                "keywords": []}
+        
         extracted['_id'] = r['_id']
         extracted['title'] = r['title']
         extracted['faculty'] = r['faculty']
+        extracted['journal'] = r['journal']
         extracted['year'] = r['year']
         extracted['type'] = r['type']
         extracted['authors'] = r['authors']
@@ -56,7 +59,12 @@ def extract_metadata(documents):
         try:
             extracted['references'] = r['content']['references']
         except KeyError:
-            extracted['references'] = ''
+            pass
+        
+        try:
+            extracted['keywords'] = r['content']['keywords']
+        except KeyError:
+            pass
         
         list_of_docs.append(extracted)
     return list_of_docs
@@ -99,12 +107,14 @@ for publication in extracted_publications:
             "_source": {
                 "title": article["title"],
                 "type": article['type'],
+                "journal": article['journal'],
                 "year": str(article['year']),
                 "content": article["content"],
                 "abstract": article["abstract"],
                 "authors": authors,
                 "references": article["references"],
-                "supervisors": supervisors
+                "supervisors": supervisors,
+                "keywords": article["keywords"]
             }
         })
     if len(actions) == 0:
@@ -112,87 +122,87 @@ for publication in extracted_publications:
     res = helpers.bulk(es, actions)
     print(res)
     
-sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
+# sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
 
-for publication in extracted_publications:
-    for article in publication:
-        actions = []
-        cleaned = []
-        dataset_sent = []
-        other_sent = []
+# for publication in extracted_publications:
+#     for article in publication:
+#         actions = []
+#         cleaned = []
+#         dataset_sent = []
+#         other_sent = []
 
-        lines = (sent_detector.tokenize(article['content'].strip()))
+#         lines = (sent_detector.tokenize(article['content'].strip()))
         
 
-        with open('data/full_text_corpus_tud.txt', 'a', encoding='utf-8') as f:
-            for line in lines:
-                f.write(line)
-        f.close()
+#         with open('data/full_text_corpus_tud.txt', 'a', encoding='utf-8') as f:
+#             for line in lines:
+#                 f.write(line)
+#         f.close()
         
-        if len(lines) < 3:
-            continue
+#         if len(lines) < 3:
+#             continue
 
-        for i in range(len(lines)):
-            words = nltk.word_tokenize(lines[i])
-            word_lengths = [len(x) for x in words]
-            average_word_length = sum(word_lengths) / len(word_lengths)
-            if average_word_length < 4:
-                continue
+#         for i in range(len(lines)):
+#             words = nltk.word_tokenize(lines[i])
+#             word_lengths = [len(x) for x in words]
+#             average_word_length = sum(word_lengths) / len(word_lengths)
+#             if average_word_length < 4:
+#                 continue
 
-            two_sentences = ''
-            try:
-                two_sentences = lines[i] + ' ' + lines[i - 1]
-            except:
-                two_sentences = lines[i] + ' ' + lines[i + 1]
+#             two_sentences = ''
+#             try:
+#                 two_sentences = lines[i] + ' ' + lines[i - 1]
+#             except:
+#                 two_sentences = lines[i] + ' ' + lines[i + 1]
 
-            dataset_sent.append(two_sentences)
+#             dataset_sent.append(two_sentences)
 
-        for num, added_lines in enumerate(dataset_sent):
-            actions.append({
-                "_index": "twosent_tud",
-                "_type": "twosentnorules",
-                "_id": article['_id'] + str(num),
-                "_source": {
-                    "title": article['title'],
-                    "content.chapter.sentpositive": added_lines,
-                    "paper_id": article['_id']
-                }})
+#         for num, added_lines in enumerate(dataset_sent):
+#             actions.append({
+#                 "_index": "twosent_tud",
+#                 "_type": "twosentnorules",
+#                 "_id": article['_id'] + str(num),
+#                 "_source": {
+#                     "title": article['title'],
+#                     "content.chapter.sentpositive": added_lines,
+#                     "paper_id": article['_id']
+#                 }})
 
-        if len(actions) == 0:
-            continue
-        res = helpers.bulk(es, actions)
-print('Done')
+#         if len(actions) == 0:
+#             continue
+#         res = helpers.bulk(es, actions)
+# print('Done')
  
-file = open('data/full_text_corpus_tud.txt', 'r', encoding='utf-8')
-text = file.read()
-file.close()
-sentences = nltk.tokenize.sent_tokenize(text)
-print('Sentences ready')
-count = 0
-docLabels = []
-actions = []
+# file = open('data/full_text_corpus_tud.txt', 'r', encoding='utf-8')
+# text = file.read()
+# file.close()
+# sentences = nltk.tokenize.sent_tokenize(text)
+# print('Sentences ready')
+# count = 0
+# docLabels = []
+# actions = []
 
-for i, sent in enumerate(sentences):
-    try:
-        neighbors = sentences[i + 1]
-        neighbor_count = count + 1
-    except:
-        neighbors = sentences[i - 1]
-        neighbor_count = count - 1
+# for i, sent in enumerate(sentences):
+#     try:
+#         neighbors = sentences[i + 1]
+#         neighbor_count = count + 1
+#     except:
+#         neighbors = sentences[i - 1]
+#         neighbor_count = count - 1
 
-    docLabels.append(count)
-    actions.append({
-        "_index": "devtwosentnew_tud",
-        "_type": "devtwosentnorulesnew",
-        "_id": count,
-        "_source": {
-            "content.chapter.sentpositive": sent,
-            "content.chapter.sentnegtive": neighbors,
-            "neighborcount": neighbor_count
-        }})
-    count = count + 1
+#     docLabels.append(count)
+#     actions.append({
+#         "_index": "devtwosentnew_tud",
+#         "_type": "devtwosentnorulesnew",
+#         "_id": count,
+#         "_source": {
+#             "content.chapter.sentpositive": sent,
+#             "content.chapter.sentnegtive": neighbors,
+#             "neighborcount": neighbor_count
+#         }})
+#     count = count + 1
 
-print(len(sentences))
-print(len(docLabels))
-res = helpers.bulk(es, actions)
-print(res)
+# print(len(sentences))
+# print(len(docLabels))
+# res = helpers.bulk(es, actions)
+# print(res)
