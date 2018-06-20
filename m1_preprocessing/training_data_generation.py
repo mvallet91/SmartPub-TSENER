@@ -4,6 +4,7 @@ from nltk.tokenize import word_tokenize
 import csv
 from nltk import tokenize
 import os
+import sys
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
@@ -131,6 +132,7 @@ def sentence_labelling(model_name: str, training_cycle: int, sentence_expansion:
             labelled_sentences.append(line)
 
     print(len(lines), 'lines labelled')
+    sys.stdout.flush()
     inputs = []
     for ll in labelled_sentences:
         words = word_tokenize(ll)

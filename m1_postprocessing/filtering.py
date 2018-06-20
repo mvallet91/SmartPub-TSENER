@@ -110,7 +110,11 @@ def normalized_pub_distance(extracted_entities, context):
         for entity in extracted_entities:
             if any(x in entity.lower() for x in context_words):
                 filtered_entities.append(entity)
-            NN = 2897901
+                
+            query = {}
+            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+            NN = res['hits']['total']
+            
             query = {"query":
                 {"match": {
                     "content.chapter.sentpositive": {
@@ -145,6 +149,7 @@ def normalized_pub_distance(extracted_entities, context):
             }
             res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
             total_ab = res['hits']['total']
+            pmi = 0
             if total_a and total_b and total_ab:
                 total_ab = total_ab / NN
                 total_a = total_a / NN
@@ -153,7 +158,68 @@ def normalized_pub_distance(extracted_entities, context):
                 pmi = math.log(pmi, 2)
                 if pmi >= 2:
                     filtered_entities.append(entity)
-    return filtered_entities
+    return filtered_entities, pmi
+
+
+def normalized_entity_distance(entity, context):
+    """
+
+    :param extracted_entities:
+    :param context:
+    :return filtered_entities:
+    """
+    filtered_entities = []
+    cn = context
+    es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
+    entity = entity.lower()
+
+    query = {}
+    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    NN = res['hits']['total']
+    
+    query = {"query":
+        {"match": {
+            "content.chapter.sentpositive": {
+                "query": entity,
+                "operator": "and"
+            }
+        }
+        }
+    }
+    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    total_a = res['hits']['total']
+    query = {"query":
+        {"match": {
+            "content.chapter.sentpositive": {
+                "query": cn,
+                "operator": "and"
+            }
+        }
+        }
+    }
+    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    total_b = res['hits']['total']
+    query_text = entity + ' ' + cn
+    query = {"query":
+        {"match": {
+            "content.chapter.sentpositive": {
+                "query": query_text,
+                "operator": "and"
+            }
+        }
+        }
+    }
+    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    total_ab = res['hits']['total']
+    pmi = 0
+    if total_a and total_b and total_ab:
+        total_ab = total_ab / NN
+        total_a = total_a / NN
+        total_b = total_b / NN
+        pmi = total_ab / (total_a * total_b)
+        pmi = math.log(pmi, 2)
+    return pmi
+
 
 
 def filter_pmi(model_name, training_cycle, context):
@@ -180,7 +246,7 @@ def filter_pmi(model_name, training_cycle, context):
         else:
             processed_entities.append(pp)
 
-    results = normalized_pub_distance(processed_entities, context)
+    results, values = normalized_pub_distance(processed_entities, context)
     results = list(set(results))
     print(len(results), 'entities are kept from the total of', len(extracted_entities))
     path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_pmi_' + str(training_cycle) + ".txt"
@@ -232,7 +298,7 @@ def filter_ws_fly(words: list) -> list:
     return results
 
 
-def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> None:
+def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordvector_path: str) -> None:
     """
 
     :param model_name: selected name of the NER model
@@ -262,7 +328,7 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list) -> Non
 
     seed_entities = [x.lower() for x in original_seeds]
     seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
-    df, labels_array = build_word_vector_matrix(ROOTPATH + "/embedding_models/modelword2vecbigram.vec", processed_entities)
+    df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities)
     sse = {}
     max_cluster = 0
     if len(df) >= 9:

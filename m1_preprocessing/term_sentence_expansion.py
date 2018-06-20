@@ -110,7 +110,7 @@ def extract_entity_word(t):
     return set(entity_names)
 
 
-def term_expansion(model_name: str, training_cycle: int) -> None:
+def term_expansion(model_name: str, training_cycle: int, wordvector_path: str) -> None:
     """
     :param model_name:
     :type model_name:
@@ -146,8 +146,7 @@ def term_expansion(model_name: str, training_cycle: int) -> None:
     processed_entities = list(set(processed_entities))
 
     # Use the word2vec model
-    df, labels_array = build_word_vector_matrix(ROOTPATH + '/embedding_models/modelword2vecbigram.vec',
-                                                processed_entities, model_name)
+    df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities, model_name)
 
     # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
     # Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain
