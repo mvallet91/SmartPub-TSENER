@@ -113,8 +113,9 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
             }
         }
 
+        # Maximum size of 2100 to ensure total number of evaluation publications from 11 conferences is around 11k
         res = es.search(index="ir_full", doc_type="publications",
-                        body=query, size=10000)
+                        body=query, size=2100)
 
         print(f'Extracting entities for {len(res["hits"]["hits"])} {conference} conference papers')
 
