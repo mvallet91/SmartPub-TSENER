@@ -41,14 +41,14 @@ filter_by_wordnet = []
 #                 }
 #             }
 
-#         res = es.search(index="ir", doc_type="publications",
+#         res = es.search(index="ir_full", doc_type="publications",
 #                         body=query, size=10000)
 
 #         print(len(res['hits']['hits']))
 #         sys.stdout.flush()
 
 #         for doc in res['hits']['hits']:
-#             sentence = doc["_source"]["text"]
+#             sentence = doc["_source"]["content"]
 #             sentence = sentence.replace("@ BULLET", "")
 #             sentence = sentence.replace("@BULLET", "")
 #             sentence = sentence.replace(", ", " , ")
@@ -113,7 +113,7 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
             }
         }
 
-        res = es.search(index="ir", doc_type="publications",
+        res = es.search(index="ir_full", doc_type="publications",
                         body=query, size=10000)
 
         print(f'Extracting entities for {len(res["hits"]["hits"])} {conference} conference papers')
@@ -124,7 +124,7 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
         for doc in res['hits']['hits']:
             counter+=1
             if counter % 20 is 0: print(f'Tagged {counter}/' + str(len(res['hits']['hits'])), 'full texts for ' + conference)
-            sentence = doc["_source"]["text"]
+            sentence = doc["_source"]["content"]
             sentence = sentence.replace("@ BULLET", "")
             sentence = sentence.replace("@BULLET", "")
             sentence = sentence.replace(", ", " , ")
@@ -181,7 +181,7 @@ def ne_extraction(model_name, training_cycle, sentence_expansion):
    
     query = {}
     
-    res = es.search(index="ir", doc_type="publications",
+    res = es.search(index="ir_full", doc_type="publications",
                     body=query, size=10000)
 
     print(len(res['hits']['hits']))
@@ -191,7 +191,7 @@ def ne_extraction(model_name, training_cycle, sentence_expansion):
     for doc in res['hits']['hits']:
         counter+=1
         if counter % 20 is 0: print(f'Tagged {counter}/' + str(len(res['hits']['hits'])), 'full texts')
-        sentence = doc["_source"]["text"]
+        sentence = doc["_source"]["content"]
         sentence = sentence.replace("@ BULLET", "")
         sentence = sentence.replace("@BULLET", "")
         sentence = sentence.replace(", ", " , ")

@@ -27,10 +27,14 @@ data_date = '2018_05_28'
 booktitles = ['test_no_conf']
 
 # root to the project
-ROOTPATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER'
+ROOTPATH = '/data2/SmartPub-TSENER'
 # ROOTPATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER'
-STANFORD_NER_PATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+# ROOTPATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER'
+
+STANFORD_NER_PATH = '/data2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 # STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+# STANFORD_NER_PATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+
 
 # journals we like
 # journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']

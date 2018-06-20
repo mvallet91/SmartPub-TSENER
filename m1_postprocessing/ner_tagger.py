@@ -135,7 +135,7 @@ for publication in publications:
                  }
              }
 
-    res = es.search(index="ir", doc_type="publications",
+    res = es.search(index="ir_full", doc_type="publications",
                     body=query, size=10000)
 
     print(len(res['hits']['hits']))

@@ -160,22 +160,3 @@ def read_seeds(model_name, iteration):
 
 if __name__ == "__main__":
   main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
