@@ -19,13 +19,22 @@ grobid_url = 'http://127.0.0.1:8080'
 
 # conferences we like
 # book_titles = ['JCDL','SIGIR','ECDL','TPDL','TREC', 'ICWSM', 'ESWC', 'ICSR','WWW', 'ICSE', 'HRI', 'VLDB', 'ICRA', 'ICARCV']
+
+evaluation_conferences = ['JCDL', 'TPDL', 'TREC', 'ECDL', 'ESWC', 'ICWSM', 'VLDB', 'ACL', 'WWW', 'ICSE', 'SIGIR']
+# Data Coner feedback data exported from Firebase
+data_date = '2018_05_28'
+
 booktitles = ['test_no_conf']
 
 # root to the project
 ROOTPATH = '/data2/SmartPub-TSENER'
 # ROOTPATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER'
+# ROOTPATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER'
+
 STANFORD_NER_PATH = '/data2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 # STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+# STANFORD_NER_PATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
+
 
 # journals we like
 # journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']

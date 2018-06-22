@@ -129,6 +129,13 @@ for publication in publications:
                  }
              }
 
+#     res = es.search(index="ir_full", doc_type="publications",
+#                     body=query, size=10000)
+
+#     print(len(res['hits']['hits']))
+
+#     for doc in res['hits']['hits']:
+
     path_to_model = 'crf_trained_files/trained_ner_' + model_name + '.ser.gz'
     ner_tagger = StanfordNERTagger(path_to_model, path_to_jar)
     x = 0

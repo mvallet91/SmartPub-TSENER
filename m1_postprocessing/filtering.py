@@ -17,6 +17,10 @@ from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 from collections import defaultdict
 
+# Enable imports from modules in parent directory
+import os, sys
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
+
 from config import ROOTPATH
 
 stopword_path = ROOTPATH + "/data/stopword_en.txt"
@@ -27,7 +31,6 @@ with open(stopword_path, 'r') as file:
 
 url_dbpedia = 'http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString='
 regex = re.compile(".*?\((.*?)\)")
-
 
 class autovivify_list(dict):
     """
@@ -124,7 +127,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_a = res['hits']['total']
             query = {"query":
                 {"match": {
@@ -135,7 +138,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_b = res['hits']['total']
             query_text = entity + ' ' + cn
             query = {"query":
@@ -147,7 +150,7 @@ def normalized_pub_distance(extracted_entities, context):
                 }
                 }
             }
-            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             total_ab = res['hits']['total']
             pmi = 0
             if total_a and total_b and total_ab:
@@ -615,3 +618,120 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
         f.write("%s\n" % item)
     f.close()
     return results
+
+##################################
+#     CONER CUSTOM FILTERING     #
+##################################
+
+def filter_mv_coner(model_name: str, training_cycle: int) -> None:
+    """
+
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    """
+    results = []
+    filters = ['pmi', 'kbl', 'ws', 'st']
+    votes = defaultdict(int)
+    max_votes = 0
+
+    relevance_scores, entity_list = read_coner_overview(model_name, '2018_05_28')
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+    print('Filtering', len(extracted_entities), 'entities by vote of selected filter methods')
+
+    for filter_name in filters:
+        path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_' + str(training_cycle) + '.txt'
+        if os.path.isfile(path):
+            max_votes += 1
+            with open(path, "r") as f:
+                filtered_entities = [e.strip().lower() for e in f.readlines()]
+            for entity in extracted_entities:
+                if entity in filtered_entities:
+                    votes[entity] += 1
+
+    for vote in votes:
+        # Only keep entity if not rated as 'irrelevant' and rated as 'relevant' and/or passed majority vote of ensemble filters
+        # So: Filter out entities rated as 'irrelevant' and filter out entities rated as 'neutral' that don't pass ensemble filtering majority vote
+        # Coner 'irrelevant' and 'relevant' always overrule the ensemble filter majority vote, unless it's undetermined ('neutral'), then ensemble filtering majority vote decide
+        # print(votes[vote], max_votes/2, votes[vote], max_votes/2)
+        if not coner_irrelevant(relevance_scores, vote) and (coner_relevant(relevance_scores, vote) or votes[vote] > float(max_votes/2)):
+            results.append(vote)
+
+    results = list(set(results))
+    print(f'Majority Vote Coner Filtering: {len(results)}', 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_mv_coner_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    for item in results:
+        f.write("%s\n" % item)
+    f.close()
+    return results
+
+def filter_coner(model_name: str, training_cycle: int) -> None:
+    
+    """
+    :param model_name: selected name of the NER model
+    :type model_name: string
+    :param training_cycle: current iteration
+    :type training_cycle: int
+    """
+    results = []
+
+    relevance_scores, entity_list = read_coner_overview(model_name, '2018_05_28')
+
+    path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
+
+    with open(path, "r") as f:
+        extracted_entities = [e.strip().lower() for e in f.readlines()]
+   
+    for entity in extracted_entities:
+        # Only keep entity rated as 'relevant' by majority of users
+        if coner_relevant(relevance_scores, entity):
+            results.append(entity)
+
+    results = list(set(results))
+    print(f'Coner Filtering: {len(results)}', 'entities are kept from the total of', len(extracted_entities))
+    path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_coner_' + str(training_cycle) + ".txt"
+    f = open(path, 'w', encoding='utf-8')
+    for item in results:
+        f.write("%s\n" % item)
+    f.close()
+    return results
+
+def coner_relevant(rel_scores, entity):
+    return entity in rel_scores.keys() and rel_scores[entity]['relevance'] == 'relevant'
+
+def coner_irrelevant(rel_scores, entity):
+    return entity in rel_scores.keys() and rel_scores[entity]['relevance'] == 'irrelevant'
+
+# Read Coner entities feedback overview file for model_name and write list of entities text file
+def read_coner_overview(model_name, data_date):
+    rel_scores = {}
+    file_path = f'data/coner_feedback/entities_overview_{model_name}_{data_date}.csv'
+
+    csv_raw = open(file_path, 'r').readlines()
+    csv_raw = [line.rstrip('\n').split(',') for line in csv_raw]
+    columns = csv_raw.pop(0)
+
+    entity_list = [entity[0] for entity in csv_raw]
+
+    file_path2 = f'processing_files/{model_name}_extracted_entities_coner_{data_date}.txt'
+    os.makedirs(os.path.dirname(file_path2), exist_ok=True)
+
+    with open(file_path2, 'w+') as outputFile:
+        for entity in entity_list:
+          outputFile.write(entity+"\n")
+
+    outputFile.close()
+
+
+    for line in csv_raw:
+        obj = { key: line[ind] for ind, key in enumerate(columns) }
+        rel_scores[line[0]] = obj
+
+    return rel_scores, entity_list 
+
+

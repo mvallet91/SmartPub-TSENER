@@ -56,9 +56,9 @@ for publication in extracted_publications:
                       }
                  }
 
-        results = es.search(index="ir", body=query, size=200)
+        results = es.search(index="ir_full", body=query, size=200)
         for doc in results['hits']['hits']:
-            fulltext = doc["_source"]["text"]
+            fulltext = doc["_source"]["content"]
             fulltext = re.sub("[\[].*?[\]]", "", fulltext)
             cleaned_text = fulltext.translate(translator)
             papers_text.append(cleaned_text.lower())

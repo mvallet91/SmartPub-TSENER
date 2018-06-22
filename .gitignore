@@ -30,3 +30,11 @@ dataDoc2vec.txt
 dataWord2vec.txt
 full_text_corpus_tud.txt
 tud_data2vec.txt
+
+# Ignore custom files
+SmartPub-TSENER.sublime-workspace
+__pycache__/
+**/*/__pycache__/
+.DS_Store
+**/*/.DS_Store
+data/coner_feedback/

@@ -21,7 +21,8 @@ model_name = 'dataset_tud_full'
 
 
 sentence_expansion = True
-training_cycles = 1 
+training_cycles = 2 
+model_name = 'dataset_50'
 filtering_pmi = True
 filtering_st = True
 filtering_ws = True
