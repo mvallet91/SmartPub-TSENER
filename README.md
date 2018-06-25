@@ -1,4 +1,4 @@
-TSE-NER
+# TSE-NER
 
 The main goal of TSE-NER is to generate training data for long-tail entities and train a NER tagger, 
 label such entities in text, and use them for document search and exploration.
