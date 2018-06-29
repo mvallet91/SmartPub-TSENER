@@ -10,19 +10,19 @@ word2vec_path = 'full_corpus_models/modelword2vecbigram.vec'
 es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 # User input
+# Facet: dataset
 seeds = ['mediaeval', 'melvyl', 'jnlpba', 'wikia', 'wechat', 'wt2g', 'foldoc', 'openstreetmap', 'nasdaq', 'datahub', 'github', 'linkedgeodata', 'amazon', 'chemid', 'wikipedia', 'citebase', 'bdbcomp', 'ace04', 'gene ontology', 'movielens', 'stack overflow', 'oaister', 'umls', 'booking.com', 'duc2001', 'movierating', 'mesur', 'scovo', 'semeval', 'newsvine', 'google', 'jester', 'robust04', 'wpbench', 'cifar', 'pubchem', 'sraa', 'blog06', 'euses', 'gdelt', 'sindice', 'fedweb', 'ask.com', 'ldoce', 'ocred', 'tripadvisor', 'locuslink', 'imagenet', 'walmart', 'technorati', 'shop.com', 'quora', 'orkut', 'reddit', 'allmusic', 'dbsnp', 'ionosphere', 'letor', 'blogpulse', 'spambase', 'fbis', 'webkb', 'craigslist', 'gerbil', 'tac kbp', 'citeseerx', 'replab', 'pslnl', 'douban', 'new york times', 'algoviz', 'friendfeed', 'labelme', 'newegg', 'brightkite', 'econstor', 'dmoz.org', 'billion triple challenge', 'wikiwars', 'lexvo', 'worldcat', 'ws-353', 'facc', 'as3ap', 'moviepilot', 'refseq', 'tpc-w', 'ratebeer', 'specweb', 'wikitravel', 'twitter', 'buzzfeed', 'imageclef', 'pinterest', 'dailymed', 'kddcup', 'semcor', 'xanga', 'netflix', 'cyworld']
 context_words = ['dataset', 'corpus', 'collection', 'repository', 'benchmark']
-model_name = 'dataset_tud_full'
+model_name = 'dataset_50'
 
-
+# Facet: method
 # seeds = ['simulated annealing', 'hidden markov models', 'scoring engine', 'linear regression', 'genetic programming', 'kolmogorov-smirnov ks', 'qald', 'downhill simplex', 'regular expression', 'radial basis function network', 'recurrent neural network', 'restricted boltzmann machine', 'best-first search', 'pairwise personalized ranking', 'pairwise algorithm', 'convolutional neural network', 'selection algorithm', 'imrank', 'statistical relational', 'adarank', 'similarity search', 'game theory', 'breadth-first search', 'traditional materialized view', 'self-organizing map', 'mcmc', 'convolutional dnn', 'fourier analysis', 'tree sort', 'linkage analysis', 'pearson correlation', 'q-learning', 'dijkstra', 'cyclades', 'fuzzy clustering', 'bayesian nonparametric', 'latent semantic analysis', 'fast fourier', 'general interest model', 'clarke-tax', 'yield optimization', 'dmp method', 'query expansion', 'spectral clustering', 'transfer function', 'recursive function', 'rapid7', 'random forest', 'quicksort', 'imputation', 'hill climbing', 'likelihood function', 'dynamic programming', 'random indexing', 'skipgram', 'predictive modeling', 'deep learning', 'semantictyper', 'global collaborative ranking', 'bcdrw', 'space mapping', 'shannon entropy', 'ridge regularization', 'tagassist', 'lib*lif', 'lib+lif', 'model fitting', 'graph-based propagation', 'lstm', 'autoencoder', 'linear search', 'dbscan', 'stack search', 'folding-in', 'jump search', 'plsa', 'clir', 'random search', 'a* search', 'block sort', 'basic load control method', 'klsh', 'pattern matching', 'support vector machine', 'gpbased', 'merge sort', 'optics algorithm', 'query optimization', 'hierarchical agglomerative', 'k-means++', 'tdcm', 'semantic relevance', 'stochastic gradient descent', 'tsa algorithm', 'adaptive filter', 'genetic algorithm', 'greedy algorithm', 'kernel density estimation', 'simple random algorithm', 'ndcg-annealing']
 # context_words = ['method', 'algorithm', 'approach', 'evaluate']
-# model_name = 'method_tud_full'
+# model_name = 'method_50'
 
 
 sentence_expansion = True
 training_cycles = 2 
-model_name = 'dataset_50'
 filtering_pmi = True
 filtering_st = True
 filtering_ws = True

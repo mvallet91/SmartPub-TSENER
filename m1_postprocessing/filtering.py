@@ -115,7 +115,7 @@ def normalized_pub_distance(extracted_entities, context):
                 filtered_entities.append(entity)
                 
             query = {}
-            res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+            res = es.search(index="twosent", doc_type="twosentnorules", body=query)
             NN = res['hits']['total']
             
             query = {"query":
@@ -177,7 +177,7 @@ def normalized_entity_distance(entity, context):
     entity = entity.lower()
 
     query = {}
-    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    res = es.search(index="twosent", doc_type="twosentnorules", body=query)
     NN = res['hits']['total']
     
     query = {"query":
@@ -189,7 +189,7 @@ def normalized_entity_distance(entity, context):
         }
         }
     }
-    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    res = es.search(index="twosent", doc_type="twosentnorules", body=query)
     total_a = res['hits']['total']
     query = {"query":
         {"match": {
@@ -200,7 +200,7 @@ def normalized_entity_distance(entity, context):
         }
         }
     }
-    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    res = es.search(index="twosent", doc_type="twosentnorules", body=query)
     total_b = res['hits']['total']
     query_text = entity + ' ' + cn
     query = {"query":
@@ -212,7 +212,7 @@ def normalized_entity_distance(entity, context):
         }
         }
     }
-    res = es.search(index="twosent_tud", doc_type="twosentnorules", body=query)
+    res = es.search(index="twosent", doc_type="twosentnorules", body=query)
     total_ab = res['hits']['total']
     pmi = 0
     if total_a and total_b and total_ab:
@@ -301,7 +301,7 @@ def filter_ws_fly(words: list) -> list:
     return results
 
 
-def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordvector_path: str) -> None:
+def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordvector_path: str=ROOTPATH + "/embedding_models/modelword2vecbigram.vec") -> None:
     """
 
     :param model_name: selected name of the NER model

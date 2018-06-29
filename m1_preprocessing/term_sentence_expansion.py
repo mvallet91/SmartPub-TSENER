@@ -110,7 +110,7 @@ def extract_entity_word(t):
     return set(entity_names)
 
 
-def term_expansion(model_name: str, training_cycle: int, wordvector_path: str) -> None:
+def term_expansion(model_name: str, training_cycle: int, wordvector_path: str=ROOTPATH + "/embedding_models/modelword2vecbigram.vec") -> None:
     """
     :param model_name:
     :type model_name:
@@ -118,12 +118,12 @@ def term_expansion(model_name: str, training_cycle: int, wordvector_path: str) -
     :type training_cycle:
     """
     print('Starting term expansion')
-    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '.txt')
+    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_majority.txt')
     all_entities = generic_named_entities(unlabelled_sentences_file)
     seed_entities = []
 
     # Extract seed entities
-    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '_majority.txt'
     with open(path, 'r', encoding='utf-8') as file:
         for row in file.readlines():
             seed_entities.append(row.strip())
@@ -208,7 +208,7 @@ def extract_similar_sentences(es_id):
                  }
              }
     similar_sentence = ''
-    res = es.search(index="devtwosentnew_tud", doc_type="devtwosentnorulesnew",
+    res = es.search(index="devtwosentnew", doc_type="devtwosentnorulesnew",
                     body=query, size=5)
     if len(res) > 1:
         for doc in res['hits']['hits']:
@@ -226,7 +226,7 @@ def sentence_expansion(model_name: str, training_cycle: int, doc2vec_model: gens
     """
     print('Starting sentence expansion')
 
-    path = ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_majority.txt'
     unlabelled_sentences_file = open(path, 'r', encoding='utf-8')
     text = unlabelled_sentences_file.read()
     text = text.replace('\\', '')
@@ -266,7 +266,7 @@ def sentence_expansion(model_name: str, training_cycle: int, doc2vec_model: gens
         sentences.append(tt)
     expanded_sentences = list(set(sentences))
 
-    path = (ROOTPATH + '/processing_files/' + model_name + '_expanded_sentences_' + str(training_cycle) + '.txt')
+    path = (ROOTPATH + '/processing_files/' + model_name + '_expanded_sentences_' + str(training_cycle) + '_majority.txt')
     f = open(path, 'w', encoding='utf-8')
     for item in expanded_sentences:
         f.write('%s\n' % item)
@@ -276,7 +276,7 @@ def sentence_expansion(model_name: str, training_cycle: int, doc2vec_model: gens
 #     CONER CUSTOM TERM EXPANSION     #
 #######################################
 
-def coner_term_expansion(model_name: str, training_cycle: int) -> None:
+def coner_term_expansion(model_name: str, training_cycle: int, wordvector_path: str= ROOTPATH + "/embedding_models/modelword2vecbigram.vec") -> None:
     """
     :param model_name:
     :type model_name:
@@ -284,14 +284,15 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
     :type training_cycle:
     """
     print(f'Starting Coner term expansion for model {model_name} and iteration {training_cycle}')
-    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '.txt')
+    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_mv_coner.txt')
     all_entities = generic_named_entities(unlabelled_sentences_file)
     seed_entities = []
-    # Add the entities that are of type 'selected'
+
+    # Add the entities that are relevant determined by Coner
     rel_scores = read_coner_overview(model_name, data_date)
 
     # Extract seed entities
-    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '_mv_coner.txt'
     with open(path, 'r', encoding='utf-8') as file:
         for row in file.readlines():
             seed_entities.append(row.strip())
@@ -300,8 +301,9 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
 
     print(f'Number seed entities: {len(seed_entities)}')
     # Append Coner entitites that labelled as 'relevant' by majority of users
+    
     seed_entities = list(set(seed_entities + list(rel_scores.keys())))
-    print(f'Number Coner selected relevant entities: {len(list(rel_scores.keys()))}')
+    print(f'Number Coner relevant entities: {len(list(rel_scores.keys()))}')
     print(f'Number seed entities + Coner selected relevant entities (distinct entities): {len(seed_entities)}')
 
     # Replace the space between the bigram words with underscore _ (for the word2vec embedding)
@@ -319,8 +321,7 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
     processed_entities = list(set(processed_entities))
 
     # Use the word2vec model
-    df, labels_array = build_word_vector_matrix(ROOTPATH + '/embedding_models/modelword2vecbigram.vec',
-                                                processed_entities, model_name)
+    df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities, model_name)
 
     # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
     # Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain
@@ -368,7 +369,7 @@ def coner_term_expansion(model_name: str, training_cycle: int) -> None:
     print('Added', len(expanded_terms), 'expanded terms')
     return expanded_terms
 
-def coner_term_expansion_separate_clustering(model_name: str, training_cycle: int) -> None:
+def coner_term_expansion_separate_clustering(model_name: str, training_cycle: int, wordvector_path: str=ROOTPATH + "/embedding_models/modelword2vecbigram.vec") -> None:
     """
     :param model_name:
     :type model_name:
@@ -376,12 +377,13 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
     :type training_cycle:
     """
     print(f'Starting Coner term expansion (separate clustering) for model {model_name} and iteration {training_cycle}')
-    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '.txt')
+    unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_mv_coner.txt')
     all_entities = generic_named_entities(unlabelled_sentences_file)
+
     seed_entities = []
 
     # Extract seed entities
-    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '.txt'
+    path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(training_cycle) + '_mv_coner.txt'
     with open(path, 'r', encoding='utf-8') as file:
         for row in file.readlines():
             seed_entities.append(row.strip())
@@ -401,11 +403,12 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
                 processed_entities.append(bi)
         else:
             processed_entities.append(pp)
+            
     processed_entities = [e.lower() for e in processed_entities]
     processed_entities = list(set(processed_entities))
 
     # Use the word2vec model
-    df, labels_array = build_word_vector_matrix(ROOTPATH + '/embedding_models/modelword2vecbigram.vec', processed_entities, model_name)
+    df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities, model_name)
     expanded_terms = []
 
     # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
@@ -499,7 +502,7 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
 
     return expanded_terms
 
-# Read Coner entities feedback overview file for model_name and only return entitities that are of type 'selected' (so newly selected by users in viewer)
+# Read Coner entities feedback overview file for model_name and only return entitities that are of type 'selected' or 'generated' (so newly selected by users in viewer or already extracted)
 def read_coner_overview(model_name, data_date):
     rel_scores = {}
     file_path = f'data/coner_feedback/entities_overview_{model_name}_{data_date}.csv'
@@ -509,7 +512,7 @@ def read_coner_overview(model_name, data_date):
     columns = csv_raw.pop(0)
 
     for line in csv_raw:
-        if line[5] == 'selected' and line[1] == 'relevant':
+        if line[1] == 'relevant':
             obj = { key: line[ind] for ind, key in enumerate(columns) }
             rel_scores[line[0]] = obj
 

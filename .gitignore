@@ -9,6 +9,10 @@ data/craft-2.0/
 data/tudelft_repo/
 data/content_xml/
 data/tudelft_repo_xml/
+full_corpus_models/
+processing_files_embedding_models_small/
+embedding_models_small/
+
 
 .ipynb_checkpoints/
 models/

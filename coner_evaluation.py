@@ -2,23 +2,29 @@
 
 import os
 from m1_preprocessing import seed_data_extraction, term_sentence_expansion, training_data_generation, ner_training
-from m1_postprocessing import extract_new_entities, filtering
+from m1_postprocessing import extract_new_entities,filtering
 from config import ROOTPATH, data_date
 
 model_names = ['dataset_50', 'method_50']
 
-# iteration = 'coner_' + data_date
+# filter_iteration = 'coner_' + data_date
 filter_iteration = 0
 expansion_iteration = 1
 
+run_filters = False
+run_expansion = True
+
 def main():
-    
+  if run_filters: evaluate_filters()
+  if run_expansion: evaluate_expansion()
+
+def evaluate_filters():
   # Generate data statistics for filtering
   print("\n\n#################################")
   print("##### FILTERINGS STATISTICS #####")
   print("#################################")
   
-  for model_name in [model_names[1]]:
+  for model_name in model_names:
     rel_scores, coner_entity_list = filtering.read_coner_overview(model_name, data_date)
     filter_results = []
 
@@ -56,20 +62,23 @@ def main():
     for row in table_data:
       print("{: <20} {: <50} {: <40}".format(*row))
 
+def evaluate_expansion():
+  force = True
+
   # Generate data statistics for expansion
   print("\n\n################################")
   print("##### EXPANSION STATISTICS #####")
   print("################################")
   
-  for model_name in [model_names[1]]:
+  for model_name in model_names:
     rel_scores = term_sentence_expansion.read_coner_overview(model_name, data_date)
     nr_added_entities = len(rel_scores.keys())
     expansion_results = []
-    nr_seeds = len(read_seeds(model_name, expansion_iteration))
+    nr_seeds = len(read_seeds(model_name, expansion_iteration, 'majority'))
 
-    expansion_results.append(['Term Expansion', execute_expansion(model_name, 'te', expansion_iteration)])
-    expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tece', expansion_iteration)])
-    expansion_results.append(['Term Expansion + Coner Expansion (Separate Clustering)', execute_expansion(model_name, 'tecesc', expansion_iteration)])
+    expansion_results.append(['Term Expansion', execute_expansion(model_name, 'te', expansion_iteration, force)])
+    expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tece', expansion_iteration, force)])
+    expansion_results.append(['Term Expansion + Coner Expansion (Separate Clustering)', execute_expansion(model_name, 'tecesc', expansion_iteration, force)])
 
     print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
     print(f'{model_name}: Coner entities of type "selected" and rated as "relevant: {nr_added_entities}')
@@ -90,18 +99,7 @@ def main():
 
 def execute_filter(model_name, filter_name, iteration):
   context_words = { 'dataset_50': ['dataset', 'corpus', 'collection', 'repository', 'benchmark'], 'method_50': ['method', 'algorithm', 'approach', 'evaluate'] }
-  original_seeds = { 'dataset_50': ['buzzfeed', 'pslnl', 'dailymed', 'robust04', 'scovo', 'ask.com', 'cacm', 'stanford large network dataset', 
-    'mediaeval', 'lexvo', 'spambase', 'shop.com', 'orkut', 'jnlpba', 'cyworld', 'citebase', 'blog06', 'worldcat', 
-    'booking.com', 'semeval', 'imagenet', 'nasdaq', 'brightkite', 'movierating', 'webkb', 'ionosphere', 'moviepilot', 
-    'duc2001', 'datahub', 'cifar', 'tdt', 'refseq', 'stack overflow', 'wikiwars', 'blogpulse', 'ws-353', 'gerbil', 
-    'wikia', 'reddit', 'ldoce', 'kitti dataset', 'specweb', 'fedweb', 'wt2g', 'as3ap', 'friendfeed', 'new york times', 
-    'chemid', 'imageclef', 'newegg'], 'method_50': ['hierarchical agglomerative', 'selection algorithm', 'stochastic gradient descent', 
-    'pearson correlation', 'semantic relevance', 'gpbased', 'pattern matching', 'clir', 'random forest', 'random indexing', 'basic load control method', 
-    'linear regression', 'recursive function', 'latent dirichlet allocation', 'convolutional dnn', 'likelihood function', 'folding-in', 'restricted boltzmann machine', 
-    'lstm', 'radial basis function network', 'bmecat', 'lib', 'fast fourier', 'adaptive filter', 'spectral clustering', 'dmp method', 'reinforcement learning', 
-    'graph-based propagation', 'semantictyper', 'hierarchical clustering', 'variational em', 'qald', 'fourier analysis', 'simple random algorithm', 'random search', 
-    'lsh method', 'regular expression', 'rapid7', 'word embedding', 'autoencoder', 'bayesian nonparametric', 'variational bayesian inference', 'tsa algorithm', 
-    'predictive modeling', 'query optimization', 'softmax', 'ridge regularization', 'tdcm', 'support vector machine', 'mcmc']}
+  original_seeds = read_initial_seeds(model_name)
 
   path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_' + str(iteration) + '.txt'
   if os.path.isfile(path) and not filter_name in ['majority', 'coner', 'mv_coner']:
@@ -127,9 +125,9 @@ def execute_filter(model_name, filter_name, iteration):
 
     return None
 
-def execute_expansion(model_name, expansion_name, iteration):
+def execute_expansion(model_name, expansion_name, iteration, force=False):
   path = ROOTPATH + '/processing_files/' + model_name + '_expanded_seeds_' + expansion_name + '_' + str(iteration) + '.txt'
-  if os.path.isfile(path):
+  if not force and os.path.isfile(path):
     # print("Getting filtered entities from file")
     with open(path, "r") as f:
       return [e.strip().lower() for e in f.readlines()]
@@ -151,8 +149,15 @@ def read_extracted_entities(model_name, iteration):
   f.close()
   return extracted_entities
 
-def read_seeds(model_name, iteration):
-  path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(iteration) + '.txt'
+def read_seeds(model_name, iteration, filter):
+  path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(iteration) + f'_{filter}.txt'
+  with open(path, "r") as f:
+    seeds = [e.strip().lower() for e in f.readlines()]
+  f.close()
+  return seeds
+
+def read_initial_seeds(model_name):
+  path = ROOTPATH + '/processing_files/' + model_name + '_seeds_0.txt'
   with open(path, "r") as f:
     seeds = [e.strip().lower() for e in f.readlines()]
   f.close()
