@@ -19,7 +19,10 @@ run_expansion = True
 def main():
   model_name = 'method_50'
   iteration = 1
+
+  # term_sentence_expansion.term_expansion(model_name, iteration)
   term_sentence_expansion.coner_term_expansion(model_name, iteration)
+  # term_sentence_expansion.coner_term_expansion(model_name, iteration)
 
 if __name__ == "__main__":
   main()

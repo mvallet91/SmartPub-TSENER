@@ -65,6 +65,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
 
     # Using the seeds, extract the sentences from the publications text in Elasticsearch index
     for entity in seed_entities:
+        # WEIGHT HERE
         entity_name = re.sub(r'\([^)]*\)', '', entity)
         print('.', end='')
         query = {"query":

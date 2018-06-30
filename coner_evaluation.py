@@ -80,16 +80,14 @@ def evaluate_expansion():
     nr_seeds = len(read_seeds(model_name, expansion_iteration, 'majority'))
 
     expansion_results.append(['Term Expansion', execute_expansion(model_name, 'te', expansion_iteration, force)])
-    print(round((time.time() - start)/60, 2), 'minutes since start')
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
     expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tece', expansion_iteration, force)])
-    print(round((time.time() - start)/60, 2), 'minutes since start')
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
     expansion_results.append(['Term Expansion + Coner Expansion (Separate Clustering)', execute_expansion(model_name, 'tecesc', expansion_iteration, force)])
-    print(round((time.time() - start)/60, 2), 'minutes since start')
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-
-    print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
     print(f'{model_name}: Coner entities of type "selected" and rated as "relevant: {nr_added_entities}')
 
     # Overview of ratings for facets and categories
@@ -135,6 +133,7 @@ def execute_filter(model_name, filter_name, iteration):
     return None
 
 def execute_expansion(model_name, expansion_name, iteration, force=False):
+  print(f'Executing expansion for model_name: {model_name}, expansion_name: {expansion_name}, iteration: {iteration}')
   path = ROOTPATH + '/processing_files/' + model_name + '_expanded_seeds_' + expansion_name + '_' + str(iteration) + '.txt'
   if not force and os.path.isfile(path):
     # print("Getting filtered entities from file")

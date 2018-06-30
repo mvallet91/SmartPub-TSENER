@@ -4,6 +4,7 @@ import sys
 import nltk
 import gensim
 
+import random
 from numbers import Number
 from elasticsearch import Elasticsearch
 from nltk.corpus import stopwords
@@ -103,7 +104,7 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def generic_named_entities(file_path, random_sample=False, sample_size=1000):
+def generic_named_entities(file_path, filter, random_sampling=True, sample_size=1000):
     """
     Obtains the generic entities from the sentences provided. This is because for the expansion strategies
     we only consider terms terms which are likely to be named entities by using NLTK entity detection, instead
@@ -116,10 +117,14 @@ def generic_named_entities(file_path, random_sample=False, sample_size=1000):
     print('Started to extract generic named entity from sentences...')
 
     sentences = nltk.sent_tokenize(text)
-    print(len(sentences))
-    sentences = numpy.array(sentences).random_sample((sample_size,)).tolist()
-    print(len(sentences))
-    print(sentences[0:10])
+
+    if random_sampling: 
+        if filter == 'mv_coner': 
+            len_majority = len(open("_".join(file_path.split("_")[0:-2] + ['majority.txt']), 'r', encoding='utf-8').readlines())
+            len_mv_coner = len(open("_".join(file_path.split("_")[0:-2] + ['mv_coner.txt']), 'r', encoding='utf-8').readlines())
+            sample_size = int(sample_size * (len_mv_coner/float(len_majority)))
+
+        sentences = [sentences[i] for i in sorted(random.sample(range(len(sentences)), sample_size))]
 
     tokenized_sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
     tagged_sentences = [nltk.pos_tag(sentence) for sentence in tokenized_sentences]
@@ -131,9 +136,8 @@ def generic_named_entities(file_path, random_sample=False, sample_size=1000):
         x+=1
         if x % 1000 == 0:
             print('.', end='')
-    print('Finished processing sentences with', len(entity_names), 'new possible entities')
+    print(f'Finished processing {len(sentences)} sentences with {len(entity_names)} new possible entities (random_sampling: {random_sampling})')
     return entity_names
-
 
 def extract_entity_word(t):
     """
@@ -160,7 +164,7 @@ def term_expansion(model_name: str, training_cycle: int, wordvector_path: str=RO
     """
     print('Starting term expansion')
     unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_majority.txt')
-    all_entities = generic_named_entities(unlabelled_sentences_file)
+    all_entities = generic_named_entities(unlabelled_sentences_file, 'majority')
     seed_entities = []
 
     # Extract seed entities
@@ -231,7 +235,7 @@ def term_expansion(model_name: str, training_cycle: int, wordvector_path: str=RO
     for item in expanded_terms:
         f.write("%s\n" % item)
 
-    print('Added', len(expanded_terms), 'expanded terms')
+    print(f'Number expanded seed terms (distinct): {len(expanded_terms)}')
 
     return expanded_terms
 
@@ -326,7 +330,7 @@ def coner_term_expansion(model_name: str, training_cycle: int, wordvector_path: 
     """
     print(f'Starting Coner term expansion for model {model_name} and iteration {training_cycle}')
     unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_mv_coner.txt')
-    all_entities = generic_named_entities(unlabelled_sentences_file)
+    all_entities = generic_named_entities(unlabelled_sentences_file, 'mv_coner')
     seed_entities = []
 
     # Add the entities that are relevant determined by Coner
@@ -407,7 +411,7 @@ def coner_term_expansion(model_name: str, training_cycle: int, wordvector_path: 
     for item in expanded_terms:
         f.write("%s\n" % item)
 
-    print('Added', len(expanded_terms), 'expanded terms')
+    print(f'Number expanded seed terms + expanded Coner terms (distinct): {len(expanded_terms)}')
     return expanded_terms
 
 def coner_term_expansion_separate_clustering(model_name: str, training_cycle: int, wordvector_path: str=ROOTPATH + "/embedding_models/modelword2vecbigram.vec") -> None:
@@ -419,7 +423,7 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
     """
     print(f'Starting Coner term expansion (separate clustering) for model {model_name} and iteration {training_cycle}')
     unlabelled_sentences_file = (ROOTPATH + '/processing_files/' + model_name + '_sentences_' + str(training_cycle) + '_mv_coner.txt')
-    all_entities = generic_named_entities(unlabelled_sentences_file)
+    all_entities = generic_named_entities(unlabelled_sentences_file, 'mv_coner')
 
     seed_entities = []
 
@@ -484,8 +488,9 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
             except:
                 continue
 
+    expanded_terms1 = list(set(expanded_terms1))
     expanded_terms = list(set(expanded_terms + expanded_terms1))
-    print(f'Clustering of expanded seed terms result in {len(expanded_terms1)} new terms')
+    print(f'Clustering of expanded TSE-NER seed terms result in {len(expanded_terms1)} new terms')
 
     # Clustering using Coner entitites that labelled as 'relevant' by majority of users
     rel_scores = read_coner_overview(model_name, data_date)
@@ -525,11 +530,11 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
             except:
                 continue
 
-
+    expanded_terms2 = list(set(expanded_terms2))
     expanded_terms = list(set(expanded_terms + expanded_terms2))
 
     print(f'Clustering of expanded Coner terms result in {len(expanded_terms2)} new term (distinct)')
-    print(f'Number expanded seed terms + expanded Coner terms (distinct): {len(expanded_terms)}')
+    print(f'Number expanded TSE-NER seed terms + expanded Coner terms (distinct): {len(expanded_terms)}')
 
     path = (ROOTPATH + '/processing_files/' + model_name + '_expanded_seeds_' + str(training_cycle) + '.txt')
     f = open(path, 'w', encoding='utf-8')
