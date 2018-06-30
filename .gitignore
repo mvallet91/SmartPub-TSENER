@@ -11,6 +11,7 @@ data/content_xml/
 data/tudelft_repo_xml/
 full_corpus_models/
 processing_files_embedding_models_small/
+processing_files_before_word2vec_improvement/
 embedding_models_small/
 
 

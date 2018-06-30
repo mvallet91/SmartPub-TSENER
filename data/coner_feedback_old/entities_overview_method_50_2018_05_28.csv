@@ -1,0 +1,453 @@
+entity,relevance,relevance_score,ratings_relevant,ratings_total,type
+10-foldcross validation,neutral,0.5,1,2,selected
+4.7million events,irrelevant,0.0,0,4,selected
+abc news,irrelevant,0.0,0,3,selected
+acyclic subgraph,relevant,0.6,3,5,generated
+admin,irrelevant,0.0,0,6,generated
+aic,neutral,1.0,1,1,selected
+akaike information criterion,neutral,0.5,1,2,selected
+algorithm,neutral,0.5,1,2,selected
+algorithm proceeds,irrelevant,0.25,1,4,generated
+alignment tem-plate approach,relevant,1.0,6,6,selected
+allfacebook,irrelevant,0.0,0,3,selected
+although,irrelevant,0.0,0,21,generated
+and,irrelevant,0.0,0,7,generated
+anyone,irrelevant,0.0,0,5,generated
+articlestuple,irrelevant,0.0,0,3,generated
+author elements,irrelevant,0.0,0,3,generated
+author simply,irrelevant,0.0,0,3,generated
+bagging,relevant,1.0,6,6,selected
+balancedet,relevant,0.67,2,3,selected
+bandit algorithm π,relevant,1.0,4,4,selected
+barrapunto,irrelevant,0.0,0,2,generated
+bayes decision,relevant,0.6,3,5,generated
+bayes’ decision rule,relevant,1.0,2,2,selected
+bbc news,irrelevant,0.0,0,3,selected
+being evaluated,irrelevant,0.2,1,5,generated
+bilinear lo-gistic regression mode,relevant,0.8,4,5,selected
+binary clas-sification,neutral,1.0,1,1,selected
+binary classification,relevant,1.0,3,3,selected
+blogmaver-ick,irrelevant,0.0,0,2,selected
+bloomberg,irrelevant,0.0,0,3,selected
+bugzilla,irrelevant,0.0,0,6,generated
+buneman,irrelevant,0.0,0,3,generated
+christian science monitor,irrelevant,0.0,0,3,selected
+classification,relevant,1.0,7,7,selected
+close together,irrelevant,0.0,0,3,generated
+codd,irrelevant,0.0,0,2,generated
+collaborative filtering,relevant,1.0,5,5,selected
+combined complexity,irrelevant,0.0,0,3,generated
+combining probdt,irrelevant,0.2,1,5,generated
+common labels,irrelevant,0.0,0,3,generated
+common principles,irrelevant,0.17,1,6,generated
+comparable results,irrelevant,0.0,0,6,generated
+compare different,irrelevant,0.17,1,6,generated
+compared algorithms,irrelevant,0.4,2,5,generated
+comparing solutions,irrelevant,0.0,0,4,generated
+comparison results,irrelevant,0.0,0,5,generated
+competing algorithms,relevant,0.67,4,6,generated
+complexity results,irrelevant,0.0,0,3,generated
+computed separately,irrelevant,0.33,2,6,generated
+computing sites,irrelevant,0.0,0,6,generated
+consuela washington,irrelevant,0.0,0,4,generated
+content-based filtering,relevant,1.0,2,2,selected
+corporate suffixes,irrelevant,0.25,1,4,generated
+correlated interactions,irrelevant,0.0,0,4,generated
+cosine distances,relevant,0.67,2,3,generated
+cspan,irrelevant,0.0,0,3,selected
+ctrs,relevant,0.8,4,5,generated
+data base,irrelevant,0.0,0,2,generated
+data collection,irrelevant,0.17,1,6,generated
+data mining,relevant,1.0,4,4,selected
+data set,irrelevant,0.0,0,10,generated
+dataset,irrelevant,0.0,0,11,generated
+datasets,irrelevant,0.0,0,6,generated
+dblp,irrelevant,0.0,0,4,generated
+dbs,relevant,1.0,3,3,selected
+dbs combining,relevant,0.83,5,6,generated
+decision rule,neutral,0.5,2,4,generated
+decision rules,neutral,0.5,2,4,generated
+decision support,relevant,0.8,4,5,generated
+decision tree,relevant,0.67,6,9,generated
+defining relationships,irrelevant,0.0,0,3,generated
+described above,irrelevant,0.0,0,8,generated
+described below,irrelevant,0.0,0,4,generated
+described simply,irrelevant,0.0,0,4,generated
+determine whether,irrelevant,0.0,0,3,generated
+diagonal elements,neutral,0.0,0,1,generated
+different arms,irrelevant,0.0,0,5,generated
+different articles,irrelevant,0.0,0,3,generated
+different combination,irrelevant,0.17,1,6,generated
+different formulations,irrelevant,0.2,1,5,generated
+different places,irrelevant,0.0,0,3,generated
+different relationship,irrelevant,0.33,1,3,generated
+different sections,irrelevant,0.0,0,6,generated
+diffusion process,neutral,0.0,0,1,generated
+digg,irrelevant,0.0,0,7,generated
+digg interfaces,irrelevant,0.0,0,4,generated
+digg’s promotion algorithm,relevant,1.0,2,2,selected
+dimensionality reduction,relevant,1.0,6,6,generated
+direct maximum entropy models,relevant,1.0,2,2,selected
+disjoint linear,irrelevant,0.4,2,5,generated
+disjoint linear models,relevant,0.67,2,3,selected
+diversitybased summarization,relevant,1.0,3,3,selected
+document frequency,neutral,1.0,1,1,generated
+dynamic offline interconnection indexing,relevant,1.0,3,3,selected
+dynamic programming,irrelevant,0.0,0,2,generated
+dynamic programming algorithm,relevant,1.0,5,5,selected
+eigenvalue decomposition,relevant,1.0,3,3,selected
+elements storing,irrelevant,0.0,0,2,generated
+else,irrelevant,0.0,0,5,generated
+entities mentioned,irrelevant,0.0,0,6,generated
+epinions,irrelevant,0.0,0,7,generated
+equivalently,irrelevant,0.0,0,10,generated
+euclidean distance,relevant,0.67,2,3,selected
+evaluation data,irrelevant,0.0,0,3,selected
+evaluation method,neutral,0.5,3,6,generated
+evaluation problem,irrelevant,0.0,0,5,generated
+evaluation results,neutral,0.0,0,1,generated
+everything,irrelevant,0.0,0,5,generated
+execution time,irrelevant,0.0,0,3,generated
+exp3,relevant,1.0,5,5,selected
+exp4algorithm,relevant,1.0,5,5,selected
+experimental results,irrelevant,0.0,0,3,generated
+facebook blog,irrelevant,0.0,0,3,selected
+fans minus,irrelevant,0.0,0,3,generated
+fans minus freaks,relevant,0.67,2,3,selected
+feature gave,irrelevant,0.0,0,4,generated
+feedzilla,irrelevant,0.1,1,10,generated
+firstmonday,irrelevant,0.0,0,3,selected
+flickr,irrelevant,0.0,0,4,generated
+fmf,neutral,0.5,1,2,selected
+friends interface,irrelevant,0.0,0,5,generated
+front page,irrelevant,0.0,0,5,generated
+galax xquery engine,relevant,1.0,3,3,selected
+gaussian kernel,neutral,0.5,3,6,generated
+general cost model,relevant,1.0,2,2,selected
+generalized iterative scaling,relevant,1.0,6,6,selected
+gis,relevant,1.0,2,2,selected
+google blog,irrelevant,0.0,0,3,selected
+google news,irrelevant,0.0,0,3,selected
+graph kernels,relevant,1.0,4,4,selected
+guha,irrelevant,0.0,0,7,generated
+hashtable,relevant,0.67,2,3,generated
+hdvs,neutral,0.0,0,1,generated
+hdvss,irrelevant,0.4,2,5,generated
+hdvs’,irrelevant,0.25,1,4,selected
+high dimensionality,irrelevant,0.0,0,7,generated
+high-dimensional data,irrelevant,0.0,0,2,selected
+high-dimensional vector space,irrelevant,0.25,1,4,selected
+hits,relevant,1.0,4,4,selected
+hotel,irrelevant,0.0,0,6,selected
+huberman,irrelevant,0.0,0,8,generated
+huff-ington post,irrelevant,0.0,0,2,selected
+identical probability,irrelevant,0.0,0,5,generated
+identify principles,irrelevant,0.17,1,6,generated
+identifying trolls,neutral,0.0,0,1,generated
+igned spectral ranking,relevant,1.0,3,3,selected
+igned symmetric spectral ranking,neutral,0.5,1,2,selected
+incrementally,irrelevant,0.2,1,5,generated
+independent conditioned,irrelevant,0.25,1,4,generated
+index corresponding,irrelevant,0.33,1,3,generated
+index structure,irrelevant,0.0,0,4,generated
+indexing method,relevant,0.75,3,4,generated
+information retrieval,relevant,1.0,3,3,generated
+initcaps,irrelevant,0.25,1,4,generated
+initial condition,irrelevant,0.0,0,4,generated
+interconnection index,irrelevant,0.33,1,3,generated
+interconnection indexing,relevant,1.0,3,3,generated
+interconnection relationship,relevant,0.67,2,3,generated
+inverse document fre-quency,relevant,1.0,3,3,selected
+issuestuple,irrelevant,0.0,0,3,generated
+iterative scaling,relevant,1.0,3,3,generated
+j48 decision trees,relevant,1.0,3,3,selected
+k nearest neighbor,relevant,1.0,5,5,selected
+k-means clustering,relevant,1.0,2,2,selected
+k-nearest neighbor,neutral,1.0,1,1,selected
+k-nearest neighbors,relevant,0.75,3,4,selected
+k-nearest neighbors (knn) regression,neutral,1.0,1,1,selected
+karhunen-loeve transformation,relevant,1.0,2,2,selected
+keyword,irrelevant,0.0,0,4,generated
+keywords,irrelevant,0.0,0,3,generated
+kleinberg,irrelevant,0.0,0,7,generated
+knn,relevant,0.75,3,4,selected
+language model,relevant,0.57,4,7,generated
+language models,relevant,0.67,2,3,generated
+laplacian,neutral,0.5,1,2,generated
+laplacian graph kernels,relevant,1.0,4,4,selected
+laplacian pca,relevant,1.0,3,3,selected
+large data,irrelevant,0.0,0,3,generated
+leav-ing out one feature,irrelevant,0.33,1,3,selected
+leskovec,irrelevant,0.0,0,7,generated
+lin-ear regression,relevant,1.0,4,4,selected
+linear models,relevant,0.75,3,4,generated
+linear regression,relevant,1.0,3,3,selected
+linucb,relevant,1.0,10,10,generated
+linucb algorithm,relevant,1.0,5,5,generated
+list of,irrelevant,0.0,0,3,generated
+locsen,irrelevant,0.2,1,5,generated
+locwithinpar,irrelevant,0.0,0,3,generated
+log-log distribution,relevant,0.6,3,5,selected
+logarithmic factors,irrelevant,0.25,1,4,generated
+logarithmic transformation,relevant,1.0,5,5,selected
+logical databases,irrelevant,0.0,0,3,generated
+logistic regression,relevant,0.91,10,11,generated
+logistic regression model,relevant,1.0,2,2,selected
+long-tail distribution,irrelevant,0.25,1,4,selected
+longtime house,irrelevant,0.0,0,4,generated
+los angeles times,irrelevant,0.0,0,3,selected
+low-pass filter,relevant,0.67,2,3,selected
+lower bounds,irrelevant,0.0,0,5,generated
+lower status,irrelevant,0.0,0,7,generated
+lowest common,irrelevant,0.0,0,3,generated
+m-tree,relevant,1.0,6,6,selected
+machine learning,relevant,1.0,14,14,generated
+machine-learning,relevant,1.0,4,4,selected
+machine-learning framework,relevant,1.0,4,4,selected
+mark cuban’s blog,irrelevant,0.0,0,2,selected
+marketing blogs,irrelevant,0.0,0,3,selected
+markov process,relevant,1.0,2,2,generated
+markov processes,relevant,1.0,2,2,selected
+mashabl,irrelevant,0.0,0,2,selected
+mashable,neutral,0.0,0,1,selected
+matrix exponential,irrelevant,0.0,0,2,generated
+maxans,irrelevant,0.33,1,3,generated
+maximum acyclic subgraph,relevant,0.8,4,5,selected
+maximum cut,relevant,0.75,3,4,generated
+maximum entropy,relevant,0.83,10,12,generated
+meaningfully related,irrelevant,0.0,0,4,generated
+measureable,irrelevant,0.0,0,5,generated
+message understanding,irrelevant,0.25,1,4,generated
+mixed case ner,relevant,1.0,2,2,selected
+mner,relevant,1.0,5,5,generated
+model summarizes,irrelevant,0.25,1,4,generated
+modular system,irrelevant,0.33,1,3,generated
+mondial,irrelevant,0.0,0,3,generated
+monte carlo simulations,relevant,1.0,4,4,selected
+monte-carlo method,relevant,1.0,3,3,selected
+muc-6,relevant,0.6,3,5,selected
+muc7,relevant,0.6,3,5,generated
+multiarmed,irrelevant,0.0,0,3,generated
+multiple accounts,neutral,0.0,0,1,generated
+multiple domains,irrelevant,0.0,0,6,generated
+multiplicative transitivity,irrelevant,0.0,0,3,generated
+naive bayes,relevant,1.0,3,3,selected
+named entities,irrelevant,0.25,3,12,generated
+named entity recognition,relevant,1.0,2,2,selected
+natural language toolkit,relevant,1.0,4,4,selected
+nearest neighbor,relevant,1.0,7,7,generated
+nearest neighbor search,relevant,1.0,9,9,selected
+negative edges,neutral,0.5,2,4,selected
+ner,relevant,1.0,2,2,selected
+ners,relevant,1.0,5,5,generated
+network analysis,relevant,1.0,2,2,generated
+network data,irrelevant,0.0,0,5,generated
+network modeling,relevant,1.0,2,2,generated
+new york times,irrelevant,0.0,0,3,selected
+news,irrelevant,0.0,0,3,selected
+news agency,neutral,0.0,0,1,selected
+news article,irrelevant,0.0,0,5,selected
+news feed,irrelevant,0.0,0,5,selected
+news source,irrelevant,0.0,0,6,generated
+newsknife,irrelevant,0.0,0,4,selected
+nn-search,relevant,1.0,5,5,selected
+objective function,irrelevant,0.25,1,4,generated
+observations concerning,irrelevant,0.0,0,5,generated
+offline,irrelevant,0.0,0,8,generated
+offline evaluation,relevant,0.67,4,6,generated
+onecap,irrelevant,0.25,1,4,generated
+online indexing method,relevant,1.0,4,4,selected
+online news feed,irrelevant,0.0,0,5,selected
+others,irrelevant,0.0,0,12,generated
+page stories,irrelevant,0.0,0,4,generated
+pagerank,relevant,1.0,4,4,generated
+parallel training corpus,irrelevant,0.0,0,3,selected
+part of,irrelevant,0.0,0,18,generated
+path index,irrelevant,0.0,0,3,generated
+pca,relevant,1.0,3,3,selected
+pentium,irrelevant,0.0,0,3,generated
+personalize content,irrelevant,0.0,0,5,generated
+personalized web,irrelevant,0.2,1,5,generated
+positive edge,neutral,0.0,0,1,generated
+positive edges,irrelevant,0.43,3,7,generated
+positive links,irrelevant,0.17,1,6,generated
+positive relationships,irrelevant,0.43,3,7,generated
+positive sign,irrelevant,0.0,0,6,generated
+positive values,irrelevant,0.0,0,3,generated
+predic-tions,irrelevant,0.0,0,3,selected
+present results,irrelevant,0.0,0,6,generated
+previous procedure,relevant,0.6,3,5,generated
+previous subsection,irrelevant,0.0,0,5,generated
+principal component analysis,relevant,1.0,3,3,selected
+probabilistic decision,relevant,0.6,3,5,generated
+probabilistic decision tree,relevant,1.0,2,2,selected
+probabilistic description,irrelevant,0.25,1,4,generated
+probabilistic transitions,neutral,0.5,2,4,generated
+probabilisticdecision tree,relevant,1.0,2,2,selected
+probability distributions,irrelevant,0.4,2,5,generated
+probdt,relevant,1.0,8,8,generated
+probdts,relevant,1.0,4,4,generated
+problem arises,irrelevant,0.0,0,3,generated
+procedure presented,irrelevant,0.33,1,3,generated
+promotion algorithm,relevant,1.0,4,4,selected
+provide different,irrelevant,0.0,0,6,generated
+pseudocode,irrelevant,0.2,1,5,generated
+query execution,irrelevant,0.0,0,3,generated
+query processing,relevant,1.0,3,3,generated
+query results,irrelevant,0.0,0,3,generated
+query semantics,irrelevant,0.33,1,3,generated
+r-tree,relevant,1.0,6,6,selected
+rate equations,irrelevant,0.0,0,4,generated
+recently changed,irrelevant,0.0,0,5,generated
+recommendation systems,relevant,1.0,2,2,selected
+recommender systems,neutral,0.0,0,1,generated
+rectangular mbrs,relevant,0.67,2,3,generated
+regression,relevant,1.0,6,6,selected
+regression algorithms,relevant,1.0,3,3,selected
+regression model,relevant,0.67,2,3,generated
+regression provides,irrelevant,0.17,1,6,generated
+reinforcement learning,relevant,1.0,6,6,generated
+related work,irrelevant,0.0,0,27,generated
+relationship considered,irrelevant,0.0,0,3,generated
+result provides,irrelevant,0.0,0,6,generated
+resulting index,irrelevant,0.0,0,3,generated
+retweeted,irrelevant,0.0,0,6,generated
+reuters,irrelevant,0.0,0,3,selected
+search problems,irrelevant,0.0,0,5,generated
+search term,irrelevant,0.0,0,3,generated
+semantic knowledge,irrelevant,0.33,1,3,generated
+semantic search,relevant,0.75,3,4,generated
+semantics combined,irrelevant,0.0,0,3,generated
+seth godin’s weblog,irrelevant,0.0,0,2,selected
+sigmod,irrelevant,0.33,1,3,generated
+sigmod record,irrelevant,0.4,2,5,generated
+signed clustering,irrelevant,0.0,0,2,generated
+signed clustering coefficient,relevant,1.0,2,2,selected
+signed networks,relevant,0.75,3,4,selected
+signed symmetric spectral ranking,neutral,1.0,1,1,selected
+similar algorithms,relevant,0.67,4,6,generated
+similar applications,irrelevant,0.2,1,5,generated
+similar situations,irrelevant,0.0,0,4,generated
+similar structural,irrelevant,0.0,0,4,generated
+similarity function,neutral,0.0,0,1,generated
+similarity functions,neutral,0.0,0,1,generated
+similarity measures,neutral,0.5,2,4,generated
+similarity search,relevant,1.0,7,7,generated
+similarity value,irrelevant,0.0,0,2,generated
+similarity-search,relevant,1.0,3,3,selected
+simple processes,irrelevant,0.25,1,4,generated
+simply describing,irrelevant,0.0,0,4,generated
+slash,neutral,0.5,1,2,selected
+slashdot,irrelevant,0.0,0,11,generated
+slashdot zoo corpus,irrelevant,0.0,0,2,selected
+social computing,irrelevant,0.4,2,5,generated
+social media,irrelevant,0.07,1,14,generated
+social network,irrelevant,0.18,2,11,generated
+social network analysis techniques,relevant,1.0,2,2,selected
+social networking,neutral,0.0,0,1,generated
+social networks,irrelevant,0.1,2,21,generated
+source software,irrelevant,0.0,0,5,generated
+source-channel approach,relevant,1.0,3,3,selected
+space-partitioning methods,relevant,1.0,3,3,selected
+specific choices,irrelevant,0.0,0,4,generated
+specific difficulties,irrelevant,0.0,0,5,generated
+specific problems,irrelevant,0.0,0,5,generated
+spectral ranking,relevant,1.0,2,2,generated
+speech translation,irrelevant,0.17,1,6,generated
+spherical mbrs,relevant,0.67,2,3,generated
+squared adjacency,neutral,0.0,0,1,generated
+sr,relevant,1.0,2,2,selected
+ssdt,relevant,1.0,5,5,generated
+ssr,neutral,1.0,1,1,selected
+stanford-ner entity extraction tool,relevant,1.0,2,2,selected
+state corresponds,irrelevant,0.0,0,4,generated
+statistical physics,neutral,0.5,2,4,generated
+statusdet,neutral,1.0,1,1,selected
+stochastic model,relevant,1.0,5,5,generated
+stochastic models,relevant,1.0,10,10,generated
+structural prediction,irrelevant,0.17,1,6,generated
+structural relationships,irrelevant,0.0,0,2,generated
+subgraph,irrelevant,0.4,2,5,generated
+subgraphs,irrelevant,0.0,0,5,generated
+subjectivity classifier,relevant,1.0,4,4,selected
+subspace splitting decision tree,relevant,1.0,2,2,selected
+subtrees,irrelevant,0.33,1,3,generated
+supervised ranking,relevant,1.0,2,2,selected
+support vector machine,relevant,1.0,4,4,selected
+support vector machine (svm) classifica-tion,relevant,1.0,3,3,selected
+support vector machine (svm) regression,relevant,1.0,2,2,selected
+svd,relevant,1.0,3,3,selected
+svm,relevant,1.0,3,3,selected
+svm regression,relevant,1.0,3,3,selected
+symmetric relationship,irrelevant,0.33,1,3,generated
+system configuration,irrelevant,0.0,0,5,generated
+system description,irrelevant,0.0,0,5,generated
+system efficiency,irrelevant,0.0,0,3,generated
+system generated,irrelevant,0.0,0,3,generated
+t svm classification,relevant,1.0,3,3,selected
+t-density,irrelevant,0.0,0,2,selected
+term frequency,relevant,1.0,3,3,generated
+test set,irrelevant,0.0,0,2,generated
+text summarization,relevant,1.0,2,2,selected
+tfidf,relevant,1.0,5,5,generated
+thechristian science monitor,irrelevant,0.0,0,2,selected
+topsy,relevant,0.8,4,5,selected
+toward,irrelevant,0.0,0,7,generated
+traditional source,irrelevant,0.0,0,3,selected
+transcript,irrelevant,0.0,0,2,selected
+transcripts from cspan,irrelevant,0.0,0,2,selected
+transcripts from well-knowntv and radio shows belonging to rush limbaugh4and keith,irrelevant,0.0,0,3,selected
+translation model,relevant,1.0,6,6,generated
+translation probability,irrelevant,0.25,1,4,generated
+tuples,irrelevant,0.0,0,8,generated
+tweet,irrelevant,0.0,0,5,selected
+twitter,irrelevant,0.15,2,13,selected
+twitter dataset,irrelevant,0.0,0,3,selected
+twitter hashtags,irrelevant,0.0,0,3,selected
+twitter search,irrelevant,0.0,0,3,generated
+ucb,relevant,1.0,3,3,selected
+ucb1,relevant,1.0,6,6,generated
+uniformly distributed,irrelevant,0.17,1,6,generated
+uppercase ner,relevant,1.0,2,2,selected
+usa today,irrelevant,0.0,0,3,selected
+used search algorithm,neutral,0.5,1,2,selected
+various digg,irrelevant,0.25,1,4,generated
+vector space,relevant,0.67,2,3,generated
+vector space mode,neutral,1.0,1,1,selected
+vector space model,relevant,1.0,4,4,selected
+verbmobil,irrelevant,0.43,3,7,generated
+versa,irrelevant,0.0,0,5,generated
+very large,irrelevant,0.0,0,6,generated
+very large data base,irrelevant,0.0,0,3,selected
+vianu,irrelevant,0.0,0,3,generated
+visitors proceed,irrelevant,0.0,0,4,generated
+vldb,neutral,0.5,4,8,generated
+vldb conference,irrelevant,0.2,1,5,generated
+wall street jour-nal,irrelevant,0.0,0,2,selected
+wall street journal,neutral,0.0,0,1,selected
+washington post,irrelevant,0.0,0,3,selected
+weakbalance,relevant,0.67,2,3,selected
+web services,neutral,0.5,3,6,generated
+whenever,irrelevant,0.0,0,5,generated
+whereas,irrelevant,0.0,0,14,generated
+whereas keywords,irrelevant,0.0,0,2,generated
+whether,irrelevant,0.0,0,27,generated
+wikipedia,irrelevant,0.0,0,17,generated
+wikipedia dataset,irrelevant,0.0,0,2,selected
+windows xp,irrelevant,0.0,0,3,generated
+without,irrelevant,0.0,0,16,generated
+word penalty,irrelevant,0.4,2,5,generated
+world wide,neutral,0.0,0,1,generated
+x-tree,relevant,1.0,6,6,selected
+xml,irrelevant,0.33,1,3,generated
+xml documents,irrelevant,0.0,0,3,selected
+xquery,relevant,0.67,2,3,generated
+xrank,relevant,0.75,3,4,generated
+xsearch,relevant,1.0,5,5,generated
+xsearch implementation,relevant,0.67,2,3,generated
+xsearch system,relevant,0.8,4,5,generated
+yahoo! front page today module,irrelevant,0.0,0,5,selected
+yahoo! today-module,neutral,0.5,1,2,selected
+youtube,irrelevant,0.0,0,5,generated
+ǫ-greedy,relevant,1.0,2,2,selected
+π,relevant,1.0,5,5,selected

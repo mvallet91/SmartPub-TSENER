@@ -4,6 +4,7 @@ import os
 from m1_preprocessing import seed_data_extraction, term_sentence_expansion, training_data_generation, ner_training
 from m1_postprocessing import extract_new_entities,filtering
 from config import ROOTPATH, data_date
+import time
 
 model_names = ['dataset_50', 'method_50']
 
@@ -43,7 +44,7 @@ def evaluate_filters():
     filter_results.append(['Coner Human Feedback', execute_filter(model_name, 'coner', filter_iteration)])
 
     filter_results.append(['Coner Human Feedback + Ensemble Majority Vote', execute_filter(model_name, 'mv_coner', filter_iteration)])
-
+    
     print(f'{model_name}: Entities evaluated by Coner: {len(rel_scores.keys())}')
     print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
 
@@ -64,6 +65,8 @@ def evaluate_filters():
 
 def evaluate_expansion():
   force = True
+  
+  start = time.time()
 
   # Generate data statistics for expansion
   print("\n\n################################")
@@ -77,8 +80,14 @@ def evaluate_expansion():
     nr_seeds = len(read_seeds(model_name, expansion_iteration, 'majority'))
 
     expansion_results.append(['Term Expansion', execute_expansion(model_name, 'te', expansion_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start')
+
     expansion_results.append(['Term Expansion + Coner Expansion', execute_expansion(model_name, 'tece', expansion_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start')
+
     expansion_results.append(['Term Expansion + Coner Expansion (Separate Clustering)', execute_expansion(model_name, 'tecesc', expansion_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start')
+
 
     print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
     print(f'{model_name}: Coner entities of type "selected" and rated as "relevant: {nr_added_entities}')

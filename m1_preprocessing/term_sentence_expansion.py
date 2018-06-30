@@ -45,18 +45,53 @@ def build_word_vector_matrix(vector_file, proper_nouns, model_name):
     """
     numpy_arrays = []
     labels_array = []
+    vector_words = []
+
+    labels_obj = {}
+
     with codecs.open(vector_file, 'r', 'utf-8') as f:
         for c, r in enumerate(f):
             sr = r.split()
+            vector_words.append(sr[0].lower())
+            labels_obj[sr[0]] = [float(i) for i in sr[1:]]
+
             try:
-                if sr[0] in proper_nouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
-                        'english') and model_name not in sr[0].lower():
+                if sr[0] in proper_nouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words('english') and model_name not in sr[0].lower():
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
                 continue
-    return numpy.array(numpy_arrays), labels_array
+    
+    word2vec_labels = len(labels_array)
+    input_array = [label for label in proper_nouns if len(label.split("_")) > 1]
+    vec_array = [label for label in labels_array if len(label.split("_")) > 1]
 
+    # Construct vector for entities that are bigrams and don't appear in word2vec file,
+    # by taking average of each dimension for all unigrams entities consists of
+    added_counter = 0
+    for entity in input_array:
+        words = entity.split("_")
+        not_found = False
+
+        if len(words) > 1 and entity.lower() not in vector_words:
+            vectors = numpy.zeros(len(numpy_arrays[0]))
+            for word in words:
+                if not_found: continue
+                if not word in labels_obj.keys():
+                    # print(f'"{word}" unigram from "{entity}" not in word2vec')
+                    not_found = True
+                else:
+                    vectors = vectors + numpy.array(labels_obj[word])
+
+            if not not_found:
+                added_counter +=1
+                vector = vectors/float(len(words))
+                labels_array.append(entity.lower())
+                numpy_arrays.append(numpy.array([float(i) for i in vector]))
+
+    print(f'#bigrams constructed & added to word2vec: {added_counter} out of {len(input_array)} total bigrams (entities: {word2vec_labels} -> {len(labels_array)})')
+
+    return numpy.array(numpy_arrays), labels_array
 
 def find_word_clusters(labels_array, cluster_labels):
     """
@@ -68,7 +103,7 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def generic_named_entities(file_path):
+def generic_named_entities(file_path, random_sample=False, sample_size=1000):
     """
     Obtains the generic entities from the sentences provided. This is because for the expansion strategies
     we only consider terms terms which are likely to be named entities by using NLTK entity detection, instead
@@ -79,7 +114,13 @@ def generic_named_entities(file_path):
     unlabelled_sentence_file = open(file_path, 'r', encoding='utf-8')
     text = unlabelled_sentence_file.read()
     print('Started to extract generic named entity from sentences...')
+
     sentences = nltk.sent_tokenize(text)
+    print(len(sentences))
+    sentences = numpy.array(sentences).random_sample((sample_size,)).tolist()
+    print(len(sentences))
+    print(sentences[0:10])
+
     tokenized_sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
     tagged_sentences = [nltk.pos_tag(sentence) for sentence in tokenized_sentences]
     chunked_sentences = nltk.ne_chunk_sents(tagged_sentences, binary=True)
@@ -299,12 +340,12 @@ def coner_term_expansion(model_name: str, training_cycle: int, wordvector_path: 
             all_entities.append(row.strip())
     seed_entities = [e.lower() for e in seed_entities]
 
-    print(f'Number seed entities: {len(seed_entities)}')
     # Append Coner entitites that labelled as 'relevant' by majority of users
-    
     seed_entities = list(set(seed_entities + list(rel_scores.keys())))
+    all_entities = list(set(all_entities + list(rel_scores.keys())))
+
+    print(f'Number seed entities (TSE-NER + Coner relevant): {len(seed_entities)}')
     print(f'Number Coner relevant entities: {len(list(rel_scores.keys()))}')
-    print(f'Number seed entities + Coner selected relevant entities (distinct entities): {len(seed_entities)}')
 
     # Replace the space between the bigram words with underscore _ (for the word2vec embedding)
     processed_entities = []
