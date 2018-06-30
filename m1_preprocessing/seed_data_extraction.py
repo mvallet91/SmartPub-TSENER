@@ -1,7 +1,7 @@
 import elasticsearch
 import nltk
 import re
-from config import ROOTPATH, data_date
+from config import ROOTPATH, data_date, nr_sentence, coner_sentence_weight
 from m1_preprocessing import term_sentence_expansion
 import sys
 
@@ -55,9 +55,10 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
     # Custom Coner expansion code to append relevant coner entities to seed entities
     if coner_expansion:
         rel_scores = term_sentence_expansion.read_coner_overview(model_name, data_date)
-        
-        seed_entities = list(set(seed_entities + list(rel_scores.keys())))
-        print(f'Number Coner relevant entities: {len(list(rel_scores.keys()))}')
+        coner_entities = list(rel_scores.keys())
+
+        seed_entities = list(set(seed_entities + coner_entities))
+        print(f'Number Coner relevant entities: {len(coner_entities)}')
         print(f'Number seed entities + Coner selected relevant entities (distinct entities): {len(seed_entities)}')
 
     print('Extracting sentences for', len(seed_entities), 'seed terms')
@@ -65,9 +66,15 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
 
     # Using the seeds, extract the sentences from the publications text in Elasticsearch index
     for entity in seed_entities:
-        # WEIGHT HERE
+        sample_size = nr_sentence
+        
+        # Weighted increase in sentece fetching for entities with Coner human feedback,
+        # because they are judged as more likely to have positive occurences of facet entities
+        # (human feedback closer to golden standard than heuristic ensemble filtering)
+        if coner_expansion and entity in coner_entities: sample_size = sample_size * coner_sentence_weight
+
         entity_name = re.sub(r'\([^)]*\)', '', entity)
-        print('.', end='')
+        # print('.', end='')
         query = {"query":
                     {"match":
                         {"content.chapter.sentpositive":
@@ -79,7 +86,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
                  }
 
         res = es.search(index="twosent", doc_type="twosentnorules",
-                        body=query, size=1000)
+                        body=query, size=sample_size)
 
         # clean up the sentences and if they don't contain the names of the test set then add them as
         # the training data
@@ -122,7 +129,7 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
     f.close()
 
     print('Process finished with', len(seed_entities), 'seeds and',
-          len(paragraph), 'sentences added for training in cycle number', str(training_cycle), f'("{filter}" filter method and model "{model_name}")')
+          len(paragraph), 'sentences added for training in cycle number', str(training_cycle), f'("{filter}" filter method and model "{model_name}")\n')
     sys.stdout.flush()
 
     return paragraph, seed_entities

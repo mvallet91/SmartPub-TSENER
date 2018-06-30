@@ -498,6 +498,9 @@ def coner_term_expansion_separate_clustering(model_name: str, training_cycle: in
 
     print(f'Number Coner selected relevant entities: {len(list(rel_scores.keys()))}')
 
+    # Use the word2vec model
+    df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities, model_name)
+    
     # We cluster all terms extracted from the sentences with respect to their embedding vectors using K-means.
     # Silhouette analysis is used to find the optimal number k of clusters. Finally, clusters that contain
     # at least one of the seed terms are considered to (only) contain entities the same type (e.g dataset).

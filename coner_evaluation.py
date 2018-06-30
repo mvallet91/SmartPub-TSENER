@@ -64,7 +64,7 @@ def evaluate_filters():
       print("{: <20} {: <50} {: <40}".format(*row))
 
 def evaluate_expansion():
-  force = True
+  force = False
   
   start = time.time()
 
@@ -99,7 +99,7 @@ def evaluate_expansion():
     table_data = []
     for results in expansion_results:
       if results is None: continue
-      table_data.append([model_name, results[0], f'{nr_seeds} -> {nr_seeds + len(results[1])} ({round(float((nr_seeds + len(results[1]))*100)/nr_seeds,1)}%)'])
+      table_data.append([model_name, results[0], f'{nr_seeds} -> {nr_seeds + len(results[1])} (+{len(results[1])}, {round(float((nr_seeds + len(results[1]))*100)/nr_seeds,1)}%)'])
 
     for row in table_data:
       print("{: <20} {: <60} {: <40}".format(*row))

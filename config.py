@@ -35,6 +35,12 @@ ROOTPATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER
 # STANFORD_NER_PATH = 'C:/Users/mvall/PycharmProjects/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 STANFORD_NER_PATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartPub-TSENER/stanford_files/stanford-ner.jar'
 
+###############################
+#     CUSTOM CONER CONFIG     #
+###############################
+
+nr_sentence = 500
+coner_sentence_weight = 10
 
 # journals we like
 # journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']

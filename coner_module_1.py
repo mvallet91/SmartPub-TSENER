@@ -21,8 +21,9 @@ es = elasticsearch.Elasticsearch([{'host': 'localhost', 'port': 9200}])
 # seeds = ['mediaeval', 'melvyl', 'jnlpba', 'wikia', 'wechat', 'wt2g', 'foldoc', 'openstreetmap', 'nasdaq', 'datahub', 'github', 'linkedgeodata', 'amazon', 'chemid', 'wikipedia', 'citebase', 'bdbcomp', 'ace04', 'gene ontology', 'movielens', 'stack overflow', 'oaister', 'umls', 'booking.com', 'duc2001', 'movierating', 'mesur', 'scovo', 'semeval', 'newsvine', 'google', 'jester', 'robust04', 'wpbench', 'cifar', 'pubchem', 'sraa', 'blog06', 'euses', 'gdelt', 'sindice', 'fedweb', 'ask.com', 'ldoce', 'ocred', 'tripadvisor', 'locuslink', 'imagenet', 'walmart', 'technorati', 'shop.com', 'quora', 'orkut', 'reddit', 'allmusic', 'dbsnp', 'ionosphere', 'letor', 'blogpulse', 'spambase', 'fbis', 'webkb', 'craigslist', 'gerbil', 'tac kbp', 'citeseerx', 'replab', 'pslnl', 'douban', 'new york times', 'algoviz', 'friendfeed', 'labelme', 'newegg', 'brightkite', 'econstor', 'dmoz.org', 'billion triple challenge', 'wikiwars', 'lexvo', 'worldcat', 'ws-353', 'facc', 'as3ap', 'moviepilot', 'refseq', 'tpc-w', 'ratebeer', 'specweb', 'wikitravel', 'twitter', 'buzzfeed', 'imageclef', 'pinterest', 'dailymed', 'kddcup', 'semcor', 'xanga', 'netflix', 'cyworld']
 
 # Facet: method
-model_name = 'method_50'
-context_words = ['method', 'algorithm', 'approach', 'evaluate']
+# model_name = 'method_50'
+context_words_obj = { 'dataset_50': ['dataset', 'corpus', 'collection', 'repository', 'benchmark'], 'method_50': ['method', 'algorithm', 'approach', 'evaluate']}
+# context_words = ['method', 'algorithm', 'approach', 'evaluate']
 # 100 seeds!
 # seeds = ['simulated annealing', 'hidden markov models', 'scoring engine', 'linear regression', 'genetic programming', 'kolmogorov-smirnov ks', 'qald', 'downhill simplex', 'regular expression', 'radial basis function network', 'recurrent neural network', 'restricted boltzmann machine', 'best-first search', 'pairwise personalized ranking', 'pairwise algorithm', 'convolutional neural network', 'selection algorithm', 'imrank', 'statistical relational', 'adarank', 'similarity search', 'game theory', 'breadth-first search', 'traditional materialized view', 'self-organizing map', 'mcmc', 'convolutional dnn', 'fourier analysis', 'tree sort', 'linkage analysis', 'pearson correlation', 'q-learning', 'dijkstra', 'cyclades', 'fuzzy clustering', 'bayesian nonparametric', 'latent semantic analysis', 'fast fourier', 'general interest model', 'clarke-tax', 'yield optimization', 'dmp method', 'query expansion', 'spectral clustering', 'transfer function', 'recursive function', 'rapid7', 'random forest', 'quicksort', 'imputation', 'hill climbing', 'likelihood function', 'dynamic programming', 'random indexing', 'skipgram', 'predictive modeling', 'deep learning', 'semantictyper', 'global collaborative ranking', 'bcdrw', 'space mapping', 'shannon entropy', 'ridge regularization', 'tagassist', 'lib*lif', 'lib+lif', 'model fitting', 'graph-based propagation', 'lstm', 'autoencoder', 'linear search', 'dbscan', 'stack search', 'folding-in', 'jump search', 'plsa', 'clir', 'random search', 'a* search', 'block sort', 'basic load control method', 'klsh', 'pattern matching', 'support vector machine', 'gpbased', 'merge sort', 'optics algorithm', 'query optimization', 'hierarchical agglomerative', 'k-means++', 'tdcm', 'semantic relevance', 'stochastic gradient descent', 'tsa algorithm', 'adaptive filter', 'genetic algorithm', 'greedy algorithm', 'kernel density estimation', 'simple random algorithm', 'ndcg-annealing']
 
@@ -35,16 +36,16 @@ filtering_kbl = True
 filtering_majority = True
 cycle = 1
 
-coner_expansion = True
-filter = 'mv_coner'
+model_names = ['dataset_50', 'method_50']
+filters = ['majority', 'mv_coner']
 
 start = time.time()
 
 def main():
-    seeds = read_initial_seeds(model_name)
+  run_sentence_extraction()
 
-    # Extract sentences using expanded terms resulting from coner
-    seed_data_extraction.sentence_extraction(model_name, cycle, seeds, filter, coner_expansion)
+  for model in model_names:
+    extract_new_entities.ne_extraction_conferences(model_name, cycle-1, sentence_expansion)
 
 # for cycle in range(training_cycles):
 #     seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
@@ -72,6 +73,19 @@ def main():
 #     print(round((time.time() - start)/60, 2), 'minutes since start')
 #     print('-'*50)
 #     print('')
+
+def run_sentence_extraction()
+  for model_name in model_names:
+    for filter in filters:
+      seeds = read_initial_seeds(model_name)
+
+      if filter == 'mv_coner':
+        coner_expansion = True
+      else:
+        coner_expansion = False
+
+      # Extract sentences using expanded terms resulting from coner
+      seed_data_extraction.sentence_extraction(model_name, cycle, seeds, filter, coner_expansion)
 
 def read_initial_seeds(model_name):
   path = ROOTPATH + '/processing_files/' + model_name + '_seeds_0.txt'
