@@ -67,11 +67,14 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
     # Using the seeds, extract the sentences from the publications text in Elasticsearch index
     for entity in seed_entities:
         sample_size = nr_sentence
+        show_result = False
         
         # Weighted increase in sentece fetching for entities with Coner human feedback,
         # because they are judged as more likely to have positive occurences of facet entities
         # (human feedback closer to golden standard than heuristic ensemble filtering)
-        if coner_expansion and entity in coner_entities: sample_size = sample_size * coner_sentence_weight
+        if coner_expansion and entity in coner_entities: 
+            sample_size = sample_size * coner_sentence_weight
+            show_result = True
 
         entity_name = re.sub(r'\([^)]*\)', '', entity)
         # print('.', end='')
@@ -88,6 +91,8 @@ def sentence_extraction(model_name: str, training_cycle: int, list_of_seeds: lis
         res = es.search(index="twosent", doc_type="twosentnorules",
                         body=query, size=sample_size)
 
+        # if show_result: print(entity, len(res['hits']['hits']))
+        
         # clean up the sentences and if they don't contain the names of the test set then add them as
         # the training data
         for doc in res['hits']['hits']:

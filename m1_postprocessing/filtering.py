@@ -64,18 +64,53 @@ def build_word_vector_matrix(vector_file, named_entities):
     """
     numpy_arrays = []
     labels_array = []
+    vector_words = []
+
+    labels_obj = {}
+
     with codecs.open(vector_file, 'r', 'utf-8') as f:
         for c, r in enumerate(f):
             sr = r.split()
+            vector_words.append(sr[0].lower())
+            labels_obj[sr[0]] = [float(i) for i in sr[1:]]
+
             try:
-                if sr[0] in named_entities and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words(
-                        'english'):
+                if sr[0] in named_entities and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words('english'):
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
                 continue
-    return numpy.array(numpy_arrays), labels_array
+    
+    word2vec_labels = len(labels_array)
+    input_array = [label for label in named_entities if len(label.split("_")) > 1]
+    vec_array = [label for label in labels_array if len(label.split("_")) > 1]
 
+    # Construct vector for entities that are bigrams and don't appear in word2vec file,
+    # by taking average of each dimension for all unigrams entities consists of
+    added_counter = 0
+    for entity in input_array:
+        words = entity.split("_")
+        not_found = False
+
+        if len(words) > 1 and entity.lower() not in vector_words:
+            vectors = numpy.zeros(len(numpy_arrays[0]))
+            for word in words:
+                if not_found: continue
+                if not word in labels_obj.keys():
+                    # print(f'"{word}" unigram from "{entity}" not in word2vec')
+                    not_found = True
+                else:
+                    vectors = vectors + numpy.array(labels_obj[word])
+
+            if not not_found:
+                added_counter +=1
+                vector = vectors/float(len(words))
+                labels_array.append(entity.lower())
+                numpy_arrays.append(numpy.array([float(i) for i in vector]))
+
+    print(f'#bigrams constructed & added to word2vec: {added_counter} out of {len(input_array)} total bigrams (word2vec entities: {word2vec_labels} -> {len(labels_array)})')
+
+    return numpy.array(numpy_arrays), labels_array
 
 def find_word_clusters(labels_array, cluster_labels):
     """
@@ -255,7 +290,7 @@ def filter_pmi(model_name, training_cycle, context):
     path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_pmi_' + str(training_cycle) + ".txt"
     f = open(path, 'w', encoding='utf-8')
     for item in results:
-        f.write("%s\n" % item)
+        f.write("%s\n" % item.replace('_', ' '))
     f.close()
     return results
 
@@ -331,6 +366,17 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordve
 
     seed_entities = [x.lower() for x in original_seeds]
     seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
+    seed_entities_bigram = []
+    for s in seed_entities_clean:
+        ss = s.split(' ')
+        if len(ss) > 1:
+            bigram = list(nltk.bigrams(s.split()))
+            for bi in bigram:
+                bi = bi[0].lower() + '_' + bi[1].lower()
+                seed_entities_bigram.append(bi)
+        else:
+            seed_entities_bigram.append(s)
+
     df, labels_array = build_word_vector_matrix(wordvector_path, processed_entities)
     sse = {}
     max_cluster = 0
@@ -349,7 +395,7 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordve
                 for word in cluster_to_words[c]:
                     counter[word] = 0
                 for word in cluster_to_words[c]:
-                    if word in seed_entities:
+                    if word in seed_entities_bigram:
                         for ww in cluster_to_words[c]:
                             results.append(ww.replace('_', ' '))
             if silhouette_score(df, cluster_labels_predicted):
@@ -375,7 +421,7 @@ def filter_st(model_name: str, training_cycle: int, original_seeds: list, wordve
                 for word in cluster_to_words[c]:
                     counter[word] = 0
                 for word in cluster_to_words[c]:
-                    if word in seed_entities:
+                    if word in seed_entities_bigram:
                         for ww in cluster_to_words[c]:
                             results.append(ww.replace('_', ' '))
             if silhouette_score(df, cluster_labels_predicted):
@@ -485,6 +531,7 @@ def filter_st_pmi_kbl_ec(model_name: str, training_cycle: int, original_seeds: l
     seed_entities = [x.lower() for x in original_seeds]
     seed_entities_clean = [s.translate(str.maketrans('', '', string.punctuation)) for s in seed_entities]
     seed_entities_bigram = []
+    
     for s in seed_entities_clean:
         ss = s.split(' ')
         if len(ss) > 1:
@@ -595,6 +642,17 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
         extracted_entities = [e.strip().lower() for e in f.readlines()]
     print('Filtering', len(extracted_entities), 'entities by vote of selected filter methods')
 
+    processed_entities = []
+    for pp in extracted_entities:
+        temp = pp.split(' ')
+        if len(temp) > 1:
+            bigram = list(nltk.bigrams(pp.split()))
+            for bi in bigram:
+                bi = bi[0].lower() + ' ' + bi[1].lower()
+                processed_entities.append(bi)
+        else:
+            processed_entities.append(pp)
+
     for filter_name in filters:
         path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_'\
                + str(training_cycle) + '.txt'
@@ -602,7 +660,7 @@ def majority_vote(model_name: str, training_cycle: int) -> None:
             max_votes += 1
             with open(path, "r") as f:
                 filtered_entities = [e.strip().lower() for e in f.readlines()]
-            for entity in extracted_entities:
+            for entity in processed_entities:
                 if entity in filtered_entities:
                     votes[entity] += 1
 
@@ -641,6 +699,9 @@ def filter_mv_coner(model_name: str, training_cycle: int) -> None:
     path = ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt'
     with open(path, "r") as f:
         extracted_entities = [e.strip().lower() for e in f.readlines()]
+
+
+
     print('Filtering', len(extracted_entities), 'entities by vote of selected filter methods')
 
     for filter_name in filters:
@@ -693,6 +754,19 @@ def filter_coner(model_name: str, training_cycle: int) -> None:
             results.append(entity)
 
     results = list(set(results))
+    processed_entities = []
+    for pp in results:
+        temp = pp.split(' ')
+        if len(temp) > 1:
+            bigram = list(nltk.bigrams(pp.split()))
+            for bi in bigram:
+                bi = bi[0].lower() + ' ' + bi[1].lower()
+                processed_entities.append(bi)
+        else:
+            processed_entities.append(pp)
+
+    results = list(set(processed_entities))
+
     print(f'Coner Filtering: {len(results)}', 'entities are kept from the total of', len(extracted_entities))
     path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_coner_' + str(training_cycle) + ".txt"
     f = open(path, 'w', encoding='utf-8')
@@ -718,14 +792,14 @@ def read_coner_overview(model_name, data_date):
 
     entity_list = [entity[0] for entity in csv_raw]
 
-    file_path2 = f'processing_files/{model_name}_extracted_entities_coner_{data_date}.txt'
-    os.makedirs(os.path.dirname(file_path2), exist_ok=True)
+    # file_path2 = f'processing_files/{model_name}_extracted_entities_coner_{data_date}.txt'
+    # os.makedirs(os.path.dirname(file_path2), exist_ok=True)
 
-    with open(file_path2, 'w+') as outputFile:
-        for entity in entity_list:
-          outputFile.write(entity+"\n")
+    # with open(file_path2, 'w+') as outputFile:
+    #     for entity in entity_list:
+    #       outputFile.write(entity+"\n")
 
-    outputFile.close()
+    # outputFile.close()
 
 
     for line in csv_raw:

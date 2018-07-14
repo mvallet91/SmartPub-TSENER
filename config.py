@@ -40,7 +40,12 @@ STANFORD_NER_PATH = '/Users/daniel/Documents/TUDelftMasterThesis/coner_v2/SmartP
 ###############################
 
 nr_sentence = 500
-coner_sentence_weight = 10
+coner_sentence_weight = 20
+
+
+# Without bigrams in entity extraction
+# nr_sentence = 500
+# coner_sentence_weight = 10
 
 # journals we like
 # journals = ['IEEE Trans. Robotics' , 'IEEE Trans. Robotics and Automation', 'IEEE J. Robotics and Automation']

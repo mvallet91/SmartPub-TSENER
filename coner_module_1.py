@@ -44,8 +44,8 @@ start = time.time()
 def main():
   run_sentence_extraction()
 
-  for model in model_names:
-    extract_new_entities.ne_extraction_conferences(model_name, cycle-1, sentence_expansion)
+  # for model_name in model_names:
+  #   extract_new_entities.ne_extraction_conferences(model_name, cycle-1, sentence_expansion)
 
 # for cycle in range(training_cycles):
 #     seed_data_extraction.sentence_extraction(model_name, cycle, seeds)
@@ -74,7 +74,7 @@ def main():
 #     print('-'*50)
 #     print('')
 
-def run_sentence_extraction()
+def run_sentence_extraction():
   for model_name in model_names:
     for filter in filters:
       seeds = read_initial_seeds(model_name)

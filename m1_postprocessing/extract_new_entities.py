@@ -14,6 +14,7 @@ filter_by_wordnet = []
 
 def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
     print('Started extraction for the', model_name, 'model, in cycle number', training_cycle)
+    bigram_counter = 0
 
     if sentence_expansion:
         path_to_model = ROOTPATH + '/crf_trained_files/' + model_name + '_TSE_model_' + str(training_cycle) + '.ser.gz'
@@ -36,7 +37,7 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
         }
 
         # Maximum size of 2100 to ensure total number of evaluation publications from 11 conferences is around 11k
-        res = es.search(index="ir_full", doc_type="publications",
+        res = es.search(index="ir", doc_type="publications",
                         body=query, size=2100)
 
         print(f'Extracting entities for {len(res["hits"]["hits"])} {conference} conference papers')
@@ -47,7 +48,7 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
         for doc in res['hits']['hits']:
             counter+=1
             if counter % 20 is 0: print(f'Tagged {counter}/' + str(len(res['hits']['hits'])), 'full texts for ' + conference)
-            sentence = doc["_source"]["content"]
+            sentence = doc["_source"]["text"]
             sentence = sentence.replace("@ BULLET", "")
             sentence = sentence.replace("@BULLET", "")
             sentence = sentence.replace(", ", " , ")
@@ -65,12 +66,13 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
             for jj, (a, b) in enumerate(tagged):
                 tag = model_name.upper()
                 if b == tag:
+
                     a = a.translate(str.maketrans('', '', string.punctuation))
                     try:
-                        if res[jj + 1][1] == tag:
-                            temp = res[jj + 1][0].translate(str.maketrans('', '', string.punctuation))
+                        if tagged[jj + 1][1] == tag:
+                            temp = tagged[jj + 1][0].translate(str.maketrans('', '', string.punctuation))
                             bigram = a + ' ' + temp
-                            print('BIGRAM:', bigram)
+                            bigram_counter +=1
                             result.append(bigram)
                     except:
                         result.append(a)
@@ -82,10 +84,9 @@ def ne_extraction_conferences(model_name, training_cycle, sentence_expansion):
     result = list(set(result))
     result = [w.replace('"', '') for w in result]
     filtered_words = [word for word in set(result) if word not in stopwords.words('english')]
-    print('Total of', len(filtered_words), 'filtered entities added')
+    print(f'Total of {len(filtered_words)} filtered entities added with {bigram_counter} bigrams')
     sys.stdout.flush()
-    f1 = open(ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt', 'w',
-              encoding='utf-8')
+    f1 = open(ROOTPATH + '/processing_files/' + model_name + '_extracted_entities_' + str(training_cycle) + '.txt', 'w', encoding='utf-8')
     for item in filtered_words:
         f1.write(item + '\n')
     f1.close()

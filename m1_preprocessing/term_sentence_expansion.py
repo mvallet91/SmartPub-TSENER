@@ -40,7 +40,7 @@ class autovivify_list(dict):
         raise ValueError
 
 
-def build_word_vector_matrix(vector_file, proper_nouns, model_name):
+def build_word_vector_matrix(vector_file, named_entities, model_name):
     """
     Read a GloVe array from sys.argv[1] and return its vectors and labels as arrays
     """
@@ -57,14 +57,14 @@ def build_word_vector_matrix(vector_file, proper_nouns, model_name):
             labels_obj[sr[0]] = [float(i) for i in sr[1:]]
 
             try:
-                if sr[0] in proper_nouns and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words('english') and model_name not in sr[0].lower():
+                if sr[0] in named_entities and not wordnet.synsets(sr[0]) and sr[0].lower() not in stopwords.words('english') and model_name not in sr[0].lower():
                     labels_array.append(sr[0])
                     numpy_arrays.append(numpy.array([float(i) for i in sr[1:]]))
             except:
                 continue
     
     word2vec_labels = len(labels_array)
-    input_array = [label for label in proper_nouns if len(label.split("_")) > 1]
+    input_array = [label for label in named_entities if len(label.split("_")) > 1]
     vec_array = [label for label in labels_array if len(label.split("_")) > 1]
 
     # Construct vector for entities that are bigrams and don't appear in word2vec file,
@@ -90,7 +90,7 @@ def build_word_vector_matrix(vector_file, proper_nouns, model_name):
                 labels_array.append(entity.lower())
                 numpy_arrays.append(numpy.array([float(i) for i in vector]))
 
-    print(f'#bigrams constructed & added to word2vec: {added_counter} out of {len(input_array)} total bigrams (entities: {word2vec_labels} -> {len(labels_array)})')
+    print(f'#bigrams constructed & added to word2vec: {added_counter} out of {len(input_array)} total bigrams (word2vec entities: {word2vec_labels} -> {len(labels_array)})')
 
     return numpy.array(numpy_arrays), labels_array
 
@@ -104,7 +104,7 @@ def find_word_clusters(labels_array, cluster_labels):
     return cluster_to_words
 
 
-def generic_named_entities(file_path, filter, random_sampling=True, sample_size=1000):
+def generic_named_entities(file_path, filter, random_sampling=False, sample_size=1000):
     """
     Obtains the generic entities from the sentences provided. This is because for the expansion strategies
     we only consider terms terms which are likely to be named entities by using NLTK entity detection, instead

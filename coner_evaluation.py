@@ -5,21 +5,28 @@ from m1_preprocessing import seed_data_extraction, term_sentence_expansion, trai
 from m1_postprocessing import extract_new_entities,filtering
 from config import ROOTPATH, data_date
 import time
+import nltk
+from nltk.corpus import stopwords
+from nltk.corpus import wordnet
 
 model_names = ['dataset_50', 'method_50']
 
-# filter_iteration = 'coner_' + data_date
-filter_iteration = 0
+filter_iteration = 'coner_' + data_date
+# filter_iteration = 0
 expansion_iteration = 1
 
-run_filters = False
-run_expansion = True
+run_filters = True
+run_expansion = False
 
 def main():
   if run_filters: evaluate_filters()
   if run_expansion: evaluate_expansion()
 
 def evaluate_filters():
+  force = False
+
+  start = time.time()
+
   # Generate data statistics for filtering
   print("\n\n#################################")
   print("##### FILTERINGS STATISTICS #####")
@@ -31,23 +38,29 @@ def evaluate_filters():
 
     nr_entities = len(read_extracted_entities(model_name, filter_iteration))
 
-    filter_results.append(['Pointwise Mutual Information', execute_filter(model_name, 'pmi', filter_iteration)])
+    filter_results.append(['Pointwise Mutual Information', execute_filter(model_name, 'pmi', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Wordnet + Stopwords', execute_filter(model_name, 'ws', filter_iteration)])
+    filter_results.append(['Wordnet + Stopwords', execute_filter(model_name, 'ws', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Similar Terms', execute_filter(model_name, 'st', filter_iteration)])
+    filter_results.append(['Similar Terms', execute_filter(model_name, 'st', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Knowledge Base Look-up', execute_filter(model_name, 'kbl', filter_iteration)])
+    filter_results.append(['Knowledge Base Look-up', execute_filter(model_name, 'kbl', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Ensemble Majority Vote', execute_filter(model_name, 'majority', filter_iteration)])
+    filter_results.append(['Ensemble Majority Vote', execute_filter(model_name, 'majority', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Coner Human Feedback', execute_filter(model_name, 'coner', filter_iteration)])
+    filter_results.append(['Coner Human Feedback', execute_filter(model_name, 'coner', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
 
-    filter_results.append(['Coner Human Feedback + Ensemble Majority Vote', execute_filter(model_name, 'mv_coner', filter_iteration)])
+    filter_results.append(['Coner Human Feedback + Ensemble Majority Vote', execute_filter(model_name, 'mv_coner', filter_iteration, force)])
+    print(round((time.time() - start)/60, 2), 'minutes since start\n')
     
     print(f'{model_name}: Entities evaluated by Coner: {len(rel_scores.keys())}')
     print(f'{model_name}: Extracted entities evaluated: {nr_entities}')
-
 
     # Overview of ratings for facets and categories
     print(f'\n\n<MODEL NAME>: <FILTERING METHOD> filter kept <FILTERED ENTITIES>/<UNFILTERED ENTITIES> (<PERCENTAGE>) of unfiltered extracted entities by model\n-------------------------------------------------------------------------------------------------------')
@@ -104,12 +117,12 @@ def evaluate_expansion():
     for row in table_data:
       print("{: <20} {: <60} {: <40}".format(*row))
 
-def execute_filter(model_name, filter_name, iteration):
+def execute_filter(model_name, filter_name, iteration, force=False):
   context_words = { 'dataset_50': ['dataset', 'corpus', 'collection', 'repository', 'benchmark'], 'method_50': ['method', 'algorithm', 'approach', 'evaluate'] }
   original_seeds = read_initial_seeds(model_name)
 
   path = ROOTPATH + '/processing_files/' + model_name + '_filtered_entities_' + filter_name + '_' + str(iteration) + '.txt'
-  if os.path.isfile(path) and not filter_name in ['majority', 'coner', 'mv_coner']:
+  if not force and os.path.isfile(path) and not filter_name in ['majority', 'coner', 'mv_coner']:
     # print("Getting filtered entities from file")
     with open(path, "r") as f:
       return [e.strip().lower() for e in f.readlines()]
@@ -120,9 +133,9 @@ def execute_filter(model_name, filter_name, iteration):
     if filter_name == 'ws':
       return filtering.filter_ws(model_name, iteration)
     if filter_name == 'st':
-      return filtering.filter_st(model_name, iteration, original_seeds[model_name])
+      return filtering.filter_st(model_name, iteration, original_seeds)
     if filter_name == 'kbl':
-      return filtering.filter_kbl(model_name, iteration, original_seeds[model_name])
+      return filtering.filter_kbl(model_name, iteration, original_seeds)
     if filter_name == 'majority':
       return filtering.majority_vote(model_name, iteration)
     if filter_name == 'coner':
@@ -155,7 +168,19 @@ def read_extracted_entities(model_name, iteration):
   with open(path, "r") as f:
     extracted_entities = [e.strip().lower() for e in f.readlines()]
   f.close()
-  return extracted_entities
+
+  processed_entities = []
+  for pp in extracted_entities:
+      temp = pp.split(' ')
+      if len(temp) > 1:
+          bigram = list(nltk.bigrams(pp.split()))
+          for bi in bigram:
+              bi = bi[0].lower() + ' ' + bi[1].lower()
+              processed_entities.append(bi)
+      else:
+          processed_entities.append(pp)
+
+  return processed_entities
 
 def read_seeds(model_name, iteration, filter):
   path = ROOTPATH + '/processing_files/' + model_name + '_seeds_' + str(iteration) + f'_{filter}.txt'
