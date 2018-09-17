@@ -3,15 +3,14 @@
 The main goal of TSE-NER is to generate training data for long-tail entities and train a NER tagger, 
 label such entities in text, and use them for document search and exploration.
 
-Please refer to the [paper](http://iswc2018.semanticweb.org/sessions/tse-ner-an-iterative-approach-for-long-tail-entity-extraction-in-scientific-publications/) for more info.
+Please refer to the [paper](http://iswc2018.semanticweb.org/sessions/tse-ner-an-iterative-approach-for-long-tail-entity-extraction-in-scientific-publications/) TSE-NER: An Iterative Approach for Long-Tail Entity Extraction in Scientific Publications (2018) for more information.
 
 This project can be approached in two main ways: as developer or user
 
 * For developers, we try to provide all the code required, however, we take advantage of some great 
 resources such as Gensim, Stanford NLP, and GROBID, so it may require some effort.
 
-* For users, this first implementation will work only through an API (that we try to make as friendly 
-as possible), so it still requires a bit of technical understanding.
+* For users, this first implementation will only be available as a basic search engine in our [website](https://smartpub.tk), where arXiv articles can be searched, and their main Dataset and Method entities are displayed and can be used for exploration. 
 
 Following the main goal described before, SmartPub-TSENER is divided in 3 main modules: 
 
