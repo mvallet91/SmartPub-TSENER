@@ -3,7 +3,7 @@
 The main goal of TSE-NER is to generate training data for long-tail entities and train a NER tagger, 
 label such entities in text, and use them for document search and exploration.
 
-Please refer to the paper for more info: 
+Please refer to the [paper](http://iswc2018.semanticweb.org/sessions/tse-ner-an-iterative-approach-for-long-tail-entity-extraction-in-scientific-publications/) for more info.
 
 This project can be approached in two main ways: as developer or user
 
@@ -25,7 +25,10 @@ as well as our approach for data collection and preparation:
 Our corpus consists of scientific publications, mainly from Computer Science, but also from the Biomedical
 domain (PubMed Central) and master theses from TU Delft. 
 The collection and extraction steps are source-dependent, for example:
-* PubMed Central: We take advantage of the Open Subset of publications, available using OAI-PMH and ftp. 
+* Computer-Science related topics of arXiv: We have chosen arXiv because it's openly available content, by using a very friendly crawler (by  Knoth, P. and Zdrahal, Z. (2012) CORE: Three Access Levels to Underpin Open Access https://github.com/ronentk/sci-paper-miner). 
+We select over 40 CS-related topics, from Mathematical Software to Information Retrieval. 
+In addition, the content from arXiv is readily available in XML format, so there is no need to use GROBID for text extraction.
+* PubMed Central (PMC): We take advantage of the Open Subset of publications, available using OAI-PMH and ftp. 
 These publications have metadata and full-text in XML format, and we use the PubmMed Parser 
 (by Titipat Achakulvisut and Daniel E. Acuna (2015) "Pubmed Parser" http://github.com/titipata/pubmed_parser.)
 to extract and store the information in MongoDB.
@@ -34,9 +37,11 @@ to extract and store the information in MongoDB.
  actual content has to be extracted using GROBID (Grobid (2008-2017) https://github.com/kermitt2/grobid),
  which not always guarantees the best performance since theses are from different faculties and follow 
  a wide variety of formats.
+ 
+Review the notebook *Pipeline Preparation* for more information, and a step-by-step example of our workflow.
 
-The important part is that we need the full text in MongoDB, so we can index all the content in Elasticsearch.
-This allows for the quick queries required for the processing in all modules.
+The important part is that we need the full text of each article in a database (we use MongoDB), so we can index all the content in Elasticsearch (for easy queries).
+This allows for the quick communication required for the processing in the modules.
 
 In addition, we need to prepare data and train word2vec and doc2vec models used in the expansion and 
 filtering steps.
@@ -49,6 +54,10 @@ for the labelling of long-tail entities.
 Once a model is trained, it can be used to label certain types of long-tail entities in text.
 By selecting a model, and introducing a piece of text, the system will return a list of entities found.
 
+For Modules 1 and 2, review the notebook *Pipeline TSENER* for more information, and a step-by-step example of our workflow.
+
 ### Module 3: NER Search and Navigation System
 This is a basic approach at an interface for a collection of documents, it can be simply a metadata repository
 with links to the actual content, allowing for a richer navigation than current systems.
+
+For the prototype website, please visit https://smartpub.tk 
