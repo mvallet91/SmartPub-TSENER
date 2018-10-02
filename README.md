@@ -1,5 +1,7 @@
 # TSE-NER
 
+This is the theory and backbone of TSE-NER, for the code of the website, please visit https://github.com/mvallet91/SmartPub/ 
+
 The main goal of TSE-NER is to generate training data for long-tail entities and train a NER tagger, 
 label such entities in text, and use them for document search and exploration.
 
