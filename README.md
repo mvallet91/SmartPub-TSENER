@@ -1,6 +1,13 @@
 # TSE-NER
 
-This is the theory and backbone of TSE-NER, for the code of the website, please visit https://github.com/mvallet91/SmartPub/ 
+_This is the theory and backbone of TSE-NER, for the code of the website, please visit https://github.com/mvallet91/SmartPub/ _
+
+This work is part of the following research:
+* [TSE-NER: An Iterative Approach for Long-Tail Entity Extraction in Scientific Publications (2018)](https://link.springer.com/chapter/10.1007/978-3-030-00671-6_8)
+
+* [SmartPub: A Platform for Long-Tail Entity Extraction from Scientific Publications (2018)](http://delivery.acm.org/10.1145/3190000/3186976/p191-mesbah.pdf?ip=131.180.41.86&id=3186976&acc=OPEN&key=0C390721DC3021FF%2E512956D6C5F075DE%2E4D4702B0C3E38B35%2E6D218144511F3437&__acm__=1538994270_60e17085f43cd249aaf89546a92eebfc)
+
+* Coner: A Collaborative Approach for Long-Tail Named Entity Recognition in Scientific Publications (2019)
 
 The main goal of TSE-NER is to generate training data for long-tail entities and train a NER tagger, 
 label such entities in text, and use them for document search and exploration.
