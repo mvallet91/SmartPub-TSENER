@@ -67,5 +67,3 @@ For Modules 1 and 2, review the notebook *Pipeline TSENER* for more information,
 ### Module 3: NER Search and Navigation System
 This is a basic approach at an interface for a collection of documents, it can be simply a metadata repository
 with links to the actual content, allowing for a richer navigation than current systems.
-
-For the prototype website, please visit https://smartpub.tk 
